@@ -1,0 +1,13 @@
+ValueError: unmapped TDMA peer: system.cpu0.mmu.itb.walker.port
+
+At:
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/tdma/run_contention_tdma.py(20): domain_for_peer
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/tdma/run_contention_tdma.py(41): instantiate
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/configs/run_contention.py(436): main
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/configs/run_contention.py(484): <module>
+  <frozen runpy>(88): _run_code
+  <frozen runpy>(98): _run_module_code
+  <frozen runpy>(287): run_path
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/tdma/run_contention_tdma.py(59): main
+  /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/tdma/run_contention_tdma.py(63): <module>
+  src/python/m5/main.py(687): main

@@ -6,6 +6,7 @@ from pathlib import Path
 import random
 import statistics
 import sys
+import time
 from run_pilot import SEEDS, build_plan, case_path
 from validate import validate_case
 
@@ -88,6 +89,8 @@ def main() -> None:
     parser.add_argument("--baseline-root", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--pilot-only", action="store_true")
+    parser.add_argument("--wait-seconds", type=int, default=0,
+                        help="bounded total wait for cases currently being simulated")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     sys.path.insert(0, str(args.baseline_root))
@@ -95,7 +98,11 @@ def main() -> None:
     from analysis.summarize_repeated_contention_v2 import bootstrap_ci
     seeds = SEEDS[:1] if args.pilot_only else SEEDS
     rows = []
+    deadline = time.monotonic() + args.wait_seconds
     for arm, seed, ways in build_plan(seeds):
+        validation = args.baseline_root / case_path(arm, seed, ways) / "validation.json"
+        while not validation.is_file() and time.monotonic() < deadline:
+            time.sleep(2)
         row = analyze_case(args.baseline_root, arm, seed, ways)
         (args.out / f"{arm}-{seed:08x}-A{ways}.json").write_text(json.dumps(row, indent=2))
         rows.append(row)

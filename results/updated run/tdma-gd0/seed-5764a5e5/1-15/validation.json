@@ -1,0 +1,17 @@
+{
+  "mapping": "PASS",
+  "isolation": "PASS 64/64",
+  "records": 16384,
+  "tdma_counters": {
+    "tdmaGrants0": 0.0,
+    "tdmaGrants1": 0.0,
+    "tdmaWithheld": 0.0,
+    "tdmaOverruns": 0.0,
+    "tdmaDownstreamRefusals": 0.0,
+    "tdmaExpressBypasses": 0.0,
+    "tdmaReadGrants": 0.0,
+    "tdmaWritebackGrants": 0.0
+  },
+  "disabled_regression": "byte-identical probes and matching simulated statistics",
+  "wall_seconds": 50.249
+}

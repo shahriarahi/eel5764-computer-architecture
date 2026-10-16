@@ -1,0 +1,16 @@
+{
+  "mapping": "PASS",
+  "isolation": "PASS 64/64",
+  "records": 16384,
+  "tdma_counters": {
+    "tdmaGrants0": 524293.0,
+    "tdmaGrants1": 1389412.0,
+    "tdmaWithheld": 1868097.0,
+    "tdmaOverruns": 0.0,
+    "tdmaDownstreamRefusals": 0.0,
+    "tdmaExpressBypasses": 0.0,
+    "tdmaReadGrants": 956857.0,
+    "tdmaWritebackGrants": 837016.0
+  },
+  "wall_seconds": 49.059
+}

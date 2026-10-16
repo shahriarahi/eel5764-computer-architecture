@@ -1,0 +1,138 @@
+{
+  "pilot_only": false,
+  "rows": [
+    {
+      "arm": "off",
+      "ways": 1,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": 0.3257242838541667,
+      "aes_encryptions_mean": 23916,
+      "aes_cycles_per_encryption_mean": 2676.0330090785565,
+      "llc_miss_rate_core0_mean": 0.00015256461111280627,
+      "llc_miss_rate_core1_mean": 5.415193521718566e-06,
+      "ipc0_mean": 0.5016445364583333,
+      "ipc1_mean": 0.5153213203125,
+      "max_set_holm_p": 5.212786447274831e-05,
+      "effect_cycles_per_line": 0.3474513633578435,
+      "ci90": [
+        0.33609834558823576,
+        0.3589680989583333
+      ],
+      "mean_equivalent": false,
+      "hit_only_holm_p": 8.205063714570856e-10,
+      "aes_throughput_change_percent": 0.0,
+      "aes_throughput_change_vs_way_only_percent": 0.0
+    },
+    {
+      "arm": "off",
+      "ways": 8,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": 0.4031931559244792,
+      "aes_encryptions_mean": 23904.333333333332,
+      "aes_cycles_per_encryption_mean": 2677.3389939618055,
+      "llc_miss_rate_core0_mean": 1.9073122537183053e-05,
+      "llc_miss_rate_core1_mean": 5.417885728314313e-06,
+      "ipc0_mean": 0.4779447369791667,
+      "ipc1_mean": 0.5152296458333333,
+      "max_set_holm_p": 8.205063714570856e-10,
+      "effect_cycles_per_line": 0.40103644842992736,
+      "ci90": [
+        0.39657921345927366,
+        0.40537663794215933
+      ],
+      "mean_equivalent": false,
+      "hit_only_holm_p": 8.205063714570856e-10,
+      "aes_throughput_change_percent": 0.0,
+      "aes_throughput_change_vs_way_only_percent": -0.005577478143270476
+    },
+    {
+      "arm": "way",
+      "ways": 1,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": 0.3100992838541667,
+      "aes_encryptions_mean": 23916,
+      "aes_cycles_per_encryption_mean": 2676.0330090785565,
+      "llc_miss_rate_core0_mean": 0.002776675922253074,
+      "llc_miss_rate_core1_mean": 5.415193521718566e-06,
+      "ipc0_mean": 0.5016017578125,
+      "ipc1_mean": 0.5153213203125,
+      "max_set_holm_p": 1.1679177924797946e-05,
+      "effect_cycles_per_line": 0.3459836133069795,
+      "ci90": [
+        0.33475024960885946,
+        0.3575424978384376
+      ],
+      "mean_equivalent": false,
+      "hit_only_holm_p": 8.205063714570856e-10,
+      "aes_throughput_change_percent": 0.0,
+      "aes_throughput_change_vs_way_only_percent": 0.0
+    },
+    {
+      "arm": "way",
+      "ways": 8,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": 0.2836964925130208,
+      "aes_encryptions_mean": 23905.666666666668,
+      "aes_cycles_per_encryption_mean": 2677.1896378339447,
+      "llc_miss_rate_core0_mean": 0.002643534783653571,
+      "llc_miss_rate_core1_mean": 5.417607069682676e-06,
+      "ipc0_mean": 0.47780811458333333,
+      "ipc1_mean": 0.5152549244791667,
+      "max_set_holm_p": 8.205063714570856e-10,
+      "effect_cycles_per_line": 0.27930334369359855,
+      "ci90": [
+        0.27486746915332105,
+        0.2839735216215331
+      ],
+      "mean_equivalent": false,
+      "hit_only_holm_p": 8.205063714570856e-10,
+      "aes_throughput_change_percent": 0.005577789243238485,
+      "aes_throughput_change_vs_way_only_percent": 0.0
+    },
+    {
+      "arm": "onx",
+      "ways": 1,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": 0.0030517578125,
+      "aes_encryptions_mean": 22487.666666666668,
+      "aes_cycles_per_encryption_mean": 2846.0046953677147,
+      "llc_miss_rate_core0_mean": 0.002776675922253074,
+      "llc_miss_rate_core1_mean": 5.758739812678948e-06,
+      "ipc0_mean": 0.5007452057291667,
+      "ipc1_mean": 0.5029133411458333,
+      "max_set_holm_p": 1.0,
+      "effect_cycles_per_line": 0.03989238512846072,
+      "ci90": [
+        0.032307942708333336,
+        0.048177083333333336
+      ],
+      "mean_equivalent": false,
+      "hit_only_holm_p": 8.205063714570856e-10,
+      "aes_throughput_change_percent": -5.972291910575899,
+      "aes_throughput_change_vs_way_only_percent": -5.972291910575899
+    },
+    {
+      "arm": "onx",
+      "ways": 8,
+      "seeds": 3,
+      "all_walk_delta_cycles_per_line_mean": -0.016759236653645832,
+      "aes_encryptions_mean": 22487.666666666668,
+      "aes_cycles_per_encryption_mean": 2846.0046953677147,
+      "llc_miss_rate_core0_mean": 0.002643534783653571,
+      "llc_miss_rate_core1_mean": 5.758739812678948e-06,
+      "ipc0_mean": 0.4770639869791667,
+      "ipc1_mean": 0.5029133411458333,
+      "max_set_holm_p": 1.0,
+      "effect_cycles_per_line": 0.003959123010846592,
+      "ci90": [
+        0.0029540935209766417,
+        0.004931624541953283
+      ],
+      "mean_equivalent": true,
+      "hit_only_holm_p": 2.8231621991581724e-09,
+      "aes_throughput_change_percent": -5.926401070935528,
+      "aes_throughput_change_vs_way_only_percent": -5.9316480053543845
+    }
+  ],
+  "claim_limit": "Endpoint activity tests; no distributional indistinguishability proof"
+}

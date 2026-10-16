@@ -1,0 +1,35 @@
+{
+  "command": [
+    "/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt",
+    "-r",
+    "-e",
+    "-d",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-off/seed-5764a5e5/.UNPARTITIONED-A1.tmp.60zrVq",
+    "--stats-file=stats.txt.gz",
+    "configs/run_contention.py",
+    "--split",
+    "off",
+    "--l1d-size",
+    "4KiB",
+    "--monitor-ways",
+    "1",
+    "--workload-seed",
+    "1466213861",
+    "--monitor-sink",
+    "file",
+    "--monitor-variant",
+    "v3",
+    "--stats-per-interval"
+  ],
+  "slot_cycles": 0,
+  "arm": "off",
+  "seed": 1466213861,
+  "ways": 1,
+  "preregistration_sha256": "064d5ab9c2876cb166e81b698cca64d2f25c08d5407770cf8216dcd2aef07fd4",
+  "gem5_patch_sha256": "b63cd7b003330870471a40e5e05df486d2f1dbc79af3592101da27df0b55234e",
+  "probe_argument_length": 150,
+  "workloads": {
+    "workloads/monitor_v3_l1d4k": "0722e049dcdf93baae19f6813b2b06a5301d647c177b1cc0bb4ea3946f7ec9c2",
+    "workloads/victim_l1d4k": "5ef763fa8290f5b8ff026b71a883706ccf6b10151ddfc5951f24012a832f46a1"
+  }
+}
