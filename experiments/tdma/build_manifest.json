@@ -1,0 +1,32 @@
+{
+  "gem5_base_commit": "c8222cc67a399bfc01e8658dd14b30d5bfd634f9",
+  "patch_sha256": "b63cd7b003330870471a40e5e05df486d2f1dbc79af3592101da27df0b55234e",
+  "experimental_executable_sha256": "5a540aed00f58ba43fe94065ecb5cd714cde043c670b38c240ded938e50070a5",
+  "baseline_executable_sha256": "c259c12e9cfafed8da49b5ac0e556719e72d6f700c13c208eaafc41f46c6730f",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "python": "Python 3.14.4",
+  "recorded_utc": "2026-10-16T02:47:33.319460+00:00",
+  "build_command": [
+    "scons",
+    "build/RISCV/gem5.opt",
+    "-j14",
+    "EXTRAS=/home/shahriarahi/eel5764/gem5_ext"
+  ],
+  "build_attempts": [
+    {
+      "log": "tdma-build-01.log",
+      "exit": 2,
+      "wall_seconds": 528.5
+    },
+    {
+      "log": "tdma-build-02.log",
+      "exit": 0,
+      "wall_seconds": 224.6
+    },
+    {
+      "log": "tdma-build-03.log",
+      "exit": 0,
+      "wall_seconds": 98.6
+    }
+  ]
+}
