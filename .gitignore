@@ -1,0 +1,16 @@
+# Local tooling and disposable working folders
+/.codex-tmp/
+/.codex-qa/
+/tmp/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local credentials
+.env
+.env.*
+!.env.example

@@ -1,0 +1,192 @@
+11002021000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11002021000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11002090500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11004189000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11004189000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11004255000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11006340500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11006340500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11006412000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11008487500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11008487500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11008556500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11010647000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11010647000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11010715500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11012798500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11012798500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11012867500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11014942500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11014942500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11015011500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11017081500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11017081500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11017150500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11019196500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11019196500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11019262500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11021289500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11021289500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11021360000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11023402500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11023402500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11023471500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11025664500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11025664500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11025983000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11028011500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11028011500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11028080000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11030056500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11030056500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11030122500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11032098500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11032098500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11032166500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11034140500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11034140500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11500005500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11502258500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11502258500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11502330500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11504640500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11504640500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11504709500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11507027500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11507027500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11507099500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11509431000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11509431000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11509495500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11511810500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11511810500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11511879500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11514203500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11514203500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11514274000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11516590500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11516590500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11516659500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11518969500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11518969500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11519038500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11521328500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11521328500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11521394500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11523667500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11523667500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11523736500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11526034500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11526034500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11526109000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11528489500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11528489500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11528806500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11531076500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11531076500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11531142500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11533360500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11533360500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11533429000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11535670000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11535670000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11535731500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11537956000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+11537956000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+11538017500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12002007500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12002007500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12002078000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12004153000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12004153000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12004217500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12006285500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12006285500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12006360500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12008429500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12008429500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12008498500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12010581500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12010581500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12010650500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12012724500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12012724500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12012793500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12014867500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12014867500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12014938000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12016996500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12016996500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12017065500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12019114500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12019114500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12019180500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12021207500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12021207500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12021276500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12023333500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12023333500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12023402500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12025550500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12025550500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12025867500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12027890500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12027890500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12027956500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12029934500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12029934500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12030000500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12031971500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12031971500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12032037500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12034017500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12034017500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12500005500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12502249500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12502249500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12502318500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12504633500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12504633500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12504702500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12507033000: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12507033000: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12507097500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12509420500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12509420500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12509493000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12511807500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12511807500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12511879500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12514200500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12514200500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12514269500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12516581500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12516581500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12516653500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12518954500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12518954500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12519026000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12521306500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12521306500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12521372500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12523636500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12523636500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12523710000: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12526002500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12526002500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12526071500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12528462500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12528462500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12528777500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12531028500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12531028500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12531098500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12533317500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12533317500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12533385500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12535607500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12535607500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12535673500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12537892500: system.llc: access for WritebackDirty [1040:107f] hit state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1
+12537892500: system.llc: handleTimingReqHit satisfied WritebackDirty [1040:107f], no response needed
+12537958500: system.llc: access for ReadSharedReq [1040:107f] hit state: e (M) writable: 1 readable: 1 dirty: 1 prefetched: 0 | tag: 0 secure: 0 valid: 1 | set: 0x41 way: 0x1

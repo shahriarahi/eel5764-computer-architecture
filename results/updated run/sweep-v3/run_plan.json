@@ -1,0 +1,308 @@
+{
+  "plan": "full-v3",
+  "runner_mode": "l1d4k-v3",
+  "process_count": 50,
+  "diagnostics_excluded_from_inference": true,
+  "items": [
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "1-15",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "2-14",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "3-13",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "4-12",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "5-11",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "6-10",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "7-9",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "8-8",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "1-15",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "2-14",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "3-13",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "4-12",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "5-11",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "6-10",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "7-9",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213862,
+      "split": "8-8",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "1-15",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "2-14",
+      "monitor_ways": 2,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "3-13",
+      "monitor_ways": 3,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "4-12",
+      "monitor_ways": 4,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "5-11",
+      "monitor_ways": 5,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "6-10",
+      "monitor_ways": 6,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "7-9",
+      "monitor_ways": 7,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213863,
+      "split": "8-8",
+      "monitor_ways": 8,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 16,
+      "role": "diagnostic"
+    },
+    {
+      "seed": 1466213862,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 16,
+      "role": "diagnostic"
+    }
+  ]
+}

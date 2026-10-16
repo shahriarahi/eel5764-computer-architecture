@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d results/2-14 configs/run.py --split 2-14 

@@ -1,0 +1,81 @@
+{
+  "setting": "clk",
+  "gem5_args": [
+    "--l2bus-clock",
+    "cpu"
+  ],
+  "items": [
+    {
+      "setting": "clk",
+      "seed": 1466213861,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213861,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213861,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213861,
+      "monitor_ways": 8,
+      "role": "treatment"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213862,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213862,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213862,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213862,
+      "monitor_ways": 8,
+      "role": "treatment"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213863,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213863,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213863,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "clk",
+      "seed": 1466213863,
+      "monitor_ways": 8,
+      "role": "treatment"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+#installing anaconda
+curl -O https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Linux-x86_64.sh
+chmod +x Anaconda3-2026.07-1-Linux-x86_64.sh
+./Anaconda3-2026.07-1-Linux-x86_64.sh
+conda init
+source ~/.bashrc
+conda info
+
+
+#creating conda evnironment
+conda create -n gem5-env -c conda-forge \
+    python=3.10 \
+    gcc_linux-64=13 \
+    gxx_linux-64=13 \
+    scons \
+    zlib \
+    boost \
+    protobuf \
+    grpc-cpp \
+    pkg-config \
+    pip \
+    -y
+
+
+conda activate gem5-env
+
+
+#commands for installing gem5
+
+unset CPATH
+unset LIBRARY_PATH
+unset LD_LIBRARY_PATH
+unset LDFLAGS
+unset CPPFLAGS
+
+
+# ============================================================
+# 6. Set clean Conda include/library paths
+#
+# This makes Conda-installed zlib, protobuf, grpc, etc. visible.
+# ============================================================
+
+export CPATH="$CONDA_PREFIX/include"
+export LIBRARY_PATH="$CONDA_PREFIX/lib"
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib"
+
+export LDFLAGS="-L$CONDA_PREFIX/lib"
+export CPPFLAGS="-I$CONDA_PREFIX/include"
+
+export PKG_CONFIG_PATH="$CONDA_PREFIX/lib/pkgconfig"
+
+
+# ============================================================
+# 7. Create GCC/G++ wrapper names for gem5 compiler detection
+# ============================================================
+
+mkdir -p "$HOME/gem5-tools/bin"
+
+ln -sf \
+    "$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-gcc" \
+    "$HOME/gem5-tools/bin/gcc"
+
+ln -sf \
+    "$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-g++" \
+    "$HOME/gem5-tools/bin/g++"
+
+ln -sf \
+    "$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-g++" \
+    "$HOME/gem5-tools/bin/c++"
+
+
+# ============================================================
+# 8. Put wrappers first in PATH
+# ============================================================
+
+export PATH="$HOME/gem5-tools/bin:$CONDA_PREFIX/bin:$PATH"
+
+hash -r
+
+
+# ============================================================
+# 9. Tell gem5 explicitly which compiler to use
+# ============================================================
+export CC="$HOME/gem5-tools/bin/gcc"
+export CXX="$HOME/gem5-tools/bin/g++"
+
+
+# ============================================================
+# 10. Verify compiler
+# ============================================================
+which gcc
+which g++
+gcc --version
+g++ --version
+
+echo "CC=$CC"
+echo "CXX=$CXX"
+
+
+# ============================================================
+# 11. Verify zlib
+# ============================================================
+ls "$CONDA_PREFIX/include/zlib.h"
+ls "$CONDA_PREFIX/lib/libz.so"
+
+
+# download gem5
+cd ~
+git clone https://github.com/gem5/gem5
+
+cd ~/gem5
+
+scons build/RISCV/gem5.opt -j$(nproc)
+
+
+build/RISCV/gem5.opt \
+    configs/deprecated/example/se.py \
+    --cpu-type=RiscvTimingSimpleCPU \
+    --caches \
+    -c tests/test-progs/hello/bin/riscv/linux/hello
+
+
+
+####################################################################################################
+#=========after installation, For new terminal============#
+
+conda activate gem5-env
+
+unset CPATH
+unset LIBRARY_PATH
+unset LD_LIBRARY_PATH
+unset LDFLAGS
+unset CPPFLAGS
+
+export CPATH="$CONDA_PREFIX/include"
+export LIBRARY_PATH="$CONDA_PREFIX/lib"
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib"
+export LDFLAGS="-L$CONDA_PREFIX/lib"
+export CPPFLAGS="-I$CONDA_PREFIX/include"
+export PKG_CONFIG_PATH="$CONDA_PREFIX/lib/pkgconfig"
+
+export PATH="$HOME/gem5-tools/bin:$CONDA_PREFIX/bin:$PATH"
+
+export CC="$HOME/gem5-tools/bin/gcc"
+export CXX="$HOME/gem5-tools/bin/g++"
+
+hash -r
+
+cd ~/gem5

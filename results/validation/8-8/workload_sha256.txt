@@ -1,0 +1,2 @@
+d8bbee28858b947e14c9d02a5e7b7ca5e9cfba9e6c6cdf7ae69960874e488307  workloads/randacc
+5732b6272da35cfaa09ab71d9d328daf8f7aa58569dc96adb57c4de239abfe8d  workloads/stream

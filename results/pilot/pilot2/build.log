@@ -1,0 +1,3 @@
++ riscv64-linux-gnu-gcc -O2 -march=rv64gc -mabi=lp64d -static -nostdlib -ffreestanding -fno-builtin -fno-tree-loop-distribute-patterns -Wall -Wextra -Wl,--no-relax -o chase chase.c
++ riscv64-linux-gnu-gcc -O2 -march=rv64gc -mabi=lp64d -static -nostdlib -ffreestanding -fno-builtin -fno-tree-loop-distribute-patterns -Wall -Wextra -Wl,--no-relax -o randacc randacc.c
++ riscv64-linux-gnu-gcc -O2 -march=rv64gc -mabi=lp64d -static -nostdlib -ffreestanding -fno-builtin -fno-tree-loop-distribute-patterns -Wall -Wextra -Wl,--no-relax -o stream stream.c

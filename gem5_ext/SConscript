@@ -1,0 +1,11 @@
+# Out-of-tree gem5 extension for the EEL5764 LLC way-partitioning study.
+# Build with:  scons build/RISCV/gem5.opt EXTRAS=<path to this directory>
+
+Import("*")
+
+SimObject(
+    "RequestorPartitionManager.py",
+    sim_objects=["RequestorPartitionManager"],
+)
+Source("requestor_partition_manager.cc")
+DebugFlag("RequestorPartition", "Requestor-to-partition mapping decisions")

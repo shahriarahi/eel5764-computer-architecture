@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d /mnt/c/Users/shahr/OneDrive/Documents/Fall\ 26/Computer\ Architecture/results/updated\ run/sweep-v3/seed-5764a5e7/.3-13.tmp.nbVr8G configs/run_contention.py --split 3-13 --l1d-size 4KiB --monitor-ways 3 --workload-seed 1466213863 --monitor-sink file --monitor-variant v3 

@@ -1,0 +1,49 @@
+gem5 execution scripts
+Source: solution2-partB-scripts.zip
+
+===== run_timing.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$HOME/gem5"
+if [[ -z "${CONDA_PREFIX:-}" || ! -r "$CONDA_PREFIX/lib/libpython3.10.so.1.0" || ! -r "$CONDA_PREFIX/lib/libprotobuf.so.32" ]]; then
+  echo "Activate the gem5-env Conda environment first." >&2
+  exit 1
+fi
+output_dir="${1:-m5out-assignment2-timing}"
+if [[ -e "$output_dir" ]]; then
+  echo "Output path already exists: $output_dir" >&2
+  exit 1
+fi
+LD_LIBRARY_PATH="$CONDA_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  timeout 110s build/RISCV/gem5.opt --outdir="$output_dir" \
+  configs/deprecated/example/se.py --cpu-type=TimingSimpleCPU --caches \
+  -c tests/test-progs/hello/bin/riscv/linux/hello
+
+===== run_o3.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$HOME/gem5"
+if [[ -z "${CONDA_PREFIX:-}" || ! -r "$CONDA_PREFIX/lib/libpython3.10.so.1.0" || ! -r "$CONDA_PREFIX/lib/libprotobuf.so.32" ]]; then
+  echo "Activate the gem5-env Conda environment first." >&2
+  exit 1
+fi
+output_dir="${1:-m5out-assignment2-o3}"
+if [[ -e "$output_dir" ]]; then
+  echo "Output path already exists: $output_dir" >&2
+  exit 1
+fi
+LD_LIBRARY_PATH="$CONDA_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  timeout 110s build/RISCV/gem5.opt --outdir="$output_dir" \
+  configs/deprecated/example/se.py --cpu-type=O3CPU --caches \
+  -c tests/test-progs/hello/bin/riscv/linux/hello
+
+===== extract_stats.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$HOME/gem5"
+for model in timing o3; do
+  stats="m5out-assignment2-$model/stats.txt"
+  if [[ ! -f "$stats" ]]; then echo "Missing $stats" >&2; exit 1; fi
+  echo "=== $model ==="
+  grep -E '^(sim_ticks|simTicks|system\.cpu\.numCycles|system\.cpu\.(ipc|cpi)|system\.cpu\.dcache\.overallMisses::total)' "$stats" || true
+done

@@ -1,0 +1,25 @@
+{
+  "plan": "smoke",
+  "runner_mode": "l1d4k-v2",
+  "process_count": 2,
+  "public_workload_seeds": [
+    1466213861,
+    1466213862,
+    1466213863
+  ],
+  "diagnostics_excluded_from_inference": true,
+  "items": [
+    {
+      "seed": 1466213861,
+      "split": "UNPARTITIONED",
+      "monitor_ways": 1,
+      "role": "matched"
+    },
+    {
+      "seed": 1466213861,
+      "split": "1-15",
+      "monitor_ways": 1,
+      "role": "matched"
+    }
+  ]
+}

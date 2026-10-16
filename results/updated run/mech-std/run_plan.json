@@ -1,0 +1,78 @@
+{
+  "setting": "std",
+  "gem5_args": [],
+  "items": [
+    {
+      "setting": "std",
+      "seed": 1466213861,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213861,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213861,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213861,
+      "monitor_ways": 8,
+      "role": "treatment"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213862,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213862,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213862,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213862,
+      "monitor_ways": 8,
+      "role": "treatment"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213863,
+      "monitor_ways": 1,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213863,
+      "monitor_ways": 1,
+      "role": "treatment"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213863,
+      "monitor_ways": 8,
+      "role": "control"
+    },
+    {
+      "setting": "std",
+      "seed": 1466213863,
+      "monitor_ways": 8,
+      "role": "treatment"
+    }
+  ]
+}

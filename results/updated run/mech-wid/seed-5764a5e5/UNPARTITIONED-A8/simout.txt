@@ -1,0 +1,18 @@
+Global frequency set at 1000000000000 ticks per second
+Redirecting stdout to /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/mech-wid/seed-5764a5e5/.UNPARTITIONED-A8.tmp.KBaiy8/simout.txt
+Redirecting stderr to /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/mech-wid/seed-5764a5e5/.UNPARTITIONED-A8.tmp.KBaiy8/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Oct  1 2026 21:22:33
+gem5 started Oct 14 2026 13:11:59
+gem5 executing on Shahriar, pid 631
+command line: /home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/mech-wid/seed-5764a5e5/.UNPARTITIONED-A8.tmp.KBaiy8' --stats-file=stats.txt.gz configs/run_contention.py --split off --l1d-size 4KiB --monitor-ways 8 --workload-seed 1466213861 --monitor-sink file --monitor-variant v3 --stats-per-interval --l2bus-width 128
+
+info: Standard input is not a terminal, disabling listeners.
+monitor format=probe_bin_v2 intervals=64 sets=256 record_bytes=16 ways=8 labels=0110100110110010001101101100100101011010100101100110010110101100
+victim aes_self_test=PASS key=000102030405060708090a0b0c0d0e0f plaintext_seed=1466213861 labels=0110100110110010001101101100100101011010100101100110010110101100
+victim measurement_complete encryptions=24051 sink=214 
+monitor status=PASS records=16384
+OK contention split=off measurement_end_tick=65000000000

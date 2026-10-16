@@ -1,0 +1,16 @@
+Global frequency set at 1000000000000 ticks per second
+Redirecting stdout to results/8-8/simout.txt
+Redirecting stderr to results/8-8/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Sep 27 2026 21:38:56
+gem5 started Sep 27 2026 21:51:17
+gem5 executing on Shahriar, pid 478
+command line: /home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d results/8-8 configs/run.py --split 8-8
+
+info: Standard input is not a terminal, disabling listeners.
+stream buf_bytes=1048576 lines=16384 
+randacc ws_bytes=131072 lines=2048 seed=12345 
+OK split=8-8 end_tick=5000000000

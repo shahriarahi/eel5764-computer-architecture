@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d results/contention-repeated-20261001/seed-5764a5e5/.UNPARTITIONED-A1.tmp.k6xYTG configs/run_contention.py --split off --l1d-size 4KiB --monitor-ways 1 --workload-seed 1466213861 

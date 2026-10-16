@@ -1,0 +1,85 @@
+2026-10-11T23:08:11-04:00
+RUN 1/12 seed=0x5764a5e5 split=UNPARTITIONED A=7
+== UNPARTITIONED-A7 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e5/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=139 max_snr=1.515580 null_max95=0.883483 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481337 ipc1=0.515235 mr0=0.000022 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e5/UNPARTITIONED-A7/analysis.json
+RUN 2/12 seed=0x5764a5e5 split=7-9 A=7
+== 7-9 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e5/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=35 max_snr=1.659987 null_max95=0.886269 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481210 ipc1=0.515253 mr0=0.002646 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e5/7-9/analysis.json
+RUN 3/12 seed=0x5764a5e5 split=UNPARTITIONED A=8
+== UNPARTITIONED-A8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e5/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=169 max_snr=1.650341 null_max95=0.892500 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477944 ipc1=0.515211 mr0=0.000019 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e5/UNPARTITIONED-A8/analysis.json
+RUN 4/12 seed=0x5764a5e5 split=8-8 A=8
+== 8-8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e5/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=180 max_snr=1.476551 null_max95=0.892030 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477801 ipc1=0.515243 mr0=0.002644 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e5/8-8/analysis.json
+RUN 5/12 seed=0x5764a5e6 split=UNPARTITIONED A=7
+== UNPARTITIONED-A7 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e6/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=17 max_snr=1.574572 null_max95=0.886751 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481333 ipc1=0.515185 mr0=0.000022 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e6/UNPARTITIONED-A7/analysis.json
+RUN 6/12 seed=0x5764a5e6 split=7-9 A=7
+== 7-9 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e6/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=48 max_snr=1.411686 null_max95=0.884148 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481206 ipc1=0.515200 mr0=0.002646 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e6/7-9/analysis.json
+RUN 7/12 seed=0x5764a5e6 split=UNPARTITIONED A=8
+== UNPARTITIONED-A8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e6/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=120 max_snr=1.970867 null_max95=0.897637 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477944 ipc1=0.515169 mr0=0.000019 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e6/UNPARTITIONED-A8/analysis.json
+RUN 8/12 seed=0x5764a5e6 split=8-8 A=8
+== 8-8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e6/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=113 max_snr=1.734355 null_max95=0.892988 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477801 ipc1=0.515187 mr0=0.002644 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e6/8-8/analysis.json
+RUN 9/12 seed=0x5764a5e7 split=UNPARTITIONED A=7
+== UNPARTITIONED-A7 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e7/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=195 max_snr=1.598369 null_max95=0.878881 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481336 ipc1=0.515325 mr0=0.000022 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e7/UNPARTITIONED-A7/analysis.json
+RUN 10/12 seed=0x5764a5e7 split=7-9 A=7
+== 7-9 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e7/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=30 max_snr=1.531636 null_max95=0.884194 p=0.000100 n_active=32 n_idle=32
+ipc0=0.481208 ipc1=0.515343 mr0=0.002646 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e7/7-9/analysis.json
+RUN 11/12 seed=0x5764a5e7 split=UNPARTITIONED A=8
+== UNPARTITIONED-A8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e7/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=154 max_snr=1.827319 null_max95=0.895037 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477946 ipc1=0.515309 mr0=0.000019 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e7/UNPARTITIONED-A8/analysis.json
+RUN 12/12 seed=0x5764a5e7 split=8-8 A=8
+== 8-8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/rerun-7-9-8-8/seed-5764a5e7/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=166 max_snr=1.499285 null_max95=0.889467 p=0.000100 n_active=32 n_idle=32
+ipc0=0.477803 ipc1=0.515335 mr0=0.002644 mr1=0.000005
+wrote results/updated run/rerun-7-9-8-8/seed-5764a5e7/8-8/analysis.json
+1-15  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.006% trt holm ms=0.03 ho=6.6e-09 eff +0.086->+0.086 [+0.078,+0.093] -> distinguishable
+2-14  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.018% trt holm ms=8.6e-08 ho=6.6e-09 eff +0.283->+0.267 [+0.259,+0.274] -> distinguishable
+3-13  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.018% trt holm ms=1.6e-07 ho=6.6e-09 eff +0.288->+0.287 [+0.280,+0.295] -> distinguishable
+4-12  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.409% trt holm ms=2.1e-08 ho=6.6e-09 eff +0.310->+0.283 [+0.277,+0.289] -> distinguishable
+5-11  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.409% trt holm ms=6.6e-09 ho=6.6e-09 eff +0.309->+0.290 [+0.284,+0.295] -> distinguishable
+6-10  v2 sweep gateD2=3/3 (orig 3/3) miss c/t=0.006/0.409% trt holm ms=6.6e-09 ho=6.6e-09 eff +0.309->+0.283 [+0.278,+0.289] -> distinguishable
+7-9   v3 rerun gateD2=3/3 (orig 3/3) miss c/t=0.006/0.018% trt holm ms=6.6e-09 ho=6.6e-09 eff +0.392->+0.284 [+0.279,+0.290] -> distinguishable
+8-8   v3 rerun gateD2=3/3 (orig 3/3) miss c/t=0.006/0.018% trt holm ms=6.6e-09 ho=6.6e-09 eff +0.401->+0.279 [+0.275,+0.284] -> distinguishable
+stable_collapse_point=None
+stable_equivalence_point=None
+EXIT=0
+2026-10-11T23:18:48-04:00

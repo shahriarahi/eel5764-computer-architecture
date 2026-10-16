@@ -1,0 +1,12 @@
+Redirecting stdout to /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/contention/.UNPARTITIONED.tmp.qQrbFZ/simout.txt
+Redirecting stderr to /mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/contention/.UNPARTITIONED.tmp.qQrbFZ/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Sep 27 2026 21:38:56
+gem5 started Sep 28 2026 02:25:18
+gem5 executing on Shahriar, pid 444
+command line: /home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/contention/.UNPARTITIONED.tmp.qQrbFZ' configs/run_contention.py --split off
+
+info: Standard input is not a terminal, disabling listeners.

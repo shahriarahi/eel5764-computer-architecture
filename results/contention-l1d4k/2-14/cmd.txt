@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d /mnt/c/Users/shahr/OneDrive/Documents/Fall\ 26/Computer\ Architecture/results/contention-l1d4k/.2-14.tmp.wKcz5b configs/run_contention.py --split 2-14 --l1d-size 4KiB 

@@ -1,0 +1,117 @@
+2026-10-14T13:00:26-04:00
+RUN 1/48 std seed=0x5764a5e5 UNPARTITIONED-A1
+OK results/updated run/mech-std/seed-5764a5e5/UNPARTITIONED-A1
+RUN 2/48 std seed=0x5764a5e5 1-15
+OK results/updated run/mech-std/seed-5764a5e5/1-15
+RUN 3/48 std seed=0x5764a5e5 UNPARTITIONED-A8
+OK results/updated run/mech-std/seed-5764a5e5/UNPARTITIONED-A8
+RUN 4/48 std seed=0x5764a5e5 8-8
+OK results/updated run/mech-std/seed-5764a5e5/8-8
+RUN 5/48 std seed=0x5764a5e6 UNPARTITIONED-A1
+OK results/updated run/mech-std/seed-5764a5e6/UNPARTITIONED-A1
+RUN 6/48 std seed=0x5764a5e6 1-15
+OK results/updated run/mech-std/seed-5764a5e6/1-15
+RUN 7/48 std seed=0x5764a5e6 UNPARTITIONED-A8
+OK results/updated run/mech-std/seed-5764a5e6/UNPARTITIONED-A8
+RUN 8/48 std seed=0x5764a5e6 8-8
+OK results/updated run/mech-std/seed-5764a5e6/8-8
+RUN 9/48 std seed=0x5764a5e7 UNPARTITIONED-A1
+OK results/updated run/mech-std/seed-5764a5e7/UNPARTITIONED-A1
+RUN 10/48 std seed=0x5764a5e7 1-15
+OK results/updated run/mech-std/seed-5764a5e7/1-15
+RUN 11/48 std seed=0x5764a5e7 UNPARTITIONED-A8
+OK results/updated run/mech-std/seed-5764a5e7/UNPARTITIONED-A8
+RUN 12/48 std seed=0x5764a5e7 8-8
+OK results/updated run/mech-std/seed-5764a5e7/8-8
+RUN 13/48 wid seed=0x5764a5e5 UNPARTITIONED-A1
+OK results/updated run/mech-wid/seed-5764a5e5/UNPARTITIONED-A1
+RUN 14/48 wid seed=0x5764a5e5 1-15
+OK results/updated run/mech-wid/seed-5764a5e5/1-15
+RUN 15/48 wid seed=0x5764a5e5 UNPARTITIONED-A8
+OK results/updated run/mech-wid/seed-5764a5e5/UNPARTITIONED-A8
+RUN 16/48 wid seed=0x5764a5e5 8-8
+OK results/updated run/mech-wid/seed-5764a5e5/8-8
+RUN 17/48 wid seed=0x5764a5e6 UNPARTITIONED-A1
+OK results/updated run/mech-wid/seed-5764a5e6/UNPARTITIONED-A1
+RUN 18/48 wid seed=0x5764a5e6 1-15
+OK results/updated run/mech-wid/seed-5764a5e6/1-15
+RUN 19/48 wid seed=0x5764a5e6 UNPARTITIONED-A8
+OK results/updated run/mech-wid/seed-5764a5e6/UNPARTITIONED-A8
+RUN 20/48 wid seed=0x5764a5e6 8-8
+OK results/updated run/mech-wid/seed-5764a5e6/8-8
+RUN 21/48 wid seed=0x5764a5e7 UNPARTITIONED-A1
+OK results/updated run/mech-wid/seed-5764a5e7/UNPARTITIONED-A1
+RUN 22/48 wid seed=0x5764a5e7 1-15
+OK results/updated run/mech-wid/seed-5764a5e7/1-15
+RUN 23/48 wid seed=0x5764a5e7 UNPARTITIONED-A8
+OK results/updated run/mech-wid/seed-5764a5e7/UNPARTITIONED-A8
+RUN 24/48 wid seed=0x5764a5e7 8-8
+OK results/updated run/mech-wid/seed-5764a5e7/8-8
+RUN 25/48 clk seed=0x5764a5e5 UNPARTITIONED-A1
+OK results/updated run/mech-clk/seed-5764a5e5/UNPARTITIONED-A1
+RUN 26/48 clk seed=0x5764a5e5 1-15
+OK results/updated run/mech-clk/seed-5764a5e5/1-15
+RUN 27/48 clk seed=0x5764a5e5 UNPARTITIONED-A8
+OK results/updated run/mech-clk/seed-5764a5e5/UNPARTITIONED-A8
+RUN 28/48 clk seed=0x5764a5e5 8-8
+OK results/updated run/mech-clk/seed-5764a5e5/8-8
+RUN 29/48 clk seed=0x5764a5e6 UNPARTITIONED-A1
+OK results/updated run/mech-clk/seed-5764a5e6/UNPARTITIONED-A1
+RUN 30/48 clk seed=0x5764a5e6 1-15
+OK results/updated run/mech-clk/seed-5764a5e6/1-15
+RUN 31/48 clk seed=0x5764a5e6 UNPARTITIONED-A8
+OK results/updated run/mech-clk/seed-5764a5e6/UNPARTITIONED-A8
+RUN 32/48 clk seed=0x5764a5e6 8-8
+OK results/updated run/mech-clk/seed-5764a5e6/8-8
+RUN 33/48 clk seed=0x5764a5e7 UNPARTITIONED-A1
+OK results/updated run/mech-clk/seed-5764a5e7/UNPARTITIONED-A1
+RUN 34/48 clk seed=0x5764a5e7 1-15
+OK results/updated run/mech-clk/seed-5764a5e7/1-15
+RUN 35/48 clk seed=0x5764a5e7 UNPARTITIONED-A8
+OK results/updated run/mech-clk/seed-5764a5e7/UNPARTITIONED-A8
+RUN 36/48 clk seed=0x5764a5e7 8-8
+OK results/updated run/mech-clk/seed-5764a5e7/8-8
+RUN 37/48 ide seed=0x5764a5e5 UNPARTITIONED-A1
+OK results/updated run/mech-ide/seed-5764a5e5/UNPARTITIONED-A1
+RUN 38/48 ide seed=0x5764a5e5 1-15
+OK results/updated run/mech-ide/seed-5764a5e5/1-15
+RUN 39/48 ide seed=0x5764a5e5 UNPARTITIONED-A8
+OK results/updated run/mech-ide/seed-5764a5e5/UNPARTITIONED-A8
+RUN 40/48 ide seed=0x5764a5e5 8-8
+OK results/updated run/mech-ide/seed-5764a5e5/8-8
+RUN 41/48 ide seed=0x5764a5e6 UNPARTITIONED-A1
+OK results/updated run/mech-ide/seed-5764a5e6/UNPARTITIONED-A1
+RUN 42/48 ide seed=0x5764a5e6 1-15
+OK results/updated run/mech-ide/seed-5764a5e6/1-15
+RUN 43/48 ide seed=0x5764a5e6 UNPARTITIONED-A8
+OK results/updated run/mech-ide/seed-5764a5e6/UNPARTITIONED-A8
+RUN 44/48 ide seed=0x5764a5e6 8-8
+OK results/updated run/mech-ide/seed-5764a5e6/8-8
+RUN 45/48 ide seed=0x5764a5e7 UNPARTITIONED-A1
+OK results/updated run/mech-ide/seed-5764a5e7/UNPARTITIONED-A1
+RUN 46/48 ide seed=0x5764a5e7 1-15
+OK results/updated run/mech-ide/seed-5764a5e7/1-15
+RUN 47/48 ide seed=0x5764a5e7 UNPARTITIONED-A8
+OK results/updated run/mech-ide/seed-5764a5e7/UNPARTITIONED-A8
+RUN 48/48 ide seed=0x5764a5e7 8-8
+OK results/updated run/mech-ide/seed-5764a5e7/8-8
+std A=1 control   util=5.52% effect=+0.347 [+0.336,+0.359] red=+0.00 occ_p=4.1e-10
+std A=1 treatment util=5.52% effect=+0.346 [+0.335,+0.357] red=+0.00 occ_p=4.1e-10
+std A=8 control   util=7.11% effect=+0.401 [+0.397,+0.406] red=+0.00 occ_p=4.1e-10
+std A=8 treatment util=6.92% effect=+0.279 [+0.275,+0.284] red=+0.00 occ_p=4.1e-10
+wid A=1 control   util=4.42% effect=+0.211 [+0.202,+0.219] red=+0.39 occ_p=4.1e-10
+wid A=1 treatment util=4.42% effect=+0.211 [+0.202,+0.219] red=+0.39 occ_p=4.1e-10
+wid A=8 control   util=5.66% effect=+0.375 [+0.372,+0.379] red=+0.06 occ_p=4.1e-10
+wid A=8 treatment util=5.58% effect=+0.245 [+0.241,+0.249] red=+0.12 occ_p=4.1e-10
+clk A=1 control   util=2.40% effect=+0.045 [+0.042,+0.048] red=+0.87 occ_p=4.1e-10
+clk A=1 treatment util=2.40% effect=+0.045 [+0.042,+0.048] red=+0.87 occ_p=4.1e-10
+clk A=8 control   util=3.12% effect=+0.129 [+0.128,+0.131] red=+0.68 occ_p=4.1e-10
+clk A=8 treatment util=3.00% effect=+0.114 [+0.112,+0.116] red=+0.59 occ_p=4.1e-10
+ide A=1 control   util=0.58% effect=+0.000 [+0.000,+0.000] red=+1.00 occ_p=4.1e-10
+ide A=1 treatment util=0.58% effect=+0.000 [+0.000,+0.000] red=+1.00 occ_p=4.1e-10
+ide A=8 control   util=0.76% effect=+0.033 [+0.032,+0.034] red=+0.92 occ_p=4.1e-10
+ide A=8 treatment util=0.70% effect=+0.033 [+0.032,+0.034] red=+0.88 occ_p=4.1e-10
+P1 True P2 True {1: 1.0, 8: 1.0} P3 False
+outcome: partial
+EXIT=0
+2026-10-14T13:41:03-04:00

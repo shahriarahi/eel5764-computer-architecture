@@ -1,0 +1,313 @@
+2026-10-11T21:30:41-04:00
+RUN 1/50 seed=0x5764a5e5 split=UNPARTITIONED A=1 role=matched
+== UNPARTITIONED-A1 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A1 probe_records=16384 stats_blocks=2
+FAIL split=off max_set=187 max_snr=0.568258 null_max95=0.615010 p=0.406959 n_active=32 n_idle=32
+ipc0=0.990613 ipc1=0.515304 mr0=0.000153 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A1/analysis.json
+RUN 2/50 seed=0x5764a5e5 split=1-15 A=1 role=matched
+== 1-15 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/1-15 probe_records=16384 stats_blocks=2
+FAIL split=1-15 max_set=187 max_snr=0.568258 null_max95=0.615010 p=0.406959 n_active=32 n_idle=32
+ipc0=0.990528 ipc1=0.515304 mr0=0.002746 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/1-15/analysis.json
+RUN 3/50 seed=0x5764a5e5 split=UNPARTITIONED A=2 role=matched
+== UNPARTITIONED-A2 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A2 probe_records=16384 stats_blocks=2
+PASS split=off max_set=57 max_snr=0.941948 null_max95=0.765695 p=0.000500 n_active=32 n_idle=32
+ipc0=0.983140 ipc1=0.515299 mr0=0.000076 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A2/analysis.json
+RUN 4/50 seed=0x5764a5e5 split=2-14 A=2 role=matched
+== 2-14 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/2-14 probe_records=16384 stats_blocks=2
+PASS split=2-14 max_set=178 max_snr=0.892467 null_max95=0.757391 p=0.001100 n_active=32 n_idle=32
+ipc0=0.983170 ipc1=0.515292 mr0=0.002670 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/2-14/analysis.json
+RUN 5/50 seed=0x5764a5e5 split=UNPARTITIONED A=3 role=matched
+== UNPARTITIONED-A3 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A3 probe_records=16384 stats_blocks=2
+PASS split=off max_set=232 max_snr=0.937512 null_max95=0.783028 p=0.001700 n_active=32 n_idle=32
+ipc0=0.975675 ipc1=0.515286 mr0=0.000051 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A3/analysis.json
+RUN 6/50 seed=0x5764a5e5 split=3-13 A=3 role=matched
+== 3-13 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/3-13 probe_records=16384 stats_blocks=2
+PASS split=3-13 max_set=222 max_snr=0.937159 null_max95=0.796298 p=0.000400 n_active=32 n_idle=32
+ipc0=0.975690 ipc1=0.515297 mr0=0.002645 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/3-13/analysis.json
+RUN 7/50 seed=0x5764a5e5 split=UNPARTITIONED A=4 role=matched
+== UNPARTITIONED-A4 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A4 probe_records=16384 stats_blocks=2
+PASS split=off max_set=123 max_snr=1.099713 null_max95=0.826936 p=0.000100 n_active=32 n_idle=32
+ipc0=0.967245 ipc1=0.515278 mr0=0.000038 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A4/analysis.json
+RUN 8/50 seed=0x5764a5e5 split=4-12 A=4 role=matched
+== 4-12 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/4-12 probe_records=16384 stats_blocks=2
+PASS split=4-12 max_set=236 max_snr=0.999094 null_max95=0.812488 p=0.000800 n_active=32 n_idle=32
+ipc0=0.967021 ipc1=0.515284 mr0=0.006408 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/4-12/analysis.json
+RUN 9/50 seed=0x5764a5e5 split=UNPARTITIONED A=5 role=matched
+== UNPARTITIONED-A5 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A5 probe_records=16384 stats_blocks=2
+PASS split=off max_set=235 max_snr=1.124858 null_max95=0.840417 p=0.000100 n_active=32 n_idle=32
+ipc0=0.960275 ipc1=0.515272 mr0=0.000030 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A5/analysis.json
+RUN 10/50 seed=0x5764a5e5 split=5-11 A=5 role=matched
+== 5-11 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/5-11 probe_records=16384 stats_blocks=2
+PASS split=5-11 max_set=172 max_snr=1.068128 null_max95=0.833669 p=0.000200 n_active=32 n_idle=32
+ipc0=0.959868 ipc1=0.515280 mr0=0.006420 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/5-11/analysis.json
+RUN 11/50 seed=0x5764a5e5 split=UNPARTITIONED A=6 role=matched
+== UNPARTITIONED-A6 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A6 probe_records=16384 stats_blocks=2
+PASS split=off max_set=1 max_snr=1.359691 null_max95=0.858483 p=0.000100 n_active=32 n_idle=32
+ipc0=0.952810 ipc1=0.515260 mr0=0.000025 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A6/analysis.json
+RUN 12/50 seed=0x5764a5e5 split=6-10 A=6 role=matched
+== 6-10 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/6-10 probe_records=16384 stats_blocks=2
+PASS split=6-10 max_set=132 max_snr=1.327647 null_max95=0.854257 p=0.000100 n_active=32 n_idle=32
+ipc0=0.952537 ipc1=0.515277 mr0=0.005789 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/6-10/analysis.json
+RUN 13/50 seed=0x5764a5e5 split=UNPARTITIONED A=7 role=matched
+== UNPARTITIONED-A7 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=148 max_snr=1.343086 null_max95=0.871587 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945335 ipc1=0.515242 mr0=0.000022 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A7/analysis.json
+RUN 14/50 seed=0x5764a5e5 split=7-9 A=7 role=matched
+== 7-9 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=183 max_snr=1.359909 null_max95=0.861337 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945200 ipc1=0.515268 mr0=0.005336 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/7-9/analysis.json
+RUN 15/50 seed=0x5764a5e5 split=UNPARTITIONED A=8 role=matched
+== UNPARTITIONED-A8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=232 max_snr=1.478256 null_max95=0.866585 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937872 ipc1=0.515229 mr0=0.000019 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/UNPARTITIONED-A8/analysis.json
+RUN 16/50 seed=0x5764a5e5 split=8-8 A=8 role=matched
+== 8-8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e5/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=165 max_snr=1.515469 null_max95=0.867929 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937858 ipc1=0.515253 mr0=0.004996 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e5/8-8/analysis.json
+RUN 17/50 seed=0x5764a5e6 split=UNPARTITIONED A=1 role=matched
+== UNPARTITIONED-A1 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A1 probe_records=16384 stats_blocks=2
+FAIL split=off max_set=120 max_snr=0.622495 null_max95=0.650394 p=0.119888 n_active=32 n_idle=32
+ipc0=0.990613 ipc1=0.515271 mr0=0.000153 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A1/analysis.json
+RUN 18/50 seed=0x5764a5e6 split=1-15 A=1 role=matched
+== 1-15 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/1-15 probe_records=16384 stats_blocks=2
+FAIL split=1-15 max_set=120 max_snr=0.622495 null_max95=0.650394 p=0.119888 n_active=32 n_idle=32
+ipc0=0.990528 ipc1=0.515271 mr0=0.002746 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/1-15/analysis.json
+RUN 19/50 seed=0x5764a5e6 split=UNPARTITIONED A=2 role=matched
+== UNPARTITIONED-A2 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A2 probe_records=16384 stats_blocks=2
+PASS split=off max_set=90 max_snr=0.955268 null_max95=0.765717 p=0.000100 n_active=32 n_idle=32
+ipc0=0.983144 ipc1=0.515254 mr0=0.000076 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A2/analysis.json
+RUN 20/50 seed=0x5764a5e6 split=2-14 A=2 role=matched
+== 2-14 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/2-14 probe_records=16384 stats_blocks=2
+PASS split=2-14 max_set=159 max_snr=0.953991 null_max95=0.763927 p=0.000100 n_active=32 n_idle=32
+ipc0=0.983172 ipc1=0.515259 mr0=0.002670 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/2-14/analysis.json
+RUN 21/50 seed=0x5764a5e6 split=UNPARTITIONED A=3 role=matched
+== UNPARTITIONED-A3 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A3 probe_records=16384 stats_blocks=2
+PASS split=off max_set=38 max_snr=0.905470 null_max95=0.796641 p=0.002200 n_active=32 n_idle=32
+ipc0=0.975675 ipc1=0.515248 mr0=0.000051 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A3/analysis.json
+RUN 22/50 seed=0x5764a5e6 split=3-13 A=3 role=matched
+== 3-13 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/3-13 probe_records=16384 stats_blocks=2
+PASS split=3-13 max_set=196 max_snr=0.960451 null_max95=0.803638 p=0.000700 n_active=32 n_idle=32
+ipc0=0.975689 ipc1=0.515244 mr0=0.002645 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/3-13/analysis.json
+RUN 23/50 seed=0x5764a5e6 split=UNPARTITIONED A=4 role=matched
+== UNPARTITIONED-A4 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A4 probe_records=16384 stats_blocks=2
+PASS split=off max_set=106 max_snr=1.079827 null_max95=0.811177 p=0.000200 n_active=32 n_idle=32
+ipc0=0.967251 ipc1=0.515242 mr0=0.000038 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A4/analysis.json
+RUN 24/50 seed=0x5764a5e6 split=4-12 A=4 role=matched
+== 4-12 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/4-12 probe_records=16384 stats_blocks=2
+PASS split=4-12 max_set=48 max_snr=1.072373 null_max95=0.815815 p=0.000100 n_active=32 n_idle=32
+ipc0=0.967025 ipc1=0.515242 mr0=0.006408 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/4-12/analysis.json
+RUN 25/50 seed=0x5764a5e6 split=UNPARTITIONED A=5 role=matched
+== UNPARTITIONED-A5 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A5 probe_records=16384 stats_blocks=2
+PASS split=off max_set=133 max_snr=1.237431 null_max95=0.839739 p=0.000200 n_active=32 n_idle=32
+ipc0=0.960276 ipc1=0.515225 mr0=0.000030 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A5/analysis.json
+RUN 26/50 seed=0x5764a5e6 split=5-11 A=5 role=matched
+== 5-11 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/5-11 probe_records=16384 stats_blocks=2
+PASS split=5-11 max_set=42 max_snr=1.147187 null_max95=0.839902 p=0.000100 n_active=32 n_idle=32
+ipc0=0.959861 ipc1=0.515247 mr0=0.006420 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/5-11/analysis.json
+RUN 27/50 seed=0x5764a5e6 split=UNPARTITIONED A=6 role=matched
+== UNPARTITIONED-A6 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A6 probe_records=16384 stats_blocks=2
+PASS split=off max_set=46 max_snr=1.247881 null_max95=0.857460 p=0.000200 n_active=32 n_idle=32
+ipc0=0.952809 ipc1=0.515204 mr0=0.000025 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A6/analysis.json
+RUN 28/50 seed=0x5764a5e6 split=6-10 A=6 role=matched
+== 6-10 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/6-10 probe_records=16384 stats_blocks=2
+PASS split=6-10 max_set=40 max_snr=1.285517 null_max95=0.858630 p=0.000100 n_active=32 n_idle=32
+ipc0=0.952540 ipc1=0.515233 mr0=0.005789 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/6-10/analysis.json
+RUN 29/50 seed=0x5764a5e6 split=UNPARTITIONED A=7 role=matched
+== UNPARTITIONED-A7 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=185 max_snr=1.346882 null_max95=0.867706 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945340 ipc1=0.515186 mr0=0.000022 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A7/analysis.json
+RUN 30/50 seed=0x5764a5e6 split=7-9 A=7 role=matched
+== 7-9 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=248 max_snr=1.461595 null_max95=0.865444 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945200 ipc1=0.515222 mr0=0.005336 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/7-9/analysis.json
+RUN 31/50 seed=0x5764a5e6 split=UNPARTITIONED A=8 role=matched
+== UNPARTITIONED-A8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=27 max_snr=1.380003 null_max95=0.871218 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937876 ipc1=0.515176 mr0=0.000019 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/UNPARTITIONED-A8/analysis.json
+RUN 32/50 seed=0x5764a5e6 split=8-8 A=8 role=matched
+== 8-8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e6/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=120 max_snr=1.490113 null_max95=0.878201 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937848 ipc1=0.515209 mr0=0.004996 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e6/8-8/analysis.json
+RUN 33/50 seed=0x5764a5e7 split=UNPARTITIONED A=1 role=matched
+== UNPARTITIONED-A1 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A1 probe_records=16384 stats_blocks=2
+PASS split=off max_set=22 max_snr=0.695971 null_max95=0.636807 p=0.018798 n_active=32 n_idle=32
+ipc0=0.990614 ipc1=0.515394 mr0=0.000153 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A1/analysis.json
+RUN 34/50 seed=0x5764a5e7 split=1-15 A=1 role=matched
+== 1-15 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=1
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/1-15 probe_records=16384 stats_blocks=2
+PASS split=1-15 max_set=22 max_snr=0.695971 null_max95=0.636807 p=0.018798 n_active=32 n_idle=32
+ipc0=0.990530 ipc1=0.515394 mr0=0.002746 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/1-15/analysis.json
+RUN 35/50 seed=0x5764a5e7 split=UNPARTITIONED A=2 role=matched
+== UNPARTITIONED-A2 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A2 probe_records=16384 stats_blocks=2
+PASS split=off max_set=186 max_snr=0.850263 null_max95=0.751709 p=0.002800 n_active=32 n_idle=32
+ipc0=0.983140 ipc1=0.515378 mr0=0.000076 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A2/analysis.json
+RUN 36/50 seed=0x5764a5e7 split=2-14 A=2 role=matched
+== 2-14 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=2
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/2-14 probe_records=16384 stats_blocks=2
+PASS split=2-14 max_set=178 max_snr=0.916667 null_max95=0.757677 p=0.000900 n_active=32 n_idle=32
+ipc0=0.983173 ipc1=0.515386 mr0=0.002670 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/2-14/analysis.json
+RUN 37/50 seed=0x5764a5e7 split=UNPARTITIONED A=3 role=matched
+== UNPARTITIONED-A3 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A3 probe_records=16384 stats_blocks=2
+PASS split=off max_set=86 max_snr=0.979267 null_max95=0.774689 p=0.000500 n_active=32 n_idle=32
+ipc0=0.975674 ipc1=0.515370 mr0=0.000051 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A3/analysis.json
+RUN 38/50 seed=0x5764a5e7 split=3-13 A=3 role=matched
+== 3-13 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=3
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/3-13 probe_records=16384 stats_blocks=2
+PASS split=3-13 max_set=119 max_snr=0.937512 null_max95=0.790727 p=0.001100 n_active=32 n_idle=32
+ipc0=0.975689 ipc1=0.515373 mr0=0.002645 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/3-13/analysis.json
+RUN 39/50 seed=0x5764a5e7 split=UNPARTITIONED A=4 role=matched
+== UNPARTITIONED-A4 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A4 probe_records=16384 stats_blocks=2
+PASS split=off max_set=162 max_snr=1.148391 null_max95=0.825965 p=0.000100 n_active=32 n_idle=32
+ipc0=0.967245 ipc1=0.515364 mr0=0.000038 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A4/analysis.json
+RUN 40/50 seed=0x5764a5e7 split=4-12 A=4 role=matched
+== 4-12 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=4
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/4-12 probe_records=16384 stats_blocks=2
+PASS split=4-12 max_set=122 max_snr=1.157429 null_max95=0.812279 p=0.000200 n_active=32 n_idle=32
+ipc0=0.967026 ipc1=0.515369 mr0=0.006408 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/4-12/analysis.json
+RUN 41/50 seed=0x5764a5e7 split=UNPARTITIONED A=5 role=matched
+== UNPARTITIONED-A5 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A5 probe_records=16384 stats_blocks=2
+PASS split=off max_set=75 max_snr=1.230314 null_max95=0.834753 p=0.000100 n_active=32 n_idle=32
+ipc0=0.960277 ipc1=0.515355 mr0=0.000030 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A5/analysis.json
+RUN 42/50 seed=0x5764a5e7 split=5-11 A=5 role=matched
+== 5-11 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=5
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/5-11 probe_records=16384 stats_blocks=2
+PASS split=5-11 max_set=220 max_snr=1.259993 null_max95=0.838240 p=0.000100 n_active=32 n_idle=32
+ipc0=0.959860 ipc1=0.515366 mr0=0.006420 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/5-11/analysis.json
+RUN 43/50 seed=0x5764a5e7 split=UNPARTITIONED A=6 role=matched
+== UNPARTITIONED-A6 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A6 probe_records=16384 stats_blocks=2
+PASS split=off max_set=192 max_snr=1.298692 null_max95=0.851216 p=0.000100 n_active=32 n_idle=32
+ipc0=0.952812 ipc1=0.515349 mr0=0.000025 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A6/analysis.json
+RUN 44/50 seed=0x5764a5e7 split=6-10 A=6 role=matched
+== 6-10 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=6
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/6-10 probe_records=16384 stats_blocks=2
+PASS split=6-10 max_set=100 max_snr=1.406298 null_max95=0.854712 p=0.000100 n_active=32 n_idle=32
+ipc0=0.952538 ipc1=0.515364 mr0=0.005789 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/6-10/analysis.json
+RUN 45/50 seed=0x5764a5e7 split=UNPARTITIONED A=7 role=matched
+== UNPARTITIONED-A7 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A7 probe_records=16384 stats_blocks=2
+PASS split=off max_set=112 max_snr=1.417328 null_max95=0.862907 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945347 ipc1=0.515334 mr0=0.000022 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A7/analysis.json
+RUN 46/50 seed=0x5764a5e7 split=7-9 A=7 role=matched
+== 7-9 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=7
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/7-9 probe_records=16384 stats_blocks=2
+PASS split=7-9 max_set=202 max_snr=1.455532 null_max95=0.868227 p=0.000100 n_active=32 n_idle=32
+ipc0=0.945199 ipc1=0.515353 mr0=0.005336 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/7-9/analysis.json
+RUN 47/50 seed=0x5764a5e7 split=UNPARTITIONED A=8 role=matched
+== UNPARTITIONED-A8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A8 probe_records=16384 stats_blocks=2
+PASS split=off max_set=30 max_snr=1.378847 null_max95=0.882174 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937872 ipc1=0.515320 mr0=0.000019 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/UNPARTITIONED-A8/analysis.json
+RUN 48/50 seed=0x5764a5e7 split=8-8 A=8 role=matched
+== 8-8 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/seed-5764a5e7/8-8 probe_records=16384 stats_blocks=2
+PASS split=8-8 max_set=143 max_snr=1.508130 null_max95=0.871587 p=0.000100 n_active=32 n_idle=32
+ipc0=0.937850 ipc1=0.515345 mr0=0.004996 mr1=0.000005
+wrote results/updated run/sweep/seed-5764a5e7/8-8/analysis.json
+RUN 49/50 seed=0x5764a5e5 split=UNPARTITIONED A=16 role=diagnostic
+== UNPARTITIONED-A16 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=16
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/diagnostics/seed-5764a5e5/UNPARTITIONED-A16 probe_records=16384 stats_blocks=2
+PASS split=off max_set=199 max_snr=50.340245 null_max95=0.884280 p=0.000100 n_active=32 n_idle=32
+ipc0=0.787184 ipc1=0.515302 mr0=0.138222 mr1=0.002564
+wrote results/updated run/sweep/diagnostics/seed-5764a5e5/UNPARTITIONED-A16/analysis.json
+RUN 50/50 seed=0x5764a5e6 split=UNPARTITIONED A=16 role=diagnostic
+== UNPARTITIONED-A16 contention mode=l1d4k-v2 l1d=4KiB monitor_ways=16
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep/diagnostics/seed-5764a5e6/UNPARTITIONED-A16 probe_records=16384 stats_blocks=2
+PASS split=off max_set=199 max_snr=45.955199 null_max95=0.882796 p=0.000100 n_active=32 n_idle=32
+ipc0=0.787253 ipc1=0.515226 mr0=0.138235 mr1=0.002637
+wrote results/updated run/sweep/diagnostics/seed-5764a5e6/UNPARTITIONED-A16/analysis.json
+1-15  distinguishable  gate=3/3 trt_holm max-set=0.0298 hit-only=6.56e-09 effect=+0.086 [+0.078,+0.093]
+2-14  distinguishable  gate=3/3 trt_holm max-set=8.59e-08 hit-only=6.56e-09 effect=+0.267 [+0.259,+0.274]
+3-13  distinguishable  gate=3/3 trt_holm max-set=1.62e-07 hit-only=6.56e-09 effect=+0.287 [+0.280,+0.295]
+4-12  distinguishable  gate=3/3 trt_holm max-set=2.14e-08 hit-only=6.56e-09 effect=+0.283 [+0.277,+0.289]
+5-11  distinguishable  gate=3/3 trt_holm max-set=6.56e-09 hit-only=6.56e-09 effect=+0.290 [+0.284,+0.295]
+6-10  distinguishable  gate=3/3 trt_holm max-set=6.56e-09 hit-only=6.56e-09 effect=+0.283 [+0.278,+0.289]
+7-9   uninterpretable  gate=0/3 trt_holm max-set=6.56e-09 hit-only=6.56e-09 effect=+0.243 [+0.239,+0.247]
+8-8   uninterpretable  gate=0/3 trt_holm max-set=6.56e-09 hit-only=6.56e-09 effect=+0.222 [+0.217,+0.226]
+stable_collapse_point=None
+stable_equivalence_point=None
+EXIT=0
+2026-10-11T22:17:31-04:00

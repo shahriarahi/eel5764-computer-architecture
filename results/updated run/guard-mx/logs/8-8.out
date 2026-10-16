@@ -1,0 +1,2 @@
+== 8-8 contention mode=l1d4k-v3 l1d=4KiB monitor_ways=8
+OK control artifacts=/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/guard-mx/seed-5764a5e5/8-8 probe_records=16384 stats_blocks=2

@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/mech-std/seed-5764a5e5/.1-15.tmp.nPcmK9' --stats-file=stats.txt.gz configs/run_contention.py --split 1-15 --l1d-size 4KiB --monitor-ways 1 --workload-seed 1466213861 --monitor-sink file --monitor-variant v3 --stats-per-interval 
