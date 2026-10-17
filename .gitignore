@@ -14,3 +14,42 @@ venv/
 .env
 .env.*
 !.env.example
+
+# Course material unrelated to the LLC way-partitioning project
+/Ahmed_15988575_homework2.pdf
+/Ahmed_15988575_homework2.zip
+/Ahmed_15988575_homework2/
+/AssignTask.pdf
+/Assignment2 solution.docx
+/Assignment2.docx
+/EEL5764-Assignment1-PartA-Solutions.pdf
+/Shahriar_Assignment1.pdf
+/Step1.png
+/assign1partSecond.docx
+/assign1partSecond.pdf
+/eel5764-lecture1-2.pdf
+/eel5764-lecture10-11.pdf
+/eel5764-lecture12.pdf
+/eel5764-lecture13-14.pdf
+/eel5764-lecture3.pdf
+/eel5764-lecture6.pdf
+/eel5764-lecture9.pdf
+/eel5764-lectures4-5.pdf
+/eel5764-lectures7-8.pdf
+/gem5-execution-scripts.txt
+/homework2 gem5 ss.png
+/homework2 instructions.pdf
+/homework2body.docx.pdf
+/homework2front.pdf
+/hw2 step1.png
+/hw2 step2.png
+/instructions2.md
+/output/
+/simpleSyllabus.pdf
+/solution2-partB-local.docx
+/solution2-partB-scripts.zip
+/solution2.docx
+/step2.png
+/step3.png
+/step3_2.png
+/step3_3.png
