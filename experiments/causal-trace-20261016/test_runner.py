@@ -5,7 +5,7 @@ from pathlib import Path
 
 from preserve import check, snapshot, write_snapshot
 from run_cases import (
-    DISABLED_ROOT, ENABLED_ROOT, build_command, require_new,
+    DISABLED_ROOT, ENABLED_ROOT, build_command, monitored_range, require_new,
     temporary_case_name,
 )
 from validate_trace import validate_equivalence
@@ -44,6 +44,14 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("--debug-flags=CausalTrace", enabled)
         self.assertIn("--causal-trace", enabled)
         self.assertLess(enabled.index(adapter_value), enabled.index("--causal-trace"))
+
+    def test_reads_monitored_range_from_top_level_metadata(self) -> None:
+        metadata = {
+            "probe_vaddr_base": 0x12080,
+            "probe_vaddr_size": 0x40000,
+            "contention": {"start_cycle": 2_000_000},
+        }
+        self.assertEqual(monitored_range(metadata), (0x12080, 0x40000))
 
     def test_equivalence_rejects_probe_mismatch(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

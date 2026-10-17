@@ -25,6 +25,10 @@ def temporary_case_name(final_name: str) -> str:
                    for _ in range(len(final_name)))
 
 
+def monitored_range(metadata: dict) -> tuple[int, int]:
+    return int(metadata["probe_vaddr_base"]), int(metadata["probe_vaddr_size"])
+
+
 def build_command(reference: dict, output: Path, trace: bool,
                   executable: Path, adapter: Path, requestor: str,
                   vaddr_base: int, vaddr_size: int) -> list[str]:
@@ -63,7 +67,8 @@ def main() -> None:
         name = f"{ways}-{16-ways}"
         reference = project / "results/updated run/tdma-onx/seed-5764a5e5" / name
         manifest = json.loads((reference / "command.json").read_text())
-        metadata = json.loads((reference / "run_meta.json").read_text())["contention"]
+        metadata = json.loads((reference / "run_meta.json").read_text())
+        vaddr_base, vaddr_size = monitored_range(metadata)
         parent = result_root / "seed-5764a5e5"
         parent.mkdir(exist_ok=True)
         final = parent / name
@@ -74,7 +79,7 @@ def main() -> None:
         command = build_command(
             manifest, case, args.trace, executable,
             here / "run_contention_causal.py", "cpu0.data",
-            int(metadata["probe_vaddr_base"]), int(metadata["probe_vaddr_size"]),
+            vaddr_base, vaddr_size,
         )
         if len(str(case / "probes.bin")) != manifest["probe_argument_length"]:
             raise ValueError("probe argument length differs from reference")
