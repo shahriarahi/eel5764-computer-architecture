@@ -1,0 +1,93 @@
+"""Bounded fresh-process runner for causal trace endpoint cases."""
+
+import argparse
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+
+DISABLED_ROOT = "tdma-cd0"
+ENABLED_ROOT = "tdma-ct0"
+TIMEOUT_SECONDS = 240
+
+
+def require_new(path: Path) -> None:
+    if path.exists():
+        raise FileExistsError(path)
+
+
+def build_command(reference: dict, output: Path, trace: bool,
+                  executable: Path, adapter: Path, requestor: str,
+                  vaddr_base: int, vaddr_size: int) -> list[str]:
+    command = list(reference["command"])
+    command[0] = str(executable)
+    command[command.index("-d") + 1] = str(output)
+    old_adapter = next(index for index, item in enumerate(command)
+                       if item.endswith("run_contention_tdma.py"))
+    command[old_adapter] = str(adapter)
+    if trace:
+        command[1:1] = ["--debug-flags=CausalTrace", "--debug-file=causal.log"]
+        adapter_index = command.index(str(adapter))
+        command[adapter_index + 1:adapter_index + 1] = [
+            "--causal-trace", "--causal-requestor", requestor,
+            "--causal-vaddr-base", hex(vaddr_base),
+            "--causal-vaddr-size", hex(vaddr_size),
+        ]
+    return command
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--baseline-root", type=Path, required=True)
+    parser.add_argument("--trace", action="store_true")
+    args = parser.parse_args()
+    project = args.baseline_root.resolve()
+    here = Path(__file__).resolve().parent
+    sys.path.insert(0, str(here))
+    from validate_trace import validate_equivalence, validate_trace_case
+    executable = Path("/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt")
+    root_name = ENABLED_ROOT if args.trace else DISABLED_ROOT
+    result_root = project / "results/updated run" / root_name
+    require_new(result_root)
+    result_root.mkdir()
+    for ways in (1, 8):
+        name = f"{ways}-{16-ways}"
+        reference = project / "results/updated run/tdma-onx/seed-5764a5e5" / name
+        manifest = json.loads((reference / "command.json").read_text())
+        metadata = json.loads((reference / "run_meta.json").read_text())["contention"]
+        case = result_root / "seed-5764a5e5" / name
+        case.mkdir(parents=True)
+        command = build_command(
+            manifest, case, args.trace, executable,
+            here / "run_contention_causal.py", "cpu0.data",
+            int(metadata["probe_vaddr_base"]), int(metadata["probe_vaddr_size"]),
+        )
+        if len(str(case / "probes.bin")) != manifest["probe_argument_length"]:
+            raise ValueError("probe argument length differs from reference")
+        (case / "command.json").write_text(json.dumps({
+            "command": command, "trace": args.trace,
+            "timeout_seconds": TIMEOUT_SECONDS, "reference": str(reference),
+        }, indent=2) + "\n")
+        try:
+            with (case / "launcher.log").open("x") as stream:
+                subprocess.run(command, cwd=project, stdout=stream,
+                               stderr=subprocess.STDOUT, timeout=TIMEOUT_SECONDS,
+                               check=True, env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
+            result = validate_equivalence(reference, case)
+            if args.trace:
+                result.update(validate_trace_case(case))
+            elif (case / "causal.log").exists() and "CAUSAL_TRACE" in (case / "causal.log").read_text():
+                raise ValueError("trace-disabled case emitted causal records")
+            (case / "validation.json").write_text(json.dumps(result, indent=2) + "\n")
+            print("PASS", root_name, name, json.dumps(result), flush=True)
+        except Exception as exc:
+            (case / "failure.json").write_text(json.dumps({"error": repr(exc)}, indent=2) + "\n")
+            print("FAILED preserved", case, repr(exc), flush=True)
+            raise
+
+
+if __name__ == "__main__":
+    main()
+
