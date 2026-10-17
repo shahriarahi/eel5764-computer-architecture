@@ -4,6 +4,8 @@ import argparse
 import json
 import os
 from pathlib import Path
+import secrets
+import string
 import subprocess
 import sys
 
@@ -16,6 +18,11 @@ TIMEOUT_SECONDS = 240
 def require_new(path: Path) -> None:
     if path.exists():
         raise FileExistsError(path)
+
+
+def temporary_case_name(final_name: str) -> str:
+    return "".join(secrets.choice(string.ascii_lowercase)
+                   for _ in range(len(final_name)))
 
 
 def build_command(reference: dict, output: Path, trace: bool,
@@ -57,8 +64,13 @@ def main() -> None:
         reference = project / "results/updated run/tdma-onx/seed-5764a5e5" / name
         manifest = json.loads((reference / "command.json").read_text())
         metadata = json.loads((reference / "run_meta.json").read_text())["contention"]
-        case = result_root / "seed-5764a5e5" / name
-        case.mkdir(parents=True)
+        parent = result_root / "seed-5764a5e5"
+        parent.mkdir(exist_ok=True)
+        final = parent / name
+        require_new(final)
+        staging_name = temporary_case_name(name)
+        case = parent / staging_name
+        case.mkdir()
         command = build_command(
             manifest, case, args.trace, executable,
             here / "run_contention_causal.py", "cpu0.data",
@@ -81,10 +93,13 @@ def main() -> None:
             elif (case / "causal.log").exists() and "CAUSAL_TRACE" in (case / "causal.log").read_text():
                 raise ValueError("trace-disabled case emitted causal records")
             (case / "validation.json").write_text(json.dumps(result, indent=2) + "\n")
+            case.rename(final)
             print("PASS", root_name, name, json.dumps(result), flush=True)
         except Exception as exc:
             (case / "failure.json").write_text(json.dumps({"error": repr(exc)}, indent=2) + "\n")
-            print("FAILED preserved", case, repr(exc), flush=True)
+            failed = parent / f"{name}.failed.{staging_name}"
+            case.rename(failed)
+            print("FAILED preserved", failed, repr(exc), flush=True)
             raise
 
 

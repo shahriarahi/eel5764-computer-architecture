@@ -4,7 +4,10 @@ import unittest
 from pathlib import Path
 
 from preserve import check, snapshot, write_snapshot
-from run_cases import DISABLED_ROOT, ENABLED_ROOT, build_command, require_new
+from run_cases import (
+    DISABLED_ROOT, ENABLED_ROOT, build_command, require_new,
+    temporary_case_name,
+)
 from validate_trace import validate_equivalence
 
 
@@ -16,6 +19,12 @@ class RunnerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaises(FileExistsError):
                 require_new(Path(directory))
+
+    def test_staging_name_preserves_case_path_length(self) -> None:
+        for name in ("1-15", "8-8"):
+            staging = temporary_case_name(name)
+            self.assertEqual(len(staging), len(name))
+            self.assertNotEqual(staging, name)
 
     def test_builds_disabled_and_enabled_commands(self) -> None:
         reference = {"command": ["/old/gem5.opt", "-d", "/old/out",
