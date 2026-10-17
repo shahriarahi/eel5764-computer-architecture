@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "ways": 1,
+      "all_walk_delta_cycles_per_line": -0.0384521484375,
+      "ci90": [
+        -0.004834563364624955,
+        0.0
+      ],
+      "mean_equivalent": true,
+      "max_set_holm_p": 1.0,
+      "hit_only_holm_p": 1.0,
+      "hit_only_delta_cycles_per_line": -0.0016115211215392833
+    },
+    {
+      "ways": 8,
+      "all_walk_delta_cycles_per_line": -0.0209197998046875,
+      "ci90": [
+        -0.0006043204205781194,
+        0.0
+      ],
+      "mean_equivalent": true,
+      "max_set_holm_p": 1.0,
+      "hit_only_holm_p": 1.0,
+      "hit_only_delta_cycles_per_line": -0.00020144014019507495
+    }
+  ],
+  "claim_limit": "Single-schedule diagnostic; nominal activity labels; startup drain unverified; no indistinguishability or response-causality claim"
+}
