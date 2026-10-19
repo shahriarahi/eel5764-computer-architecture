@@ -1,5 +1,6 @@
 """Parse and analyze filtered gem5 causal-trace records."""
 
+from bisect import bisect_left, bisect_right
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -136,6 +137,13 @@ def _deliveries_after_forwards(deliveries: list[TraceEvent], forwards: list[Trac
     return matched
 
 
+def _in_window(events: list[TraceEvent], ticks: list[int], start: int, end: int,
+               address: tuple[int, int]) -> list[TraceEvent]:
+    """Tick-sorted events in [start, end] at this address, without a full scan."""
+    window = events[bisect_left(ticks, start):bisect_right(ticks, end)]
+    return [event for event in window if (event.paddr, event.vaddr) == address]
+
+
 def l1d_deliveries(events: list[TraceEvent], timelines: list[dict]) -> int:
     """Monitor deliveries with no L2-bus timeline, i.e. L1D hits."""
     return sum(event.stage == "cpu_delivery" for event in events) - len(timelines)
@@ -171,6 +179,8 @@ def match_timelines(
     timelines: list[dict[str, TraceEvent | list[TraceEvent]]] = []
     assigned_attempts: set[int] = set()
     assigned_retries: set[int] = set()
+    attempt_ticks = [event.tick for event in by_stage["response_send_attempt"]]
+    retry_ticks = [event.tick for event in by_stage["response_retry"]]
     for index in range(count):
         timeline: dict[str, TraceEvent | list[TraceEvent]] = {
             stage: by_stage[stage][index] for stage in REQUIRED_TIMELINE_STAGES
@@ -181,12 +191,10 @@ def match_timelines(
         enqueue = by_stage["response_enqueue"][index]
         dequeue = by_stage["response_dequeue"][index]
         address = expected_addresses[index]
-        attempts = [event for event in by_stage["response_send_attempt"]
-                    if enqueue.tick <= event.tick <= dequeue.tick
-                    and (event.paddr, event.vaddr) == address]
-        retries = [event for event in by_stage["response_retry"]
-                   if enqueue.tick <= event.tick <= dequeue.tick
-                   and (event.paddr, event.vaddr) == address]
+        attempts = _in_window(by_stage["response_send_attempt"], attempt_ticks,
+                              enqueue.tick, dequeue.tick, address)
+        retries = _in_window(by_stage["response_retry"], retry_ticks,
+                             enqueue.tick, dequeue.tick, address)
         if not attempts:
             raise ValueError(f"response_send_attempt: missing at index {index}")
         timeline["response_send_attempts"] = attempts
