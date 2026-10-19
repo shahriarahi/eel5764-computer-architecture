@@ -49,12 +49,14 @@ bool causalTraceLlc(const std::string &name);
 bool causalTraceQueue(const std::string &name);
 }
 
-#define CAUSAL_TRACE_EVENT(STAGE, COMPONENT, PKT, OUTCOME) do { \
+// SCHED is the tick passed to a sched* call at this hook, else curTick().
+#define CAUSAL_TRACE_EVENT(STAGE, COMPONENT, PKT, SCHED, OUTCOME) do { \
     if (gem5::causalTraceEligible(PKT)) { \
-        DPRINTF(CausalTrace, "CAUSAL_TRACE version=1 tick=%llu stage=" STAGE \
+        DPRINTF(CausalTrace, "CAUSAL_TRACE version=2 tick=%llu sched=%llu stage=" STAGE \
                 " component=%s requestor=%u cmd=%s paddr=%#llx vaddr=%#llx" \
                 " size=%u outcome=" OUTCOME "\n", \
-                (unsigned long long)gem5::curTick(), (COMPONENT).c_str(), \
+                (unsigned long long)gem5::curTick(), \
+                (unsigned long long)(SCHED), (COMPONENT).c_str(), \
                 (unsigned)(PKT)->req->requestorId(), (PKT)->cmdString(), \
                 (unsigned long long)(PKT)->getAddr(), \
                 (unsigned long long)(PKT)->req->getVaddr(), (PKT)->getSize()); \
@@ -141,11 +143,11 @@ def main() -> None:
     replace("src/mem/coherent_xbar.cc", "    if (pkt->isRead()) tdmaReadGrants++;\n    if (pkt->isWriteback()) tdmaWritebackGrants++;\n    return true;",
             '''    if (pkt->isRead()) tdmaReadGrants++;
     if (pkt->isWriteback()) tdmaWritebackGrants++;
-    CAUSAL_TRACE_EVENT("request_admit", name(), pkt, "admitted");
+    CAUSAL_TRACE_EVENT("request_admit", name(), pkt, curTick(), "admitted");
     return true;''')
     replace("src/mem/coherent_xbar.cc", "    cpuSidePorts[cpu_side_port_id]->schedTimingResp(pkt, curTick()\n                                        + latency);",
             '''    if (causalTraceXbar(name()))
-        CAUSAL_TRACE_EVENT("xbar_response_forward", name(), pkt, "accepted");
+        CAUSAL_TRACE_EVENT("xbar_response_forward", name(), pkt, curTick() + latency, "accepted");
     cpuSidePorts[cpu_side_port_id]->schedTimingResp(pkt, curTick()
                                         + latency);''')
 
@@ -155,34 +157,34 @@ def main() -> None:
             '#include "mem/cache/cache.hh"\n#include "mem/causal_trace.hh"')
     replace("src/mem/cache/base.cc", "        cpuSidePort.schedTimingResp(pkt, request_time);",
             '''        if (causalTraceLlc(name()))
-            CAUSAL_TRACE_EVENT("llc_response_ready", name(), pkt, "ready");
+            CAUSAL_TRACE_EVENT("llc_response_ready", name(), pkt, request_time, "hit");
         cpuSidePort.schedTimingResp(pkt, request_time);''')
     replace("src/mem/cache/cache.cc", "            cpuSidePort.schedTimingResp(tgt_pkt, completion_time);",
             '''            if (causalTraceLlc(name()))
-                CAUSAL_TRACE_EVENT("llc_response_ready", name(), tgt_pkt, "ready");
+                CAUSAL_TRACE_EVENT("llc_response_ready", name(), tgt_pkt, completion_time, "fill");
             cpuSidePort.schedTimingResp(tgt_pkt, completion_time);''')
 
     replace("src/mem/packet_queue.cc", '#include "mem/packet_queue.hh"',
             '#include "mem/packet_queue.hh"\n#include "mem/causal_trace.hh"')
     replace("src/mem/packet_queue.cc", "    // we can still send a packet before the end of this tick",
             '''    if (causalTraceQueue(name()))
-        CAUSAL_TRACE_EVENT("response_enqueue", name(), pkt, "queued");
+        CAUSAL_TRACE_EVENT("response_enqueue", name(), pkt, when, "queued");
     // we can still send a packet before the end of this tick''')
     replace("src/mem/packet_queue.cc", "    waitingOnRetry = !sendTiming(dp.pkt);",
             '''    if (causalTraceQueue(name()))
-        CAUSAL_TRACE_EVENT("response_send_attempt", name(), dp.pkt, "attempt");
+        CAUSAL_TRACE_EVENT("response_send_attempt", name(), dp.pkt, curTick(), "attempt");
     waitingOnRetry = !sendTiming(dp.pkt);
     if (causalTraceQueue(name())) {
         if (waitingOnRetry)
-            CAUSAL_TRACE_EVENT("response_retry", name(), dp.pkt, "blocked");
+            CAUSAL_TRACE_EVENT("response_retry", name(), dp.pkt, curTick(), "blocked");
         else
-            CAUSAL_TRACE_EVENT("response_dequeue", name(), dp.pkt, "sent");
+            CAUSAL_TRACE_EVENT("response_dequeue", name(), dp.pkt, curTick(), "sent");
     }''')
     replace("src/cpu/simple/timing.cc", '#include "cpu/simple/timing.hh"',
             '#include "cpu/simple/timing.hh"\n#include "mem/causal_trace.hh"')
     replace("src/cpu/simple/timing.cc", '    DPRINTF(SimpleCPU, "Received load/store response %#x\\n", pkt->getAddr());',
             '''    DPRINTF(SimpleCPU, "Received load/store response %#x\\n", pkt->getAddr());
-    CAUSAL_TRACE_EVENT("cpu_delivery", name(), pkt, "accepted");''')
+    CAUSAL_TRACE_EVENT("cpu_delivery", name(), pkt, curTick(), "accepted");''')
 
     (ROOT / "src/mem/causal_trace.hh").write_text(HEADER)
     (ROOT / "src/mem/causal_trace.cc").write_text(SOURCE)

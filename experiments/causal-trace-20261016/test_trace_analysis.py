@@ -13,20 +13,32 @@ from trace_analysis import (
 
 
 VALID = (
-    "CAUSAL_TRACE version=1 tick=100 stage=request_admit "
+    "CAUSAL_TRACE version=2 tick=100 sched=100 stage=request_admit "
     "component=system.l2bus requestor=3 cmd=ReadReq "
     "paddr=0x1000 vaddr=0x2000 size=8"
 )
 
 
 class TraceParserTests(unittest.TestCase):
-    def test_parses_version_one_record(self) -> None:
+    def test_parses_version_two_record(self) -> None:
         event = parse_trace_line(VALID)
         self.assertEqual(
             event,
-            TraceEvent(1, 100, "request_admit", "system.l2bus", 3,
-                       "ReadReq", 0x1000, 0x2000, 8, None),
+            TraceEvent(2, 100, "request_admit", "system.l2bus", 3,
+                       "ReadReq", 0x1000, 0x2000, 8, None, 100),
         )
+
+    def test_parses_version_one_record_without_schedule(self) -> None:
+        line = VALID.replace("version=2", "version=1").replace(" sched=100", "")
+        self.assertIsNone(parse_trace_line(line).sched)
+
+    def test_version_two_requires_schedule(self) -> None:
+        with self.assertRaisesRegex(ValueError, "sched"):
+            parse_trace_line(VALID.replace(" sched=100", ""))
+
+    def test_rejects_schedule_before_event(self) -> None:
+        with self.assertRaisesRegex(ValueError, "sched"):
+            parse_trace_line(VALID.replace("sched=100", "sched=99"))
 
     def test_ignores_non_trace_line(self) -> None:
         self.assertIsNone(parse_trace_line("gem5 started normally"))
@@ -37,7 +49,7 @@ class TraceParserTests(unittest.TestCase):
 
     def test_rejects_unknown_version(self) -> None:
         with self.assertRaisesRegex(ValueError, "version"):
-            parse_trace_line(VALID.replace("version=1", "version=2"))
+            parse_trace_line(VALID.replace("version=2", "version=3"))
 
     def test_rejects_unknown_stage(self) -> None:
         with self.assertRaisesRegex(ValueError, "stage"):
@@ -61,9 +73,10 @@ class TraceParserTests(unittest.TestCase):
 
 
 def make_event(stage: str, tick: int, address: int = 0x1000,
-               outcome: str | None = None) -> TraceEvent:
-    return TraceEvent(1, tick, stage, "system.test", 3, "ReadReq",
-                      address, address + 0x1000, 8, outcome)
+               outcome: str | None = None, sched: int | None = None) -> TraceEvent:
+    return TraceEvent(2, tick, stage, "system.test", 3, "ReadReq",
+                      address, address + 0x1000, 8, outcome,
+                      tick if sched is None else sched)
 
 
 def timeline_events(address: int = 0x1000, start: int = 10) -> list[TraceEvent]:
@@ -141,6 +154,47 @@ class TimelineTests(unittest.TestCase):
         self.assertTrue(rows[0]["boundary_crossing"])
         self.assertEqual(rows[0]["admit_to_llc_ready"], 10)
         self.assertEqual(rows[0]["admit_to_cpu"], 40)
+
+    def test_scheduled_ticks_separate_llc_service_from_queue_wait(self) -> None:
+        # An LLC hit is scheduled at arrival with a future ready time.
+        events = [
+            make_event("request_admit", 10),
+            make_event("llc_response_ready", 10, outcome="hit", sched=30),
+            make_event("response_enqueue", 10, outcome="queued", sched=30),
+            make_event("response_send_attempt", 34, outcome="attempt"),
+            make_event("response_dequeue", 34, outcome="sent"),
+            make_event("xbar_response_forward", 36, outcome="accepted", sched=40),
+            make_event("cpu_delivery", 45),
+        ]
+        row = latency_rows(match_timelines(events), {
+            "start_tick": 0, "epoch_ticks": 100, "activity_labels": [1],
+        })[0]
+        self.assertEqual(row["llc_path"], "hit")
+        self.assertEqual(row["admit_to_llc_ready"], 20)
+        self.assertEqual(row["llc_ready_to_enqueue"], 0)
+        self.assertEqual(row["queue_residence"], 4)
+        self.assertEqual(row["dequeue_to_xbar"], 2)
+        self.assertEqual(row["xbar_to_cpu"], 9)
+        self.assertEqual(row["cumulative_enqueue"], 20)
+        self.assertEqual(row["cumulative_dequeue"], 24)
+        self.assertEqual(row["admit_to_cpu"], 35)
+
+    def test_rejects_version_one_timeline_for_latency(self) -> None:
+        events = [TraceEvent(1, e.tick, e.stage, e.component, e.requestor, e.cmd,
+                             e.paddr, e.vaddr, e.size, e.outcome, None)
+                  for e in timeline_events()]
+        with self.assertRaisesRegex(ValueError, "scheduled"):
+            latency_rows(match_timelines(events), {
+                "start_tick": 0, "epoch_ticks": 100, "activity_labels": [0],
+            })
+
+    def test_rejects_dequeue_before_scheduled_ready(self) -> None:
+        events = timeline_events()
+        events[2] = make_event("response_enqueue", 21, outcome="queued", sched=40)
+        with self.assertRaisesRegex(ValueError, "negative"):
+            latency_rows(match_timelines(events), {
+                "start_tick": 0, "epoch_ticks": 100, "activity_labels": [0],
+            })
 
     def test_summarizes_interval_means_and_separates_interval_zero(self) -> None:
         rows = [

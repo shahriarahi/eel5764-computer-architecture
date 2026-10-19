@@ -2,15 +2,13 @@
   "gem5_source": "/home/shahriarahi/eel5764/gem5-causal",
   "gem5_base_commit": "c8222cc67a399bfc01e8658dd14b30d5bfd634f9",
   "tdma_patch_sha256": "b63cd7b003330870471a40e5e05df486d2f1dbc79af3592101da27df0b55234e",
-  "causal_patch_sha256": "854940fe80bf714205f2568561e11097e9825e2d424049452326d3f8479981f3",
-  "causal_executable_sha256": "e00523025fe19524f53d3b829402e7b25d623906ed52b0a5c319eab25f11b1db",
+  "causal_patch_sha256": "587861d54a465d8d03d872f98f001a3f0855b348b54c72e8b0b9f0249343841a",
+  "causal_executable_sha256": "2428f123e172097d3dc9f269250e439d2ee9caf223b39a0bce76085678c5cca3",
   "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
   "python": "Python 3.14.4",
-  "recorded_utc": "2026-10-19T00:05:59+00:00",
+  "recorded_utc": "2026-10-19T00:21:20+00:00",
   "build_command": [
     "scons",
-    "-C",
-    "/home/shahriarahi/eel5764/gem5-causal",
     "build/RISCV/gem5.opt",
     "-j14",
     "EXTRAS=/home/shahriarahi/eel5764/gem5_ext"
@@ -31,10 +29,26 @@
     {
       "log": "build-logs/causal-build-04.log",
       "outcome": "scons: done building targets (incremental; produced the recorded executable)"
+    },
+    {
+      "log": "build-logs/causal-build-05.log",
+      "outcome": "exit=0 wall_seconds=88; trace version 2 (spec Amendment 1); recompiled the six hooked units"
     }
   ],
   "notes": [
     "Build logs are UTF-16 PowerShell captures; exit codes were not recorded, so outcomes are read from log text.",
-    "Existing warnings: GCC 15 outside gem5's supported range; Capstone absent. No dependencies were installed."
-  ]
+    "Existing warnings: GCC 15 outside gem5's supported range; Capstone absent. No dependencies were installed.",
+    "Build 05 log is UTF-8 with an appended exit line; builds 01-04 are UTF-16 captures."
+  ],
+  "trace_version": 2,
+  "build_working_directory": "/home/shahriarahi/eel5764/gem5-causal",
+  "superseded_version_1": {
+    "executable": "/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt.causal-v1",
+    "executable_sha256": "e00523025fe19524f53d3b829402e7b25d623906ed52b0a5c319eab25f11b1db",
+    "source_tree_patch": "/home/shahriarahi/eel5764/gem5-causal-v1-tree.patch",
+    "patch_sha256_at_commit_38a1edd": "854940fe80bf714205f2568561e11097e9825e2d424049452326d3f8479981f3",
+    "structural_evidence": [
+      "structural-03"
+    ]
+  }
 }

@@ -8,7 +8,7 @@ from test_trace_traffic import install_short_profile
 
 def trace_line(tick: int, stage: str, outcome: str = "ok") -> str:
     return (
-        f"{tick}: system: CAUSAL_TRACE version=1 tick={tick} stage={stage} "
+        f"{tick}: system: CAUSAL_TRACE version=2 tick={tick} sched={tick} stage={stage} "
         "component=system.test requestor=7 cmd=ReadReq paddr=0x1000 "
         f"vaddr=0x12080 size=8 outcome={outcome}\n"
     )

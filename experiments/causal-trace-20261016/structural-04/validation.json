@@ -1,0 +1,31 @@
+{
+  "disabled": {
+    "events": 0,
+    "simTicks": 20000000.0,
+    "violations": {
+      "tdmaOverruns": 0.0,
+      "tdmaDownstreamRefusals": 0.0,
+      "tdmaExpressBypasses": 0.0
+    }
+  },
+  "enabled": {
+    "events": 3584,
+    "matched_timelines": 512,
+    "stages": [
+      "request_admit",
+      "llc_response_ready",
+      "response_enqueue",
+      "response_send_attempt",
+      "response_dequeue",
+      "xbar_response_forward",
+      "cpu_delivery"
+    ],
+    "response_retries": 0,
+    "simTicks": 20000000.0,
+    "violations": {
+      "tdmaOverruns": 0.0,
+      "tdmaDownstreamRefusals": 0.0,
+      "tdmaExpressBypasses": 0.0
+    }
+  }
+}

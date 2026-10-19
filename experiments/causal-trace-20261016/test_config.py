@@ -1,5 +1,7 @@
 import unittest
+from pathlib import Path
 
+import prepare_gem5
 from prepare_gem5 import STAGES, TARGETS
 from run_contention_causal import (
     domain_for_peer, llc_response_queue_name, validate_trace_config,
@@ -55,6 +57,17 @@ class TraceConfigTests(unittest.TestCase):
             "src/mem/cache/base.cc", "src/mem/cache/cache.cc",
             "src/mem/packet_queue.cc", "src/cpu/simple/timing.cc",
         })
+
+    def test_hooks_emit_version_two_scheduled_ticks(self) -> None:
+        source = Path(prepare_gem5.__file__).read_text()
+        self.assertIn("CAUSAL_TRACE version=2 tick=%llu sched=%llu", prepare_gem5.HEADER)
+        for hook in (
+            'CAUSAL_TRACE_EVENT("llc_response_ready", name(), pkt, request_time, "hit")',
+            'CAUSAL_TRACE_EVENT("llc_response_ready", name(), tgt_pkt, completion_time, "fill")',
+            'CAUSAL_TRACE_EVENT("response_enqueue", name(), pkt, when, "queued")',
+            'CAUSAL_TRACE_EVENT("xbar_response_forward", name(), pkt, curTick() + latency, "accepted")',
+        ):
+            self.assertIn(hook, source)
 
 
 if __name__ == "__main__":

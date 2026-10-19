@@ -209,6 +209,33 @@ new executable or starting simulations expected to exceed two minutes also
 requires separate approval immediately before execution. No dependency
 installation is planned.
 
+## Amendment 1 — 2026-10-18: scheduled ticks (trace version 2)
+
+Structural validation showed that version-1 records misplace two stage
+boundaries. The `llc_response_ready` and `response_enqueue` hooks run when the
+LLC *schedules* its response, logging `curTick()`, while the response becomes
+ready at a later tick passed to `schedTimingResp`/`schedSendTiming`. For LLC
+hits the version-1 `admit_to_llc_ready` was 0 and the hit latency appeared
+inside `queue_residence`, so LLC service and response-queue waiting could not
+be separated. Under the "one unambiguous hook" rule above, implementation
+stopped and the trace was revised:
+
+- Records are `version=2` and add `sched=<tick>`: the tick passed to the
+  `sched*` call at that hook (`request_time` for an LLC hit, `completion_time`
+  for an MSHR fill, `when` at enqueue, `curTick()+latency` at the crossbar
+  forward), and `curTick()` at every other hook. `sched < tick` is invalid.
+- The two LLC hooks report `outcome=hit` (`BaseCache::handleTimingReqHit`) and
+  `outcome=fill` (`Cache::serviceMSHRTargets`), giving an exact hit/fill split.
+- Segments use scheduled readiness: LLC service is `llc.sched - admit.tick`;
+  queue residence is `dequeue.tick - enqueue.sched` (waiting beyond readiness,
+  including retries).
+- `upstream_gap`, the previous monitor delivery to the next admission, is
+  added as a descriptive segment because admission is traced only after the
+  TDMA check. It combines CPU issue, L1D handling, and admission wait.
+
+Hooks log already computed values only; they do not change scheduling. The
+version-1 executable is retained as `build/RISCV/gem5.opt.causal-v1`.
+
 ## Success criteria
 
 The work is complete when:

@@ -1,0 +1,15 @@
+[
+  "/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt",
+  "-d",
+  "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/causal-trace-20261016/structural-04/enabled",
+  "--debug-flags=CausalTrace",
+  "--debug-file=causal.log",
+  "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/causal-trace-20261016/test_trace_traffic.py",
+  "--baseline-root",
+  "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture",
+  "--vaddr-base",
+  "0x12080",
+  "--vaddr-size",
+  "0x40000",
+  "--trace"
+]

@@ -20,7 +20,7 @@ REQUIRED_FIELDS = {
 }
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class TraceEvent:
     version: int
     tick: int
@@ -32,6 +32,8 @@ class TraceEvent:
     vaddr: int
     size: int
     outcome: str | None
+    # Version 2: the future tick handed to a sched* call (equals tick otherwise).
+    sched: int | None = None
 
 
 def parse_trace_line(line: str) -> TraceEvent | None:
@@ -60,14 +62,21 @@ def parse_trace_line(line: str) -> TraceEvent | None:
     paddr = integer("paddr", 16)
     vaddr = integer("vaddr", 16)
     size = integer("size", 10)
-    if version != 1:
+    if version not in (1, 2):
         raise ValueError(f"unsupported version: {version}")
+    sched = None
+    if version == 2:
+        if "sched" not in fields:
+            raise ValueError("missing fields: sched")
+        sched = integer("sched", 10)
+        if sched < tick:
+            raise ValueError(f"sched {sched} precedes tick {tick}")
     stage = fields["stage"]
     if stage not in STAGES:
         raise ValueError(f"unknown stage: {stage}")
     return TraceEvent(version, tick, stage, fields["component"], requestor,
                       fields["cmd"], paddr, vaddr, size,
-                      fields.get("outcome"))
+                      fields.get("outcome"), sched)
 
 
 def read_trace(path: Path) -> list[TraceEvent]:
@@ -169,12 +178,16 @@ def latency_rows(timelines: list[dict], metadata: dict) -> list[dict]:
         raise ValueError("epoch_ticks must be positive")
     rows = []
     for index, timeline in enumerate(timelines):
+        if any(timeline[stage].sched is None for stage in REQUIRED_TIMELINE_STAGES):
+            raise ValueError(f"version-1 timeline lacks scheduled ticks at index {index}")
         admit = timeline["request_admit"].tick
-        ready = timeline["llc_response_ready"].tick
-        enqueue = timeline["response_enqueue"].tick
+        ready = timeline["llc_response_ready"].sched
+        enqueue = timeline["response_enqueue"].sched
         dequeue = timeline["response_dequeue"].tick
         xbar = timeline["xbar_response_forward"].tick
         delivery = timeline["cpu_delivery"].tick
+        if not admit <= ready <= enqueue <= dequeue <= xbar <= delivery:
+            raise ValueError(f"negative scheduled stage duration at index {index}")
         interval = (delivery - start) // width
         if interval < 0 or interval >= len(labels):
             raise ValueError(f"delivery outside labelled intervals at index {index}")
@@ -183,6 +196,7 @@ def latency_rows(timelines: list[dict], metadata: dict) -> list[dict]:
             "index": index,
             "interval": interval,
             "label": labels[interval],
+            "llc_path": timeline["llc_response_ready"].outcome,
             "boundary_crossing": admit_interval != interval,
             "retry_count": len(timeline["response_retries"]),
             "admit_to_llc_ready": ready - admit,

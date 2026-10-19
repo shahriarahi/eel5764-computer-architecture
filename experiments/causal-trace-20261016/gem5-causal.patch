@@ -1,5 +1,5 @@
 diff --git a/src/cpu/simple/timing.cc b/src/cpu/simple/timing.cc
-index dcc88e7..2f9cad8 100644
+index dcc88e7..31d2d6c 100644
 --- a/src/cpu/simple/timing.cc
 +++ b/src/cpu/simple/timing.cc
 @@ -40,6 +40,7 @@
@@ -14,7 +14,7 @@ index dcc88e7..2f9cad8 100644
  TimingSimpleCPU::DcachePort::recvTimingResp(PacketPtr pkt)
  {
      DPRINTF(SimpleCPU, "Received load/store response %#x\n", pkt->getAddr());
-+    CAUSAL_TRACE_EVENT("cpu_delivery", name(), pkt, "accepted");
++    CAUSAL_TRACE_EVENT("cpu_delivery", name(), pkt, curTick(), "accepted");
  
      // The timing CPU is not really ticked, instead it relies on the
      // memory system (fetch and load/store) to set the pace.
@@ -59,7 +59,7 @@ index 7084fd8..4248016 100644
      # forwarded after a specific latency.
      snoop_response_latency = Param.Cycles("Snoop response latency")
 diff --git a/src/mem/cache/base.cc b/src/mem/cache/base.cc
-index f6563e1..1719369 100644
+index f6563e1..46dd6a0 100644
 --- a/src/mem/cache/base.cc
 +++ b/src/mem/cache/base.cc
 @@ -44,6 +44,7 @@
@@ -75,12 +75,12 @@ index f6563e1..1719369 100644
          // just as the value of lat overriden by access(), which calls
          // the calculateAccessLatency() function.
 +        if (causalTraceLlc(name()))
-+            CAUSAL_TRACE_EVENT("llc_response_ready", name(), pkt, "ready");
++            CAUSAL_TRACE_EVENT("llc_response_ready", name(), pkt, request_time, "hit");
          cpuSidePort.schedTimingResp(pkt, request_time);
      } else {
          DPRINTF(Cache, "%s satisfied %s, no response needed\n", __func__,
 diff --git a/src/mem/cache/cache.cc b/src/mem/cache/cache.cc
-index bcf38da..16b900b 100644
+index bcf38da..bdc5c0a 100644
 --- a/src/mem/cache/cache.cc
 +++ b/src/mem/cache/cache.cc
 @@ -45,6 +45,7 @@
@@ -96,12 +96,12 @@ index bcf38da..16b900b 100644
              // Reset the bus additional time as it is now accounted for
              tgt_pkt->headerDelay = tgt_pkt->payloadDelay = 0;
 +            if (causalTraceLlc(name()))
-+                CAUSAL_TRACE_EVENT("llc_response_ready", name(), tgt_pkt, "ready");
++                CAUSAL_TRACE_EVENT("llc_response_ready", name(), tgt_pkt, completion_time, "fill");
              cpuSidePort.schedTimingResp(tgt_pkt, completion_time);
              break;
  
 diff --git a/src/mem/coherent_xbar.cc b/src/mem/coherent_xbar.cc
-index 74ef1ea..d0f93dc 100644
+index 74ef1ea..1317854 100644
 --- a/src/mem/coherent_xbar.cc
 +++ b/src/mem/coherent_xbar.cc
 @@ -44,6 +44,7 @@
@@ -211,7 +211,7 @@ index 74ef1ea..d0f93dc 100644
      Tick latency = pkt->headerDelay;
      pkt->headerDelay = 0;
 +    if (causalTraceXbar(name()))
-+        CAUSAL_TRACE_EVENT("xbar_response_forward", name(), pkt, "accepted");
++        CAUSAL_TRACE_EVENT("xbar_response_forward", name(), pkt, curTick() + latency, "accepted");
      cpuSidePorts[cpu_side_port_id]->schedTimingResp(pkt, curTick()
                                          + latency);
  
@@ -272,7 +272,7 @@ index 74ef1ea..d0f93dc 100644
 +    if (domain == 0) tdmaGrants0++; else tdmaGrants1++;
 +    if (pkt->isRead()) tdmaReadGrants++;
 +    if (pkt->isWriteback()) tdmaWritebackGrants++;
-+    CAUSAL_TRACE_EVENT("request_admit", name(), pkt, "admitted");
++    CAUSAL_TRACE_EVENT("request_admit", name(), pkt, curTick(), "admitted");
 +    return true;
 +}
 +
@@ -316,7 +316,7 @@ index 454012d..694ac66 100644
      bool recvTimingResp(PacketPtr pkt, PortID mem_side_port_id);
      void recvTimingSnoopReq(PacketPtr pkt, PortID mem_side_port_id);
 diff --git a/src/mem/packet_queue.cc b/src/mem/packet_queue.cc
-index d4a8cc3..ca1c665 100644
+index d4a8cc3..e5bad51 100644
 --- a/src/mem/packet_queue.cc
 +++ b/src/mem/packet_queue.cc
 @@ -39,6 +39,7 @@
@@ -332,7 +332,7 @@ index d4a8cc3..ca1c665 100644
              forceOrder);
  
 +    if (causalTraceQueue(name()))
-+        CAUSAL_TRACE_EVENT("response_enqueue", name(), pkt, "queued");
++        CAUSAL_TRACE_EVENT("response_enqueue", name(), pkt, when, "queued");
      // we can still send a packet before the end of this tick
      assert(when >= curTick());
  
@@ -341,23 +341,23 @@ index d4a8cc3..ca1c665 100644
      // use the appropriate implementation of sendTiming based on the
      // type of queue
 +    if (causalTraceQueue(name()))
-+        CAUSAL_TRACE_EVENT("response_send_attempt", name(), dp.pkt, "attempt");
++        CAUSAL_TRACE_EVENT("response_send_attempt", name(), dp.pkt, curTick(), "attempt");
      waitingOnRetry = !sendTiming(dp.pkt);
 +    if (causalTraceQueue(name())) {
 +        if (waitingOnRetry)
-+            CAUSAL_TRACE_EVENT("response_retry", name(), dp.pkt, "blocked");
++            CAUSAL_TRACE_EVENT("response_retry", name(), dp.pkt, curTick(), "blocked");
 +        else
-+            CAUSAL_TRACE_EVENT("response_dequeue", name(), dp.pkt, "sent");
++            CAUSAL_TRACE_EVENT("response_dequeue", name(), dp.pkt, curTick(), "sent");
 +    }
  
      // if we succeeded and are not waiting for a retry, schedule the
      // next send
 diff --git a/src/mem/causal_trace.hh b/src/mem/causal_trace.hh
 new file mode 100644
-index 0000000..16cce0d
+index 0000000..b37cb81
 --- /dev/null
 +++ b/src/mem/causal_trace.hh
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,34 @@
 +#ifndef __MEM_CAUSAL_TRACE_HH__
 +#define __MEM_CAUSAL_TRACE_HH__
 +
@@ -377,12 +377,14 @@ index 0000000..16cce0d
 +bool causalTraceQueue(const std::string &name);
 +}
 +
-+#define CAUSAL_TRACE_EVENT(STAGE, COMPONENT, PKT, OUTCOME) do { \
++// SCHED is the tick passed to a sched* call at this hook, else curTick().
++#define CAUSAL_TRACE_EVENT(STAGE, COMPONENT, PKT, SCHED, OUTCOME) do { \
 +    if (gem5::causalTraceEligible(PKT)) { \
-+        DPRINTF(CausalTrace, "CAUSAL_TRACE version=1 tick=%llu stage=" STAGE \
++        DPRINTF(CausalTrace, "CAUSAL_TRACE version=2 tick=%llu sched=%llu stage=" STAGE \
 +                " component=%s requestor=%u cmd=%s paddr=%#llx vaddr=%#llx" \
 +                " size=%u outcome=" OUTCOME "\n", \
-+                (unsigned long long)gem5::curTick(), (COMPONENT).c_str(), \
++                (unsigned long long)gem5::curTick(), \
++                (unsigned long long)(SCHED), (COMPONENT).c_str(), \
 +                (unsigned)(PKT)->req->requestorId(), (PKT)->cmdString(), \
 +                (unsigned long long)(PKT)->getAddr(), \
 +                (unsigned long long)(PKT)->req->getVaddr(), (PKT)->getSize()); \
