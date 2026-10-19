@@ -5,8 +5,13 @@ from pathlib import Path
 
 
 TDMA = Path(__file__).resolve().parent.parent / "tdma"
-sys.path.append(str(TDMA))  # after local modules: tdma has its own run_structural
-from run_pilot import stats_rows
+# TDMA must precede site-packages (its "validate" module collides with one) but
+# must not stay on the path, where it would shadow local run_structural/preserve.
+sys.path.insert(0, str(TDMA))
+try:
+    from run_pilot import stats_rows
+finally:
+    sys.path.remove(str(TDMA))
 from trace_analysis import match_timelines, read_trace
 
 
