@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 
-EXCLUDED_PARTS = {".git", "tdma-cd0", "tdma-ct0", "tdma-cd1", "tdma-ct1", "tdma-ct2",
+EXCLUDED_PARTS = {".git", "tdma-cd0", "tdma-ct0", "tdma-cd1", "tdma-ct1", "tdma-ct2", "tdma-ct3",
                   "causal-trace-20261016"}
 
 

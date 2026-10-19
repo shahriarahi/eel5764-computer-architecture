@@ -5,7 +5,7 @@ from pathlib import Path
 
 from preserve import check, snapshot, write_snapshot
 from run_cases import (
-    DISABLED_ROOT, ENABLED_ROOT, build_command, monitored_range, require_new,
+    DISABLED_ROOT, ENABLED_ROOT, build_command, case_timeout, monitored_range, require_new,
     temporary_case_name,
 )
 from validate_trace import validate_equivalence
@@ -34,9 +34,13 @@ class RunnerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "probe argument length"):
             temporary_case_name(Path("/a/long/parent/directory"), 10)
 
+    def test_trace_enabled_cases_get_the_longer_bound(self) -> None:
+        self.assertEqual(case_timeout(False), 240)
+        self.assertEqual(case_timeout(True), 900)
+
     def test_new_roots_avoid_the_aborted_attempt(self) -> None:
         self.assertNotIn(DISABLED_ROOT, {"tdma-cd0", "tdma-ct0"})
-        self.assertNotIn(ENABLED_ROOT, {"tdma-cd0", "tdma-ct0", "tdma-ct1"})
+        self.assertNotIn(ENABLED_ROOT, {"tdma-cd0", "tdma-ct0", "tdma-ct1", "tdma-ct2"})
 
     def test_builds_disabled_and_enabled_commands(self) -> None:
         reference = {"command": ["/old/gem5.opt", "-d", "/old/out",

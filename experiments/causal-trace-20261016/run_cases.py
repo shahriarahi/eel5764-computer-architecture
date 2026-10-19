@@ -13,8 +13,15 @@ import sys
 # tdma-cd0 holds the aborted 2026-10-18 attempt and is never reused.
 DISABLED_ROOT = "tdma-cd1"
 # tdma-ct1 holds the A=1 case that failed G3 under the one-to-one delivery matcher.
-ENABLED_ROOT = "tdma-ct2"
+# tdma-ct2 holds a valid A=1 case and an A=8 case that hit the 240 s bound.
+ENABLED_ROOT = "tdma-ct3"
 TIMEOUT_SECONDS = 240
+# Trace logging through /mnt/c roughly doubles A=8 host time; simulation is unaffected.
+TRACE_TIMEOUT_SECONDS = 900
+
+
+def case_timeout(trace: bool) -> int:
+    return TRACE_TIMEOUT_SECONDS if trace else TIMEOUT_SECONDS
 
 
 def require_new(path: Path) -> None:
@@ -94,12 +101,12 @@ def main() -> None:
         )
         (case / "command.json").write_text(json.dumps({
             "command": command, "trace": args.trace,
-            "timeout_seconds": TIMEOUT_SECONDS, "reference": str(reference),
+            "timeout_seconds": case_timeout(args.trace), "reference": str(reference),
         }, indent=2) + "\n")
         try:
             with (case / "launcher.log").open("x") as stream:
                 subprocess.run(command, cwd=project, stdout=stream,
-                               stderr=subprocess.STDOUT, timeout=TIMEOUT_SECONDS,
+                               stderr=subprocess.STDOUT, timeout=case_timeout(args.trace),
                                check=True, env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
             result = validate_equivalence(reference, case)
             if args.trace:

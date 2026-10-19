@@ -54,3 +54,13 @@
   read-only gives 33,024 timelines and 65,536 L1D deliveries. Step 2 reruns
   into the new root `tdma-ct2`. The executable, gates G1, G2, G4, and G5, and
   the analysis rules are unchanged.
+- **Step 2, attempt 2.** A=1 passed G2, G3, and G4: 33,024 timelines and
+  65,536 L1D deliveries. Its `causal.log` and `probes.bin` are byte-identical
+  to the preserved `tdma-ct1` A=1 case. A=8 hit the 240 s runner timeout after
+  writing 226 MB of trace and half the probe records. It is preserved as
+  `tdma-ct2/seed-5764a5e5/8-8.failed.lvuythtwjblxjtq`.
+- **Deviation.** Trace-enabled cases now have a 900 s bound; trace-disabled
+  cases keep 240 s. This bound is runner-only, and deterministic simulation does
+  not depend on it. Both endpoints rerun into the fresh root `tdma-ct3`, so the
+  analysis comes from one complete root. The repeated A=1 run doubles as a third
+  determinism check.
