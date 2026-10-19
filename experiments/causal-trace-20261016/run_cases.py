@@ -10,8 +10,9 @@ import subprocess
 import sys
 
 
-DISABLED_ROOT = "tdma-cd0"
-ENABLED_ROOT = "tdma-ct0"
+# tdma-cd0 holds the aborted 2026-10-18 attempt and is never reused.
+DISABLED_ROOT = "tdma-cd1"
+ENABLED_ROOT = "tdma-ct1"
 TIMEOUT_SECONDS = 240
 
 
@@ -20,9 +21,12 @@ def require_new(path: Path) -> None:
         raise FileExistsError(path)
 
 
-def temporary_case_name(final_name: str) -> str:
-    return "".join(secrets.choice(string.ascii_lowercase)
-                   for _ in range(len(final_name)))
+def temporary_case_name(parent: Path, probe_argument_length: int) -> str:
+    """Staging name giving parent/<name>/probes.bin the reference's exact length."""
+    width = probe_argument_length - len(str(parent / "x" / "probes.bin")) + 1
+    if width < 1:
+        raise ValueError("probe argument length unreachable under this parent")
+    return "".join(secrets.choice(string.ascii_lowercase) for _ in range(width))
 
 
 def monitored_range(metadata: dict) -> tuple[int, int]:
@@ -62,18 +66,24 @@ def main() -> None:
     root_name = ENABLED_ROOT if args.trace else DISABLED_ROOT
     result_root = project / "results/updated run" / root_name
     require_new(result_root)
-    result_root.mkdir()
+    parent = result_root / "seed-5764a5e5"
+    # Plan every case, including its exact probe-path length, before creating output.
+    planned = []
     for ways in (1, 8):
         name = f"{ways}-{16-ways}"
         reference = project / "results/updated run/tdma-onx/seed-5764a5e5" / name
         manifest = json.loads((reference / "command.json").read_text())
         metadata = json.loads((reference / "run_meta.json").read_text())
+        staging_name = temporary_case_name(parent, manifest["probe_argument_length"])
+        if len(str(parent / staging_name / "probes.bin")) != manifest["probe_argument_length"]:
+            raise ValueError("probe argument length differs from reference")
+        planned.append((name, reference, manifest, metadata, staging_name))
+    result_root.mkdir()
+    parent.mkdir()
+    for name, reference, manifest, metadata, staging_name in planned:
         vaddr_base, vaddr_size = monitored_range(metadata)
-        parent = result_root / "seed-5764a5e5"
-        parent.mkdir(exist_ok=True)
         final = parent / name
         require_new(final)
-        staging_name = temporary_case_name(name)
         case = parent / staging_name
         case.mkdir()
         command = build_command(
@@ -81,8 +91,6 @@ def main() -> None:
             here / "run_contention_causal.py", "cpu0.data",
             vaddr_base, vaddr_size,
         )
-        if len(str(case / "probes.bin")) != manifest["probe_argument_length"]:
-            raise ValueError("probe argument length differs from reference")
         (case / "command.json").write_text(json.dumps({
             "command": command, "trace": args.trace,
             "timeout_seconds": TIMEOUT_SECONDS, "reference": str(reference),

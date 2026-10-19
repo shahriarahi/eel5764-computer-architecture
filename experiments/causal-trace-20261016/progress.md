@@ -24,3 +24,15 @@
   creation, so no `tdma-cd0` output exists. The fix scopes the TDMA path to the
   `run_pilot` import, and `test_imports.py` now runs under both Windows and WSL
   Python. G4 is implemented as `gates.py`.
+- **Step 1, attempt 2: failed before simulation.** The runner's own guard
+  raised `probe argument length differs from reference` (126 vs 138). The
+  `tdma-onx` references ran in `.<case>.tmp.XXXXXX` staging directories, while
+  `run_cases.py` named staging with the final-name length. The leftover is an
+  empty `tdma-cd0/seed-5764a5e5/plom`. It is preserved, with
+  `tdma-cd0/FAILED.json` added as the only new file.
+- **Fix and deviation.** Staging names are now derived from the reference
+  `probe_argument_length` and checked for every case before any directory is
+  created. **Deviation from the preregistration:** the roots are
+  `tdma-cd1`/`tdma-ct1` instead of `tdma-cd0`/`tdma-ct0`, and `preserve.py`
+  excludes them. The new names have the same length, so the probe paths still
+  match the references exactly. Nothing else in the frozen plan changes.

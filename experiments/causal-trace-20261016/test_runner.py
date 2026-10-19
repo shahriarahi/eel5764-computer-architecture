@@ -20,11 +20,23 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(FileExistsError):
                 require_new(Path(directory))
 
-    def test_staging_name_preserves_case_path_length(self) -> None:
+    def test_staging_name_matches_reference_probe_argument_length(self) -> None:
+        # References ran inside ".<case>.tmp.XXXXXX" staging directories.
+        root = Path("/mnt/c/project/results/updated run")
         for name in ("1-15", "8-8"):
-            staging = temporary_case_name(name)
-            self.assertEqual(len(staging), len(name))
+            reference = root / "tdma-onx/seed-5764a5e5" / f".{name}.tmp.J72AuC" / "probes.bin"
+            parent = root / "tdma-cd1/seed-5764a5e5"
+            staging = temporary_case_name(parent, len(str(reference)))
+            self.assertEqual(len(str(parent / staging / "probes.bin")), len(str(reference)))
             self.assertNotEqual(staging, name)
+
+    def test_staging_name_rejects_unreachable_length(self) -> None:
+        with self.assertRaisesRegex(ValueError, "probe argument length"):
+            temporary_case_name(Path("/a/long/parent/directory"), 10)
+
+    def test_new_roots_avoid_the_aborted_attempt(self) -> None:
+        self.assertNotIn(DISABLED_ROOT, {"tdma-cd0", "tdma-ct0"})
+        self.assertNotIn(ENABLED_ROOT, {"tdma-cd0", "tdma-ct0"})
 
     def test_builds_disabled_and_enabled_commands(self) -> None:
         reference = {"command": ["/old/gem5.opt", "-d", "/old/out",

@@ -6,7 +6,8 @@ import json
 from pathlib import Path
 
 
-EXCLUDED_PARTS = {".git", "tdma-cd0", "tdma-ct0", "causal-trace-20261016"}
+EXCLUDED_PARTS = {".git", "tdma-cd0", "tdma-ct0", "tdma-cd1", "tdma-ct1",
+                  "causal-trace-20261016"}
 
 
 def snapshot(root: Path) -> dict[str, str]:
