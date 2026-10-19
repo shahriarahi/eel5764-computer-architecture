@@ -1,0 +1,364 @@
+<title>Group 18 Project Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; "start here" first, then the project's story in date order with its files, then reference tables per location. Paths are mono and copyable. */
+:root {
+  --paper: #f6f7fa; --surface: #ffffff; --ink: #14213d; --muted: #4a5568; --line: #dde2ea;
+  --accent: #b84a1a; --accent-soft: #fbeee6; --blue: #2364b8; --blue-soft: #e8f0fb; --ok: #2f7d4f;
+  --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --body: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', Consolas, 'Courier New', monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0f1729; --surface: #16213a; --ink: #eef1f6; --muted: #aeb8c8; --line: #2a3654;
+  --accent: #f0905f; --accent-soft: #2b2230; --blue: #7fb0ee; --blue-soft: #1b2a47; --ok: #6cc596; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0f1729; --surface: #16213a; --ink: #eef1f6; --muted: #aeb8c8; --line: #2a3654;
+  --accent: #f0905f; --accent-soft: #2b2230; --blue: #7fb0ee; --blue-soft: #1b2a47; --ok: #6cc596; color-scheme: dark }
+
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+.wrap { max-width: 52rem; margin: 0 auto; display: flex; flex-direction: column; gap: 2.75rem;
+  padding-block: 3rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: flex; flex-direction: column; gap: .75rem; }
+.eyebrow { font: 600 .75rem/1.3 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 600 clamp(2rem, 6vw, 2.75rem)/1.1 var(--display); text-wrap: balance; }
+h2 { font: 600 1.5rem/1.2 var(--display); text-wrap: balance; }
+h3 { font: 600 1.05rem/1.35 var(--body); text-wrap: balance; }
+p { max-width: 44rem; }
+.lede { color: var(--muted); font-size: 1.05rem; }
+section { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+code, .path { font-family: var(--mono); font-size: .86em; overflow-wrap: anywhere; }
+.muted { color: var(--muted); }
+a { color: var(--blue); }
+
+/* Places: the four locations at a glance */
+.places { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+.place { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.15rem;
+  display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.place .tag { font: 600 .7rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+
+/* Copyable path row */
+.copyrow { display: flex; gap: .5rem; align-items: flex-start; min-width: 0; }
+.copyrow .path { flex: 1; min-width: 0; background: var(--blue-soft); border-radius: 6px; padding: .35rem .55rem; }
+button.copy { font: 500 .78rem/1 var(--body); padding: .45rem .6rem; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; flex: none; }
+button.copy.done { background: var(--accent-soft); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* Start here */
+.start { display: flex; flex-direction: column; gap: .75rem; }
+.start li { list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: .9rem 1.1rem; display: flex; flex-direction: column; gap: .4rem; min-width: 0; }
+.start .why { color: var(--muted); font-size: .93rem; }
+
+/* Story timeline: dated steps in order */
+.story { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--line); margin-left: .4rem; }
+.step { position: relative; padding: 0 0 1.6rem 1.4rem; display: flex; flex-direction: column; gap: .45rem; min-width: 0; }
+.step::before { content: ""; position: absolute; left: -7px; top: .45rem; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--accent); }
+.step .date { font: 500 .78rem/1 var(--mono); color: var(--accent); }
+.step ul { display: flex; flex-direction: column; gap: .3rem; padding-left: 1.1rem; }
+.step li { color: var(--ink); }
+.step li .path { font-size: .82em; }
+
+/* Reference tables */
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+th { font-weight: 600; color: var(--muted); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+td:first-child { font-family: var(--mono); font-size: .82rem; white-space: nowrap; }
+.gh { font: 600 .7rem/1 var(--body); letter-spacing: .04em; padding: .2rem .45rem; border-radius: 999px; white-space: nowrap; display: inline-block; }
+.gh.yes { color: var(--ok); border: 1px solid var(--ok); }
+.gh.no { color: var(--accent); border: 1px solid var(--accent); }
+.note { background: var(--accent-soft); border-radius: 10px; padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: .5rem; }
+.note ul { display: flex; flex-direction: column; gap: .4rem; padding-left: 1.1rem; }
+footer { font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.25rem; display: flex; flex-direction: column; gap: .3rem; }
+@media (prefers-reduced-motion: no-preference) { button.copy { transition: background .15s ease } }
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">EEL 5764 · Group 18 · Study session Oct 28 · map as of Oct 19, 2026</p>
+  <h1>Group 18 project map</h1>
+  <p class="lede">Where every part of the LLC way-partitioning project lives: on Shahriar's PC, inside WSL, on GitHub, and on claude.ai. Start with the five files below, then follow the story in order.</p>
+</header>
+
+<section aria-labelledby="places">
+  <h2 id="places">The four places</h2>
+  <div class="places">
+    <div class="place">
+      <p class="tag">PC workspace (OneDrive)</p>
+      <div class="copyrow"><span class="path">C:\Users\shahr\OneDrive\Documents\Fall 26\Computer Architecture</span><button class="copy" type="button">Copy</button></div>
+      <p class="muted">The main project folder, on branch <code>main</code>. Paper, video script, Q&amp;A, the original study, all raw results.</p>
+    </div>
+    <div class="place">
+      <p class="tag">Experiment folder (inside the workspace)</p>
+      <div class="copyrow"><span class="path">…\Computer Architecture\.codex-tmp\tdma-worktree</span><button class="copy" type="button" data-copy="C:\Users\shahr\OneDrive\Documents\Fall 26\Computer Architecture\.codex-tmp\tdma-worktree">Copy</button></div>
+      <p class="muted">A second checkout on branch <code>experiment/tdma-prototype</code>. All follow-up experiments (time slots, tracing, defense) are in its <code>experiments\</code> folder.</p>
+    </div>
+    <div class="place">
+      <p class="tag">GitHub (private)</p>
+      <p><a href="https://github.com/shahriarahi/eel5764-computer-architecture">shahriarahi/eel5764-computer-architecture</a></p>
+      <p class="muted">Branches <code>main</code> (725d746) and <code>experiment/tdma-prototype</code> (1cdd42c). Teammates need to be added as collaborators to see it.</p>
+    </div>
+    <div class="place">
+      <p class="tag">WSL (Ubuntu-26.04)</p>
+      <div class="copyrow"><span class="path">\\wsl$\Ubuntu-26.04\home\shahriarahi\eel5764</span><button class="copy" type="button">Copy</button></div>
+      <p class="muted">The four gem5 simulator builds. Not in OneDrive and not on GitHub; the code changes are kept as patch files in the experiment folder.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="start">
+  <h2 id="start">Start here on Oct 28</h2>
+  <ul class="start">
+    <li>
+      <h3>Accepted proposal</h3>
+      <div class="copyrow"><span class="path">C:\Users\shahr\OneDrive\Desktop\Group18_EEL5764_Project_Proposal.pdf</span><button class="copy" type="button">Copy</button></div>
+      <p class="why">The question we promised to answer: does A/(16−A) way partitioning remove the active/idle difference across 3 seeds? Not in the repo; it is on the Desktop.</p>
+    </li>
+    <li>
+      <h3>Final paper v2</h3>
+      <div class="copyrow"><span class="path">Group18_EEL5764_Final_Paper_v2.docx</span><button class="copy" type="button">Copy</button></div>
+      <p class="why">Workspace root and GitHub <code>main</code>. 7 pages. Section IX is the new follow-up that closes the leak. Due Dec 1.</p>
+    </li>
+    <li>
+      <h3>Video deck (14 slides)</h3>
+      <p><a href="https://claude.ai/artifact/EKjoDCPUhVNbgpuURU4WYH">claude.ai/artifact/EKjoDCPUhVNbgpuURU4WYH</a></p>
+      <p class="why">Speaker notes match <code>VIDEO_SCRIPT_20261018.md</code> (651 words, about 4.3 minutes). Due Nov 17. Share it from the deck's Share menu.</p>
+    </li>
+    <li>
+      <h3>Peer Q&amp;A answer bank (33 answers)</h3>
+      <p><a href="https://claude.ai/artifact/85ibvJ4uADnwyPJbjRd82v">claude.ai/artifact/85ibvJ4uADnwyPJbjRd82v</a></p>
+      <p class="why">Local copy <code>PEER_QA_ANSWER_BANK_20261018.html</code>. For the Canvas Q&amp;A on Nov 19–20.</p>
+    </li>
+    <li>
+      <h3>Plain-language overview</h3>
+      <div class="copyrow"><span class="path">README.md</span><button class="copy" type="button">Copy</button></div>
+      <p class="why">Workspace root. Setup, final finding, and reproduction steps for the proposal's study. Written Oct 15, so it ends before the defense; for that part read the paper's Section IX.</p>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="story">
+  <h2 id="story">The project in order, with its files</h2>
+  <p class="muted">Paths starting with <code>experiments\</code> are inside the experiment folder (<code>.codex-tmp\tdma-worktree</code>). All other paths are relative to the workspace root.</p>
+  <div class="story">
+    <div class="step">
+      <p class="date">Sep 23 – Oct 1</p>
+      <h3>Course guidelines and the proposal</h3>
+      <ul>
+        <li><span class="path">eel5764-project-guidelines-fall2026.docx</span> deliverables, weights and deadlines</li>
+        <li><span class="path">Group18_EEL5764_Final_Project_Proposal_Aligned.docx</span> and other proposal drafts (the submitted PDF is on the Desktop)</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 1</p>
+      <h3>First study and the result we later withdrew</h3>
+      <ul>
+        <li><span class="path">REPORT.md</span>, <span class="path">REPORT_CORRECTED_20261001.md</span>, <span class="path">REPORT_REPEATED_20261001.md</span> the original "1/15 is enough" claim, now marked withdrawn</li>
+        <li><span class="path">Group18_EEL5764_Final_Project_Report.docx</span>, <span class="path">…_Expanded.docx</span> original report documents</li>
+        <li><span class="path">results\contention-repeated-20261001\</span> raw data of that run</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 11 – 12</p>
+      <h3>Self-eviction found, monitor fixed, v3 sweep (the proposal's answer)</h3>
+      <ul>
+        <li><span class="path">PREREGISTRATION_V2_20261011.md</span> decision rules written before the final data</li>
+        <li><span class="path">REPORT_UPDATED_RUN_20261011.md</span> technical report; Section 12 is the final v3 result</li>
+        <li><span class="path">results\updated run\sweep-v3\</span> the authoritative 48+2 runs and <code>summary_v3.json</code></li>
+        <li><span class="path">workloads\monitor.c</span>, <span class="path">workloads\aes_ttable.c</span>, <span class="path">configs\run_contention.py</span> monitor, victim and system configuration</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 14</p>
+      <h3>Validation and the crossbar mechanism study</h3>
+      <ul>
+        <li><span class="path">VALIDATION_20261014.md</span> everything reproduced byte for byte</li>
+        <li><span class="path">PREREGISTRATION_MECHANISM_20261014.md</span>, <span class="path">results\updated run\mech-summary\</span> crossbar ablation (outcome: partial)</li>
+        <li><span class="path">Group18_EEL5764_Final_Paper.docx</span> paper v1, <span class="path">VIDEO_SCRIPT_20261014.md</span>, <span class="path">PEER_QA_ANSWER_BANK_20261014.html</span> (kept as history)</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 15</p>
+      <h3>Beyond the proposal: request time slots</h3>
+      <ul>
+        <li><span class="path">experiments\tdma\RESULTS.md</span>, <span class="path">DESIGN.md</span>, <span class="path">summary-final\summary.json</span> leak shrinks 9× and 70×, still detectable</li>
+        <li><span class="path">results\updated run\tdma-off</span>, <span class="path">tdma-way</span>, <span class="path">tdma-onx</span>, <span class="path">tdma-gd0</span> raw runs</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 16</p>
+      <h3>Quiet-victim control</h3>
+      <ul>
+        <li><span class="path">experiments\quiet-control-20261016\RESULTS.md</span> the monitor alone shows no residual</li>
+        <li><span class="path">results\updated run\tdma-np0</span> (replays), <span class="path">tdma-nc0</span> (quiet victim)</li>
+        <li><span class="path">HANDOFF_20261016_CACHE_ISOLATION.md</span> status summary written that day</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 16 – 18</p>
+      <h3>Request-level tracing locates the last leak</h3>
+      <ul>
+        <li><span class="path">experiments\causal-trace-20261016\RESULTS.md</span> one-tick response-queue collision, rounded up to 1 ns</li>
+        <li><span class="path">docs\superpowers\specs\2026-10-16-causal-timing-localization-design.md</span> and the matching plan (in the experiment folder)</li>
+        <li><span class="path">results\updated run\tdma-ct3</span> final traces (489 MB), <span class="path">tdma-cd1</span> trace-off guards</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 18</p>
+      <h3>Per-domain response queues close it</h3>
+      <ul>
+        <li><span class="path">experiments\respq-defense-20261018\DESIGN.md</span> what was built</li>
+        <li><span class="path">experiments\respq-defense-20261018\RESULTS.md</span> endpoints and the full sweep: 0 of 8 distinguishable, 24/24 byte-identical</li>
+        <li><span class="path">results\updated run\tdma-rsv\summary_v3.csv</span> the proposal's decision table for the defense</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="date">Oct 18 – 19</p>
+      <h3>Deliverables updated</h3>
+      <ul>
+        <li><span class="path">Group18_EEL5764_Final_Paper_v2.docx</span> built by <span class="path">scripts\build_final_paper_v2.py</span></li>
+        <li><span class="path">results\updated run\defense-figures\</span> Fig. 3 and its slide version</li>
+        <li><span class="path">VIDEO_SCRIPT_20261018.md</span>, <span class="path">PEER_QA_ANSWER_BANK_20261018.html</span>, this map (<span class="path">PROJECT_MAP.html</span>)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="ref-root">
+  <h2 id="ref-root">Workspace folders</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">Folder</th><th scope="col">What is in it</th><th scope="col">GitHub</th></tr></thead>
+      <tbody>
+        <tr><td>configs\</td><td><code>run_contention.py</code>: the two-core gem5 system, way masks, interval schedule</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>workloads\</td><td>Monitor and T-table AES sources and binaries (<code>monitor_v3_l1d4k</code> is the final monitor)</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>gem5_ext\</td><td>Per-requestor partition manager, the gem5 extension that tags each core's requests</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>analysis\</td><td>Statistics and figures; <code>summarize_sweep_v3.py</code> is the frozen decision code</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>scripts\</td><td>Sweep runners and the paper builders (<code>build_final_paper_v2.py</code>, <code>plot_defense_figure.py</code>)</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>tests\</td><td>70 unit tests for the original study</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>results\</td><td>All raw simulation outputs; see the next table for <code>updated run\</code></td><td><span class="gh yes">partly</span></td></tr>
+        <tr><td>archive\</td><td>Copies of files before each correction (pre-Oct 11, pre-Oct 14, pre-mechanism)</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>docs\</td><td>Time-slot proposal review and planning notes</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>.codex-tmp\tdma-worktree\</td><td>The experiment folder (branch <code>experiment/tdma-prototype</code>)</td><td><span class="gh yes">experiment</span></td></tr>
+        <tr><td>lecture slides\, midterm\</td><td>Course material, not part of the project</td><td><span class="gh no">PC only</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="ref-results">
+  <h2 id="ref-results">Raw results: <code>results\updated run\</code></h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">Folder</th><th scope="col">What it is</th><th scope="col">GitHub</th></tr></thead>
+      <tbody>
+        <tr><td>sweep-v3</td><td>The proposal's final answer: 48 matched runs + 2 diagnostics</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>sweep</td><td>v2 sweep, superseded by v3</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>rerun-7-9-8-8, investigation-set191</td><td>Self-eviction investigation and the v3 rerun of 7/9 and 8/8</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>repro-v3, smoke, guard-mx, comparison</td><td>Reproduction check, smoke tests, mechanism guards, v1/v2 comparison</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>mech-std, -wid, -clk, -ide</td><td>Crossbar ablation runs (default, wider, 2 GHz, near-ideal)</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>mech-summary, mech-figures</td><td>Mechanism decision table and Fig. 2</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>defense-figures</td><td>Fig. 3 and its slide version</td><td><span class="gh yes">main</span></td></tr>
+        <tr><td>tdma-off, -way, -onx, -gd0</td><td>Time-slot study: no partition, way-only, way + slots, guards</td><td><span class="gh yes">experiment</span></td></tr>
+        <tr><td>tdma-np0, tdma-nc0</td><td>Quiet-victim control: replays and quiet runs</td><td><span class="gh no">PC only</span></td></tr>
+        <tr><td>tdma-cd1, tdma-ct3</td><td>Tracing: trace-off guards and final traces (ct3 is 489 MB)</td><td><span class="gh no">PC only</span></td></tr>
+        <tr><td>tdma-cd0, -ct1, -ct2</td><td>Failed tracing attempts, kept on purpose</td><td><span class="gh no">PC only</span></td></tr>
+        <tr><td>tdma-rga, -rgq, -rda, -rdq</td><td>Defense endpoints: two disabled guards, defended AES and quiet</td><td><span class="gh no">PC only</span></td></tr>
+        <tr><td>tdma-rsa, -rsq, -rsv</td><td>Defense sweep: AES runs, quiet runs, and the decision tables</td><td><span class="gh no">PC only</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">The older folders in <code>results\</code> (<code>contention-*</code>, <code>1-15</code> … <code>8-8</code>, <code>UNPARTITIONED</code>) belong to the September and October 1 studies.</p>
+</section>
+
+<section aria-labelledby="ref-exp">
+  <h2 id="ref-exp">Experiment folder: <code>experiments\</code></h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">Folder</th><th scope="col">Read first</th><th scope="col">Also there</th></tr></thead>
+      <tbody>
+        <tr><td>tdma</td><td>RESULTS.md, DESIGN.md</td><td>Time-slot gem5 patch, runner, validation, <code>summary-final\</code></td></tr>
+        <tr><td>quiet-control-20261016</td><td>RESULTS.md</td><td>Quiet victim source and binary, runner, analysis</td></tr>
+        <tr><td>causal-trace-20261016</td><td>RESULTS.md, PREREGISTRATION.md</td><td>Trace patch, analysis JSON, structural tests, <code>progress.md</code> (every failed attempt and why)</td></tr>
+        <tr><td>respq-defense-20261018</td><td>RESULTS.md, DESIGN.md</td><td>Defense patch, both preregistrations, sweep runner, <code>analysis\sweep_outcome.json</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="ref-wsl">
+  <h2 id="ref-wsl">gem5 builds in WSL: <code>/home/shahriarahi/eel5764/</code></h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">Folder</th><th scope="col">Used for</th><th scope="col">Rebuilt from</th></tr></thead>
+      <tbody>
+        <tr><td>gem5</td><td>Original study and mechanism study (unchanged gem5 v25.1.0.1)</td><td>gem5 commit c8222cc</td></tr>
+        <tr><td>gem5-timeslot</td><td>Request time slots</td><td>experiments\tdma\gem5-timeslot.patch</td></tr>
+        <tr><td>gem5-causal</td><td>Request-level tracing</td><td>experiments\causal-trace-20261016\gem5-causal.patch</td></tr>
+        <tr><td>gem5-respq</td><td>Per-domain response queue defense</td><td>experiments\respq-defense-20261018\gem5-respq.patch</td></tr>
+        <tr><td>gem5_ext</td><td>Link to the workspace's <code>gem5_ext\</code></td><td>main branch</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="ref-gh">
+  <h2 id="ref-gh">GitHub branches</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">Branch</th><th scope="col">Contains</th><th scope="col">Link</th></tr></thead>
+      <tbody>
+        <tr><td>main</td><td>Original study, mechanism study, paper v1 and v2, video scripts, Q&amp;A banks, scripts</td><td><a href="https://github.com/shahriarahi/eel5764-computer-architecture/tree/main">tree/main</a></td></tr>
+        <tr><td>experiment/tdma-prototype</td><td>Everything in the experiment folder: time slots, quiet control, tracing, defense</td><td><a href="https://github.com/shahriarahi/eel5764-computer-architecture/tree/experiment/tdma-prototype">tree/experiment/tdma-prototype</a></td></tr>
+        <tr><td>paper-v2-defense</td><td>Already merged into main; safe to ignore or delete</td><td>n/a</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="notes">
+  <h2 id="notes">Before the study session</h2>
+  <div class="note">
+    <ul>
+      <li>Share the video deck, the Q&amp;A bank and this map from each page's Share menu, and add teammates to the GitHub repository. All are private now.</li>
+      <li><code>.codex-tmp</code> starts with a dot, so some file browsers hide it. Type the path or use the Copy button above.</li>
+      <li>Results marked "PC only" are not backed up on GitHub. They are in OneDrive, which syncs them.</li>
+      <li>Keep the workspace on branch <code>main</code>. Switching branches there changes which files appear in the folder.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Simulation-only project in gem5 with public keys and inputs; no key recovery.</p>
+  <p>Local copy: <code>PROJECT_MAP.html</code> in the workspace root.</p>
+</footer>
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('button.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var row = btn.closest('.copyrow');
+      var span = row.querySelector('.path');
+      var text = btn.dataset.copy || span.textContent.trim();
+      function done(label) {
+        btn.textContent = label; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1500);
+      }
+      function fallback() {
+        var range = document.createRange(); range.selectNodeContents(span);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        done('Ctrl+C');
+      }
+      try { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); }
+      catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
