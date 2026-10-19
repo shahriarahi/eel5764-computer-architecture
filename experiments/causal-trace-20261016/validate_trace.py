@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 TDMA = Path(__file__).resolve().parent.parent / "tdma"
-sys.path.insert(0, str(TDMA))
+sys.path.append(str(TDMA))  # after local modules: tdma has its own run_structural
 from run_pilot import stats_rows
 from trace_analysis import match_timelines, read_trace
 

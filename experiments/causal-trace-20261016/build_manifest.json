@@ -1,0 +1,40 @@
+{
+  "gem5_source": "/home/shahriarahi/eel5764/gem5-causal",
+  "gem5_base_commit": "c8222cc67a399bfc01e8658dd14b30d5bfd634f9",
+  "tdma_patch_sha256": "b63cd7b003330870471a40e5e05df486d2f1dbc79af3592101da27df0b55234e",
+  "causal_patch_sha256": "854940fe80bf714205f2568561e11097e9825e2d424049452326d3f8479981f3",
+  "causal_executable_sha256": "e00523025fe19524f53d3b829402e7b25d623906ed52b0a5c319eab25f11b1db",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "python": "Python 3.14.4",
+  "recorded_utc": "2026-10-19T00:05:59+00:00",
+  "build_command": [
+    "scons",
+    "-C",
+    "/home/shahriarahi/eel5764/gem5-causal",
+    "build/RISCV/gem5.opt",
+    "-j14",
+    "EXTRAS=/home/shahriarahi/eel5764/gem5_ext"
+  ],
+  "build_attempts": [
+    {
+      "log": "build-logs/causal-build-01.log",
+      "outcome": "aborted after SConscript read; relative build path resolved under the project worktree (stray ./build left untouched)"
+    },
+    {
+      "log": "build-logs/causal-build-02.log",
+      "outcome": "failed: coherent_xbar.cc:153 'p' was not declared; fixed by storing causal parameters as CoherentXBar members"
+    },
+    {
+      "log": "build-logs/causal-build-03.log",
+      "outcome": "scons: done building targets"
+    },
+    {
+      "log": "build-logs/causal-build-04.log",
+      "outcome": "scons: done building targets (incremental; produced the recorded executable)"
+    }
+  ],
+  "notes": [
+    "Build logs are UTF-16 PowerShell captures; exit codes were not recorded, so outcomes are read from log text.",
+    "Existing warnings: GCC 15 outside gem5's supported range; Capstone absent. No dependencies were installed."
+  ]
+}

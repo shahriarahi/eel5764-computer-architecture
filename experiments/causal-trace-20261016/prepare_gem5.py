@@ -116,12 +116,26 @@ def main() -> None:
     # The coherent crossbar additionally has snoop responses''')
     replace("src/mem/coherent_xbar.cc", '#include "mem/coherent_xbar.hh"',
             '#include "mem/coherent_xbar.hh"\n#include "mem/causal_trace.hh"')
+    replace("src/mem/coherent_xbar.hh", "    const Cycles tdmaSlotCycles;",
+            '''    const std::string causalTraceRequestor;
+    const Addr causalTraceVaddrBase;
+    const Addr causalTraceVaddrSize;
+    const std::string causalTraceLlcName;
+    const std::string causalTraceQueueName;
+    const Cycles tdmaSlotCycles;''')
+    replace("src/mem/coherent_xbar.cc", "      tdmaSlotCycles(p.tdma_slot_cycles),",
+            '''      causalTraceRequestor(p.causal_trace_requestor),
+      causalTraceVaddrBase(p.causal_trace_vaddr_base),
+      causalTraceVaddrSize(p.causal_trace_vaddr_size),
+      causalTraceLlcName(p.causal_trace_llc_name),
+      causalTraceQueueName(p.causal_trace_queue_name),
+      tdmaSlotCycles(p.tdma_slot_cycles),''')
     replace("src/mem/coherent_xbar.cc", "    // iterate over our CPU-side ports and determine which of our",
-            '''    if (!p.causal_trace_requestor.empty()) {
-        fatal_if(p.causal_trace_vaddr_size == 0, "causal trace range is empty");
-        configureCausalTrace(system->lookupRequestorId(p.causal_trace_requestor),
-            p.causal_trace_vaddr_base, p.causal_trace_vaddr_size, name(),
-            p.causal_trace_llc_name, p.causal_trace_queue_name);
+            '''    if (!causalTraceRequestor.empty()) {
+        fatal_if(causalTraceVaddrSize == 0, "causal trace range is empty");
+        configureCausalTrace(system->lookupRequestorId(causalTraceRequestor),
+            causalTraceVaddrBase, causalTraceVaddrSize, name(),
+            causalTraceLlcName, causalTraceQueueName);
     }
     // iterate over our CPU-side ports and determine which of our''')
     replace("src/mem/coherent_xbar.cc", "    if (pkt->isRead()) tdmaReadGrants++;\n    if (pkt->isWriteback()) tdmaWritebackGrants++;\n    return true;",

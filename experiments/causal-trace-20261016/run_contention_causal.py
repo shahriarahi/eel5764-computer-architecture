@@ -21,6 +21,10 @@ def domain_for_peer(name: str) -> int:
     return int(match.group(1))
 
 
+def llc_response_queue_name(llc: str) -> str:
+    return f"{llc}.cpu_side_port-CpuSidePort"
+
+
 def validate_trace_config(enabled: bool, requestor: str, base: int, size: int,
                           llc: str, queue: str) -> None:
     if not enabled:
@@ -52,8 +56,9 @@ def main() -> None:
     parser.add_argument("--causal-vaddr-base", type=lambda value: int(value, 0), default=0)
     parser.add_argument("--causal-vaddr-size", type=lambda value: int(value, 0), default=0)
     parser.add_argument("--causal-llc", default="system.llc")
-    parser.add_argument("--causal-queue", default="system.llc.cpu_side")
+    parser.add_argument("--causal-queue", default="")
     args, remaining = parser.parse_known_args()
+    args.causal_queue = args.causal_queue or llc_response_queue_name(args.causal_llc)
     validate_trace_config(args.causal_trace, args.causal_requestor,
                           args.causal_vaddr_base, args.causal_vaddr_size,
                           args.causal_llc, args.causal_queue)

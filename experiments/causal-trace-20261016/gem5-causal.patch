@@ -101,7 +101,7 @@ index bcf38da..16b900b 100644
              break;
  
 diff --git a/src/mem/coherent_xbar.cc b/src/mem/coherent_xbar.cc
-index 74ef1ea..9f9229a 100644
+index 74ef1ea..d0f93dc 100644
 --- a/src/mem/coherent_xbar.cc
 +++ b/src/mem/coherent_xbar.cc
 @@ -44,6 +44,7 @@
@@ -112,10 +112,15 @@ index 74ef1ea..9f9229a 100644
  
  #include "base/compiler.hh"
  #include "base/logging.hh"
-@@ -62,6 +63,18 @@ CoherentXBar::CoherentXBar(const CoherentXBarParams &p)
+@@ -62,6 +63,23 @@ CoherentXBar::CoherentXBar(const CoherentXBarParams &p)
        maxRoutingTableSizeCheck(p.max_routing_table_size),
        pointOfCoherency(p.point_of_coherency),
        pointOfUnification(p.point_of_unification),
++      causalTraceRequestor(p.causal_trace_requestor),
++      causalTraceVaddrBase(p.causal_trace_vaddr_base),
++      causalTraceVaddrSize(p.causal_trace_vaddr_size),
++      causalTraceLlcName(p.causal_trace_llc_name),
++      causalTraceQueueName(p.causal_trace_queue_name),
 +      tdmaSlotCycles(p.tdma_slot_cycles),
 +      tdmaPortDomains(p.tdma_port_domains),
 +      tdmaWaiting(p.port_cpu_side_ports_connection_count, false),
@@ -131,7 +136,7 @@ index 74ef1ea..9f9229a 100644
  
        ADD_STAT(snoops, statistics::units::Count::get(), "Total snoops"),
        ADD_STAT(snoopTraffic, statistics::units::Byte::get(), "Total snoop traffic"),
-@@ -125,6 +138,24 @@ CoherentXBar::init()
+@@ -125,6 +143,24 @@ CoherentXBar::init()
  {
      BaseXBar::init();
  
@@ -147,16 +152,16 @@ index 74ef1ea..9f9229a 100644
 +        tdmaSchedule = std::make_unique<tdma::SlotSchedule>(
 +            uint64_t(tdmaSlotCycles) * clockPeriod());
 +    }
-+    if (!p.causal_trace_requestor.empty()) {
-+        fatal_if(p.causal_trace_vaddr_size == 0, "causal trace range is empty");
-+        configureCausalTrace(system->lookupRequestorId(p.causal_trace_requestor),
-+            p.causal_trace_vaddr_base, p.causal_trace_vaddr_size, name(),
-+            p.causal_trace_llc_name, p.causal_trace_queue_name);
++    if (!causalTraceRequestor.empty()) {
++        fatal_if(causalTraceVaddrSize == 0, "causal trace range is empty");
++        configureCausalTrace(system->lookupRequestorId(causalTraceRequestor),
++            causalTraceVaddrBase, causalTraceVaddrSize, name(),
++            causalTraceLlcName, causalTraceQueueName);
 +    }
      // iterate over our CPU-side ports and determine which of our
      // neighbouring memory-side ports are snooping and add them as snoopers
      for (const auto& p: cpuSidePorts) {
-@@ -158,6 +189,14 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+@@ -158,6 +194,14 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
      // and the cache responding flag should always be the same
      assert(is_express_snoop == cache_responding);
  
@@ -171,7 +176,7 @@ index 74ef1ea..9f9229a 100644
      // determine the destination based on the destination address range
      PortID mem_side_port_id = findPort(pkt);
  
-@@ -165,6 +204,7 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+@@ -165,6 +209,7 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
      // port, and exclude express snoops from the check
      if (!is_express_snoop &&
          !reqLayers[mem_side_port_id]->tryTiming(src_port)) {
@@ -179,7 +184,7 @@ index 74ef1ea..9f9229a 100644
          DPRINTF(CoherentXBar, "%s: src %s packet %s BUSY\n", __func__,
                  src_port->name(), pkt->print());
          return false;
-@@ -210,6 +250,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+@@ -210,6 +255,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
                          src_port->name(), pkt->print());
  
                  // update the layer state and schedule an idle event
@@ -190,7 +195,7 @@ index 74ef1ea..9f9229a 100644
                  reqLayers[mem_side_port_id]->failedTiming(src_port,
                                                          clockEdge(Cycles(1)));
                  return false;
-@@ -319,6 +363,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+@@ -319,6 +368,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
                  src_port->name(), pkt->print());
  
          // update the layer state and schedule an idle event
@@ -201,7 +206,7 @@ index 74ef1ea..9f9229a 100644
          reqLayers[mem_side_port_id]->failedTiming(src_port,
                                                  clockEdge(Cycles(1)));
      } else {
-@@ -490,6 +538,8 @@ CoherentXBar::recvTimingResp(PacketPtr pkt, PortID mem_side_port_id)
+@@ -490,6 +543,8 @@ CoherentXBar::recvTimingResp(PacketPtr pkt, PortID mem_side_port_id)
      // any outstanding header delay
      Tick latency = pkt->headerDelay;
      pkt->headerDelay = 0;
@@ -210,7 +215,7 @@ index 74ef1ea..9f9229a 100644
      cpuSidePorts[cpu_side_port_id]->schedTimingResp(pkt, curTick()
                                          + latency);
  
-@@ -724,6 +774,63 @@ CoherentXBar::forwardTiming(PacketPtr pkt, PortID exclude_cpu_side_port_id,
+@@ -724,6 +779,63 @@ CoherentXBar::forwardTiming(PacketPtr pkt, PortID exclude_cpu_side_port_id,
      snoopFanout.sample(fanout);
  }
  
@@ -275,7 +280,7 @@ index 74ef1ea..9f9229a 100644
  CoherentXBar::recvReqRetry(PortID mem_side_port_id)
  {
 diff --git a/src/mem/coherent_xbar.hh b/src/mem/coherent_xbar.hh
-index 454012d..01797f1 100644
+index 454012d..694ac66 100644
 --- a/src/mem/coherent_xbar.hh
 +++ b/src/mem/coherent_xbar.hh
 @@ -51,6 +51,7 @@
@@ -286,10 +291,15 @@ index 454012d..01797f1 100644
  #include "params/CoherentXBar.hh"
  
  namespace gem5
-@@ -305,6 +306,18 @@ class CoherentXBar : public BaseXBar
+@@ -305,6 +306,23 @@ class CoherentXBar : public BaseXBar
       */
      std::unique_ptr<Packet> pendingDelete;
  
++    const std::string causalTraceRequestor;
++    const Addr causalTraceVaddrBase;
++    const Addr causalTraceVaddrSize;
++    const std::string causalTraceLlcName;
++    const std::string causalTraceQueueName;
 +    const Cycles tdmaSlotCycles;
 +    const std::vector<unsigned> tdmaPortDomains;
 +    std::unique_ptr<tdma::SlotSchedule> tdmaSchedule;

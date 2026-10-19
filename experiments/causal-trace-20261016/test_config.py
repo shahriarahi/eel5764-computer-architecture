@@ -1,10 +1,19 @@
 import unittest
 
 from prepare_gem5 import STAGES, TARGETS
-from run_contention_causal import domain_for_peer, validate_trace_config
+from run_contention_causal import (
+    domain_for_peer, llc_response_queue_name, validate_trace_config,
+)
 
 
 class TraceConfigTests(unittest.TestCase):
+    def test_queue_name_matches_gem5_resp_packet_queue(self) -> None:
+        # RespPacketQueue::name() is cpuSidePort.name() + "-" + label, and
+        # BaseCache names its port "<cache>.cpu_side_port" with "CpuSidePort".
+        self.assertEqual(llc_response_queue_name("system.llc"),
+                         "system.llc.cpu_side_port-CpuSidePort")
+
+
     def test_disabled_accepts_empty_filter(self) -> None:
         validate_trace_config(False, "", 0, 0, "", "")
 
