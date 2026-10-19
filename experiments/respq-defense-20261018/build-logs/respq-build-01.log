@@ -1,0 +1,1189 @@
+seeded build dir in 12 s
+scons: Reading SConscript files ...
+Mkdir("/home/shahriarahi/eel5764/gem5-respq/build/RISCV/gem5.build")
+Checking for linker -Wl,--as-needed support... (cached) yes
+Warning: Detected GCC version 15.2.0 is not officially supported.
+         gem5 supports GCC v11 up to v14.2.
+Checking for compiler -gz support... (cached) yes
+Checking for linker -gz support... (cached) yes
+Info: Using Python config: python3-config
+Checking for C header file Python.h... (cached) yes
+Checking Python version... (cached) 3.14.4
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for C library tcmalloc_minimal... (cached) yes
+Building in /home/shahriarahi/eel5764/gem5-respq/build/RISCV
+"build_tools/kconfig_base.py" "/home/shahriarahi/eel5764/gem5-respq/build/RISCV/gem5.build/Kconfig" "/home/shahriarahi/eel5764/gem5-respq/src/Kconfig" "/home/shahriarahi/eel5764/gem5_ext"
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file png.h... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for C header file valgrind/valgrind.h... (cached) no
+Checking for pkg-config package hdf5-serial... (cached) yes
+Checking for H5Fcreate("", 0, 0, 0) in C library hdf5... (cached) yes
+Checking for H5::H5File("", 0) in C++ library hdf5_cpp... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for C header file linux/if_tun.h... (cached) yes
+Checking for C header file capstone/capstone.h... (cached) no
+Warning: Header file <capstone/capstone.h> not found.
+         This host has no capstone library installed.
+Checking for C header file linux/kvm.h... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Checking for backtrace_symbols_fd((void *)1, 0, 0) in C library None... (cached) yes
+Checking for pkg-config package protobuf... (cached) yes
+Checking for shm_open("/test", 0, 0) in C library None... (cached) yes
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+Checking for compiler -Wno-self-assign-overloaded support... (cached) yes
+Checking for linker -Wno-free-nonheap-object support... (cached) yes
+BUILD_TLM not set, not building CHI-TLM integration
+
+scons: done reading SConscript files.
+scons: Building targets ...
+ [EMBED PY] src/base/Graphics.py -> RISCV/base/Graphics.py.cc
+ [EMBED PY] src/base/filters/BloomFilters.py -> RISCV/base/filters/BloomFilters.py.cc
+ [EMBED PY] src/base/vnc/Vnc.py -> RISCV/base/vnc/Vnc.py.cc
+ [EMBED PY] src/python/gem5/__init__.py -> RISCV/python/gem5/__init__.py.cc
+ [EMBED PY] src/python/gem5/coherence_protocol.py -> RISCV/python/gem5/coherence_protocol.py.cc
+ [EMBED PY] src/python/gem5/isas.py -> RISCV/python/gem5/isas.py.cc
+ [EMBED PY] src/python/gem5/runtime.py -> RISCV/python/gem5/runtime.py.cc
+ [EMBED PY] src/python/gem5/simulate/__init__.py -> RISCV/python/gem5/simulate/__init__.py.cc
+ [EMBED PY] src/python/gem5/simulate/simulator.py -> RISCV/python/gem5/simulate/simulator.py.cc
+ [EMBED PY] src/python/gem5/simulate/exit_event.py -> RISCV/python/gem5/simulate/exit_event.py.cc
+ [EMBED PY] src/python/gem5/simulate/exit_event_generators.py -> RISCV/python/gem5/simulate/exit_event_generators.py.cc
+ [EMBED PY] src/python/gem5/simulate/exit_handler.py -> RISCV/python/gem5/simulate/exit_handler.py.cc
+ [EMBED PY] src/python/gem5/components/__init__.py -> RISCV/python/gem5/components/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/boards/__init__.py -> RISCV/python/gem5/components/boards/__init__.py.cc
+ [     CXX] RISCV/base/Graphics.py.cc -> .pyo
+ [     CXX] RISCV/base/filters/BloomFilters.py.cc -> .pyo
+ [     CXX] RISCV/base/vnc/Vnc.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/coherence_protocol.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/runtime.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/isas.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/simulate/exit_event_generators.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/simulate/exit_handler.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/simulate/simulator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/simulate/exit_event.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/simulate/__init__.py.cc -> .pyo
+ [     CXX] RISCV/base/Graphics.py.cc -> .o
+ [EMBED PY] src/python/gem5/components/boards/abstract_board.py -> RISCV/python/gem5/components/boards/abstract_board.py.cc
+ [EMBED PY] src/python/gem5/components/boards/abstract_system_board.py -> RISCV/python/gem5/components/boards/abstract_system_board.py.cc
+ [EMBED PY] src/python/gem5/components/boards/mem_mode.py -> RISCV/python/gem5/components/boards/mem_mode.py.cc
+ [EMBED PY] src/python/gem5/components/boards/riscv_board.py -> RISCV/python/gem5/components/boards/riscv_board.py.cc
+ [EMBED PY] src/python/gem5/components/boards/experimental/__init__.py -> RISCV/python/gem5/components/boards/experimental/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/boards/experimental/lupv_board.py -> RISCV/python/gem5/components/boards/experimental/lupv_board.py.cc
+ [EMBED PY] src/python/gem5/components/boards/simple_board.py -> RISCV/python/gem5/components/boards/simple_board.py.cc
+ [EMBED PY] src/python/gem5/components/boards/test_board.py -> RISCV/python/gem5/components/boards/test_board.py.cc
+ [     CXX] RISCV/python/gem5/components/boards/abstract_system_board.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/boards/x86_board.py -> RISCV/python/gem5/components/boards/x86_board.py.cc
+ [     CXX] RISCV/python/gem5/components/boards/abstract_board.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/boards/arm_board.py -> RISCV/python/gem5/components/boards/arm_board.py.cc
+ [     CXX] RISCV/python/gem5/components/boards/mem_mode.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/boards/kernel_disk_workload.py -> RISCV/python/gem5/components/boards/kernel_disk_workload.py.cc
+ [EMBED PY] src/python/gem5/components/boards/se_binary_workload.py -> RISCV/python/gem5/components/boards/se_binary_workload.py.cc
+ [     CXX] RISCV/python/gem5/components/boards/experimental/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/__init__.py -> RISCV/python/gem5/components/cachehierarchies/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/boards/riscv_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/test_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/simple_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/experimental/lupv_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/x86_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/kernel_disk_workload.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/arm_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/boards/se_binary_workload.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/abstract_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/abstract_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/abstract_two_level_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/abstract_two_level_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/abstract_three_level_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/abstract_three_level_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/__init__.py -> RISCV/python/gem5/components/cachehierarchies/chi/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/private_l1_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/chi/private_l1_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/private_l1_private_l2_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/chi/private_l1_private_l2_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/__init__.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/abstract_node.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/abstract_node.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/directory.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/directory.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_two_level_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_three_level_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/dma_requestor.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/dma_requestor.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/l1_cache.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/l1_cache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/private_l1_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/l2_cache.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/l2_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/chi/nodes/memory_controller.py -> RISCV/python/gem5/components/cachehierarchies/chi/nodes/memory_controller.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/private_l1_private_l2_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/abstract_node.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/directory.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/l1_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/l2_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/dma_requestor.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/memory_controller.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/__init__.py -> RISCV/python/gem5/components/cachehierarchies/classic/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/abstract_classic_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/abstract_classic_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/no_cache.py -> RISCV/python/gem5/components/cachehierarchies/classic/no_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_cache_hierarchy.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/abstract_classic_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_walk_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_walk_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/two_level_fdp_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/two_level_fdp_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_walk_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_walk_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_walk_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_walk_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/caches/__init__.py -> RISCV/python/gem5/components/cachehierarchies/classic/caches/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/caches/l1dcache.py -> RISCV/python/gem5/components/cachehierarchies/classic/caches/l1dcache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/no_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_walk_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/caches/l1icache.py -> RISCV/python/gem5/components/cachehierarchies/classic/caches/l1icache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/two_level_fdp_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_walk_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_walk_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l1dcache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l1icache.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/caches/l2cache.py -> RISCV/python/gem5/components/cachehierarchies/classic/caches/l2cache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l2cache.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/classic/caches/mmu_cache.py -> RISCV/python/gem5/components/cachehierarchies/classic/caches/mmu_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/abstract_ruby_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/ruby/abstract_ruby_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/mesi_two_level_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/ruby/mesi_two_level_cache_hierarchy.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/mmu_cache.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/mesi_three_level_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/ruby/mesi_three_level_cache_hierarchy.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/mi_example_cache_hierarchy.py -> RISCV/python/gem5/components/cachehierarchies/ruby/mi_example_cache_hierarchy.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/directory.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/directory.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/dma_controller.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/dma_controller.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/abstract_ruby_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l1_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l1_cache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mesi_two_level_cache_hierarchy.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l2_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l2_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mesi_three_level_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mi_example_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/dma_controller.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/directory.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l1_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l2_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/directory.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/directory.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/directory.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/dma_controller.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/dma_controller.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l1_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l1_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l2_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l2_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l3_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l3_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/dma_controller.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l1_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l2_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l3_cache.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/core_complex.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/core_complex.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi_network.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi_network.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/ruby_network_components.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/ruby_network_components.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mi_example/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mi_example/directory.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/directory.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mi_example/dma_controller.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/dma_controller.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/ruby_network_components.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi_network.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/core_complex.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/directory.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/dma_controller.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/mi_example/l1_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/l1_cache.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/l1_cache.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/corepair_cache.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/corepair_cache.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/directory.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/directory.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/dma_controller.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/dma_controller.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/tcp.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcp.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/sqc.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/sqc.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/caches/viper/tcc.py -> RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcc.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/corepair_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/topologies/__init__.py -> RISCV/python/gem5/components/cachehierarchies/ruby/topologies/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/cachehierarchies/ruby/topologies/simple_pt2pt.py -> RISCV/python/gem5/components/cachehierarchies/ruby/topologies/simple_pt2pt.py.cc
+ [EMBED PY] src/python/gem5/components/devices/__init__.py -> RISCV/python/gem5/components/devices/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/directory.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/dma_controller.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcp.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/devices/gpus/__init__.py -> RISCV/python/gem5/components/devices/gpus/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/sqc.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcc.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/devices/gpus/amdgpu.py -> RISCV/python/gem5/components/devices/gpus/amdgpu.py.cc
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/topologies/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/topologies/simple_pt2pt.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/devices/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/devices/gpus/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/devices/gpus/amdgpu.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/devices/gpus/viper_shader.py -> RISCV/python/gem5/components/devices/gpus/viper_shader.py.cc
+ [     CXX] RISCV/python/gem5/components/devices/gpus/viper_shader.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/__init__.py -> RISCV/python/gem5/components/memory/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/abstract_memory_system.py -> RISCV/python/gem5/components/memory/abstract_memory_system.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dramsim_3.py -> RISCV/python/gem5/components/memory/dramsim_3.py.cc
+ [EMBED PY] src/python/gem5/components/memory/simple.py -> RISCV/python/gem5/components/memory/simple.py.cc
+ [EMBED PY] src/python/gem5/components/memory/memory.py -> RISCV/python/gem5/components/memory/memory.py.cc
+ [EMBED PY] src/python/gem5/components/memory/single_channel.py -> RISCV/python/gem5/components/memory/single_channel.py.cc
+ [EMBED PY] src/python/gem5/components/memory/multi_channel.py -> RISCV/python/gem5/components/memory/multi_channel.py.cc
+ [EMBED PY] src/python/gem5/components/memory/hbm.py -> RISCV/python/gem5/components/memory/hbm.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/abstract_memory_system.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/simple.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/memory.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dramsim_3.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/single_channel.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/multi_channel.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/__init__.py -> RISCV/python/gem5/components/memory/dram_interfaces/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/ddr3.py -> RISCV/python/gem5/components/memory/dram_interfaces/ddr3.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/ddr4.py -> RISCV/python/gem5/components/memory/dram_interfaces/ddr4.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/ddr5.py -> RISCV/python/gem5/components/memory/dram_interfaces/ddr5.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/gddr.py -> RISCV/python/gem5/components/memory/dram_interfaces/gddr.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/hbm.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr5.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr4.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/gddr.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr3.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/hbm.py -> RISCV/python/gem5/components/memory/dram_interfaces/hbm.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/hbm.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/hmc.py -> RISCV/python/gem5/components/memory/dram_interfaces/hmc.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/hmc.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/lpddr2.py -> RISCV/python/gem5/components/memory/dram_interfaces/lpddr2.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/lpddr3.py -> RISCV/python/gem5/components/memory/dram_interfaces/lpddr3.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/lpddr5.py -> RISCV/python/gem5/components/memory/dram_interfaces/lpddr5.py.cc
+ [EMBED PY] src/python/gem5/components/memory/dram_interfaces/wideio.py -> RISCV/python/gem5/components/memory/dram_interfaces/wideio.py.cc
+ [EMBED PY] src/python/gem5/components/processors/__init__.py -> RISCV/python/gem5/components/processors/__init__.py.cc
+ [EMBED PY] src/python/gem5/components/processors/abstract_core.py -> RISCV/python/gem5/components/processors/abstract_core.py.cc
+ [EMBED PY] src/python/gem5/components/processors/abstract_generator_core.py -> RISCV/python/gem5/components/processors/abstract_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr2.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/abstract_generator.py -> RISCV/python/gem5/components/processors/abstract_generator.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr3.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/abstract_processor.py -> RISCV/python/gem5/components/processors/abstract_processor.py.cc
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr5.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/wideio.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/complex_generator_core.py -> RISCV/python/gem5/components/processors/complex_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/abstract_core.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/abstract_generator_core.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/abstract_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/complex_generator.py -> RISCV/python/gem5/components/processors/complex_generator.py.cc
+ [EMBED PY] src/python/gem5/components/processors/cpu_types.py -> RISCV/python/gem5/components/processors/cpu_types.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/abstract_processor.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/complex_generator_core.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/complex_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/cpu_types.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/gups_generator_core.py -> RISCV/python/gem5/components/processors/gups_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/gups_generator.py -> RISCV/python/gem5/components/processors/gups_generator.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/gups_generator_ep.py -> RISCV/python/gem5/components/processors/gups_generator_ep.py.cc
+ [EMBED PY] src/python/gem5/components/processors/gups_generator_par.py -> RISCV/python/gem5/components/processors/gups_generator_par.py.cc
+ [EMBED PY] src/python/gem5/components/processors/linear_generator_core.py -> RISCV/python/gem5/components/processors/linear_generator_core.py.cc
+ [EMBED PY] src/python/gem5/components/processors/linear_generator.py -> RISCV/python/gem5/components/processors/linear_generator.py.cc
+ [EMBED PY] src/python/gem5/components/processors/strided_generator_core.py -> RISCV/python/gem5/components/processors/strided_generator_core.py.cc
+ [EMBED PY] src/python/gem5/components/processors/strided_generator.py -> RISCV/python/gem5/components/processors/strided_generator.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_ep.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/random_generator_core.py -> RISCV/python/gem5/components/processors/random_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_par.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/random_generator.py -> RISCV/python/gem5/components/processors/random_generator.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/linear_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/linear_generator_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/spatter_gen/__init__.py -> RISCV/python/gem5/components/processors/spatter_gen/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/strided_generator_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/spatter_gen/spatter_generator_core.py -> RISCV/python/gem5/components/processors/spatter_gen/spatter_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/strided_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/random_generator_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/spatter_gen/spatter_generator.py -> RISCV/python/gem5/components/processors/spatter_gen/spatter_generator.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/random_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/spatter_gen/spatter_kernel.py -> RISCV/python/gem5/components/processors/spatter_gen/spatter_kernel.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_generator_core.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_kernel.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/simple_core.py -> RISCV/python/gem5/components/processors/simple_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/simple_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/base_cpu_core.py -> RISCV/python/gem5/components/processors/base_cpu_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/base_cpu_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/simple_processor.py -> RISCV/python/gem5/components/processors/simple_processor.py.cc
+ [EMBED PY] src/python/gem5/components/processors/decoupled_processor.py -> RISCV/python/gem5/components/processors/decoupled_processor.py.cc
+ [EMBED PY] src/python/gem5/components/processors/base_cpu_processor.py -> RISCV/python/gem5/components/processors/base_cpu_processor.py.cc
+ [EMBED PY] src/python/gem5/components/processors/simple_switchable_processor.py -> RISCV/python/gem5/components/processors/simple_switchable_processor.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/simple_processor.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/switchable_processor.py -> RISCV/python/gem5/components/processors/switchable_processor.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/decoupled_processor.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/simpoint.py -> RISCV/python/gem5/utils/simpoint.py.cc
+ [EMBED PY] src/python/gem5/components/processors/traffic_generator_core.py -> RISCV/python/gem5/components/processors/traffic_generator_core.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/base_cpu_processor.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/simple_switchable_processor.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/components/processors/traffic_generator.py -> RISCV/python/gem5/components/processors/traffic_generator.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/__init__.py -> RISCV/python/gem5/prebuilt/__init__.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/demo/__init__.py -> RISCV/python/gem5/prebuilt/demo/__init__.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/switchable_processor.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/simpoint.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/demo/x86_demo_board.py -> RISCV/python/gem5/prebuilt/demo/x86_demo_board.py.cc
+ [     CXX] RISCV/python/gem5/components/processors/traffic_generator_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/demo/riscv_demo_board.py -> RISCV/python/gem5/prebuilt/demo/riscv_demo_board.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/components/processors/traffic_generator.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/demo/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/demo/x86_demo_board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/demo/riscv_demo_board.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/demo/arm_demo_board.py -> RISCV/python/gem5/prebuilt/demo/arm_demo_board.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/demo/arm_demo_board.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/riscvmatched/__init__.py -> RISCV/python/gem5/prebuilt/riscvmatched/__init__.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/riscvmatched/riscvmatched_board.py -> RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_board.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/riscvmatched/riscvmatched_cache.py -> RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_cache.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/riscvmatched/riscvmatched_processor.py -> RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_processor.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/riscvmatched/riscvmatched_core.py -> RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_core.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/viper/__init__.py -> RISCV/python/gem5/prebuilt/viper/__init__.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/viper/board.py -> RISCV/python/gem5/prebuilt/viper/board.py.cc
+ [EMBED PY] src/python/gem5/prebuilt/viper/cpu_cache_hierarchy.py -> RISCV/python/gem5/prebuilt/viper/cpu_cache_hierarchy.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_board.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/viper/gpu_cache_hierarchy.py -> RISCV/python/gem5/prebuilt/viper/gpu_cache_hierarchy.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_cache.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_processor.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/prebuilt/viper/viper_network.py -> RISCV/python/gem5/prebuilt/viper/viper_network.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/viper/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_core.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/__init__.py -> RISCV/python/gem5/resources/__init__.py.cc
+ [EMBED PY] src/python/gem5/resources/client.py -> RISCV/python/gem5/resources/client.py.cc
+ [     CXX] RISCV/python/gem5/prebuilt/viper/board.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/viper/cpu_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/viper/gpu_cache_hierarchy.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/prebuilt/viper/viper_network.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/downloader.py -> RISCV/python/gem5/resources/downloader.py.cc
+ [     CXX] RISCV/python/gem5/resources/client.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/downloader.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/md5_utils.py -> RISCV/python/gem5/resources/md5_utils.py.cc
+ [     CXX] RISCV/python/gem5/resources/md5_utils.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/resource.py -> RISCV/python/gem5/resources/resource.py.cc
+ [EMBED PY] src/python/gem5/resources/workload.py -> RISCV/python/gem5/resources/workload.py.cc
+ [EMBED PY] src/python/gem5/resources/looppoint.py -> RISCV/python/gem5/resources/looppoint.py.cc
+ [EMBED PY] src/python/gem5/resources/elfie.py -> RISCV/python/gem5/resources/elfie.py.cc
+ [EMBED PY] src/python/gem5/resources/client_api/__init__.py -> RISCV/python/gem5/resources/client_api/__init__.py.cc
+ [     CXX] RISCV/python/gem5/resources/resource.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/workload.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/client_api/jsonclient.py -> RISCV/python/gem5/resources/client_api/jsonclient.py.cc
+ [EMBED PY] src/python/gem5/resources/client_api/azure_functions_client.py -> RISCV/python/gem5/resources/client_api/azure_functions_client.py.cc
+ [EMBED PY] src/python/gem5/resources/client_api/abstract_client.py -> RISCV/python/gem5/resources/client_api/abstract_client.py.cc
+ [     CXX] RISCV/python/gem5/resources/looppoint.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/client_api/__init__.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/resources/client_api/client_query.py -> RISCV/python/gem5/resources/client_api/client_query.py.cc
+ [     CXX] RISCV/python/gem5/resources/elfie.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/gem5_default_config.py -> RISCV/python/gem5/gem5_default_config.py.cc
+ [EMBED PY] src/python/gem5/utils/__init__.py -> RISCV/python/gem5/utils/__init__.py.cc
+ [EMBED PY] src/python/gem5/utils/filelock.py -> RISCV/python/gem5/utils/filelock.py.cc
+ [     CXX] RISCV/python/gem5/resources/client_api/jsonclient.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/client_api/azure_functions_client.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/client_api/abstract_client.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/resources/client_api/client_query.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/gem5_default_config.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/filelock.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/override.py -> RISCV/python/gem5/utils/override.py.cc
+ [     CXX] RISCV/python/gem5/utils/override.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/progress_bar.py -> RISCV/python/gem5/utils/progress_bar.py.cc
+ [     CXX] RISCV/python/gem5/utils/progress_bar.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/requires.py -> RISCV/python/gem5/utils/requires.py.cc
+ [EMBED PY] src/python/gem5/utils/socks_ssl_context.py -> RISCV/python/gem5/utils/socks_ssl_context.py.cc
+ [EMBED PY] src/python/gem5/utils/multisim/__init__.py -> RISCV/python/gem5/utils/multisim/__init__.py.cc
+ [EMBED PY] src/python/gem5/utils/multisim/multisim.py -> RISCV/python/gem5/utils/multisim/multisim.py.cc
+ [     CXX] RISCV/python/gem5/utils/requires.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/socks_ssl_context.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/multisim/__main__.py -> RISCV/python/gem5/utils/multisim/__main__.py.cc
+ [EMBED PY] src/python/gem5/utils/multiprocessing/__init__.py -> RISCV/python/gem5/utils/multiprocessing/__init__.py.cc
+ [EMBED PY] src/python/gem5/utils/multiprocessing/_command_line.py -> RISCV/python/gem5/utils/multiprocessing/_command_line.py.cc
+ [EMBED PY] src/python/gem5/utils/multiprocessing/context.py -> RISCV/python/gem5/utils/multiprocessing/context.py.cc
+ [     CXX] RISCV/python/gem5/utils/multisim/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/multisim/multisim.py.cc -> .pyo
+ [EMBED PY] src/python/gem5/utils/multiprocessing/popen_spawn_gem5.py -> RISCV/python/gem5/utils/multiprocessing/popen_spawn_gem5.py.cc
+ [EMBED PY] src/python/importer.py -> RISCV/python/importer.py.cc
+ [EMBED PY] src/python/m5/__init__.py -> RISCV/python/m5/__init__.py.cc
+ [     CXX] RISCV/python/gem5/utils/multisim/__main__.py.cc -> .pyo
+ [EMBED PY] src/python/m5/SimObject.py -> RISCV/python/m5/SimObject.py.cc
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/_command_line.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/context.py.cc -> .pyo
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/popen_spawn_gem5.py.cc -> .pyo
+ [     CXX] RISCV/python/importer.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/SimObject.py.cc -> .pyo
+ [EMBED PY] src/python/m5/citations.py -> RISCV/python/m5/citations.py.cc
+ [     CXX] RISCV/python/m5/citations.py.cc -> .pyo
+ [EMBED PY] src/python/m5/core.py -> RISCV/python/m5/core.py.cc
+ [     CXX] RISCV/python/m5/core.py.cc -> .pyo
+ [EMBED PY] src/python/m5/debug.py -> RISCV/python/m5/debug.py.cc
+ [EMBED PY] src/python/m5/event.py -> RISCV/python/m5/event.py.cc
+ [EMBED PY] src/python/m5/main.py -> RISCV/python/m5/main.py.cc
+ [EMBED PY] src/python/m5/options.py -> RISCV/python/m5/options.py.cc
+ [EMBED PY] src/python/m5/proxy.py -> RISCV/python/m5/proxy.py.cc
+ [     CXX] RISCV/python/m5/debug.py.cc -> .pyo
+ [EMBED PY] src/python/m5/simulate.py -> RISCV/python/m5/simulate.py.cc
+ [EMBED PY] src/python/m5/ticks.py -> RISCV/python/m5/ticks.py.cc
+ [     CXX] RISCV/python/m5/event.py.cc -> .pyo
+ [EMBED PY] src/python/m5/trace.py -> RISCV/python/m5/trace.py.cc
+ [     CXX] RISCV/python/m5/main.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/options.py.cc -> .pyo
+ [EMBED PY] src/python/m5/objects/__init__.py -> RISCV/python/m5/objects/__init__.py.cc
+ [EMBED PY] src/python/m5/params/__init__.py -> RISCV/python/m5/params/__init__.py.cc
+ [     CXX] RISCV/python/m5/proxy.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/base_params.py -> RISCV/python/m5/params/base_params.py.cc
+ [     CXX] RISCV/python/m5/simulate.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ticks.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/trace.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/objects/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/params/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/params/base_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/deprecated_params.py -> RISCV/python/m5/params/deprecated_params.py.cc
+ [     CXX] RISCV/python/m5/params/deprecated_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/enum_params.py -> RISCV/python/m5/params/enum_params.py.cc
+ [     CXX] RISCV/python/m5/params/enum_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/network_params.py -> RISCV/python/m5/params/network_params.py.cc
+ [     CXX] RISCV/python/m5/params/network_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/null_params.py -> RISCV/python/m5/params/null_params.py.cc
+ [EMBED PY] src/python/m5/params/pin_params.py -> RISCV/python/m5/params/pin_params.py.cc
+ [EMBED PY] src/python/m5/params/param_types.py -> RISCV/python/m5/params/param_types.py.cc
+ [EMBED PY] src/python/m5/params/port_params.py -> RISCV/python/m5/params/port_params.py.cc
+ [EMBED PY] src/python/m5/params/power_params.py -> RISCV/python/m5/params/power_params.py.cc
+ [     CXX] RISCV/python/m5/params/null_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/params/time_params.py -> RISCV/python/m5/params/time_params.py.cc
+ [EMBED PY] src/python/m5/stats/__init__.py -> RISCV/python/m5/stats/__init__.py.cc
+ [     CXX] RISCV/python/m5/params/pin_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/__init__.py -> RISCV/python/m5/util/__init__.py.cc
+ [EMBED PY] src/python/m5/util/attrdict.py -> RISCV/python/m5/util/attrdict.py.cc
+ [     CXX] RISCV/python/m5/params/param_types.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/params/power_params.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/params/port_params.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/convert.py -> RISCV/python/m5/util/convert.py.cc
+ [EMBED PY] src/python/m5/util/dot_writer.py -> RISCV/python/m5/util/dot_writer.py.cc
+ [     CXX] RISCV/python/m5/params/time_params.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/stats/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/util/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/util/attrdict.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/util/convert.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/util/dot_writer.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/dot_writer_ruby.py -> RISCV/python/m5/util/dot_writer_ruby.py.cc
+ [     CXX] RISCV/python/m5/util/dot_writer_ruby.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/fdthelper.py -> RISCV/python/m5/util/fdthelper.py.cc
+ [     CXX] RISCV/python/m5/util/fdthelper.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/multidict.py -> RISCV/python/m5/util/multidict.py.cc
+ [     CXX] RISCV/python/m5/util/multidict.py.cc -> .pyo
+ [EMBED PY] src/python/m5/util/pybind.py -> RISCV/python/m5/util/pybind.py.cc
+ [EMBED PY] src/python/m5/util/terminal.py -> RISCV/python/m5/util/terminal.py.cc
+ [EMBED PY] src/python/m5/util/terminal_formatter.py -> RISCV/python/m5/util/terminal_formatter.py.cc
+ [EMBED PY] src/python/m5/ext/__init__.py -> RISCV/python/m5/ext/__init__.py.cc
+ [     CXX] RISCV/python/m5/util/pybind.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pyfdt/pyfdt.py -> RISCV/python/m5/ext/pyfdt/pyfdt.py.cc
+ [EMBED PY] src/python/m5/ext/pyfdt/__init__.py -> RISCV/python/m5/ext/pyfdt/__init__.py.cc
+ [     CXX] RISCV/python/m5/util/terminal.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/__init__.py -> RISCV/python/m5/ext/pystats/__init__.py.cc
+ [EMBED PY] src/python/m5/ext/pystats/serializable_stat.py -> RISCV/python/m5/ext/pystats/serializable_stat.py.cc
+ [EMBED PY] src/python/m5/ext/pystats/abstract_stat.py -> RISCV/python/m5/ext/pystats/abstract_stat.py.cc
+ [EMBED PY] src/python/m5/ext/pystats/group.py -> RISCV/python/m5/ext/pystats/group.py.cc
+ [     CXX] RISCV/python/m5/util/terminal_formatter.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pystats/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pyfdt/__init__.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pyfdt/pyfdt.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pystats/serializable_stat.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/simstat.py -> RISCV/python/m5/ext/pystats/simstat.py.cc
+ [     CXX] RISCV/python/m5/ext/pystats/abstract_stat.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pystats/group.py.cc -> .pyo
+ [     CXX] RISCV/python/m5/ext/pystats/simstat.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/statistic.py -> RISCV/python/m5/ext/pystats/statistic.py.cc
+ [     CXX] RISCV/python/m5/ext/pystats/statistic.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/storagetype.py -> RISCV/python/m5/ext/pystats/storagetype.py.cc
+ [     CXX] RISCV/python/m5/ext/pystats/storagetype.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/timeconversion.py -> RISCV/python/m5/ext/pystats/timeconversion.py.cc
+ [     CXX] RISCV/python/m5/ext/pystats/timeconversion.py.cc -> .pyo
+ [EMBED PY] src/python/m5/ext/pystats/jsonloader.py -> RISCV/python/m5/ext/pystats/jsonloader.py.cc
+ [EMBED PY] src/python/m5/stats/gem5stats.py -> RISCV/python/m5/stats/gem5stats.py.cc
+ [EMBED PY] src/python/m5/objects/SimObject.py -> RISCV/python/m5/objects/SimObject.py.cc
+ [     CXX] RISCV/python/m5/ext/pystats/jsonloader.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/PMAChecker.py -> RISCV/arch/riscv/PMAChecker.py.cc
+ [EMBED PY] src/arch/riscv/PMP.py -> RISCV/arch/riscv/PMP.py.cc
+ [     CXX] RISCV/python/m5/stats/gem5stats.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvDecoder.py -> RISCV/arch/riscv/RiscvDecoder.py.cc
+ [EMBED PY] src/arch/riscv/RiscvFsWorkload.py -> RISCV/arch/riscv/RiscvFsWorkload.py.cc
+ [     CXX] RISCV/python/m5/objects/SimObject.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvInterrupts.py -> RISCV/arch/riscv/RiscvInterrupts.py.cc
+ [     CXX] RISCV/arch/riscv/PMAChecker.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvISA.py -> RISCV/arch/riscv/RiscvISA.py.cc
+ [     CXX] RISCV/arch/riscv/PMP.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvMMU.py -> RISCV/arch/riscv/RiscvMMU.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvFsWorkload.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvSemihosting.py -> RISCV/arch/riscv/RiscvSemihosting.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvDecoder.py.cc -> .pyo
+ [     CXX] RISCV/arch/riscv/RiscvInterrupts.py.cc -> .pyo
+ [     CXX] RISCV/arch/riscv/RiscvISA.py.cc -> .pyo
+ [     CXX] RISCV/arch/riscv/RiscvMMU.py.cc -> .pyo
+ [     CXX] RISCV/arch/riscv/RiscvSemihosting.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvSeWorkload.py -> RISCV/arch/riscv/RiscvSeWorkload.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvSeWorkload.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvTLB.py -> RISCV/arch/riscv/RiscvTLB.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvTLB.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvCPU.py -> RISCV/arch/riscv/RiscvCPU.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvCPU.py.cc -> .pyo
+ [EMBED PY] src/arch/riscv/RiscvSystem.py -> RISCV/arch/riscv/RiscvSystem.py.cc
+ [EMBED PY] src/arch/generic/BaseSemihosting.py -> RISCV/arch/generic/BaseSemihosting.py.cc
+ [EMBED PY] src/arch/generic/BaseInterrupts.py -> RISCV/arch/generic/BaseInterrupts.py.cc
+ [EMBED PY] src/arch/generic/BaseISA.py -> RISCV/arch/generic/BaseISA.py.cc
+ [     CXX] RISCV/arch/riscv/RiscvSystem.py.cc -> .pyo
+ [EMBED PY] src/arch/generic/BaseMMU.py -> RISCV/arch/generic/BaseMMU.py.cc
+ [     CXX] RISCV/arch/generic/BaseSemihosting.py.cc -> .pyo
+ [     CXX] RISCV/arch/generic/BaseInterrupts.py.cc -> .pyo
+ [     CXX] RISCV/arch/generic/BaseISA.py.cc -> .pyo
+ [EMBED PY] src/arch/generic/BaseTLB.py -> RISCV/arch/generic/BaseTLB.py.cc
+ [EMBED PY] src/arch/generic/InstDecoder.py -> RISCV/arch/generic/InstDecoder.py.cc
+ [EMBED PY] src/learning_gem5/part2/SimpleObject.py -> RISCV/learning_gem5/part2/SimpleObject.py.cc
+ [     CXX] RISCV/arch/generic/BaseMMU.py.cc -> .pyo
+ [EMBED PY] src/learning_gem5/part2/HelloObject.py -> RISCV/learning_gem5/part2/HelloObject.py.cc
+ [EMBED PY] src/learning_gem5/part2/SimpleMemobj.py -> RISCV/learning_gem5/part2/SimpleMemobj.py.cc
+ [     CXX] RISCV/arch/generic/BaseTLB.py.cc -> .pyo
+ [     CXX] RISCV/arch/generic/InstDecoder.py.cc -> .pyo
+ [EMBED PY] src/learning_gem5/part2/SimpleCache.py -> RISCV/learning_gem5/part2/SimpleCache.py.cc
+ [     CXX] RISCV/learning_gem5/part2/SimpleObject.py.cc -> .pyo
+ [     CXX] RISCV/learning_gem5/part2/HelloObject.py.cc -> .pyo
+ [     CXX] RISCV/learning_gem5/part2/SimpleMemobj.py.cc -> .pyo
+ [     CXX] RISCV/learning_gem5/part2/SimpleCache.py.cc -> .pyo
+ [EMBED PY] src/sst/OutgoingRequestBridge.py -> RISCV/sst/OutgoingRequestBridge.py.cc
+ [     CXX] RISCV/sst/OutgoingRequestBridge.py.cc -> .pyo
+ [EMBED PY] src/dev/Device.py -> RISCV/dev/Device.py.cc
+ [     CXX] RISCV/dev/Device.py.cc -> .pyo
+ [EMBED PY] src/dev/Platform.py -> RISCV/dev/Platform.py.cc
+ [     CXX] RISCV/dev/Platform.py.cc -> .pyo
+ [EMBED PY] src/dev/BadDevice.py -> RISCV/dev/BadDevice.py.cc
+ [EMBED PY] src/dev/qemu/QemuFwCfg.py -> RISCV/dev/qemu/QemuFwCfg.py.cc
+ [EMBED PY] src/dev/ps2/PS2.py -> RISCV/dev/ps2/PS2.py.cc
+ [EMBED PY] src/dev/serial/Serial.py -> RISCV/dev/serial/Serial.py.cc
+ [     CXX] RISCV/dev/BadDevice.py.cc -> .pyo
+ [     CXX] RISCV/dev/qemu/QemuFwCfg.py.cc -> .pyo
+ [     CXX] RISCV/dev/ps2/PS2.py.cc -> .pyo
+ [     CXX] RISCV/dev/serial/Serial.py.cc -> .pyo
+ [EMBED PY] src/dev/serial/Terminal.py -> RISCV/dev/serial/Terminal.py.cc
+ [EMBED PY] src/dev/serial/Uart.py -> RISCV/dev/serial/Uart.py.cc
+ [EMBED PY] src/dev/riscv/HiFive.py -> RISCV/dev/riscv/HiFive.py.cc
+ [EMBED PY] src/dev/riscv/LupV.py -> RISCV/dev/riscv/LupV.py.cc
+ [EMBED PY] src/dev/riscv/Clint.py -> RISCV/dev/riscv/Clint.py.cc
+ [     CXX] RISCV/dev/serial/Terminal.py.cc -> .pyo
+ [     CXX] RISCV/dev/serial/Uart.py.cc -> .pyo
+ [EMBED PY] src/dev/riscv/PlicDevice.py -> RISCV/dev/riscv/PlicDevice.py.cc
+ [EMBED PY] src/dev/riscv/Plic.py -> RISCV/dev/riscv/Plic.py.cc
+ [     CXX] RISCV/dev/riscv/HiFive.py.cc -> .pyo
+ [     CXX] RISCV/dev/riscv/LupV.py.cc -> .pyo
+ [     CXX] RISCV/dev/riscv/Clint.py.cc -> .pyo
+ [     CXX] RISCV/dev/riscv/PlicDevice.py.cc -> .pyo
+ [     CXX] RISCV/dev/riscv/Plic.py.cc -> .pyo
+ [EMBED PY] src/dev/riscv/RTC.py -> RISCV/dev/riscv/RTC.py.cc
+ [     CXX] RISCV/dev/riscv/RTC.py.cc -> .pyo
+ [EMBED PY] src/dev/riscv/RiscvVirtIOMMIO.py -> RISCV/dev/riscv/RiscvVirtIOMMIO.py.cc
+ [     CXX] RISCV/dev/riscv/RiscvVirtIOMMIO.py.cc -> .pyo
+ [EMBED PY] src/dev/storage/Ide.py -> RISCV/dev/storage/Ide.py.cc
+ [     CXX] RISCV/dev/storage/Ide.py.cc -> .pyo
+ [EMBED PY] src/dev/storage/DiskImage.py -> RISCV/dev/storage/DiskImage.py.cc
+ [EMBED PY] src/dev/storage/SimpleDisk.py -> RISCV/dev/storage/SimpleDisk.py.cc
+ [EMBED PY] src/dev/virtio/VirtIO.py -> RISCV/dev/virtio/VirtIO.py.cc
+ [EMBED PY] src/dev/virtio/VirtIOConsole.py -> RISCV/dev/virtio/VirtIOConsole.py.cc
+ [     CXX] RISCV/dev/storage/DiskImage.py.cc -> .pyo
+ [EMBED PY] src/dev/virtio/VirtIOBlock.py -> RISCV/dev/virtio/VirtIOBlock.py.cc
+ [EMBED PY] src/dev/virtio/VirtIORng.py -> RISCV/dev/virtio/VirtIORng.py.cc
+ [     CXX] RISCV/dev/storage/SimpleDisk.py.cc -> .pyo
+ [     CXX] RISCV/dev/virtio/VirtIO.py.cc -> .pyo
+ [EMBED PY] src/dev/virtio/VirtIO9P.py -> RISCV/dev/virtio/VirtIO9P.py.cc
+ [     CXX] RISCV/dev/virtio/VirtIOConsole.py.cc -> .pyo
+ [     CXX] RISCV/dev/virtio/VirtIOBlock.py.cc -> .pyo
+ [EMBED PY] src/dev/pci/PciDevice.py -> RISCV/dev/pci/PciDevice.py.cc
+ [EMBED PY] src/dev/pci/PciUpstream.py -> RISCV/dev/pci/PciUpstream.py.cc
+ [     CXX] RISCV/dev/virtio/VirtIORng.py.cc -> .pyo
+ [     CXX] RISCV/dev/virtio/VirtIO9P.py.cc -> .pyo
+ [EMBED PY] src/dev/pci/PciHost.py -> RISCV/dev/pci/PciHost.py.cc
+ [EMBED PY] src/dev/pci/CopyEngine.py -> RISCV/dev/pci/CopyEngine.py.cc
+ [     CXX] RISCV/dev/pci/PciDevice.py.cc -> .pyo
+ [     CXX] RISCV/dev/pci/PciUpstream.py.cc -> .pyo
+ [     CXX] RISCV/dev/pci/PciHost.py.cc -> .pyo
+ [     CXX] RISCV/dev/pci/CopyEngine.py.cc -> .pyo
+ [EMBED PY] src/dev/net/Ethernet.py -> RISCV/dev/net/Ethernet.py.cc
+ [     CXX] RISCV/dev/net/Ethernet.py.cc -> .pyo
+ [EMBED PY] src/dev/i2c/I2C.py -> RISCV/dev/i2c/I2C.py.cc
+ [     CXX] RISCV/dev/i2c/I2C.py.cc -> .pyo
+ [EMBED PY] src/dev/lupio/LupioBLK.py -> RISCV/dev/lupio/LupioBLK.py.cc
+ [EMBED PY] src/dev/lupio/LupioIPI.py -> RISCV/dev/lupio/LupioIPI.py.cc
+ [     CXX] RISCV/dev/lupio/LupioBLK.py.cc -> .pyo
+ [EMBED PY] src/dev/lupio/LupioPIC.py -> RISCV/dev/lupio/LupioPIC.py.cc
+ [EMBED PY] src/dev/lupio/LupioRNG.py -> RISCV/dev/lupio/LupioRNG.py.cc
+ [EMBED PY] src/dev/lupio/LupioRTC.py -> RISCV/dev/lupio/LupioRTC.py.cc
+ [EMBED PY] src/dev/lupio/LupioTMR.py -> RISCV/dev/lupio/LupioTMR.py.cc
+ [     CXX] RISCV/dev/lupio/LupioIPI.py.cc -> .pyo
+ [EMBED PY] src/dev/lupio/LupioTTY.py -> RISCV/dev/lupio/LupioTTY.py.cc
+ [EMBED PY] src/dev/lupio/LupioSYS.py -> RISCV/dev/lupio/LupioSYS.py.cc
+ [EMBED PY] src/cpu/FuncUnit.py -> RISCV/cpu/FuncUnit.py.cc
+ [     CXX] RISCV/dev/lupio/LupioPIC.py.cc -> .pyo
+ [EMBED PY] src/cpu/StaticInstFlags.py -> RISCV/cpu/StaticInstFlags.py.cc
+ [     CXX] RISCV/dev/lupio/LupioRNG.py.cc -> .pyo
+ [     CXX] RISCV/dev/lupio/LupioRTC.py.cc -> .pyo
+ [     CXX] RISCV/dev/lupio/LupioTMR.py.cc -> .pyo
+ [     CXX] RISCV/dev/lupio/LupioTTY.py.cc -> .pyo
+ [     CXX] RISCV/dev/lupio/LupioSYS.py.cc -> .pyo
+ [     CXX] RISCV/cpu/FuncUnit.py.cc -> .pyo
+ [     CXX] RISCV/cpu/StaticInstFlags.py.cc -> .pyo
+ [EMBED PY] src/cpu/InstPBTrace.py -> RISCV/cpu/InstPBTrace.py.cc
+ [EMBED PY] src/cpu/BaseCPU.py -> RISCV/cpu/BaseCPU.py.cc
+ [     CXX] RISCV/cpu/InstPBTrace.py.cc -> .pyo
+ [     CXX] RISCV/cpu/BaseCPU.py.cc -> .pyo
+ [EMBED PY] src/cpu/CpuCluster.py -> RISCV/cpu/CpuCluster.py.cc
+ [     CXX] RISCV/cpu/CpuCluster.py.cc -> .pyo
+ [EMBED PY] src/cpu/CPUTracers.py -> RISCV/cpu/CPUTracers.py.cc
+ [     CXX] RISCV/cpu/CPUTracers.py.cc -> .pyo
+ [EMBED PY] src/cpu/TimingExpr.py -> RISCV/cpu/TimingExpr.py.cc
+ [EMBED PY] src/cpu/DummyChecker.py -> RISCV/cpu/DummyChecker.py.cc
+ [EMBED PY] src/cpu/testers/rubytest/RubyTester.py -> RISCV/cpu/testers/rubytest/RubyTester.py.cc
+ [EMBED PY] src/cpu/testers/memtest/MemTest.py -> RISCV/cpu/testers/memtest/MemTest.py.cc
+ [EMBED PY] src/cpu/testers/directedtest/RubyDirectedTester.py -> RISCV/cpu/testers/directedtest/RubyDirectedTester.py.cc
+ [EMBED PY] src/cpu/testers/garnet_synthetic_traffic/GarnetSyntheticTraffic.py -> RISCV/cpu/testers/garnet_synthetic_traffic/GarnetSyntheticTraffic.py.cc
+ [EMBED PY] src/cpu/testers/traffic_gen/BaseTrafficGen.py -> RISCV/cpu/testers/traffic_gen/BaseTrafficGen.py.cc
+ [EMBED PY] src/cpu/testers/traffic_gen/GUPSGen.py -> RISCV/cpu/testers/traffic_gen/GUPSGen.py.cc
+ [EMBED PY] src/cpu/testers/traffic_gen/PyTrafficGen.py -> RISCV/cpu/testers/traffic_gen/PyTrafficGen.py.cc
+ [     CXX] RISCV/cpu/TimingExpr.py.cc -> .pyo
+ [     CXX] RISCV/cpu/DummyChecker.py.cc -> .pyo
+ [EMBED PY] src/cpu/testers/traffic_gen/TrafficGen.py -> RISCV/cpu/testers/traffic_gen/TrafficGen.py.cc
+ [     CXX] RISCV/cpu/testers/rubytest/RubyTester.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/memtest/MemTest.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/directedtest/RubyDirectedTester.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/traffic_gen/GUPSGen.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/garnet_synthetic_traffic/GarnetSyntheticTraffic.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/traffic_gen/BaseTrafficGen.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/traffic_gen/PyTrafficGen.py.cc -> .pyo
+ [     CXX] RISCV/cpu/testers/traffic_gen/TrafficGen.py.cc -> .pyo
+ [EMBED PY] src/cpu/testers/spatter_gen/SpatterGen.py -> RISCV/cpu/testers/spatter_gen/SpatterGen.py.cc
+ [     CXX] RISCV/cpu/testers/spatter_gen/SpatterGen.py.cc -> .pyo
+ [EMBED PY] src/cpu/trace/TraceCPU.py -> RISCV/cpu/trace/TraceCPU.py.cc
+ [     CXX] RISCV/cpu/trace/TraceCPU.py.cc -> .pyo
+ [EMBED PY] src/cpu/pred/BranchPredictor.py -> RISCV/cpu/pred/BranchPredictor.py.cc
+ [     CXX] RISCV/cpu/pred/BranchPredictor.py.cc -> .pyo
+ [EMBED PY] src/cpu/kvm/KvmVM.py -> RISCV/cpu/kvm/KvmVM.py.cc
+ [     CXX] RISCV/cpu/kvm/KvmVM.py.cc -> .pyo
+ [EMBED PY] src/cpu/kvm/BaseKvmCPU.py -> RISCV/cpu/kvm/BaseKvmCPU.py.cc
+ [EMBED PY] src/cpu/simple/BaseAtomicSimpleCPU.py -> RISCV/cpu/simple/BaseAtomicSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/BaseNonCachingSimpleCPU.py -> RISCV/cpu/simple/BaseNonCachingSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/BaseTimingSimpleCPU.py -> RISCV/cpu/simple/BaseTimingSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/BaseSimpleCPU.py -> RISCV/cpu/simple/BaseSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/AtomicSimpleCPU.py -> RISCV/cpu/simple/AtomicSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/NonCachingSimpleCPU.py -> RISCV/cpu/simple/NonCachingSimpleCPU.py.cc
+ [EMBED PY] src/cpu/simple/TimingSimpleCPU.py -> RISCV/cpu/simple/TimingSimpleCPU.py.cc
+ [     CXX] RISCV/cpu/kvm/BaseKvmCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/BaseAtomicSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/BaseTimingSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/BaseNonCachingSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/BaseSimpleCPU.py.cc -> .pyo
+ [EMBED PY] src/cpu/simple/probes/SimPoint.py -> RISCV/cpu/simple/probes/SimPoint.py.cc
+ [EMBED PY] src/cpu/simple/probes/LooppointAnalysis.py -> RISCV/cpu/simple/probes/LooppointAnalysis.py.cc
+ [     CXX] RISCV/cpu/simple/AtomicSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/NonCachingSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/TimingSimpleCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/probes/SimPoint.py.cc -> .pyo
+ [     CXX] RISCV/cpu/simple/probes/LooppointAnalysis.py.cc -> .pyo
+ [EMBED PY] src/cpu/probes/PcCountTracker.py -> RISCV/cpu/probes/PcCountTracker.py.cc
+ [     CXX] RISCV/cpu/probes/PcCountTracker.py.cc -> .pyo
+ [EMBED PY] src/cpu/probes/InstTracker.py -> RISCV/cpu/probes/InstTracker.py.cc
+ [     CXX] RISCV/cpu/probes/InstTracker.py.cc -> .pyo
+ [EMBED PY] src/cpu/minor/BaseMinorCPU.py -> RISCV/cpu/minor/BaseMinorCPU.py.cc
+ [     CXX] RISCV/cpu/minor/BaseMinorCPU.py.cc -> .pyo
+ [EMBED PY] src/cpu/minor/MinorCPU.py -> RISCV/cpu/minor/MinorCPU.py.cc
+ [     CXX] RISCV/cpu/minor/MinorCPU.py.cc -> .pyo
+ [EMBED PY] src/cpu/checker/CheckerCPU.py -> RISCV/cpu/checker/CheckerCPU.py.cc
+ [EMBED PY] src/cpu/o3/FUPool.py -> RISCV/cpu/o3/FUPool.py.cc
+ [EMBED PY] src/cpu/o3/FuncUnitConfig.py -> RISCV/cpu/o3/FuncUnitConfig.py.cc
+ [EMBED PY] src/cpu/o3/BaseO3CPU.py -> RISCV/cpu/o3/BaseO3CPU.py.cc
+ [EMBED PY] src/cpu/o3/IQUnit.py -> RISCV/cpu/o3/IQUnit.py.cc
+ [EMBED PY] src/cpu/o3/SMT.py -> RISCV/cpu/o3/SMT.py.cc
+ [EMBED PY] src/cpu/o3/BaseO3Checker.py -> RISCV/cpu/o3/BaseO3Checker.py.cc
+ [EMBED PY] src/cpu/o3/O3CPU.py -> RISCV/cpu/o3/O3CPU.py.cc
+ [EMBED PY] src/cpu/o3/O3Checker.py -> RISCV/cpu/o3/O3Checker.py.cc
+ [     CXX] RISCV/cpu/checker/CheckerCPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/FUPool.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/FuncUnitConfig.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/BaseO3CPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/IQUnit.py.cc -> .pyo
+ [EMBED PY] src/cpu/o3/probe/SimpleTrace.py -> RISCV/cpu/o3/probe/SimpleTrace.py.cc
+ [     CXX] RISCV/cpu/o3/O3CPU.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/O3Checker.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/SMT.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/BaseO3Checker.py.cc -> .pyo
+ [     CXX] RISCV/cpu/o3/probe/SimpleTrace.py.cc -> .pyo
+ [EMBED PY] src/cpu/o3/probe/ElasticTrace.py -> RISCV/cpu/o3/probe/ElasticTrace.py.cc
+ [     CXX] RISCV/cpu/o3/probe/ElasticTrace.py.cc -> .pyo
+ [EMBED PY] src/sim/ClockedObject.py -> RISCV/sim/ClockedObject.py.cc
+ [     CXX] RISCV/sim/ClockedObject.py.cc -> .pyo
+ [EMBED PY] src/sim/TickedObject.py -> RISCV/sim/TickedObject.py.cc
+ [     CXX] RISCV/sim/TickedObject.py.cc -> .pyo
+ [EMBED PY] src/sim/Workload.py -> RISCV/sim/Workload.py.cc
+ [EMBED PY] src/sim/Root.py -> RISCV/sim/Root.py.cc
+ [EMBED PY] src/sim/ClockDomain.py -> RISCV/sim/ClockDomain.py.cc
+ [     CXX] RISCV/sim/Workload.py.cc -> .pyo
+ [EMBED PY] src/sim/VoltageDomain.py -> RISCV/sim/VoltageDomain.py.cc
+ [EMBED PY] src/sim/System.py -> RISCV/sim/System.py.cc
+ [EMBED PY] src/sim/DVFSHandler.py -> RISCV/sim/DVFSHandler.py.cc
+ [EMBED PY] src/sim/SubSystem.py -> RISCV/sim/SubSystem.py.cc
+ [     CXX] RISCV/sim/Root.py.cc -> .pyo
+ [EMBED PY] src/sim/RedirectPath.py -> RISCV/sim/RedirectPath.py.cc
+ [EMBED PY] src/sim/PowerState.py -> RISCV/sim/PowerState.py.cc
+ [EMBED PY] src/sim/PowerDomain.py -> RISCV/sim/PowerDomain.py.cc
+ [     CXX] RISCV/sim/ClockDomain.py.cc -> .pyo
+ [     CXX] RISCV/sim/System.py.cc -> .pyo
+ [     CXX] RISCV/sim/DVFSHandler.py.cc -> .pyo
+ [EMBED PY] src/sim/SignalPort.py -> RISCV/sim/SignalPort.py.cc
+ [     CXX] RISCV/sim/SubSystem.py.cc -> .pyo
+ [     CXX] RISCV/sim/PowerDomain.py.cc -> .pyo
+ [     CXX] RISCV/sim/PowerState.py.cc -> .pyo
+ [     CXX] RISCV/sim/RedirectPath.py.cc -> .pyo
+ [     CXX] RISCV/sim/VoltageDomain.py.cc -> .pyo
+ [     CXX] RISCV/sim/SignalPort.py.cc -> .pyo
+ [EMBED PY] src/sim/InstTracer.py -> RISCV/sim/InstTracer.py.cc
+ [     CXX] RISCV/sim/InstTracer.py.cc -> .pyo
+ [EMBED PY] src/sim/Process.py -> RISCV/sim/Process.py.cc
+ [     CXX] RISCV/sim/Process.py.cc -> .pyo
+ [EMBED PY] src/sim/power/MathExprPowerModel.py -> RISCV/sim/power/MathExprPowerModel.py.cc
+ [     CXX] RISCV/sim/power/MathExprPowerModel.py.cc -> .pyo
+ [EMBED PY] src/sim/power/PowerModel.py -> RISCV/sim/power/PowerModel.py.cc
+ [EMBED PY] src/sim/power/PowerModelState.py -> RISCV/sim/power/PowerModelState.py.cc
+ [EMBED PY] src/sim/power/ThermalDomain.py -> RISCV/sim/power/ThermalDomain.py.cc
+ [EMBED PY] src/sim/power/ThermalModel.py -> RISCV/sim/power/ThermalModel.py.cc
+ [EMBED PY] src/sim/probe/Probe.py -> RISCV/sim/probe/Probe.py.cc
+ [     CXX] RISCV/sim/power/PowerModel.py.cc -> .pyo
+ [     CXX] RISCV/sim/power/PowerModelState.py.cc -> .pyo
+ [EMBED PY] src/systemc/Tlm.py -> RISCV/systemc/Tlm.py.cc
+ [EMBED PY] src/systemc/python/systemc.py -> RISCV/systemc/python/systemc.py.cc
+ [EMBED PY] src/systemc/python/tlm.py -> RISCV/systemc/python/tlm.py.cc
+ [     CXX] RISCV/sim/power/ThermalDomain.py.cc -> .pyo
+ [EMBED PY] src/systemc/core/SystemC.py -> RISCV/systemc/core/SystemC.py.cc
+ [     CXX] RISCV/sim/probe/Probe.py.cc -> .pyo
+ [EMBED PY] src/systemc/tlm_bridge/TlmBridge.py -> RISCV/systemc/tlm_bridge/TlmBridge.py.cc
+ [     CXX] RISCV/sim/power/ThermalModel.py.cc -> .pyo
+ [     CXX] RISCV/systemc/Tlm.py.cc -> .pyo
+ [     CXX] RISCV/systemc/python/systemc.py.cc -> .pyo
+ [     CXX] RISCV/systemc/python/tlm.py.cc -> .pyo
+ [EMBED PY] src/mem/CommMonitor.py -> RISCV/mem/CommMonitor.py.cc
+ [     CXX] RISCV/systemc/core/SystemC.py.cc -> .pyo
+ [     CXX] RISCV/systemc/tlm_bridge/TlmBridge.py.cc -> .pyo
+ [     CXX] RISCV/mem/CommMonitor.py.cc -> .pyo
+ [EMBED PY] src/mem/AbstractMemory.py -> RISCV/mem/AbstractMemory.py.cc
+ [     CXX] RISCV/mem/AbstractMemory.py.cc -> .pyo
+ [EMBED PY] src/mem/AddrMapper.py -> RISCV/mem/AddrMapper.py.cc
+ [     CXX] RISCV/mem/AddrMapper.py.cc -> .pyo
+ [EMBED PY] src/mem/Bridge.py -> RISCV/mem/Bridge.py.cc
+ [EMBED PY] src/mem/SysBridge.py -> RISCV/mem/SysBridge.py.cc
+ [     CXX] RISCV/mem/Bridge.py.cc -> .pyo
+ [EMBED PY] src/mem/MemCtrl.py -> RISCV/mem/MemCtrl.py.cc
+ [EMBED PY] src/mem/HeteroMemCtrl.py -> RISCV/mem/HeteroMemCtrl.py.cc
+ [     CXX] RISCV/mem/SysBridge.py.cc -> .pyo
+ [EMBED PY] src/mem/HBMCtrl.py -> RISCV/mem/HBMCtrl.py.cc
+ [EMBED PY] src/mem/MemInterface.py -> RISCV/mem/MemInterface.py.cc
+ [EMBED PY] src/mem/DRAMInterface.py -> RISCV/mem/DRAMInterface.py.cc
+ [     CXX] RISCV/mem/MemCtrl.py.cc -> .pyo
+ [EMBED PY] src/mem/NVMInterface.py -> RISCV/mem/NVMInterface.py.cc
+ [EMBED PY] src/mem/ExternalMaster.py -> RISCV/mem/ExternalMaster.py.cc
+ [EMBED PY] src/mem/ExternalSlave.py -> RISCV/mem/ExternalSlave.py.cc
+ [     CXX] RISCV/mem/HeteroMemCtrl.py.cc -> .pyo
+ [     CXX] RISCV/mem/HBMCtrl.py.cc -> .pyo
+ [EMBED PY] src/mem/CfiMemory.py -> RISCV/mem/CfiMemory.py.cc
+ [     CXX] RISCV/mem/MemInterface.py.cc -> .pyo
+ [     CXX] RISCV/mem/DRAMInterface.py.cc -> .pyo
+ [     CXX] RISCV/mem/NVMInterface.py.cc -> .pyo
+ [     CXX] RISCV/mem/ExternalMaster.py.cc -> .pyo
+ [     CXX] RISCV/mem/ExternalSlave.py.cc -> .pyo
+ [EMBED PY] src/mem/SharedMemoryServer.py -> RISCV/mem/SharedMemoryServer.py.cc
+ [     CXX] RISCV/mem/CfiMemory.py.cc -> .pyo
+ [     CXX] RISCV/mem/SharedMemoryServer.py.cc -> .pyo
+ [EMBED PY] src/mem/SimpleMemory.py -> RISCV/mem/SimpleMemory.py.cc
+ [     CXX] RISCV/mem/SimpleMemory.py.cc -> .pyo
+ [EMBED PY] src/mem/XBar.py -> RISCV/mem/XBar.py.cc
+ [     CXX] RISCV/mem/XBar.py.cc -> .pyo
+ [EMBED PY] src/mem/HMCController.py -> RISCV/mem/HMCController.py.cc
+ [EMBED PY] src/mem/SerialLink.py -> RISCV/mem/SerialLink.py.cc
+ [EMBED PY] src/mem/MemDelay.py -> RISCV/mem/MemDelay.py.cc
+ [     CXX] RISCV/mem/HMCController.py.cc -> .pyo
+ [EMBED PY] src/mem/PortTerminator.py -> RISCV/mem/PortTerminator.py.cc
+ [EMBED PY] src/mem/ThreadBridge.py -> RISCV/mem/ThreadBridge.py.cc
+ [EMBED PY] src/mem/MemChecker.py -> RISCV/mem/MemChecker.py.cc
+ [     CXX] RISCV/mem/MemDelay.py.cc -> .pyo
+ [     CXX] RISCV/mem/SerialLink.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/slicc_interface/Controller.py -> RISCV/mem/ruby/slicc_interface/Controller.py.cc
+ [EMBED PY] RISCV/mem/ruby/protocol/MI_example/MI_example_DMA_Controller.py -> .cc
+ [     CXX] RISCV/mem/MemChecker.py.cc -> .pyo
+ [     CXX] RISCV/mem/ThreadBridge.py.cc -> .pyo
+ [     CXX] RISCV/mem/PortTerminator.py.cc -> .pyo
+ [EMBED PY] RISCV/mem/ruby/protocol/MI_example/MI_example_Directory_Controller.py -> .cc
+ [EMBED PY] RISCV/mem/ruby/protocol/MI_example/MI_example_L1Cache_Controller.py -> .cc
+ [     CXX] RISCV/mem/ruby/slicc_interface/Controller.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/structures/RubyCache.py -> RISCV/mem/ruby/structures/RubyCache.py.cc
+ [     CXX] RISCV/mem/ruby/protocol/MI_example/MI_example_DMA_Controller.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/protocol/MI_example/MI_example_Directory_Controller.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/protocol/MI_example/MI_example_L1Cache_Controller.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/structures/RubyCache.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/structures/DirectoryMemory.py -> RISCV/mem/ruby/structures/DirectoryMemory.py.cc
+ [     CXX] RISCV/mem/ruby/structures/DirectoryMemory.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/structures/RubyPrefetcher.py -> RISCV/mem/ruby/structures/RubyPrefetcher.py.cc
+ [     CXX] RISCV/mem/ruby/structures/RubyPrefetcher.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/structures/WireBuffer.py -> RISCV/mem/ruby/structures/WireBuffer.py.cc
+ [     CXX] RISCV/mem/ruby/structures/WireBuffer.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/network/BasicLink.py -> RISCV/mem/ruby/network/BasicLink.py.cc
+ [EMBED PY] src/mem/ruby/network/BasicRouter.py -> RISCV/mem/ruby/network/BasicRouter.py.cc
+ [EMBED PY] src/mem/ruby/network/MessageBuffer.py -> RISCV/mem/ruby/network/MessageBuffer.py.cc
+ [EMBED PY] src/mem/ruby/network/Network.py -> RISCV/mem/ruby/network/Network.py.cc
+ [     CXX] RISCV/mem/ruby/network/BasicLink.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/network/garnet/GarnetLink.py -> RISCV/mem/ruby/network/garnet/GarnetLink.py.cc
+ [EMBED PY] src/mem/ruby/network/garnet/GarnetNetwork.py -> RISCV/mem/ruby/network/garnet/GarnetNetwork.py.cc
+ [     CXX] RISCV/mem/ruby/network/BasicRouter.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/network/simple/SimpleLink.py -> RISCV/mem/ruby/network/simple/SimpleLink.py.cc
+ [EMBED PY] src/mem/ruby/network/simple/SimpleNetwork.py -> RISCV/mem/ruby/network/simple/SimpleNetwork.py.cc
+ [     CXX] RISCV/mem/ruby/network/MessageBuffer.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/network/Network.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/network/fault_model/FaultModel.py -> RISCV/mem/ruby/network/fault_model/FaultModel.py.cc
+ [     CXX] RISCV/mem/ruby/network/garnet/GarnetLink.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/network/garnet/GarnetNetwork.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/system/RubySystem.py -> RISCV/mem/ruby/system/RubySystem.py.cc
+ [     CXX] RISCV/mem/ruby/network/simple/SimpleNetwork.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/network/simple/SimpleLink.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/system/RubySystem.py.cc -> .pyo
+ [     CXX] RISCV/mem/ruby/network/fault_model/FaultModel.py.cc -> .pyo
+ [EMBED PY] src/mem/ruby/system/Sequencer.py -> RISCV/mem/ruby/system/Sequencer.py.cc
+ [     CXX] RISCV/mem/ruby/system/Sequencer.py.cc -> .pyo
+ [EMBED PY] src/mem/cache/Cache.py -> RISCV/mem/cache/Cache.py.cc
+ [     CXX] RISCV/mem/cache/Cache.py.cc -> .pyo
+ [EMBED PY] src/mem/cache/prefetch/Prefetcher.py -> RISCV/mem/cache/prefetch/Prefetcher.py.cc
+ [     CXX] RISCV/mem/cache/prefetch/Prefetcher.py.cc -> .pyo
+ [EMBED PY] src/mem/cache/compressors/Compressors.py -> RISCV/mem/cache/compressors/Compressors.py.cc
+ [     CXX] RISCV/mem/cache/compressors/Compressors.py.cc -> .pyo
+ [EMBED PY] src/mem/cache/replacement_policies/ReplacementPolicies.py -> RISCV/mem/cache/replacement_policies/ReplacementPolicies.py.cc
+ [EMBED PY] src/mem/cache/tags/Tags.py -> RISCV/mem/cache/tags/Tags.py.cc
+ [EMBED PY] src/mem/cache/tags/indexing_policies/IndexingPolicies.py -> RISCV/mem/cache/tags/indexing_policies/IndexingPolicies.py.cc
+ [EMBED PY] src/mem/cache/tags/partitioning_policies/PartitioningPolicies.py -> RISCV/mem/cache/tags/partitioning_policies/PartitioningPolicies.py.cc
+ [     CXX] RISCV/mem/cache/replacement_policies/ReplacementPolicies.py.cc -> .pyo
+ [EMBED PY] src/mem/probes/BaseMemProbe.py -> RISCV/mem/probes/BaseMemProbe.py.cc
+ [EMBED PY] src/mem/probes/StackDistProbe.py -> RISCV/mem/probes/StackDistProbe.py.cc
+ [     CXX] RISCV/mem/cache/tags/Tags.py.cc -> .pyo
+ [EMBED PY] src/mem/probes/MemFootprintProbe.py -> RISCV/mem/probes/MemFootprintProbe.py.cc
+ [     CXX] RISCV/mem/cache/tags/indexing_policies/IndexingPolicies.py.cc -> .pyo
+ [EMBED PY] src/mem/probes/MemTraceProbe.py -> RISCV/mem/probes/MemTraceProbe.py.cc
+ [     CXX] RISCV/mem/cache/tags/partitioning_policies/PartitioningPolicies.py.cc -> .pyo
+ [     CXX] RISCV/mem/probes/BaseMemProbe.py.cc -> .pyo
+ [     CXX] RISCV/mem/probes/StackDistProbe.py.cc -> .pyo
+ [EMBED PY] src/mem/qos/QoSMemCtrl.py -> RISCV/mem/qos/QoSMemCtrl.py.cc
+ [     CXX] RISCV/mem/probes/MemFootprintProbe.py.cc -> .pyo
+ [     CXX] RISCV/mem/probes/MemTraceProbe.py.cc -> .pyo
+ [     CXX] RISCV/mem/qos/QoSMemCtrl.py.cc -> .pyo
+ [EMBED PY] src/mem/qos/QoSMemSinkCtrl.py -> RISCV/mem/qos/QoSMemSinkCtrl.py.cc
+ [EMBED PY] src/mem/qos/QoSMemSinkInterface.py -> RISCV/mem/qos/QoSMemSinkInterface.py.cc
+ [     CXX] RISCV/mem/qos/QoSMemSinkCtrl.py.cc -> .pyo
+ [     CXX] RISCV/mem/qos/QoSMemSinkInterface.py.cc -> .pyo
+ [EMBED PY] src/mem/qos/QoSPolicy.py -> RISCV/mem/qos/QoSPolicy.py.cc
+ [     CXX] RISCV/mem/qos/QoSPolicy.py.cc -> .pyo
+ [EMBED PY] src/mem/qos/QoSTurnaround.py -> RISCV/mem/qos/QoSTurnaround.py.cc
+ [     CXX] RISCV/mem/qos/QoSTurnaround.py.cc -> .pyo
+ [EMBED PY] /home/shahriarahi/eel5764/gem5_ext/RequestorPartitionManager.py -> RISCV/gem5_ext/RequestorPartitionManager.py.cc
+ [EMBED PY] RISCV/python/m5/defines.py -> .cc
+ [     CXX] RISCV/python/m5/defines.py.cc -> .pyo
+ [    INFO] COPYING, LICENSE, README.md -> RISCV/python/m5/info.py
+ [ TRACING]  -> RISCV/debug/Event.hh
+ [EMBED PY] RISCV/python/m5/info.py -> .cc
+ [ TRACING]  -> RISCV/debug/GDBAll.hh
+ [ TRACING]  -> RISCV/debug/Mwait.hh
+ [ TRACING]  -> RISCV/debug/IntPin.hh
+ [ TRACING]  -> RISCV/debug/InvalidReg.hh
+ [ TRACING]  -> RISCV/debug/Vma.hh
+ [ TRACING]  -> RISCV/debug/FmtFlag.hh
+ [     CXX] RISCV/python/m5/info.py.cc -> .pyo
+ [ TRACING]  -> RISCV/debug/FmtStackTrace.hh
+ [ TRACING]  -> RISCV/debug/FmtTicksOff.hh
+ [ TRACING]  -> RISCV/debug/Annotate.cc
+ [ TRACING]  -> RISCV/debug/AnnotateQ.cc
+ [ TRACING]  -> RISCV/debug/AnnotateVerbose.cc
+ [ TRACING]  -> RISCV/debug/GDBAcc.cc
+ [ TRACING]  -> RISCV/debug/GDBExtra.cc
+ [ TRACING]  -> RISCV/debug/GDBMisc.cc
+ [ TRACING]  -> RISCV/debug/GDBRead.cc
+ [ TRACING]  -> RISCV/debug/GDBRecv.cc
+ [ TRACING]  -> RISCV/debug/GDBSend.cc
+ [ TRACING]  -> RISCV/debug/GDBWrite.cc
+ [ TRACING]  -> RISCV/debug/Annotate.hh
+ [ TRACING]  -> RISCV/debug/AnnotateQ.hh
+ [ TRACING]  -> RISCV/debug/AnnotateVerbose.hh
+ [ TRACING]  -> RISCV/debug/GDBAcc.hh
+ [ TRACING]  -> RISCV/debug/GDBMisc.hh
+
+ [ TRACING]  -> RISCV/debug/GDBRead.hh
+ [ TRACING]  -> RISCV/debug/GDBRecv.hh
+ [ TRACING]  -> RISCV/debug/GDBSend.hh
+ [ TRACING]  -> RISCV/debug/GDBWrite.hh
+ [ TRACING]  -> RISCV/debug/SQL.cc
+ [ TRACING]  -> RISCV/debug/Stats.cc
+ [ TRACING]  -> RISCV/debug/StatEvents.cc
+ [ TRACING]  -> RISCV/debug/GDBAll.cc
+ [ TRACING]  -> RISCV/debug/AnnotateAll.cc
+ [ TRACING]  -> RISCV/debug/FmtFlag.cc
+ [ TRACING]  -> RISCV/debug/FmtStackTrace.cc
+ [ TRACING]  -> RISCV/debug/FmtTicksOff.cc
+ [ TRACING]  -> RISCV/debug/Loader.hh
+ [     CXX] RISCV/base/filters/BloomFilters.py.cc -> .o
+ [ TRACING]  -> RISCV/debug/SQL.hh
+ [ TRACING]  -> RISCV/debug/StatEvents.hh
+ [     CXX] RISCV/base/vnc/Vnc.py.cc -> .o
+ [ TRACING]  -> RISCV/debug/AnnotateAll.hh
+ [ TRACING]  -> RISCV/debug/Stats.hh
+ [ TRACING]  -> RISCV/debug/VNC.hh
+ [ TRACING]  -> RISCV/debug/VNC.cc
+ [     CXX] RISCV/python/gem5/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/coherence_protocol.py.cc -> .o
+ [     CXX] RISCV/python/gem5/isas.py.cc -> .o
+ [     CXX] RISCV/python/gem5/runtime.py.cc -> .o
+ [     CXX] RISCV/python/gem5/simulate/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/simulate/simulator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/simulate/exit_event.py.cc -> .o
+ [     CXX] RISCV/python/gem5/simulate/exit_event_generators.py.cc -> .o
+ [     CXX] RISCV/python/gem5/simulate/exit_handler.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/__init__.py.cc -> .o
+ [    LINK]  -> RISCV/gem5py_m5
+ [     CXX] RISCV/python/gem5/components/boards/abstract_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/abstract_system_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/mem_mode.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/riscv_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/experimental/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/experimental/lupv_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/simple_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/test_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/x86_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/arm_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/kernel_disk_workload.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/boards/se_binary_workload.py.cc -> .o
+ [SO Param] m5.objects.Root, Root -> RISCV/params/Root.hh
+ [SO Param] m5.objects.System, System -> RISCV/params/System.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterMulti -> RISCV/python/_m5/param_BloomFilterMulti.cc
+ [SO Param] m5.objects.BloomFilters, BloomFilterMultiBitSel -> RISCV/params/BloomFilterMultiBitSel.hh
+ [ENUMDECL] m5.objects.Graphics, ImageFormat -> RISCV/enums/ImageFormat.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterBase -> RISCV/params/BloomFilterBase.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterBase -> RISCV/python/_m5/param_BloomFilterBase.cc
+ [SO Param] m5.objects.PowerState, PowerState -> RISCV/params/PowerState.hh
+ [SO Param] m5.objects.BaseMMU, BaseMMU -> RISCV/params/BaseMMU.hh
+ [SO Param] m5.objects.SimObject, SimObject -> RISCV/params/SimObject.hh
+ [SO Param] m5.objects.ClockDomain, ClockDomain -> RISCV/params/ClockDomain.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterBlock -> RISCV/python/_m5/param_BloomFilterBlock.cc
+ [SO Param] m5.objects.BloomFilters, BloomFilterBulk -> RISCV/python/_m5/param_BloomFilterBulk.cc
+ [SO Param] m5.objects.ClockDomain, DerivedClockDomain -> RISCV/params/DerivedClockDomain.hh
+ [SO Param] m5.objects.RedirectPath, RedirectPath -> RISCV/params/RedirectPath.hh
+ [ENUMDECL] m5.objects.StaticInstFlags, StaticInstFlags -> RISCV/enums/StaticInstFlags.hh
+ [SO Param] m5.objects.Workload, Workload -> RISCV/params/Workload.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterMulti -> RISCV/params/BloomFilterMulti.hh
+ [ENUMDECL] m5.objects.FuncUnit, OpClass -> RISCV/enums/OpClass.hh
+ [ENUMDECL] m5.objects.SimObject, ByteOrder -> RISCV/enums/ByteOrder.hh
+ [ENUM STR] m5.objects.Graphics, ImageFormat -> RISCV/enums/ImageFormat.cc
+ [SO Param] m5.objects.ClockedObject, ClockedObject -> RISCV/params/ClockedObject.hh
+ [ENUMDECL] m5.objects.System, MemoryMode -> RISCV/enums/MemoryMode.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterH3 -> RISCV/python/_m5/param_BloomFilterH3.cc
+ [SO Param] m5.objects.Vnc, VncServer -> RISCV/python/_m5/param_VncServer.cc
+ [SO Param] m5.objects.BaseInterrupts, BaseInterrupts -> RISCV/params/BaseInterrupts.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterBlock -> RISCV/params/BloomFilterBlock.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterPerfect -> RISCV/python/_m5/param_BloomFilterPerfect.cc
+ [SO Param] m5.objects.Vnc, VncInput -> RISCV/python/_m5/param_VncInput.cc
+ [SO Param] m5.objects.BloomFilters, BloomFilterBulk -> RISCV/params/BloomFilterBulk.hh
+ [ENUMDECL] m5.objects.PowerState, PwrState -> RISCV/enums/PwrState.hh
+ [SO Param] m5.objects.ClockDomain, SrcClockDomain -> RISCV/params/SrcClockDomain.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterMultiBitSel -> RISCV/python/_m5/param_BloomFilterMultiBitSel.cc
+ [SO Param] m5.objects.BloomFilters, BloomFilterH3 -> RISCV/params/BloomFilterH3.hh
+ [SO Param] m5.objects.Workload, StubWorkload -> RISCV/params/StubWorkload.hh
+ [SO Param] m5.objects.Vnc, VncServer -> RISCV/params/VncServer.hh
+ [SO Param] m5.objects.BloomFilters, BloomFilterPerfect -> RISCV/params/BloomFilterPerfect.hh
+ [SO Param] m5.objects.Vnc, VncInput -> RISCV/params/VncInput.hh
+ [SO Param] m5.objects.InstTracer, InstTracer -> RISCV/params/InstTracer.hh
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_two_level_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/abstract_three_level_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/private_l1_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/private_l1_private_l2_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/abstract_node.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/directory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/dma_requestor.py.cc -> .o
+ [SO Param] m5.objects.AbstractMemory, AbstractMemory -> RISCV/params/AbstractMemory.hh
+ [SO Param] m5.objects.ThermalModel, ThermalModel -> RISCV/params/ThermalModel.hh
+ [SO Param] m5.objects.BaseTLB, BaseTLB -> RISCV/params/BaseTLB.hh
+ [SO Param] m5.objects.PowerModel, PowerModel -> RISCV/params/PowerModel.hh
+ [SO Param] m5.objects.InstTracer, InstDisassembler -> RISCV/params/InstDisassembler.hh
+ [SO Param] m5.objects.VoltageDomain, VoltageDomain -> RISCV/params/VoltageDomain.hh
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/l1_cache.py.cc -> .o
+ [ENUMDECL] m5.objects.BaseTLB, TypeTLB -> RISCV/enums/TypeTLB.hh
+ [ENUMDECL] m5.objects.PowerModel, PMType -> RISCV/enums/PMType.hh
+ [SO Param] m5.objects.PowerModelState, PowerModelState -> RISCV/params/PowerModelState.hh
+ [SO Param] m5.objects.SubSystem, SubSystem -> RISCV/params/SubSystem.hh
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/l2_cache.py.cc -> .o
+ [SO Param] m5.objects.ThermalDomain, ThermalDomain -> RISCV/params/ThermalDomain.hh
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/chi/nodes/memory_controller.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/abstract_classic_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/no_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_walk_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/two_level_fdp_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_private_l2_walk_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/private_l1_shared_l2_walk_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l1dcache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l1icache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/l2cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/classic/caches/mmu_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/abstract_ruby_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mesi_two_level_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mesi_three_level_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/mi_example_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/directory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/dma_controller.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l1_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_two_level/l2_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/directory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/dma_controller.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l1_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l2_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mesi_three_level/l3_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/core_complex.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/octopi_network.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/ruby_network_components.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/directory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/dma_controller.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/mi_example/l1_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/corepair_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/directory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/dma_controller.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcp.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/sqc.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/caches/viper/tcc.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/topologies/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/cachehierarchies/ruby/topologies/simple_pt2pt.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/devices/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/devices/gpus/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/devices/gpus/amdgpu.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/devices/gpus/viper_shader.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/abstract_memory_system.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dramsim_3.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/simple.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/memory.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/single_channel.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/multi_channel.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/hbm.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr3.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr4.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/ddr5.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/gddr.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/hbm.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/hmc.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr2.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr3.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/lpddr5.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/memory/dram_interfaces/wideio.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/abstract_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/abstract_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/abstract_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/abstract_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/complex_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/complex_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/cpu_types.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_ep.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/gups_generator_par.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/linear_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/linear_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/strided_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/strided_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/random_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/random_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/spatter_gen/spatter_kernel.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/simple_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/base_cpu_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/simple_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/decoupled_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/base_cpu_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/simple_switchable_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/switchable_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/simpoint.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/traffic_generator_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/components/processors/traffic_generator.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/demo/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/demo/x86_demo_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/demo/riscv_demo_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/demo/arm_demo_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_cache.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_processor.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/riscvmatched/riscvmatched_core.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/viper/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/viper/board.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/viper/cpu_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/viper/gpu_cache_hierarchy.py.cc -> .o
+ [     CXX] RISCV/python/gem5/prebuilt/viper/viper_network.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/downloader.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/md5_utils.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/resource.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/workload.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/looppoint.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/elfie.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client_api/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client_api/jsonclient.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client_api/azure_functions_client.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client_api/abstract_client.py.cc -> .o
+ [     CXX] RISCV/python/gem5/resources/client_api/client_query.py.cc -> .o
+ [     CXX] RISCV/python/gem5/gem5_default_config.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/filelock.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/override.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/progress_bar.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/requires.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/socks_ssl_context.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multisim/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multisim/multisim.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multisim/__main__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/__init__.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/_command_line.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/context.py.cc -> .o
+ [     CXX] RISCV/python/gem5/utils/multiprocessing/popen_spawn_gem5.py.cc -> .o
+ [     CXX] RISCV/python/importer.py.cc -> .o
+ [     CXX] RISCV/python/m5/__init__.py.cc -> .o
+ [     CXX] RISCV/python/m5/SimObject.py.cc -> .o
+ [     CXX] RISCV/python/m5/citations.py.cc -> .o
