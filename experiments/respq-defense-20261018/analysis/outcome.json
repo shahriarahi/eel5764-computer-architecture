@@ -1,0 +1,166 @@
+{
+  "label": "simulated (gem5), seed 0x5764A5E5",
+  "allocations": {
+    "1-15": {
+      "primary_defense_aes_vs_defense_quiet": {
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true,
+        "differing_interval_labels": []
+      },
+      "baseline_tdma_aes_vs_tdma_quiet": {
+        "records": 16384,
+        "differing_records": 1705,
+        "differing_intervals": [
+          2,
+          4,
+          7,
+          8,
+          10,
+          25,
+          28,
+          31,
+          40,
+          46,
+          49,
+          53,
+          60
+        ],
+        "first_differing_record": 713,
+        "byte_identical": false,
+        "differing_interval_labels": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "defense_aes_vs_tdma_aes": {
+        "records": 16384,
+        "differing_records": 1705,
+        "differing_intervals": [
+          2,
+          4,
+          7,
+          8,
+          10,
+          25,
+          28,
+          31,
+          40,
+          46,
+          49,
+          53,
+          60
+        ],
+        "first_differing_record": 713,
+        "byte_identical": false
+      },
+      "defense_quiet_vs_tdma_quiet": {
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      "aes_encryptions": {
+        "tdma-way": 23915,
+        "tdma-onx": 22486,
+        "tdma-rda": 22486
+      },
+      "aes_throughput_change_percent": {
+        "vs_way_only": -5.975329291239806,
+        "vs_request_tdma": 0.0
+      }
+    },
+    "8-8": {
+      "primary_defense_aes_vs_defense_quiet": {
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true,
+        "differing_interval_labels": []
+      },
+      "baseline_tdma_aes_vs_tdma_quiet": {
+        "records": 16384,
+        "differing_records": 1184,
+        "differing_intervals": [
+          4,
+          7,
+          18,
+          19,
+          22,
+          25,
+          40,
+          46,
+          53,
+          55,
+          60
+        ],
+        "first_differing_record": 1258,
+        "byte_identical": false,
+        "differing_interval_labels": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "defense_aes_vs_tdma_aes": {
+        "records": 16384,
+        "differing_records": 1184,
+        "differing_intervals": [
+          4,
+          7,
+          18,
+          19,
+          22,
+          25,
+          40,
+          46,
+          53,
+          55,
+          60
+        ],
+        "first_differing_record": 1258,
+        "byte_identical": false
+      },
+      "defense_quiet_vs_tdma_quiet": {
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      "aes_encryptions": {
+        "tdma-way": 23903,
+        "tdma-onx": 22486,
+        "tdma-rda": 22486
+      },
+      "aes_throughput_change_percent": {
+        "vs_way_only": -5.928126176630544,
+        "vs_request_tdma": 0.0
+      }
+    }
+  },
+  "primary_outcome": "PASS"
+}

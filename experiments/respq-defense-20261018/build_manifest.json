@@ -1,0 +1,26 @@
+{
+  "gem5_source": "/home/shahriarahi/eel5764/gem5-respq",
+  "gem5_base_commit": "c8222cc67a399bfc01e8658dd14b30d5bfd634f9",
+  "applied_first": "experiments/causal-trace-20261016/gem5-causal.patch (sha256 587861d54a465d8d03d872f98f001a3f0855b348b54c72e8b0b9f0249343841a)",
+  "respq_patch_sha256": "4ac5d07c353ab0336b8fb347867df94c291ee090f40c3bd07b59795bea910577",
+  "respq_executable_sha256": "66c3070183f80aa1b5d096a1a4f1bd271a41b0c21c7c850d31476e043f4f61f8",
+  "build_command": [
+    "scons",
+    "build/RISCV/gem5.opt",
+    "-j14",
+    "EXTRAS=/home/shahriarahi/eel5764/gem5_ext"
+  ],
+  "build_working_directory": "/home/shahriarahi/eel5764/gem5-respq",
+  "build_dir_seeded_from": "/home/shahriarahi/eel5764/gem5-causal/build (rsync, excluding gem5.opt.causal-v1)",
+  "build_attempts": [
+    {
+      "log": "build-logs/respq-build-01.log",
+      "outcome": "exit=0 wall_seconds=333; 873 CXX units"
+    }
+  ],
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "recorded_utc": "2026-10-19T02:48:26+00:00",
+  "notes": [
+    "-Warray-bounds warnings in gem5 statistics/compressor code also occur in causal builds 02-03 (GCC 15); Capstone absent; no dependencies installed."
+  ]
+}
