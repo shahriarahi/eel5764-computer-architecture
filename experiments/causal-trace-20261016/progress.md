@@ -64,3 +64,11 @@
   not depend on it. Both endpoints rerun into the fresh root `tdma-ct3`, so the
   analysis comes from one complete root. The repeated A=1 run doubles as a third
   determinism check.
+- **Step 2, attempt 3: passed.** `tdma-ct3` A=1 and A=8 pass G2, G3, and G4.
+  The A=1 trace is byte-identical to `tdma-ct1` and `tdma-ct2`. The run took
+  5,145 s, mostly from the quadratic attempt lookup, which `59aa948` has since
+  fixed.
+- **Analysis and checks.** `analysis/A1.json`, `A8.json`, `summary.json`, and
+  the post-hoc `exploratory_mechanism.json` are written. G5 passes; only
+  `.claude` state changed. All suites pass under both Pythons. Results are in
+  `RESULTS.md`.

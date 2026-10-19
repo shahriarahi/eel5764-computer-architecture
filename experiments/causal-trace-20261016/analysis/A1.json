@@ -1,0 +1,353 @@
+{
+  "case": "C:\\Users\\shahr\\OneDrive\\Documents\\Fall 26\\Computer Architecture\\results\\updated run\\tdma-ct3\\seed-5764a5e5\\1-15",
+  "matched_timelines": 33024,
+  "l1d_deliveries": 65536,
+  "window_exclusions": {
+    "before_measurement": 256,
+    "after_measurement": 0
+  },
+  "llc_paths": {
+    "hit": 32682,
+    "fill": 86
+  },
+  "all_requests": {
+    "requests": 32768,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "-345375/1024",
+        "ticks": -337.2802734375,
+        "cpu_cycles": -0.674560546875
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "19/8192",
+        "ticks": 0.0023193359375,
+        "cpu_cycles": 4.638671875e-06
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "18981/8192",
+        "ticks": 2.3170166015625,
+        "cpu_cycles": 0.004634033203125
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "-42875/128",
+        "ticks": -334.9609375,
+        "cpu_cycles": -0.669921875
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "-345375/1024",
+        "ticks": -337.2802734375,
+        "cpu_cycles": -0.674560546875
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "-345375/1024",
+        "ticks": -337.2802734375,
+        "cpu_cycles": -0.674560546875
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "-2762981/8192",
+        "ticks": -337.2779541015625,
+        "cpu_cycles": -0.674555908203125
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "-2762981/8192",
+        "ticks": -337.2779541015625,
+        "cpu_cycles": -0.674555908203125
+      },
+      "upstream_gap": {
+        "exact_ticks": "-59561625/2048",
+        "ticks": -29082.82470703125,
+        "cpu_cycles": -58.1656494140625
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_llc_ready",
+      "after": "request_admit"
+    },
+    "without_interval_zero": {
+      "requests": 32256,
+      "effects": {
+        "admit_to_llc_ready": {
+          "exact_ticks": "1875/1024",
+          "ticks": 1.8310546875,
+          "cpu_cycles": 0.003662109375
+        },
+        "llc_ready_to_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "queue_residence": {
+          "exact_ticks": "147/63488",
+          "ticks": 0.002315398185483871,
+          "cpu_cycles": 4.630796370967742e-06
+        },
+        "dequeue_to_xbar": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "xbar_to_cpu": {
+          "exact_ticks": "146853/63488",
+          "ticks": 2.313082787298387,
+          "cpu_cycles": 0.0046261655745967745
+        },
+        "admit_to_cpu": {
+          "exact_ticks": "131625/31744",
+          "ticks": 4.146452872983871,
+          "cpu_cycles": 0.008292905745967742
+        },
+        "cumulative_llc_ready": {
+          "exact_ticks": "1875/1024",
+          "ticks": 1.8310546875,
+          "cpu_cycles": 0.003662109375
+        },
+        "cumulative_enqueue": {
+          "exact_ticks": "1875/1024",
+          "ticks": 1.8310546875,
+          "cpu_cycles": 0.003662109375
+        },
+        "cumulative_dequeue": {
+          "exact_ticks": "116397/63488",
+          "ticks": 1.8333700856854838,
+          "cpu_cycles": 0.0036667401713709677
+        },
+        "cumulative_xbar": {
+          "exact_ticks": "116397/63488",
+          "ticks": 1.8333700856854838,
+          "cpu_cycles": 0.0036667401713709677
+        },
+        "upstream_gap": {
+          "exact_ticks": "-158125/31744",
+          "ticks": -4.981256300403226,
+          "cpu_cycles": -0.009962512600806451
+        }
+      },
+      "earliest_divergence": {
+        "status": "resolved",
+        "checkpoint": "cumulative_llc_ready",
+        "after": "request_admit"
+      }
+    }
+  },
+  "llc_hits": {
+    "requests": 32682,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "19/8192",
+        "ticks": 0.0023193359375,
+        "cpu_cycles": 4.638671875e-06
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "18981/8192",
+        "ticks": 2.3170166015625,
+        "cpu_cycles": 0.004634033203125
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "2375/1024",
+        "ticks": 2.3193359375,
+        "cpu_cycles": 0.004638671875
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "19/8192",
+        "ticks": 0.0023193359375,
+        "cpu_cycles": 4.638671875e-06
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "19/8192",
+        "ticks": 0.0023193359375,
+        "cpu_cycles": 4.638671875e-06
+      },
+      "upstream_gap": {
+        "exact_ticks": "-213266114875/4559872",
+        "ticks": -46770.19768866319,
+        "cpu_cycles": -93.54039537732638
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_dequeue",
+      "after": "cumulative_enqueue"
+    },
+    "without_interval_zero": {
+      "requests": 32255,
+      "effects": {
+        "admit_to_llc_ready": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "llc_ready_to_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "queue_residence": {
+          "exact_ticks": "147/63488",
+          "ticks": 0.002315398185483871,
+          "cpu_cycles": 4.630796370967742e-06
+        },
+        "dequeue_to_xbar": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "xbar_to_cpu": {
+          "exact_ticks": "146853/63488",
+          "ticks": 2.313082787298387,
+          "cpu_cycles": 0.0046261655745967745
+        },
+        "admit_to_cpu": {
+          "exact_ticks": "18375/7936",
+          "ticks": 2.315398185483871,
+          "cpu_cycles": 0.004630796370967742
+        },
+        "cumulative_llc_ready": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "cumulative_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "cumulative_dequeue": {
+          "exact_ticks": "147/63488",
+          "ticks": 0.002315398185483871,
+          "cpu_cycles": 4.630796370967742e-06
+        },
+        "cumulative_xbar": {
+          "exact_ticks": "147/63488",
+          "ticks": 0.002315398185483871,
+          "cpu_cycles": 4.630796370967742e-06
+        },
+        "upstream_gap": {
+          "exact_ticks": "114532625/1013824",
+          "ticks": 112.97091507007133,
+          "cpu_cycles": 0.22594183014014266
+        }
+      },
+      "earliest_divergence": {
+        "status": "resolved",
+        "checkpoint": "cumulative_dequeue",
+        "after": "cumulative_enqueue"
+      }
+    }
+  },
+  "llc_fills": {
+    "requests": 86,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "-601200/17",
+        "ticks": -35364.705882352944,
+        "cpu_cycles": -70.72941176470589
+      },
+      "upstream_gap": {
+        "exact_ticks": "45000/17",
+        "ticks": 2647.0588235294117,
+        "cpu_cycles": 5.294117647058823
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_llc_ready",
+      "after": "request_admit"
+    },
+    "without_interval_zero": {
+      "requests": 1,
+      "effects": {},
+      "earliest_divergence": {
+        "status": "unresolved",
+        "checkpoint": null,
+        "reason": "no checkpoint from request_admit onward diverges; any residual arises before request_admit (not instrumented) or is absent"
+      }
+    }
+  }
+}
