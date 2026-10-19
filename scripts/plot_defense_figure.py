@@ -14,6 +14,7 @@ neutral reference series.
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -25,6 +26,7 @@ CONTROL, INK, INK2, GRID = "#a3a29c", "#0b0b0b", "#52514e", "#e4e3df"
 V3 = Path("results/updated run/sweep-v3/summary_v3.csv")
 DEFENDED = Path("results/updated run/tdma-rsv/summary_v3.csv")
 OUT = Path("results/updated run/defense-figures/fig_defense_paper.png")
+SLIDE_OUT = Path("results/updated run/defense-figures/slide_defense.png")
 MARGIN = 0.02
 
 
@@ -35,15 +37,18 @@ def rows(path: Path) -> list[dict]:
 
 
 def main() -> None:
-    if OUT.exists():
-        raise SystemExit(f"error: refusing to overwrite {OUT}")
+    # --slide: the same chart sized for a 16:9 slide (slide_defense.png); default: the paper figure.
+    slide = "--slide" in sys.argv[1:]
+    out = SLIDE_OUT if slide else OUT
+    if out.exists():
+        raise SystemExit(f"error: refusing to overwrite {out}")
     v3, defended = rows(V3), rows(DEFENDED)
     # The two tables share one control set (the stored v3 unpartitioned runs).
     assert [r["control_effect_per_line"] for r in v3] == [r["control_effect_per_line"] for r in defended]
     x = list(range(1, 9))
-    size = 7.5
+    size = 15 if slide else 7.5
     plt.rcParams.update({"font.family": "DejaVu Sans", "text.color": INK})
-    fig, ax = plt.subplots(figsize=(3.5, 2.45))
+    fig, ax = plt.subplots(figsize=(9.6, 5.4) if slide else (3.5, 2.45))
     ax.axhspan(-MARGIN, MARGIN, color=GRID, lw=0, zorder=0)
     ax.text(8.35, MARGIN + 0.008, "±0.02 equivalence margin", fontsize=size - 1.5, color=INK2,
             ha="right", va="bottom")
@@ -86,9 +91,9 @@ def main() -> None:
     ax.legend(fontsize=size - 1, frameon=False, loc="upper left", ncol=1, labelcolor=INK,
               bbox_to_anchor=(0.0, 1.02))
     fig.tight_layout(pad=0.3)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT, dpi=300)
-    print("wrote", OUT)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out, dpi=200 if slide else 300)
+    print("wrote", out)
 
 
 if __name__ == "__main__":
