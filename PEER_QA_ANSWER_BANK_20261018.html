@@ -1,0 +1,444 @@
+<title>Group 18 Q&amp;A Answer Bank</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~44rem); a compact numbers table up top, then filterable question cards, each a self-contained, paste-ready answer. */
+:root {
+  --paper: #f6f7fa; --surface: #ffffff; --ink: #14213d; --muted: #4a5568; --line: #dde2ea;
+  --accent: #b84a1a; --accent-soft: #fbeee6; --blue: #2364b8; --blue-soft: #e8f0fb;
+  --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --body: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', Consolas, 'Courier New', monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0f1729; --surface: #16213a; --ink: #eef1f6; --muted: #aeb8c8; --line: #2a3654;
+  --accent: #f0905f; --accent-soft: #2b2230; --blue: #7fb0ee; --blue-soft: #1b2a47; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0f1729; --surface: #16213a; --ink: #eef1f6; --muted: #aeb8c8; --line: #2a3654;
+  --accent: #f0905f; --accent-soft: #2b2230; --blue: #7fb0ee; --blue-soft: #1b2a47; color-scheme: dark }
+
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+.wrap { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem;
+  padding-block: 3rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: flex; flex-direction: column; gap: .75rem; }
+.eyebrow { font: 600 .75rem/1.3 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 600 clamp(2rem, 6vw, 2.75rem)/1.1 var(--display); text-wrap: balance; }
+h2 { font: 600 1.5rem/1.2 var(--display); text-wrap: balance; }
+h3 { font: 600 1.08rem/1.35 var(--body); text-wrap: balance; }
+.lede { color: var(--muted); font-size: 1.05rem; max-width: 40rem; }
+section { display: flex; flex-direction: column; gap: 1rem; }
+.rules { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem; }
+.rules ol { display: flex; flex-direction: column; gap: .5rem; padding-left: 1.25rem; }
+.rules li::marker { color: var(--accent); font-weight: 600; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align: left; padding: .6rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+th { font-weight: 600; color: var(--muted); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+section, .tablebox { min-width: 0; max-width: 100%; }
+@media (max-width: 40rem) { td.num { white-space: normal; overflow-wrap: anywhere; } }
+tr.group td { font: 600 .72rem/1.3 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); }
+.controls { display: flex; flex-direction: column; gap: .75rem; position: sticky; top: env(safe-area-inset-top, 0px);
+  background: var(--paper); padding-block: .75rem; z-index: 2; border-bottom: 1px solid var(--line); }
+label.search { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; color: var(--muted); }
+input[type="search"] { font: inherit; font-size: 1rem; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--ink); width: 100%; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { font: 500 .85rem/1 var(--body); padding: .5rem .8rem; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.list { display: flex; flex-direction: column; gap: 1rem; }
+.qa { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.25rem;
+  display: flex; flex-direction: column; gap: .6rem; min-width: 0; }
+.qa .cat { font: 600 .7rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+.qa[data-cat="defense"] .cat { color: var(--accent); }
+.qa .a { color: var(--ink); }
+.qa .ev { font-size: .85rem; color: var(--muted); }
+.qa .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; }
+button.copy { font: 500 .85rem/1 var(--body); padding: .5rem .8rem; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--blue-soft); color: var(--ink); cursor: pointer; }
+button.copy.done { background: var(--accent-soft); }
+.empty { color: var(--muted); }
+.honest { border-left: 3px solid var(--accent); padding-left: .75rem; }
+footer { font-size: .85rem; color: var(--muted); display: flex; flex-direction: column; gap: .4rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+code { font-family: var(--mono); font-size: .88em; }
+@media (prefers-reduced-motion: no-preference) { .chip, button.copy { transition: background .15s ease } }
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">EEL 5764 · Group 18 · Canvas peer Q&amp;A, Nov 19–20 · updated Oct 18</p>
+  <h1>Peer Q&amp;A answer bank</h1>
+  <p class="lede">Prepared answers to the questions classmates are most likely to ask about our video, covering the whole project: the proposal's study, the crossbar mechanism, and the follow-up that closed the leak. Every number comes from our result files, and each answer names where to find the evidence.</p>
+</header>
+
+<section aria-labelledby="how">
+  <h2 id="how">How we answer</h2>
+  <div class="rules">
+    <ol>
+      <li>Answer the question in the first sentence. Add detail after.</li>
+      <li>Give one concrete number, not five.</li>
+      <li>If the honest answer includes a limit, say it plainly. The withdrawn October result is part of our story, not something to hide.</li>
+      <li>Point to the slide or paper section so the asker can check it.</li>
+      <li>Reply within a day, and thank the asker. Adjust the wording to their exact question before posting.</li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="nums">
+  <h2 id="nums">Numbers to quote</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th scope="col">What</th><th scope="col">Value</th></tr></thead>
+      <tbody>
+        <tr><td>Platform</td><td>gem5 v25.1.0.1, RISC-V, 2 in-order cores at 2 GHz, 4 KiB L1D, 256 KiB 16-way LRU LLC</td></tr>
+        <tr class="group"><td colspan="2">The proposal's study: way partitioning alone</td></tr>
+        <tr><td>Main study</td><td class="num">48 matched runs + 2 diagnostics</td></tr>
+        <tr><td>Allocations still leaking</td><td class="num">8 of 8 (1/15 to 8/8)</td></tr>
+        <tr><td>Largest corrected p (original max-set rule)</td><td class="num">1.2e-5</td></tr>
+        <tr><td>Signal kept by the partitioned monitor</td><td class="num">100% at 1/15; 70–85% at 2/14–8/8</td></tr>
+        <tr><td>Leak size, partitioned</td><td class="num">+0.22 to +0.35 cycles per probed line</td></tr>
+        <tr><td>Cost of partitioning</td><td class="num">≤ 0.029% IPC; ≤ 0.008% AES cycles/encryption</td></tr>
+        <tr><td>October bug: probe walks that missed</td><td class="num">20–25% → ≤ 0.02% after the fix</td></tr>
+        <tr class="group"><td colspan="2">Mechanism</td></tr>
+        <tr><td>Active walks delayed (1/15, default crossbar)</td><td class="num">9.4%, by 2, 4 or 6 cycles</td></tr>
+        <tr><td>Crossbar request layer busy (default)</td><td class="num">5.5–7%</td></tr>
+        <tr><td>Leak removed by a near-ideal crossbar</td><td class="num">100% at 1/15; 88% at 8/8</td></tr>
+        <tr class="group"><td colspan="2">Beyond the proposal: closing the leak</td></tr>
+        <tr><td>Request time slots: leak at 1/15</td><td class="num">0.346 → 0.040 cycles per line</td></tr>
+        <tr><td>Request time slots: leak at 8/8</td><td class="num">0.279 → 0.004 cycles per line</td></tr>
+        <tr><td>Time slots alone still detectable</td><td class="num">hit-only Holm p = 8.2e-10, 2.8e-9</td></tr>
+        <tr><td>Delayed hit responses, active vs idle</td><td class="num">40 vs 2 (1/15); 268 vs 1 (8/8)</td></tr>
+        <tr><td>Full defense: allocations distinguishable</td><td class="num">0 of 8; collapse point 1/15</td></tr>
+        <tr><td>Full defense: monitor records identical to idle victim</td><td class="num">24 of 24 configurations</td></tr>
+        <tr><td>Full defense cost</td><td class="num">6.3–6.4% AES cycles/encryption; +0.18% monitor IPC</td></tr>
+        <tr><td>Extra cost of per-domain response queues</td><td class="num">0.00% AES throughput</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="bank">
+  <h2 id="bank">Likely questions</h2>
+  <div class="controls">
+    <label class="search" for="q">Search questions and answers
+      <input id="q" type="search" placeholder="e.g. seeds, crossbar, time slots, byte-identical" autocomplete="off">
+    </label>
+    <div class="chips" role="group" aria-label="Filter by topic">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="setup" aria-pressed="false">Setup</button>
+      <button class="chip" type="button" data-filter="mistake" aria-pressed="false">The mistake</button>
+      <button class="chip" type="button" data-filter="result" aria-pressed="false">Results</button>
+      <button class="chip" type="button" data-filter="mechanism" aria-pressed="false">Mechanism</button>
+      <button class="chip" type="button" data-filter="defense" aria-pressed="false">Beyond the proposal</button>
+      <button class="chip" type="button" data-filter="scope" aria-pressed="false">Scope</button>
+    </div>
+  </div>
+
+  <div class="list" id="list">
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>Why use a simulator instead of real hardware?</h3>
+      <p class="a">gem5 gives us repeatable timing, a full view inside the cache, and the ability to change the hardware itself. That let us check that every cache block sat in its allowed ways, make the crossbar faster to find the leak, and then build and test two isolation mechanisms. Our project is a simulation study by design, as stated in the accepted proposal.</p>
+      <div class="row"><p class="ev">Evidence: paper §III and §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>Why such a small 4 KiB L1 data cache?</h3>
+      <p class="a">With a normal 16 KiB L1, the four 1 KiB AES tables stayed in the private cache, so almost no AES traffic reached the shared LLC and even our unpartitioned control could not see AES. Shrinking the L1 to 4 KiB pushes table lookups out to the LLC. It is a deliberate stress setup, and we list it as a limit on how far the result generalizes.</p>
+      <div class="row"><p class="ev">Evidence: paper §II and §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>Why T-table AES? Are you trying to break AES?</h3>
+      <p class="a">No. T-table AES just gives a controlled, well-known source of memory traffic. We use a public key and public inputs, and the monitor only decides whether AES is running or idle in each time interval. We never try to recover key bytes, and everything runs in simulation.</p>
+      <div class="row"><p class="ev">Evidence: paper §I and §II.B</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>What does "distinguishable" mean exactly?</h3>
+      <p class="a">Each run has 64 time intervals, half with AES active and half idle, in a fixed public schedule. We ask whether the monitor's probe latency differs between active and idle intervals more than chance allows, using 10,000 random relabelings as the null. We combine the three inputs per allocation and correct for testing 16 things at once, at a 5% error level.</p>
+      <div class="row"><p class="ev">Evidence: paper §V; slide 3</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>Why do you need matched controls?</h3>
+      <p class="a">Changing the allocation changes the monitor too, because a monitor with 8 ways walks 8 lines per set. So every partitioned run is compared with an unpartitioned run of the same monitor, inputs and schedule. The only difference in a pair is whether the way masks are on, and a partitioned result only counts if its control detects AES.</p>
+      <div class="row"><p class="ev">Evidence: paper §IV.B; slide 3</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>How do you know the partitioning was actually enforced?</h3>
+      <p class="a">We don't infer it from performance. A small gem5 extension tags every request with its core, and we count which partition owns every valid LLC block and which way it sits in. All 24 partitioned runs had zero blocks outside their allowed ways, and the same check passed in the mechanism study and in all 24 defended AES runs.</p>
+      <div class="row"><p class="ev">Evidence: paper §VI.B; slide 3</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="setup">
+      <p class="cat">Setup</p>
+      <h3>Why a simple in-order CPU instead of an out-of-order core?</h3>
+      <p class="a">A simple timing core issues one probe load at a time, so each probe walk's latency is easy to read and fully repeatable. An out-of-order core would overlap the loads and make single-walk timing harder to interpret. The leak we found lives in the shared cache path, not in the core, but repeating the study on an out-of-order core is reasonable future work.</p>
+      <div class="row"><p class="ev">Evidence: paper §III</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mistake">
+      <p class="cat">The mistake</p>
+      <h3>You first concluded 1/15 was secure. What went wrong?</h3>
+      <p class="a">Our first monitor saved its 16,384 measurements into a 384 KiB array while it was measuring. With only a few ways, those writes pushed out the monitor's own probe lines, so 20–25% of probe walks became slow misses, but only in partitioned runs. That noise hid a much smaller real signal. We withdrew the result, fixed the monitor, and re-ran everything under rules written down in advance.</p>
+      <div class="row"><p class="ev">Evidence: slide 4; paper §IV.C and §VII.B</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mistake">
+      <p class="cat">The mistake</p>
+      <h3>How do you know the new result isn't another artifact?</h3>
+      <p class="a">The fixed monitor stores each result inside the probe line it just loaded and keeps its loop state in registers, which we confirmed in the compiled code. Probe walks with a miss dropped to at most 0.02%, all in the very first interval. Beyond that, every analysis stage reproduces byte for byte, an independent reimplementation gives the same conclusions, and a fresh re-simulation matched bit for bit.</p>
+      <div class="row"><p class="ev">Evidence: slide 5; paper §VI; validation report</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mistake">
+      <p class="cat">The mistake</p>
+      <h3 class="honest">Didn't you change the analysis after seeing the data?</h3>
+      <p class="a">Partly, and we say so in the paper. We added the hit-only statistic after looking at the October data, and we tightened the self-eviction check after the first corrected run. Both were written down before the final data existed. Also, the original statistic with our accepted proposal's exact rule gives the same answer at all eight allocations, so the conclusion doesn't depend on those additions.</p>
+      <div class="row"><p class="ev">Evidence: paper §V.C and §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="result">
+      <p class="cat">Results</p>
+      <h3>0.3 cycles per line sounds tiny. Does it matter?</h3>
+      <p class="a">It is small per line, but it is consistent. At 8/8 a probe walk touches 8 lines, so it shifts by about 2.2 cycles, and over 64 intervals the difference is far beyond chance (corrected p at the test's floor). An observer with more noise would need more samples. Our claim is that the channel exists in this system, not that it is practical at this size everywhere.</p>
+      <div class="row"><p class="ev">Evidence: slide 6; paper §VII</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="result">
+      <p class="cat">Results</p>
+      <h3 class="honest">Why does 1/15 keep 100% of the signal but larger allocations only 70–85%?</h3>
+      <p class="a">We measured that partial drop but have not fully explained it. The mechanism runs give one clue: at 8/8 with the normal crossbar, the control shows 0.40 and the partitioned run 0.28, but with a near-ideal crossbar both fall to the same 0.033. So the gap is tied to crossbar traffic. We did not isolate why partitioning trims part of it at larger allocations.</p>
+      <div class="row"><p class="ev">Evidence: paper §VII.A and §VIII</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="result">
+      <p class="cat">Results</p>
+      <h3>Is there any allocation where partitioning does work?</h3>
+      <p class="a">Not with way partitioning alone: all eight allocations from 1/15 to 8/8 stay distinguishable, and every interval sits around 0.2 to 0.35 cycles per line. With request time slots and per-domain response queues added, all eight become indistinguishable under the same rule (slide 12).</p>
+      <div class="row"><p class="ev">Evidence: slides 6 and 12; paper §VII and §IX.D</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="result">
+      <p class="cat">Results</p>
+      <h3>What did partitioning cost?</h3>
+      <p class="a">Way partitioning alone cost almost nothing here: at most 0.029% in monitor IPC and 0.008% in AES cycles per encryption, because both programs fit easily in their ways. The full defense costs AES about 6%, all from the request time slots. A cache-hungry co-runner would likely show a larger cost.</p>
+      <div class="row"><p class="ev">Evidence: slide 13; paper §IX.E and §X</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="result">
+      <p class="cat">Results</p>
+      <h3 class="honest">Why only three seeds? Are they independent?</h3>
+      <p class="a">gem5 is deterministic, so the same input gives the identical result and repetition has to come from different inputs. Our three seeds change the AES plaintexts but share one key and one activity schedule, so they are not fully independent, and we say so. Each of the 24 partitioned runs is significant on its own. The defense sweep uses the same three seeds and has the same limit.</p>
+      <div class="row"><p class="ev">Evidence: paper §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mechanism">
+      <p class="cat">Mechanism</p>
+      <h3>So what actually leaks, if not evictions?</h3>
+      <p class="a">Timing on cache hits. At 1/15 with AES idle, 8,188 of 8,189 hit walks take exactly 33 cycles. With AES active, about 9% arrive 2, 4 or 6 cycles late, which is exactly one to three ticks of the shared crossbar's 1 GHz clock.</p>
+      <div class="row"><p class="ev">Evidence: slide 7; paper §VIII.A, Fig. 2b</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mechanism">
+      <p class="cat">Mechanism</p>
+      <h3>What is the "crossbar request layer", and why is it shared?</h3>
+      <p class="a">Both cores' L1 caches reach the LLC through one crossbar, and that crossbar has a single request lane into the LLC. When an AES request holds the lane for 1 to 3 nanoseconds, a monitor request arriving at that moment waits. Way partitioning decides where lines are stored, not how requests reach the cache, so it never touches this lane.</p>
+      <div class="row"><p class="ev">Evidence: slide 8; paper §VIII</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mechanism">
+      <p class="cat">Mechanism</p>
+      <h3>How did you show it's the crossbar and not something else?</h3>
+      <p class="a">We ran a preregistered test with four crossbar settings: default, wider, faster clock and near-ideal, 48 runs in total. The lane was busier in every AES-active interval, and the leak fell in exactly the same order as the lane's load (rank correlation 1.0). The near-ideal crossbar removed 100% of the leak at 1/15 and 88% at 8/8. Because the prediction of 100% at both failed, the preregistered outcome is "partial".</p>
+      <div class="row"><p class="ev">Evidence: slide 8; paper §VIII table and Fig. 2a</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mechanism">
+      <p class="cat">Mechanism</p>
+      <h3>Is a "near-ideal crossbar" realistic?</h3>
+      <p class="a">No, and it isn't meant to be. It has a 512-byte datapath, no header delay and runs at the CPU clock. It is a diagnostic that shows where the leak lives, not a design we are proposing. The defense we did build uses time slots and per-domain queues instead.</p>
+      <div class="row"><p class="ev">Evidence: paper §VIII and §IX</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="mechanism">
+      <p class="cat">Mechanism</p>
+      <h3>What was the small leftover at 8/8?</h3>
+      <p class="a">At first we could only attribute it by elimination. We later traced it directly: when a victim response is ready on the same tick as the monitor's, the LLC's shared response queue sends the monitor's response one tick late, and the crossbar rounds that up to a full nanosecond. This happened to 268 active-interval hits and 1 idle-interval hit at 8/8.</p>
+      <div class="row"><p class="ev">Evidence: slide 11; paper §IX.B</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>Did you go beyond your proposal?</h3>
+      <p class="a">Yes. The proposal asked whether way partitioning removes the signal at any allocation, and we answered it: no, there is no collapse point. We then located the channel, built request time slots and per-domain LLC response queues in gem5, and judged that defense with the proposal's own criterion. It makes every allocation indistinguishable.</p>
+      <div class="row"><p class="ev">Evidence: slide 9; paper §IX</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>How would you close the leak, and did you test it?</h3>
+      <p class="a">We tested it. We kept way partitioning, gave each core its own time slots at the shared crossbar, and gave each core its own response queue inside the LLC. With all three, every allocation is indistinguishable, and the monitor's records match an idle victim's byte for byte in all 24 configurations.</p>
+      <div class="row"><p class="ev">Evidence: slides 10–12; paper §IX</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>What are request time slots, and why weren't they enough?</h3>
+      <p class="a">Each core may start one request into the LLC only at the start of its own 4 ns slot, and an unused slot stays idle, so the other core's traffic can't delay its requests. That shrank the leak from 0.346 to 0.040 cycles per line at 1/15 and from 0.279 to 0.004 at 8/8. AES was still detectable at both, because part of the leak sits on the response path.</p>
+      <div class="row"><p class="ev">Evidence: slide 10; paper §IX.A</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>How did you find the part the time slots missed?</h3>
+      <p class="a">We added trace points that follow each monitor request through admission, the LLC, its response queue, the crossbar and the CPU, and confirmed that tracing left every simulated result unchanged. LLC service time was identical in active and idle intervals. The only difference was the one-tick response-queue delay: 40 active versus 2 idle hits at 1/15.</p>
+      <div class="row"><p class="ev">Evidence: slide 11; paper §IX.B</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3 class="honest">A one-picosecond delay sounds like a simulator quirk. Is it?</h3>
+      <p class="a">Partly. Sending a second same-tick packet one tick later is how gem5's packet queue is modelled, so real arbitration could behave differently. The general lesson does carry over: when two domains share one response queue, one domain's traffic can reorder the other's responses, and a clock-edge boundary can turn a tiny delay into a whole cycle.</p>
+      <div class="row"><p class="ev">Evidence: paper §IX.B and §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>What exactly is a per-domain response queue?</h3>
+      <p class="a">The LLC normally keeps one queue for all responses it sends back toward the cores. We gave it one queue per core, routed by which core made the request, so a victim response can never delay a monitor response inside the cache. The crossbar already has a separate response lane per core, so nothing else changed. With the feature switched off, the new build reproduces our earlier results exactly.</p>
+      <div class="row"><p class="ev">Evidence: slide 12; paper §IX.C</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>How do you know the defense works?</h3>
+      <p class="a">Two independent tests agree. First, the proposal's own frozen decision code, run unchanged on the full 48-case design, finds all eight allocations indistinguishable (collapse point 1/15); on copies of the original runs it still gives the original verdict. Second, the monitor's whole record is byte-identical whether the victim runs AES or sits idle, in 24 of 24 configurations.</p>
+      <div class="row"><p class="ev">Evidence: slide 12; paper §IX.D, Fig. 3</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>Why is "byte-identical" stronger than a p-value?</h3>
+      <p class="a">A large p-value only says we failed to detect a difference. gem5 is deterministic, so if the monitor's entire record is the same byte for byte with AES running and with an idle victim, the monitor has learned nothing about AES activity for those inputs. Under way partitioning with time slots alone, the same comparison differs in 1,705 of 16,384 records at 1/15.</p>
+      <div class="row"><p class="ev">Evidence: slide 12; paper §IX.D</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3>What does the full defense cost?</h3>
+      <p class="a">About 6% for AES: 6.3–6.4% more cycles per encryption than the unpartitioned controls, and 5.95% fewer encryptions than with way partitioning alone. That cost comes from the request time slots; adding the per-domain response queues changed AES throughput by 0.00%. The monitor's IPC changed by at most 0.18%.</p>
+      <div class="row"><p class="ev">Evidence: slide 13; paper §IX.E</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3 class="honest">Did you change the rules to make the defense pass?</h3>
+      <p class="a">No. The defense was judged by the same decision code as the original study, and we wrote down the runs, gates and pass criteria before any defense result existed. We did fix runner problems along the way, and one trace-matching change came after seeing data. Each change is listed with its reason, and none affects the decision code.</p>
+      <div class="row"><p class="ev">Evidence: paper §IX and §XI.A; experiment logs</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="defense">
+      <p class="cat">Beyond the proposal</p>
+      <h3 class="honest">What are the limits of the defense result?</h3>
+      <p class="a">It covers our monitor, one AES key and one activity schedule shared by the three seeds, compared with an idle victim. The defense leaves MSHRs, the write buffer and DRAM shared, and it stops the simulation on a response retry instead of isolating it, though no retry ever occurred. Testing AES runs with different keys against each other is the natural next step.</p>
+      <div class="row"><p class="ev">Evidence: paper §XI and §XI.B</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="scope">
+      <p class="cat">Scope</p>
+      <h3>Does this mean real cache partitioning features are broken?</h3>
+      <p class="a">We can't speak for any specific product; our result is about this simulated system. What it shows is that way partitioning by itself separates storage, not the shared paths requests and responses travel on. In our system, closing the leak also required isolating those paths.</p>
+      <div class="row"><p class="ev">Evidence: paper §IX and §XI</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <article class="qa" data-cat="scope">
+      <p class="cat">Scope</p>
+      <h3>Can someone reproduce this?</h3>
+      <p class="a">Yes. Every run is scripted, the analysis rules and file hashes were written down before the data, and each result reproduces byte for byte. The proposal's sweep takes about 45 minutes of simulation, and the 48-case defense sweep about 13 minutes on six cores. The gem5 changes are kept as patches, and we're happy to share the code.</p>
+      <div class="row"><p class="ev">Evidence: paper §XI.A</p><button class="copy" type="button">Copy answer</button></div>
+    </article>
+
+    <p class="empty" id="empty" hidden>No question matches. Try a broader word, or pick "All".</p>
+  </div>
+</section>
+
+<section aria-labelledby="ask">
+  <h2 id="ask">Asking other groups good questions</h2>
+  <div class="rules">
+    <ol>
+      <li><b>Baseline.</b> "What is your baseline, and does it show the effect before your change?"</li>
+      <li><b>Proof the mechanism is on.</b> "How did you confirm your feature was actually active, beyond the performance change?"</li>
+      <li><b>Noise.</b> "How many runs did you use, and how did you decide a difference was real?"</li>
+      <li><b>Sensitivity.</b> "Would the conclusion hold at a different cache size, workload or core model?"</li>
+      <li><b>Surprises.</b> "What result surprised you most, and what would you test next?"</li>
+    </ol>
+  </div>
+  <p class="ev">Be specific: name the slide or the minute of their video you're asking about, and keep one question per post.</p>
+</section>
+
+<footer>
+  <p>Sources: our final paper v2 (Group18_EEL5764_Final_Paper_v2.docx), the 14-slide video deck, and the result files behind them. Slide numbers refer to that deck.</p>
+  <p>Simulation only, public key and inputs, activity detection only; no key recovery.</p>
+</footer>
+</div>
+
+<script>
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.qa'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var search = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var active = 'all';
+  function apply() {
+    var term = search.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function (el) {
+      var okCat = active === 'all' || el.dataset.cat === active;
+      var okText = !term || el.textContent.toLowerCase().indexOf(term) !== -1;
+      el.hidden = !(okCat && okText);
+      if (!el.hidden) shown++;
+    });
+    empty.hidden = shown !== 0;
+  }
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      active = chip.dataset.filter;
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      apply();
+    });
+  });
+  search.addEventListener('input', apply);
+  items.forEach(function (el) {
+    var btn = el.querySelector('button.copy');
+    var answer = el.querySelector('.a');
+    btn.addEventListener('click', function () {
+      var text = answer.textContent.trim();
+      function done(label) {
+        btn.textContent = label; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = 'Copy answer'; btn.classList.remove('done'); }, 1600);
+      }
+      function fallback() {
+        var range = document.createRange(); range.selectNodeContents(answer);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        done('Selected: press Ctrl+C');
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>

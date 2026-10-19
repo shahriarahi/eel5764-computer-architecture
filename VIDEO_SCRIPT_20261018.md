@@ -1,7 +1,7 @@
 # Video script: Group 18 (5-minute recorded presentation), updated October 18
 
 Due November 17, 2026. Slides: the "Group 18 Video Deck" artifact. Each slide's speaker notes hold the same text.
-This version adds the channel-closing follow-up (slides 9–11). The October 14 script is kept unchanged as
+This version adds the beyond-the-proposal bridge and the channel-closing follow-up (slides 9–12). The October 14 script is kept unchanged as
 `VIDEO_SCRIPT_20261014.md`. Pace is about 150 words per minute, and the times below are estimates at that pace.
 
 ## 1. Does cache way partitioning stop a cross-core leak?  (~18 s, 46 words)
@@ -36,32 +36,36 @@ So what leaks, if not evictions? When AES is idle, every hit takes exactly thirt
 
 Both cores reach the cache through one shared crossbar. In a preregistered test, the leak tracked how busy its request lane was, perfectly in rank order. A near-ideal crossbar removed the whole leak at one of sixteen, but only 88 percent at eight of eight.
 
-## 9. Time slots shrink the leak  (~21 s, 53 words)
+## 9. Beyond the proposal  (~20 s, 49 words)
+
+Our proposal asked one question: does way partitioning remove the signal at any allocation? We answered it: no. Then we went beyond it, to explain why and to close the leak. We located the channel, built two isolation mechanisms in gem5, and judged them by the proposal's own rule.
+
+## 10. Time slots shrink the leak  (~21 s, 53 words)
 
 So we partitioned that lane in time. Each core gets alternating four-nanosecond request slots, used or not. The leak shrank about ninefold at one of sixteen and seventy-fold at eight of eight. But it didn't vanish: the monitor could still detect AES at both ends, and AES lost six percent of its throughput.
 
-## 10. Finding the rest  (~23 s, 57 words)
+## 11. Finding the rest  (~23 s, 57 words)
 
 To find the rest, we traced every monitor request through the cache. Cache service time was identical. The difference: when a victim response was ready on the same tick, the monitor's response left the shared response queue one picosecond late. The crossbar rounded that up to a full nanosecond, and sometimes the next request missed its slot.
 
-## 11. Per-domain response queues close it  (~24 s, 60 words)
+## 12. Per-domain response queues close it  (~24 s, 60 words)
 
 The fix is to give each core its own response queue in the cache. With time slots plus per-domain queues, we reran the whole original design and judged it with the exact same frozen code. Every allocation is now indistinguishable. Even stronger: the monitor's entire record is byte-identical whether the victim runs AES or sits idle, in all twenty-four configurations.
 
-## 12. What it costs  (~13 s, 32 words)
+## 13. What it costs  (~13 s, 32 words)
 
 The cost? Way partitioning alone costs almost nothing, under three hundredths of a percent. The full defense costs AES about six percent, all from the time slots; the per-domain queues add nothing.
 
-## 13. Takeaways  (~20 s, 51 words)
+## 14. Takeaways  (~20 s, 51 words)
 
 Three takeaways. Way partitioning stops evictions, not timing leaks. The leak lives in the shared path to and from the cache, so isolate that path too: time slots and per-domain response queues closed it here. And validate the measurer: our own monitor once said "secure" when it wasn't. Thanks for watching.
 
-**Total: 602 words, about 4.0 minutes.** That leaves about 59 seconds of slack for pauses and slide transitions.
+**Total: 651 words, about 4.3 minutes.** That leaves about 40 seconds of slack for pauses and slide transitions.
 
 ## Numbers behind the narration
 
 - **Slide 6.** The partitioned treatment keeps 70–100% of the control's signal, and the largest corrected p is 1.2e-5 (paper §VII).
-- **Slide 9.** Hit-only leak falls from 0.346 to 0.040 cycles per line at 1/15 (8.7×) and from 0.279 to 0.004 at 8/8 (70×). The hit-only Holm p values are 8.2e-10 and 2.8e-9. AES throughput is −6.0% relative to way-only (paper §IX-A).
-- **Slide 10.** One gem5 tick is 1 ps. The one-tick dequeue slip occurred for 40 active versus 2 idle hits at 1/15 and 268 versus 1 at 8/8. The crossbar edge alignment adds 999 ticks (paper §IX-B).
-- **Slide 11.** Stable collapse point 1/15, and byte identity holds in 24 of 24 configurations (paper §IX-D).
-- **Slide 12.** The full defense costs 6.3–6.4% in AES cycles per encryption. Split queues change AES throughput by 0.00% relative to request slots alone (paper §IX-E).
+- **Slide 10.** Hit-only leak falls from 0.346 to 0.040 cycles per line at 1/15 (8.7×) and from 0.279 to 0.004 at 8/8 (70×). The hit-only Holm p values are 8.2e-10 and 2.8e-9. AES throughput is −6.0% relative to way-only (paper §IX-A).
+- **Slide 11.** One gem5 tick is 1 ps. The one-tick dequeue slip occurred for 40 active versus 2 idle hits at 1/15 and 268 versus 1 at 8/8. The crossbar edge alignment adds 999 ticks (paper §IX-B).
+- **Slide 12.** Stable collapse point 1/15, and byte identity holds in 24 of 24 configurations (paper §IX-D).
+- **Slide 13.** The full defense costs 6.3–6.4% in AES cycles per encryption. Split queues change AES throughput by 0.00% relative to request slots alone (paper §IX-E).
