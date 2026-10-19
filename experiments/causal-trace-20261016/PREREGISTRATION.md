@@ -46,7 +46,10 @@ with `failure.json`. Nothing is rerun into an existing root.
   exists because G1 excludes `tdma*` lines.
 - **G5, preservation.** `preservation-prerun.json` is created exclusively
   immediately before step 1. After step 2, `preserve.py check` against it must
-  report no changed and no added files. Deviations from the older
+  report no changed and no added files. One exception was added before any
+  run: changes confined to `.claude/` tool-state directories, which hooks write
+  outside our control, are listed in the results but do not fail G5. Deviations
+  from the older
   `preservation-before.json` were audited before this snapshot:
   - 10 changed or missing files: nine lecture PDFs moved byte-identically into
     `lecture slides/`, plus one SDD progress note.
