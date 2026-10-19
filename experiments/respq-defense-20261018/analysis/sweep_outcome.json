@@ -1,0 +1,424 @@
+{
+  "label": "simulated (gem5); 3 public seeds sharing one activity schedule and key",
+  "primary_1_proposal_criterion": {
+    "stable_collapse_point": "1-15",
+    "stable_equivalence_point": "1-15",
+    "conclusions": {
+      "1-15": "indistinguishable",
+      "2-14": "indistinguishable",
+      "3-13": "indistinguishable",
+      "4-12": "indistinguishable",
+      "5-11": "indistinguishable",
+      "6-10": "indistinguishable",
+      "7-9": "indistinguishable",
+      "8-8": "indistinguishable"
+    },
+    "pass": true,
+    "summarizer_stdout": [
+      "1-15  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.347->-0.002 [-0.003,-0.001] ret=-0.00",
+      "2-14  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.292->-0.001 [-0.002,-0.000] ret=-0.00",
+      "3-13  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.338->-0.001 [-0.001,-0.000] ret=-0.00",
+      "4-12  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.362->-0.000 [-0.001,-0.000] ret=-0.00",
+      "5-11  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.383->-0.000 [-0.001,+0.000] ret=-0.00",
+      "6-10  indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.391->-0.000 [-0.001,-0.000] ret=-0.00",
+      "7-9   indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.392->-0.000 [-0.000,-0.000] ret=-0.00",
+      "8-8   indistinguishable gate=3/3 (orig 3/3) trt holm ms=1 ho=1 eff +0.401->-0.000 [-0.000,-0.000] ret=-0.00",
+      "stable_collapse_point=1-15",
+      "stable_equivalence_point=1-15"
+    ]
+  },
+  "primary_2_byte_identity": {
+    "identical_configurations": 24,
+    "configurations": 24,
+    "pass": true,
+    "rows": [
+      {
+        "seed": "0x5764a5e5",
+        "split": "1-15",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "2-14",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "3-13",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "4-12",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "5-11",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "6-10",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "7-9",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e5",
+        "split": "8-8",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "1-15",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "2-14",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "3-13",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "4-12",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "5-11",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "6-10",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "7-9",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e6",
+        "split": "8-8",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "1-15",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "2-14",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "3-13",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "4-12",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "5-11",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "6-10",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "7-9",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      },
+      {
+        "seed": "0x5764a5e7",
+        "split": "8-8",
+        "records": 16384,
+        "differing_records": 0,
+        "differing_intervals": [],
+        "first_differing_record": null,
+        "byte_identical": true
+      }
+    ]
+  },
+  "aes_throughput_vs_way_only": [
+    {
+      "seed": "0x5764a5e5",
+      "split": "1-15",
+      "way_only_encryptions": 23915,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.975329291239806
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "2-14",
+      "way_only_encryptions": 23915,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.975329291239806
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "3-13",
+      "way_only_encryptions": 23911,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.959600184015724
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "4-12",
+      "way_only_encryptions": 23909,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.951733656781966
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "5-11",
+      "way_only_encryptions": 23908,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.947799899615191
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "6-10",
+      "way_only_encryptions": 23906,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.939931397975407
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "7-9",
+      "way_only_encryptions": 23904,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.932061579651937
+    },
+    {
+      "seed": "0x5764a5e5",
+      "split": "8-8",
+      "way_only_encryptions": 23903,
+      "defended_encryptions": 22486,
+      "change_vs_way_only_percent": -5.928126176630544
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "1-15",
+      "way_only_encryptions": 23908,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.968713401371928
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "2-14",
+      "way_only_encryptions": 23908,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.968713401371928
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "3-13",
+      "way_only_encryptions": 23906,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.960846649376728
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "4-12",
+      "way_only_encryptions": 23902,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.945109195883191
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "5-11",
+      "way_only_encryptions": 23902,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.945109195883191
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "6-10",
+      "way_only_encryptions": 23902,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.945109195883191
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "7-9",
+      "way_only_encryptions": 23902,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.945109195883191
+    },
+    {
+      "seed": "0x5764a5e6",
+      "split": "8-8",
+      "way_only_encryptions": 23901,
+      "defended_encryptions": 22481,
+      "change_vs_way_only_percent": -5.941174009455674
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "1-15",
+      "way_only_encryptions": 23925,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.972831765935216
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "2-14",
+      "way_only_encryptions": 23925,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.972831765935216
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "3-13",
+      "way_only_encryptions": 23924,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.968901521484704
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "4-12",
+      "way_only_encryptions": 23921,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.957108816521051
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "5-11",
+      "way_only_encryptions": 23919,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.949245369789702
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "6-10",
+      "way_only_encryptions": 23916,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.937447733734736
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "7-9",
+      "way_only_encryptions": 23915,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.9335145306293136
+    },
+    {
+      "seed": "0x5764a5e7",
+      "split": "8-8",
+      "way_only_encryptions": 23913,
+      "defended_encryptions": 22496,
+      "change_vs_way_only_percent": -5.925647137540246
+    }
+  ],
+  "view_root": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-rsv"
+}

@@ -97,3 +97,83 @@ python -B compare_arms.py --baseline-root <root> --out analysis/outcome.json
 - **Retries.** Response retries are unsupported, not isolated. A workload that
   causes response backpressure would stop the simulation with `fatal` instead of
   leaking silently.
+
+---
+
+# Defense sweep over the proposal's design (`PREREGISTRATION_SWEEP.md`)
+
+The sweep covers the three public seeds at A=1…8. The full defense combines way
+partitioning, 4-cycle request TDMA, and per-domain LLC response queues. It is
+judged by the accepted proposal's own success criterion, using the
+**unchanged** frozen decision code (`analysis/summarize_sweep_v3.py`) and the
+stored v3 unpartitioned controls. All values are simulated.
+
+## Answer: both primary outcomes pass
+
+| Allocation | Way partitioning only (v3, frozen) | **Full defense** | Control effect → defended effect (cycles/line) | Defended 90% CI |
+|---|---|---|---:|---|
+| 1/15 | distinguishable | **indistinguishable** | +0.347 → −0.002 | [−0.003, −0.001] |
+| 2/14 | distinguishable | **indistinguishable** | +0.292 → −0.001 | [−0.002, −0.000] |
+| 3/13 | distinguishable | **indistinguishable** | +0.338 → −0.001 | [−0.001, −0.000] |
+| 4/12 | distinguishable | **indistinguishable** | +0.362 → −0.000 | [−0.001, −0.000] |
+| 5/11 | distinguishable | **indistinguishable** | +0.383 → −0.000 | [−0.001, +0.000] |
+| 6/10 | distinguishable | **indistinguishable** | +0.391 → −0.000 | [−0.001, −0.000] |
+| 7/9 | distinguishable | **indistinguishable** | +0.392 → −0.000 | [−0.000, −0.000] |
+| 8/8 | distinguishable | **indistinguishable** | +0.401 → −0.000 | [−0.000, −0.000] |
+
+- **Proposal criterion: PASS.** Treatment Holm p = 1 for both co-primary
+  statistics, max-set SNR and hit-only, at every allocation. The self-eviction
+  gate passes 3/3 at every allocation. The **stable collapse point is 1/15**,
+  and the stable ±0.02 equivalence point is also 1/15. Under way partitioning
+  alone, the same code finds no collapse point.
+- **Byte identity: PASS, 24/24.** In every seed × allocation configuration,
+  the defended monitor's `probes.bin` is byte-identical between the AES victim
+  and the quiet victim.
+- **Remaining effects.** The tiny negative values come from the startup
+  interval, interval 0, which is labelled idle. The quiet control shows the
+  same pattern, and the quiet victim produces byte-identical probes, so it
+  carries no information about AES.
+
+## Cost
+
+The cost is measured against the matched unpartitioned controls, averaged over
+the three seeds. The numbers come from the frozen summarizer's own fields.
+
+| Allocation | Monitor IPC | AES IPC | AES cycles/encryption | Monitor LLC miss (pp) |
+|---|---:|---:|---:|---:|
+| 1/15 | +0.18% | +2.41% | +6.35% | +0.262 |
+| 8/8 | +0.18% | +2.39% | +6.30% | +0.262 |
+
+Allocations 2/14 to 7/9 fall between these rows. Positive values denote cost.
+Against the v3 way-only treatments, AES completes 5.95% fewer encryptions,
+within a range of 5.93–5.98% across all 24 cases.
+
+The endpoint runs in the first part of this file attribute the extra cost to
+request TDMA. There, split response queues changed AES encryptions by 0.00%
+relative to request TDMA alone. That attribution is measured at seed `E5`, at
+A=1 and A=8, and is not separately measured at the other 22 configurations.
+
+## Validity and provenance
+
+- **Per-case gates.** All 48 cases passed. gem5 exited 0 with no requestor or
+  retry `fatal`. The prefixes were `cpu0. cpu1.` and there were 0 scheduler
+  violations. For the AES runs, the unchanged analyzer also reported `PASS
+  congruent` mapping, `PASS disjoint` ways with 0 violations, the hit-only
+  statistic present, and encryptions above zero.
+- **Method check.** This ran before any sweep output existed. A view root built
+  from copies of the original `sweep-v3` runs reproduces the stored
+  `summary_v3.json` exactly.
+- **Preservation.** No protected file changed; there were 12,617, including
+  all of `sweep-v3`. The new files are the sweep outputs (`tdma-rsa`,
+  `tdma-rsq`, and `tdma-rsv`) and three course files the user added
+  (textbook and lecture material).
+- **Run time.** 785 s at six concurrent processes. The outcome record is in
+  `analysis/sweep_outcome.json`, and the decision tables are in
+  `results/updated run/tdma-rsv/summary_v3.{json,csv}` and
+  `repeated_v3.{pdf,png}`.
+
+## Limits
+
+The three public seeds vary the plaintexts, but they share one key and one
+activity schedule, as in the original study. The result covers this design in
+gem5.
