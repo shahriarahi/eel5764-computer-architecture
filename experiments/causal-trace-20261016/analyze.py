@@ -5,7 +5,9 @@ from fractions import Fraction
 import json
 from pathlib import Path
 
-from trace_analysis import LATENCY_FIELDS, latency_rows, match_timelines, read_trace
+from trace_analysis import (
+    LATENCY_FIELDS, l1d_deliveries, latency_rows, match_timelines, read_trace,
+)
 
 
 TICKS_PER_CPU_CYCLE = 500
@@ -121,7 +123,8 @@ def describe(rows: list[dict]) -> dict:
 
 def analyze_case(case: Path) -> dict:
     metadata = analysis_metadata(json.loads((case / "run_meta.json").read_text()))
-    timelines = match_timelines(read_trace(case / "causal.log"))
+    events = read_trace(case / "causal.log")
+    timelines = match_timelines(events)
     gaps = upstream_gaps(timelines)
     for timeline, gap in zip(timelines, gaps):
         timeline["upstream_gap"] = gap
@@ -135,6 +138,7 @@ def analyze_case(case: Path) -> dict:
     return {
         "case": str(case),
         "matched_timelines": len(timelines),
+        "l1d_deliveries": l1d_deliveries(events, timelines),
         "window_exclusions": window,
         "llc_paths": paths,
         "all_requests": describe(rows),

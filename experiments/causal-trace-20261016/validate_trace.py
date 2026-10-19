@@ -12,7 +12,7 @@ try:
     from run_pilot import stats_rows
 finally:
     sys.path.remove(str(TDMA))
-from trace_analysis import match_timelines, read_trace
+from trace_analysis import l1d_deliveries, match_timelines, read_trace
 
 
 def validate_equivalence(reference: Path, candidate: Path) -> dict:
@@ -26,5 +26,6 @@ def validate_equivalence(reference: Path, candidate: Path) -> dict:
 def validate_trace_case(case: Path) -> dict:
     events = read_trace(case / "causal.log")
     timelines = match_timelines(events)
-    return {"trace_events": len(events), "matched_timelines": len(timelines)}
+    return {"trace_events": len(events), "matched_timelines": len(timelines),
+            "l1d_deliveries": l1d_deliveries(events, timelines)}
 

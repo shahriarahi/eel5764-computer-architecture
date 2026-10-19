@@ -12,7 +12,8 @@ import sys
 
 # tdma-cd0 holds the aborted 2026-10-18 attempt and is never reused.
 DISABLED_ROOT = "tdma-cd1"
-ENABLED_ROOT = "tdma-ct1"
+# tdma-ct1 holds the A=1 case that failed G3 under the one-to-one delivery matcher.
+ENABLED_ROOT = "tdma-ct2"
 TIMEOUT_SECONDS = 240
 
 

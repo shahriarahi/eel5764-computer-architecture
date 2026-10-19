@@ -36,3 +36,21 @@
   `tdma-cd1`/`tdma-ct1` instead of `tdma-cd0`/`tdma-ct0`, and `preserve.py`
   excludes them. The new names have the same length, so the probe paths still
   match the references exactly. Nothing else in the frozen plan changes.
+- **Step 1, attempt 3: passed.** Both `tdma-cd1` cases passed G1 and G4
+  (1,040 `tdma*` lines, 0 violations). The run took 184 s.
+- **Step 2, attempt 1: A=1 passed G2 and failed G3.** Probe bytes and simulated
+  statistics matched `tdma-onx`, but the error was
+  `cpu_delivery: expected 33024 events, found 98560`. Per the preregistration,
+  execution stopped and A=8 was not run. The case is preserved as
+  `tdma-ct1/seed-5764a5e5/1-15.failed.wzagvjiuodbtukpd`.
+  - **Cause.** The CPU hook also fires for L1D hits, which never reach the L2
+    bus. Each of the 33,024 crossbar forwards is followed in tick order by a
+    same-address delivery. The other 65,536 deliveries have no forward. The
+    short structural window contained no L1D hits, so it could not expose this.
+- **Post-hoc matcher change (deviation; made after seeing data).** A
+  timeline's delivery is now the first `cpu_delivery` at or after its forward.
+  It must have the same address, and same-tick duplicates are rejected. Other
+  deliveries are counted as `l1d_deliveries`. Re-validating the preserved case
+  read-only gives 33,024 timelines and 65,536 L1D deliveries. Step 2 reruns
+  into the new root `tdma-ct2`. The executable, gates G1, G2, G4, and G5, and
+  the analysis rules are unchanged.

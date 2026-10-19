@@ -114,6 +114,33 @@ LATENCY_FIELDS = (
 )
 
 
+def _deliveries_after_forwards(deliveries: list[TraceEvent], forwards: list[TraceEvent],
+                               addresses: list[tuple[int, int]]) -> list[TraceEvent]:
+    """The blocking CPU's next delivery after each forward belongs to that request."""
+    seen = set()
+    for event in deliveries:
+        key = (event.tick, event.paddr, event.vaddr)
+        if key in seen:
+            raise ValueError(f"cpu_delivery: duplicate event at tick {event.tick}")
+        seen.add(key)
+    matched, position = [], 0
+    for index, forward in enumerate(forwards):
+        while position < len(deliveries) and deliveries[position].tick < forward.tick:
+            position += 1
+        if position == len(deliveries):
+            raise ValueError(f"cpu_delivery: missing at index {index}")
+        if (deliveries[position].paddr, deliveries[position].vaddr) != addresses[index]:
+            raise ValueError(f"cpu_delivery: address mismatch at index {index}")
+        matched.append(deliveries[position])
+        position += 1
+    return matched
+
+
+def l1d_deliveries(events: list[TraceEvent], timelines: list[dict]) -> int:
+    """Monitor deliveries with no L2-bus timeline, i.e. L1D hits."""
+    return sum(event.stage == "cpu_delivery" for event in events) - len(timelines)
+
+
 def match_timelines(
     events: list[TraceEvent],
 ) -> list[dict[str, TraceEvent | list[TraceEvent]]]:
@@ -128,6 +155,8 @@ def match_timelines(
     count = len(admissions)
     expected_addresses = [(event.paddr, event.vaddr) for event in admissions]
     for stage in REQUIRED_TIMELINE_STAGES[1:]:
+        if stage == "cpu_delivery":
+            continue  # also fires for L1D hits; matched to forwards below
         stage_events = by_stage[stage]
         if len(stage_events) != count:
             raise ValueError(
@@ -136,6 +165,8 @@ def match_timelines(
         for index, (event, address) in enumerate(zip(stage_events, expected_addresses)):
             if (event.paddr, event.vaddr) != address:
                 raise ValueError(f"{stage}: address mismatch at index {index}")
+    by_stage["cpu_delivery"] = _deliveries_after_forwards(
+        by_stage["cpu_delivery"], by_stage["xbar_response_forward"], expected_addresses)
 
     timelines: list[dict[str, TraceEvent | list[TraceEvent]]] = []
     assigned_attempts: set[int] = set()

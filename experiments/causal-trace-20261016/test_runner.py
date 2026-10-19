@@ -36,7 +36,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_new_roots_avoid_the_aborted_attempt(self) -> None:
         self.assertNotIn(DISABLED_ROOT, {"tdma-cd0", "tdma-ct0"})
-        self.assertNotIn(ENABLED_ROOT, {"tdma-cd0", "tdma-ct0"})
+        self.assertNotIn(ENABLED_ROOT, {"tdma-cd0", "tdma-ct0", "tdma-ct1"})
 
     def test_builds_disabled_and_enabled_commands(self) -> None:
         reference = {"command": ["/old/gem5.opt", "-d", "/old/out",

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from trace_analysis import (
     TraceEvent,
+    l1d_deliveries,
     latency_rows,
     match_timelines,
     parse_trace_line,
@@ -132,8 +133,24 @@ class TimelineTests(unittest.TestCase):
             match_timelines(events)
 
     def test_rejects_duplicate_terminal_event(self) -> None:
-        events = timeline_events() + [make_event("cpu_delivery", 51)]
-        with self.assertRaisesRegex(ValueError, "cpu_delivery"):
+        events = timeline_events() + [make_event("cpu_delivery", 50)]
+        with self.assertRaisesRegex(ValueError, "cpu_delivery.*duplicate"):
+            match_timelines(events)
+
+    def test_l1d_hit_deliveries_are_not_matched_to_llc_timelines(self) -> None:
+        # L1D hits reach cpu_delivery without any L2-bus stage.
+        events = ([make_event("cpu_delivery", 5, 0x9000)] + timeline_events()
+                  + [make_event("cpu_delivery", 60), make_event("cpu_delivery", 70, 0x9000)])
+        timelines = match_timelines(events)
+        self.assertEqual(len(timelines), 1)
+        self.assertEqual(timelines[0]["cpu_delivery"].tick, 50)
+        self.assertEqual(l1d_deliveries(events, timelines), 3)
+
+    def test_rejects_first_delivery_after_forward_with_other_address(self) -> None:
+        events = timeline_events()
+        events[-1] = make_event("cpu_delivery", 40, 0x9000)
+        events.append(make_event("cpu_delivery", 50))
+        with self.assertRaisesRegex(ValueError, "cpu_delivery.*index 0"):
             match_timelines(events)
 
     def test_rejects_negative_stage_duration(self) -> None:
