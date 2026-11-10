@@ -1,0 +1,15 @@
+{
+  "respq": true,
+  "quiet_binary": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/quiet-control-20261016/quiet_victim",
+  "response_domain_prefixes": [
+    "cpu0.",
+    "cpu1."
+  ],
+  "original_executable": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/workloads/victim_l1d4k",
+  "argv": [
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/workloads/victim_l1d4k",
+    "1466213863"
+  ],
+  "argv0_intentionally_preserved": true,
+  "quiet_sha256": "8fe07ec5d52691793d6a16a7618eae9caef7c85630ce2a13a418edfb8fbbc5fb"
+}

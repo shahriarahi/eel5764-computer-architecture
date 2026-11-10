@@ -1,0 +1,24 @@
+{
+  "response_domain_prefixes": "cpu0. cpu1.",
+  "tdma_lines": 1040,
+  "violations": 0,
+  "probes_vs_reference": {
+    "records": 16384,
+    "differing_records": 1184,
+    "differing_intervals": [
+      4,
+      7,
+      18,
+      19,
+      22,
+      25,
+      40,
+      46,
+      53,
+      55,
+      60
+    ],
+    "first_differing_record": 1258,
+    "byte_identical": false
+  }
+}
