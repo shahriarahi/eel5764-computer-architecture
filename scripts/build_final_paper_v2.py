@@ -13,8 +13,9 @@ on the experiment/tdma-prototype worktree (.codex-tmp/tdma-worktree/experiments)
 Writes a new file only (refuses to overwrite): Group18_EEL5764_Final_Paper_v2.docx
 
 The original research question, design, and negative result are unchanged; the follow-up is
-added as its own section. Every new number is read from those files and each declared
-outcome is asserted. Standard library only.
+added as its own section. Section X shows every proposal cost metric at all eight allocations
+(per-core IPC and LLC miss rate, AES encryptions and cycles per encryption). Every new number
+is read from those files and each declared outcome is asserted. Standard library only.
 """
 
 from __future__ import annotations
@@ -94,6 +95,28 @@ assert worst_ci < 0.02
 
 def ways(split: str) -> str:
     return split.replace("-", "/")
+
+
+# ---- Section X: every proposal cost metric at every allocation -----------------
+# The proposal promised per-core IPC and LLC miss rate as the change from the matched
+# control, and AES useful work as completed encryptions over the active intervals plus
+# cycles per completed encryption. The v1 table showed only 1/15; this one shows all eight.
+PERF_TABLE = (["Split", "Mon. IPC (%)", "AES IPC (%)", "Mon. miss (pp)", "AES miss (pp)", "AES cyc/enc (%)"],
+              [[ways(s), bur.signed(-f(bur.v3[s]["monitor_ipc_cost_pct_mean"]), 4),
+                bur.signed(-f(bur.v3[s]["aes_ipc_cost_pct_mean"]), 4),
+                bur.signed(f(bur.v3[s]["monitor_llc_miss_delta_pp_mean"]), 3),
+                bur.signed(f(bur.v3[s]["aes_llc_miss_delta_pp_mean"]), 4),
+                bur.signed(f(bur.v3[s]["aes_cycles_per_encryption_cost_pct_mean"]), 4)] for s in bur.SPLITS])
+runs = [(d, a) for d, a in bur.A if "diagnostics" not in d.parts]
+ctl_enc = [a["aes_encryptions"] for d, a in runs if d.name.startswith("UNPARTITIONED")]
+trt_enc = [a["aes_encryptions"] for d, a in runs if not d.name.startswith("UNPARTITIONED")]
+assert len(ctl_enc) == len(trt_enc) == 24
+run_cpe = [a["aes_cycles_per_encryption"] for _, a in runs]
+PERF_LEAD = ("Entries are three-seed mean changes from the matched control; miss is the LLC miss rate in "
+             "percentage points, and negative cycles per encryption means AES ran faster.")
+PERF_ENC = (f"AES completed {min(ctl_enc + trt_enc):,}–{max(ctl_enc + trt_enc):,} encryptions per run in its 32 "
+            f"active intervals ({sum(ctl_enc):,} over all controls, {sum(trt_enc):,} over all partitioned runs), at "
+            f"{min(run_cpe):,.0f}–{max(run_cpe):,.0f} cycles per encryption.")
 
 
 # ---- new prose -----------------------------------------------------------------
@@ -231,6 +254,8 @@ def paper_blocks() -> list[tuple]:
     b = [(x[0], renumber.get(x[1], x[1])) if x[0] == "h1" else x for x in b]
     assert sum(x[0] == "h1" and x[1] in renumber.values() for x in b) == 3
     i = next(i for i, x in enumerate(b) if x[0] == "h1" and x[1] == "X. PERFORMANCE TRADEOFF")
+    assert b[i + 1] == ("table", *bur.PERF_TABLE) and b[i + 2] == ("p", bur.PERF)
+    b[i + 1:i + 3] = [("table", *PERF_TABLE), ("p", f"{PERF_LEAD} {bur.PERF} {PERF_ENC}")]
     b[i:i] = [("h1", SEC), ("p", INTRO),
               ("h2", "A. Request Time Slots"), ("p", SLOTS),
               ("h2", "B. Locating the Residual"), ("p", LOCATE),
