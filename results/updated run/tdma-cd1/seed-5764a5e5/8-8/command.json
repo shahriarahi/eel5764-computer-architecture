@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt",
+    "-r",
+    "-e",
+    "-d",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-cd1/seed-5764a5e5/bqnanlezbeaimfw",
+    "--stats-file=stats.txt.gz",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/causal-trace-20261016/run_contention_causal.py",
+    "--baseline-root",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture",
+    "--tdma-slot-cycles",
+    "4",
+    "--split",
+    "8-8",
+    "--l1d-size",
+    "4KiB",
+    "--monitor-ways",
+    "8",
+    "--workload-seed",
+    "1466213861",
+    "--monitor-sink",
+    "file",
+    "--monitor-variant",
+    "v3",
+    "--stats-per-interval"
+  ],
+  "trace": false,
+  "timeout_seconds": 240,
+  "reference": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-onx/seed-5764a5e5/8-8"
+}

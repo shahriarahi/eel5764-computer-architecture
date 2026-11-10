@@ -1,0 +1,30 @@
+{
+  "enabled": false,
+  "requestor": "",
+  "vaddr_base": 0,
+  "vaddr_size": 0,
+  "llc": "",
+  "queue": "",
+  "slot_cycles": 4,
+  "peers": [
+    "system.cpu0.icache.mem_side",
+    "system.cpu0.dcache.mem_side",
+    "system.cpu0.mmu.itb.walker.port",
+    "system.cpu0.mmu.dtb.walker.port",
+    "system.cpu1.icache.mem_side",
+    "system.cpu1.dcache.mem_side",
+    "system.cpu1.mmu.itb.walker.port",
+    "system.cpu1.mmu.dtb.walker.port"
+  ],
+  "port_domains": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "baseline_config": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/configs/run_contention.py"
+}

@@ -1,0 +1,46 @@
+{
+  "phase": "replay",
+  "ways": 1,
+  "command": [
+    "/home/shahriarahi/eel5764/gem5-timeslot/build/RISCV/gem5.opt",
+    "-r",
+    "-e",
+    "-d",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-np0/seed-5764a5e5/.1-15.tmp.pFbNK8",
+    "--stats-file=stats.txt.gz",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/tdma/run_contention_tdma.py",
+    "--baseline-root",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture",
+    "--tdma-slot-cycles",
+    "4",
+    "--split",
+    "1-15",
+    "--l1d-size",
+    "4KiB",
+    "--monitor-ways",
+    "1",
+    "--workload-seed",
+    "1466213861",
+    "--monitor-sink",
+    "file",
+    "--monitor-variant",
+    "v3",
+    "--stats-per-interval"
+  ],
+  "reference": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-onx/seed-5764a5e5/1-15",
+  "timeout_seconds": 240,
+  "probe_argument_length": 138,
+  "gem5_sha256": "5a540aed00f58ba43fe94065ecb5cd714cde043c670b38c240ded938e50070a5",
+  "source_sha256": {
+    "preserve.py": "c8dfc278cfedb3e61c256326101e8fd5ba8680a8856dc0ec621da98f1a7c7bba",
+    "quiet_adapter.py": "5b446b5cb912c474fd3dccd3b4c911a83a9f6c23a58092c5d22c7cb8089f15b1",
+    "run_control.py": "645b880aa00876dd6a4244a74dfdf65a83f470d457533a47f8064304be22e9e3",
+    "test_control.py": "c7881939ba0371364c6b2f2825f212230eaff3bfa3b72fe85c6616101c05864c"
+  },
+  "preregistration_sha256": "1304fc2c0f3ae09bfc6bd76343e78cca05b2aaa8601bd8ebec5153e70eb2b150",
+  "workloads": {
+    "workloads/monitor_v3_l1d4k": "0722e049dcdf93baae19f6813b2b06a5301d647c177b1cc0bb4ea3946f7ec9c2",
+    "workloads/victim_l1d4k": "5ef763fa8290f5b8ff026b71a883706ccf6b10151ddfc5951f24012a832f46a1"
+  },
+  "quiet_sha256": null
+}
