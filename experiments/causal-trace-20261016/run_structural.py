@@ -61,7 +61,7 @@ def main() -> None:
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument(
         "--binary", type=Path,
-        default=Path("/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt"),
+        default=Path.home() / "eel5764/gem5-causal/build/RISCV/gem5.opt",
     )
     args = parser.parse_args()
     project = args.baseline_root.resolve()

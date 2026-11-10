@@ -6,7 +6,7 @@ import subprocess
 
 
 HERE = Path(__file__).resolve().parent
-ROOT = Path("/home/shahriarahi/eel5764/gem5-causal")
+ROOT = Path.home() / "eel5764/gem5-causal"
 STAGES = {
     "request_admit", "llc_response_ready", "response_enqueue",
     "response_send_attempt", "response_retry", "response_dequeue",

@@ -19,7 +19,7 @@ import threading
 
 
 HERE = Path(__file__).resolve().parent
-EXECUTABLE = Path("/home/shahriarahi/eel5764/gem5-respq/build/RISCV/gem5.opt")
+EXECUTABLE = Path.home() / "eel5764/gem5-respq/build/RISCV/gem5.opt"
 QUIET_BINARY = HERE.parent / "quiet-control-20261016/quiet_victim"
 SEEDS = (0x5764A5E5, 0x5764A5E6, 0x5764A5E7)
 AES_ROOT = "tdma-rsa"

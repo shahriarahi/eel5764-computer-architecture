@@ -10,7 +10,7 @@ import subprocess
 
 
 HERE = Path(__file__).resolve().parent
-ROOT = Path("/home/shahriarahi/eel5764/gem5-respq")
+ROOT = Path.home() / "eel5764/gem5-respq"
 
 
 def replace(relative: str, old: str, new: str) -> None:

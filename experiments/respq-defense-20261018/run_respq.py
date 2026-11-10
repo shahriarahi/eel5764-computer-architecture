@@ -15,7 +15,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 TDMA = HERE.parent / "tdma"
-EXECUTABLE = Path("/home/shahriarahi/eel5764/gem5-respq/build/RISCV/gem5.opt")
+EXECUTABLE = Path.home() / "eel5764/gem5-respq/build/RISCV/gem5.opt"
 TIMEOUT_SECONDS = 240
 SEED_DIR = "seed-5764a5e5"
 VIOLATIONS = ("tdmaOverruns", "tdmaDownstreamRefusals", "tdmaExpressBypasses")

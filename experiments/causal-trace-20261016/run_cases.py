@@ -70,7 +70,7 @@ def main() -> None:
     here = Path(__file__).resolve().parent
     sys.path.insert(0, str(here))
     from validate_trace import validate_equivalence, validate_trace_case
-    executable = Path("/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt")
+    executable = Path.home() / "eel5764/gem5-causal/build/RISCV/gem5.opt"
     root_name = ENABLED_ROOT if args.trace else DISABLED_ROOT
     result_root = project / "results/updated run" / root_name
     require_new(result_root)
