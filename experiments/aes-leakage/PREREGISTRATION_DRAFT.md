@@ -196,7 +196,12 @@ checks the rule; it says nothing about the real effect.
 2. `python preserve.py capture`, commit, and record the commit hash here.
 3. Run P1.
 
-Frozen at commit: (not yet).
+**Frozen at commit `675c047` (2026-11-12), before the first P1 run.** The content of
+this file as of that commit is the registered design. The freeze was made when the
+group told me to proceed with Phase D ("From now on, I give you approval"), without
+edits from the group, so the draft's values (N = 2000 for P1 and 4000 for P2 to P4,
+the seeds, the gates, the decision rule) stand as written. This paragraph is the only
+later edit. Changes after this point are logged in section 11.
 
 ## 11. Deviations
 
