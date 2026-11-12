@@ -60,6 +60,7 @@ the process exit with status 2 and an error line.
 | `README.md` | this overview and the commands |
 | `DISCUSSION_BRIEF.md` | self-contained status brief for a reader who will not run anything |
 | `PREREGISTRATION_DRAFT.md` | hypotheses, N, seeds, decision rule (frozen at `675c047`; deviations in its section 11) |
+| `PREREGISTRATION_OVERLAP.md` | second, separate preregistration: the overlap (contention) schedule and the collision-count test |
 | `progress.md` | ledger: what was done, with evidence |
 | `gem5_build.md` | Phase B commands: build the tracing gem5 and run the guard |
 | `leak_schedule.h` | window schedule, public key, splitmix64 plaintext stream, TVLA mode, fake clock |
