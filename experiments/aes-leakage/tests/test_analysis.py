@@ -91,6 +91,39 @@ class WayIsolation(unittest.TestCase):
         self.assertIsNone(a.isolation_violations(occ, "off"))
 
 
+class WayIsolationRealGem5Spelling(unittest.TestCase):
+    """gem5 v25.1.0.1 writes the per-way occupancy as ``wayOccupancy_p0::way0``
+    (underscore, one ``::``), as in the paper's stored results/8-8/stats.txt and
+    in runs/e1-w8-s1-n500.  The fixtures of WayIsolation above use
+    ``wayOccupancy::p0::way0``, a spelling gem5 never writes, so the isolation
+    check could not read any real partitioned run.  The layout below is 8/8:
+    the monitor owns ways 0..7, the AES ways 8..15."""
+    COMMENT = "# Valid blocks per [partition][way], sampled at stats dump (Count)"
+
+    def text(self, p0_way8):
+        lines = ["---------- Begin Simulation Statistics ----------"]
+        for row, value in (("p0", lambda w: 256 if w < 8 else
+                            (p0_way8 if w == 8 else 0)),
+                           ("p1", lambda w: 197 if w == 8 else 0),
+                           ("other", lambda w: 0)):
+            for way in range(16):
+                lines.append("%swayOccupancy_%s::way%d          %d     %s" % (
+                    PREFIX, row, way, value(way), self.COMMENT))
+        lines.append("---------- End Simulation Statistics   ----------")
+        return "\n".join(lines)
+
+    def test_real_spelling_is_parsed_and_isolation_is_counted(self):
+        a = h.load_analysis()
+        occ = a.parse_way_occupancy(self.text(p0_way8=0))
+        self.assertEqual(len(occ), 48)             # 3 rows x 16 ways
+        self.assertEqual(occ[(0, 0)], 256)
+        self.assertEqual(occ[(1, 8)], 197)
+        self.assertIn((-1, 0), occ)                # the catch-all 'other' row
+        self.assertEqual(a.isolation_violations(occ, "8-8"), 0)
+        occ = a.parse_way_occupancy(self.text(p0_way8=4))
+        self.assertEqual(a.isolation_violations(occ, "8-8"), 4)
+
+
 class HypothesisScore(unittest.TestCase):
     def setUp(self):
         self.a = h.load_analysis()

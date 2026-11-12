@@ -380,7 +380,9 @@ def parse_first_stats_block(text):
     return scalars, vectors
 
 
-_WAY_OCC = re.compile(r"^\S+?::(p\d+|other)::way(\d+)\s+(\d+)\b")
+# gem5 writes "wayOccupancy_p0::way0"; the "::p0::way0" spelling is kept so
+# that older synthetic fixtures still parse.
+_WAY_OCC = re.compile(r"^\S+?(?:::|_)(p\d+|other)::way(\d+)\s+(\d+)\b")
 
 
 def parse_way_occupancy(text):

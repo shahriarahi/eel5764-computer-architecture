@@ -256,6 +256,50 @@ The status line at the top of `PREREGISTRATION_DRAFT.md` ("DRAFT. Not frozen.")
 predates the freeze recorded in its section 10 and is superseded by it; the frozen
 text is not edited.
 
+## Phase E, block E1: results (2026-11-12)
+
+Window schedule, gem5 `71845ebf...` (`~/eel5764/gem5-leak`), no interconnect defense.
+Deviations D1 to D3 were logged at commit `6986be8` before these runs.
+
+| Arm | Runs | N | Run checks | Differential verdict |
+|---|---|---|---|---|
+| unpartitioned, 8 monitor ways | `e1-c8-s1-n500`, `e1-c8-s2-n500` | 500 | PASS | IDENTICAL |
+| unpartitioned, 1 monitor way | `e1-c1-s1-n500`, `e1-c1-s2-n500` | 500 | PASS | IDENTICAL |
+| way partition 8/8 | `e1-w8-s{1,2,3}-n500` | 500 | PASS, way isolation PASS | S1/S2 IDENTICAL, S1/S3 IDENTICAL, S2/S3 IDENTICAL |
+| way partition 1/15 | `e1-w1-s{1,2,3}-n500` | 500 | PASS, way isolation PASS | S1/S2 IDENTICAL, S1/S3 IDENTICAL, S2/S3 IDENTICAL |
+
+| Run | Registered rule | D2 rule | Effect (cycles per probed line) | Trace recall / precision |
+|---|---|---|---|---|
+| `e1-p2a-s1-n2000` (full AES, scrub) | round 1 16/16, last round 16/16; statements `round1_plaintext_plus_key`, `lastround_c_xor_k10` | statements `round1_plaintext_plus_key`, `lastround_c_xor_k10` | `p_xor_k` 17.3498; `lr_c_xor_k10` 2.0353 | 1.000 / 1.000 |
+| `e1-p2b-s1-n2000` (full AES, no scrub) | round 1 0/16, last round 0/16; statement `lastround_ciphertext_only` (byte 5 only, `c_only` Holm p 0.0181) | statements none | `p_xor_k` -10.2163, -0.5888 of P2a | 0.316 / 1.000 |
+
+Gate G-P2a: met. Probe-pass duration of P2a: not measured here; no `probe_deadline`
+error occurred: true. Wall time: 8 min 58 s for the ten N = 500 runs, 11 min 10 s for
+the two N = 2000 runs.
+
+What this shows: in the window schedule the monitor's probe log did not depend on the
+plaintext stream in any of the eight seed pairs: the unpartitioned 8-way and 1-way
+arms and both way-partitioned arms were byte-identical across seeds. In the
+unprotected full-AES run with scrub (P2a) the signal carries plaintext combined with
+the key on 16/16 round-1 bytes and 16/16 last-round bytes, and the slow-versus-touched
+table is exact (123,471 touched and slow, 0 touched and fast, 0 untouched and slow).
+Without the scrub (P2b) the trace sees 31.6% of the touched lines, no round-1
+statement is supported, and the one statement the registered z rule supports
+(`lastround_ciphertext_only`, byte 5) is not supported under the D2 permutation rule;
+this disagreement between the two rules is reported here as D2 requires. A
+differential verdict covers the tested plaintext streams only.
+
+Tool fix made during E1 (not a protocol deviation; the gate is unchanged): the
+`way_isolation` run check could not read any real partitioned run, because
+`analysis/aes_leak_analysis.py` expected the stat name `wayOccupancy::p0::way0` while
+gem5 writes `wayOccupancy_p0::way0` (also in the paper's stored `results/8-8/stats.txt`).
+The six `e1-w*` runs first reported `way_isolation | FAIL | stats lack wayOccupancy`.
+The pattern now accepts both spellings; the test was written first and failed with
+`AssertionError: 0 != 48` (class `WayIsolationRealGem5Spelling` in
+`tests/test_analysis.py`), the suite is now 173 tests, and the six runs were
+re-analysed (analysis only, no gem5): all six show
+`way_isolation | PASS | valid LLC blocks outside the assigned ways: 0`.
+
 ## Environment changes made for Phase A and B
 
 With the group's approval, in WSL `Ubuntu-26.04`: `qemu-user` (provides
