@@ -6,11 +6,12 @@ The submitted paper measured **whether** AES activity is visible to a monitor on
 another core. This experiment asks **what** the visible signal encodes, and
 whether each defense removes data-dependent leakage or only the activity signal.
 
-**Status (Phases A, B and C complete):** the code, builds, adapter, analysis and
-tests exist and pass, the tracing gem5 is built and passes the byte-identical guard,
-and the 20-window smoke run (P0) passes after one pre-data change (D0: the victim's
-scrub walk is 4 KiB). The only experiment runs so far are 20-window smoke runs, so
-this directory contains no leakage result. See `progress.md`.
+**Status (Phases A to D complete):** the code, builds, adapter, analysis and tests
+exist and pass, the tracing gem5 is built and passes the byte-identical guard, the
+20-window smoke run (P0) passes after one pre-data change (D0: the victim's scrub
+walk is 4 KiB), and the 2,000-window positive control (P1) passes its gate: with no
+partition and 16 monitor ways, the signal carries plaintext combined with the key.
+No defense has been evaluated yet; Phase E is next. See `progress.md`.
 
 ## Scope, and how it relates to the accepted proposal
 
@@ -120,7 +121,7 @@ python preserve.py verify
 | A | code, builds, adapter, analysis, tests (no gem5) | done, see `progress.md` |
 | B | build the tracing gem5 and run the byte-identical guard | done 2026-11-12, guard PASS, see `progress.md` |
 | C | P0 smoke run: 20 windows | done 2026-11-12: attempt 1 failed a deadline, fixed (D0), attempt 2 passed, see `progress.md` |
-| D | P1 positive control: 2,000 windows | commands below |
+| D | P1 positive control: 2,000 windows | done 2026-11-12: gate G1 passed, see `progress.md` |
 | E | P2 to P4 per `PREREGISTRATION_DRAFT.md` | after D |
 
 Phase C needs the Phase B guard to have passed; it has.
@@ -168,8 +169,11 @@ Send me `p0-r1-scrub-n20.analysis.md`, `simout.txt`, and the first lines of
 
 ### Phase D: P1 (2,000 windows), only after P0 passes
 
+Already run on 2026-11-12 (`runs/p1-r1-scrub-n2000`; it took 10 min 59 s). To repeat
+it, use a new directory name.
+
 ```bash
-RUN=experiments/aes-leakage/runs/p1-r1-scrub-n2000
+RUN=experiments/aes-leakage/runs/p1b-r1-scrub-n2000
 ~/eel5764/gem5-leak/build/RISCV/gem5.opt -r -e --debug-flags=VictimTable --debug-file=victim_table.trace -d "$RUN" experiments/aes-leakage/run_leakage.py --victim-variant r1-scrub --build-dir experiments/aes-leakage/build/n2000 --split off --monitor-ways 16
 python3 -B experiments/aes-leakage/analysis/aes_leak_analysis.py analyze --run-dir "$RUN" --nperm 20 --out-json "$RUN.analysis.json" --out-md "$RUN.analysis.md"
 ```

@@ -2,10 +2,11 @@
 
 Branch `experiment/aes-leakage`, started from `experiment/tdma-prototype` at
 `45d21e2`. Simulator only. Every entry points to a file, a command or a test.
-Nothing here is a leakage result. The gem5 runs so far are the Phase B guard (the
-paper's own configuration) and the 20-window Phase C smoke runs, whose purpose is
-to check the machinery, not to measure leakage; their 20-window statistics are
-observations only.
+No defense result exists yet. The gem5 runs so far are the Phase B guard (the
+paper's own configuration), the 20-window Phase C smoke runs (machinery checks;
+their statistics are observations only), and P1, the 2,000-window positive control
+of the unpartitioned configuration, which is a gate for the method and says nothing
+about any defense.
 
 ## Phase status
 
@@ -14,7 +15,7 @@ observations only.
 | Phase A | code, builds, adapter, analysis, docs, tests (no gem5) | done 2026-11-12 |
 | Phase B | build the tracing gem5, run the byte-identical guard | done 2026-11-12, at the group's explicit request; guard PASS, see "Phase B: results" |
 | Phase C | P0: 20 windows, no partition, 16 monitor ways, round-1 lookups | done 2026-11-12: attempt 1 FAILED its deadline gate, root-caused, fixed (D0), attempt 2 PASSED; see "Phase C: results" |
-| Phase D | P1: 2,000-window positive control | after C |
+| Phase D | P1: 2,000-window positive control | done 2026-11-12: gate G1 PASSED, see "Phase D: results" |
 | Phase E | P2 to P4 per `PREREGISTRATION_DRAFT.md` | after D; P4 needs a defense-patched gem5 tree and an adapter change |
 
 ## Phase A: deliverables
@@ -187,6 +188,54 @@ and `diag-full-noscrub-a16-n20` (the single-variable comparison),
 `p0b-r1-scrub-n20` (attempt 2), `diag-margin-*` (the prime-deadline sweep; its
 temporary builds were in `/tmp` and are not kept), `smoke-*` (the other three variants), and `*.analysis.{json,md}`.
 
+## Phase D: results (2026-11-12)
+
+Run at the group's standing approval ("From now on, I give you approval"), after
+the preregistration was frozen at `675c047` (section 10 of the draft). P1 is
+`runs/p1-r1-scrub-n2000`, the README Phase D command verbatim: `r1-scrub`,
+`--split off`, `--monitor-ways 16`, `build/n2000` (`victim_leak_r1_scrub`
+`279b5bcc...`, `monitor_leak` `6a6eaae9...`), gem5 `71845ebf...`.
+
+| Item | Result |
+|---|---|
+| Duration | 12:11:14 to 12:22:14, `real` 10 min 59.5 s (the README estimate was about 12 minutes) |
+| Run | gem5 exit 0; `monitor status=PASS records=512000`; no `error=` line, so no deadline was missed in 2,000 windows |
+| Files | `probes.bin` 8,192,000 B (sha256 `0f6a57bcb349bd25...`), `victim_table.trace` 2,993,601 B (`a508662c004af0c2...`) |
+| Run checks | all PASS; 68 table lines mapped to distinct logical sets (rotation 130) |
+| **Gate G1** | **PASS**: `p_xor_k` significant on 16/16 bytes (mean z 84.7; Holm p below double precision), `p_only` 0/16, `shuffled` 0/16 |
+| Decision rule | `round1_plaintext_plus_key` supported (bytes 0 to 15); the other three statements not supported; every byte labelled `plaintext_plus_key` |
+| Other hypotheses | `lr_c_xor_k10`, `c_only`, `lr_shuffled` all 0/16 (round-1 mode has no last-round lookups, so they act as extra null controls) |
+| Detection (location-free) | `first_round` 16/16, `shuffled` 0/16, `last_round` 0/16, `c_line` 0/16; all rows reliable |
+| Ground truth | 29,095 fills, all inside the AES phase, 0 outside, 68 before measurement; recall 1.000 and precision 1.000; 14.55 fills per window |
+
+What this shows: in the unpartitioned, 16-way, round-1-only configuration the
+measurement chain works end to end, and the signal carries plaintext combined with
+the key (the key-dependent model is supported, the key-free one is not). It is a
+positive control by design. It says nothing about way partitioning or the other
+defenses.
+
+Detail (`runs/p1-r1-scrub-n2000.detail.txt`, from `runs/p1_detail.py`, an ad hoc
+script not covered by tests):
+
+* **The control channel is noise-free.** A table-line set the AES did not touch took
+  exactly 513 cycles every time (sd 0.0, 106,905 observations); a touched set took a
+  median 3,127 (mean 3,155). A slow set (1,000 cycles or more) appeared in 100.0% of
+  touched windows and 0.00% of untouched ones: the monitor sees exactly which table
+  lines were touched. Three sets that are not table lines are slow in more than 99%
+  of windows (constant victim data such as the stack).
+* **Per-byte strength is uniform:** z from 84.3 (byte 8) to 85.0 (byte 15). `p_only`
+  scores z between -8.0 and -3.2: anti-correlated, as expected, because the true line
+  differs from `p >> 4` at every byte (every key nibble is nonzero).
+* **Deadline margins over 2,000 windows:** probe pass min 170,100, median 180,752,
+  p99 185,078, max 196,662 cycles against a 454,656 budget (worst-case headroom
+  2.31x); median 180,808 over the first 200 windows and 180,952 over the last 200, so
+  no drift; window 0 is the slowest. No prime-deadline miss occurred, which is
+  consistent with the earlier inference that the cold window 0 is the worst case for
+  the prime (this run does not measure the prime duration itself).
+* **Calibration on real data:** with the windows shuffled, 0.3% of z exceed 2.33
+  (nominal 1%) and the shuffled z has sd 0.72 (nominal 1): the analytic z is
+  conservative here.
+
 ## Environment changes made for Phase A and B
 
 With the group's approval, in WSL `Ubuntu-26.04`: `qemu-user` (provides
@@ -200,6 +249,23 @@ modified. Nothing outside this experiment directory was modified in the
 repository; `preserve.py verify` checks that.
 
 ## Open items
+
+* **Effect-size rule (raised after P1, before any P3 data).** The frozen decision rule
+  uses significance only. P1 shows a deterministic, noise-free baseline (sd 0.0 in
+  untouched sets), and `standardize()` treats a zero-variance column as having sd 1
+  (one cycle), so in a noise-free arm the z is effectively measured in cycles, while
+  an arm with tiny nonzero jitter is standardized by that jitter. A deterministic
+  residual of a cycle or less could then count as "supported" without being
+  meaningful, and arms may not be comparable. The paper handled this with an
+  equivalence margin of 0.02 cycles per line. Recommendation: before P3, log a
+  deviation (D1) that adds a reported effect size (cycles per predicted line) and a
+  materiality threshold to the decision rule. Not done: it changes the registered rule,
+  so it needs the group's decision.
+* **N for P2 to P4.** The sizing in the preregistration used synthetic noise (6
+  cycles) and an assumed effect of 4 to 40 cycles. The real unpartitioned baseline has
+  zero noise and a 2,642-cycle effect, so N = 4000 is probably more than the controls
+  need. N for the partitioned and defended arms depends on a residual effect that is
+  still unknown. The registered N = 4000 stands unless a deviation is logged.
 
 * The tracing code's enabled behaviour is now verified at N = 20 (fills recorded,
   68 lines mapped, recall and precision 1.000 with scrub); P1 tests it at 2,000
