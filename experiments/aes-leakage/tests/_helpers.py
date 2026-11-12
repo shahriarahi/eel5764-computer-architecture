@@ -6,6 +6,7 @@ Tests that need a tool that is not installed are skipped with a message that
 names the missing tool; they never pass silently.
 """
 import importlib.util
+import os
 import shutil
 import subprocess
 import tempfile
@@ -84,3 +85,28 @@ def riscv_build(sources, out, defines=(), includes=()):
 
 def tmpdir():
     return tempfile.TemporaryDirectory(prefix="aesleak-test-")
+
+
+_FAKE_BUILDS = {}
+
+
+def fake_clock_build(n_win):
+    """Build all six workloads with -DLEAK_FAKE_CLOCK through build.sh.
+
+    Cached per N_WIN for the whole test run.  These binaries only make sense
+    under qemu-user: run_leakage.py refuses a manifest that lists
+    LEAK_FAKE_CLOCK among its defines.
+    """
+    if n_win not in _FAKE_BUILDS:
+        tmp = tmpdir()
+        env = dict(os.environ, EXTRA_DEFS="-DLEAK_FAKE_CLOCK")
+        proc = run(["sh", EXP / "build.sh", str(n_win), tmp.name], env=env)
+        if proc.returncode != 0:
+            raise AssertionError("build.sh failed:\n%s\n%s" %
+                                 (proc.stdout, proc.stderr))
+        _FAKE_BUILDS[n_win] = (tmp, Path(tmp.name))
+    return _FAKE_BUILDS[n_win][1]
+
+
+def qemu_run(binary, *args, timeout=300):
+    return run([QEMU, binary] + [str(a) for a in args], timeout=timeout)
