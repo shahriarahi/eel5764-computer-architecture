@@ -6,10 +6,11 @@ The submitted paper measured **whether** AES activity is visible to a monitor on
 another core. This experiment asks **what** the visible signal encodes, and
 whether each defense removes data-dependent leakage or only the activity signal.
 
-**Status (Phases A and B complete):** the code, builds, adapter, analysis and tests
-exist and pass, and the tracing gem5 is built and passes the byte-identical guard.
-No gem5 run of this experiment's own workloads has been made, so this directory
-contains no leakage result. See `progress.md`.
+**Status (Phases A, B and C complete):** the code, builds, adapter, analysis and
+tests exist and pass, the tracing gem5 is built and passes the byte-identical guard,
+and the 20-window smoke run (P0) passes after one pre-data change (D0: the victim's
+scrub walk is 4 KiB). The only experiment runs so far are 20-window smoke runs, so
+this directory contains no leakage result. See `progress.md`.
 
 ## Scope, and how it relates to the accepted proposal
 
@@ -81,7 +82,8 @@ the process exit with status 2 and an error line.
 | `tests/` | the test suite |
 
 Binaries: `victim_leak_{r1,full}_{scrub,noscrub}` (round-1 lookups only or full
-AES; with or without an 8 KiB private-cache walk before each encryption),
+AES; with or without a 4 KiB private-cache walk before each encryption, see
+deviation D0 in `PREREGISTRATION_DRAFT.md`),
 `victim_leak_tvla` (full AES with scrub, even windows use a fixed plaintext) and
 `monitor_leak`. The tables are 68 contiguous 64-byte lines (sbox 4, te0..te3 16
 each) across two 4 KiB pages; the physical LLC set of each line is measured by the
@@ -117,7 +119,7 @@ python preserve.py verify
 |---|---|---|
 | A | code, builds, adapter, analysis, tests (no gem5) | done, see `progress.md` |
 | B | build the tracing gem5 and run the byte-identical guard | done 2026-11-12, guard PASS, see `progress.md` |
-| C | P0 smoke run: 20 windows | commands below |
+| C | P0 smoke run: 20 windows | done 2026-11-12: attempt 1 failed a deadline, fixed (D0), attempt 2 passed, see `progress.md` |
 | D | P1 positive control: 2,000 windows | commands below |
 | E | P2 to P4 per `PREREGISTRATION_DRAFT.md` | after D |
 
@@ -128,10 +130,14 @@ Phase C needs the Phase B guard to have passed; it has.
 `-r -e` is required: without it gem5 does not write `simout.txt`, which the
 analysis reads.
 
+Already run: `runs/p0-r1-scrub-n20` is attempt 1 (it failed `prime_deadline`, kept as
+evidence) and `runs/p0b-r1-scrub-n20` is attempt 2 (passed). To repeat it, use a new
+directory name, as below.
+
 ```bash
 WT='/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/aes-leakage-worktree'
 cd "$WT" && mkdir -p experiments/aes-leakage/runs
-RUN=experiments/aes-leakage/runs/p0-r1-scrub-n20
+RUN=experiments/aes-leakage/runs/p0c-r1-scrub-n20
 ~/eel5764/gem5-leak/build/RISCV/gem5.opt -r -e --debug-flags=VictimTable --debug-file=victim_table.trace -d "$RUN" experiments/aes-leakage/run_leakage.py --victim-variant r1-scrub --build-dir experiments/aes-leakage/build/n20 --split off --monitor-ways 16
 python3 -B experiments/aes-leakage/analysis/aes_leak_analysis.py analyze --run-dir "$RUN" --out-json "$RUN.analysis.json" --out-md "$RUN.analysis.md"
 ```
@@ -189,6 +195,9 @@ attributed (unmapped table lines, bad probe file, ...).
 
 ## Caveats (also in the preregistration)
 
+* **Detection table needs windows.** Its ANOVA has 16 classes for the Te tables, so
+  below about 160 windows it is flagged unreliable (the shuffled control comes out
+  significant in a 20-window run). Only the attribution table feeds the decision rule.
 * **State, not contention.** In this schedule the encryption ends at least 4,096
   cycles before the probe starts and the monitor performs no memory access in
   between, so no victim memory traffic overlaps a monitor access. The windows

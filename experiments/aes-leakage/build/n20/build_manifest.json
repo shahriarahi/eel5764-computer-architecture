@@ -10,7 +10,7 @@
     },
     "victim_leak_full_scrub": {
       "bytes": 10856,
-      "sha256": "73fd2d808eb3021f43db5dc80f5a89b08741b8c7c0cd7328cd01ca59e3561d85"
+      "sha256": "13a3594f2e5d3be6f76ce939f4e1582bba08bb3c184bf39b923567c6bad13599"
     },
     "victim_leak_r1_noscrub": {
       "bytes": 10784,
@@ -18,11 +18,11 @@
     },
     "victim_leak_r1_scrub": {
       "bytes": 10856,
-      "sha256": "9077499630bcf5f87c23f0e40c23b83dde55c55636405bbc20f05b07e7cc561e"
+      "sha256": "a01c3858959c01205e697ba40298f7da339ddf35577f93ca9749948cfbe7782d"
     },
     "victim_leak_tvla": {
       "bytes": 10856,
-      "sha256": "7f79ac2661ff294dbaf288c64b4ffd17187e969f3a05a7dad5e092dfabf4af6f"
+      "sha256": "f6b20b5bb3f7adf48e484cca311a4b04d64c3fac4790abb71cc6172178d4f9bb"
     }
   },
   "compiler": "riscv64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
@@ -71,23 +71,23 @@
     },
     "victim_leak_full_scrub": {
       "sbox": {
-        "addr": 82048,
+        "addr": 77952,
         "size": 256
       },
       "te0": {
-        "addr": 82304,
+        "addr": 78208,
         "size": 1024
       },
       "te1": {
-        "addr": 83328,
+        "addr": 79232,
         "size": 1024
       },
       "te2": {
-        "addr": 84352,
+        "addr": 80256,
         "size": 1024
       },
       "te3": {
-        "addr": 85376,
+        "addr": 81280,
         "size": 1024
       }
     },
@@ -115,45 +115,45 @@
     },
     "victim_leak_r1_scrub": {
       "sbox": {
-        "addr": 82048,
+        "addr": 77952,
         "size": 256
       },
       "te0": {
-        "addr": 82304,
+        "addr": 78208,
         "size": 1024
       },
       "te1": {
-        "addr": 83328,
+        "addr": 79232,
         "size": 1024
       },
       "te2": {
-        "addr": 84352,
+        "addr": 80256,
         "size": 1024
       },
       "te3": {
-        "addr": 85376,
+        "addr": 81280,
         "size": 1024
       }
     },
     "victim_leak_tvla": {
       "sbox": {
-        "addr": 82048,
+        "addr": 77952,
         "size": 256
       },
       "te0": {
-        "addr": 82304,
+        "addr": 78208,
         "size": 1024
       },
       "te1": {
-        "addr": 83328,
+        "addr": 79232,
         "size": 1024
       },
       "te2": {
-        "addr": 84352,
+        "addr": 80256,
         "size": 1024
       },
       "te3": {
-        "addr": 85376,
+        "addr": 81280,
         "size": 1024
       }
     }
@@ -203,37 +203,37 @@
       "table_lines": 68,
       "tables": {
         "sbox": {
-          "addr": 82048,
+          "addr": 77952,
           "line_offset": 0,
           "lines": 4,
           "size": 256
         },
         "te0": {
-          "addr": 82304,
+          "addr": 78208,
           "line_offset": 4,
           "lines": 16,
           "size": 1024
         },
         "te1": {
-          "addr": 83328,
+          "addr": 79232,
           "line_offset": 20,
           "lines": 16,
           "size": 1024
         },
         "te2": {
-          "addr": 84352,
+          "addr": 80256,
           "line_offset": 36,
           "lines": 16,
           "size": 1024
         },
         "te3": {
-          "addr": 85376,
+          "addr": 81280,
           "line_offset": 52,
           "lines": 16,
           "size": 1024
         }
       },
-      "trace_base": 82048,
+      "trace_base": 77952,
       "trace_lines": 68,
       "trace_size": 4352
     },
@@ -281,37 +281,37 @@
       "table_lines": 68,
       "tables": {
         "sbox": {
-          "addr": 82048,
+          "addr": 77952,
           "line_offset": 0,
           "lines": 4,
           "size": 256
         },
         "te0": {
-          "addr": 82304,
+          "addr": 78208,
           "line_offset": 4,
           "lines": 16,
           "size": 1024
         },
         "te1": {
-          "addr": 83328,
+          "addr": 79232,
           "line_offset": 20,
           "lines": 16,
           "size": 1024
         },
         "te2": {
-          "addr": 84352,
+          "addr": 80256,
           "line_offset": 36,
           "lines": 16,
           "size": 1024
         },
         "te3": {
-          "addr": 85376,
+          "addr": 81280,
           "line_offset": 52,
           "lines": 16,
           "size": 1024
         }
       },
-      "trace_base": 82048,
+      "trace_base": 77952,
       "trace_lines": 68,
       "trace_size": 4352
     },
@@ -320,37 +320,37 @@
       "table_lines": 68,
       "tables": {
         "sbox": {
-          "addr": 82048,
+          "addr": 77952,
           "line_offset": 0,
           "lines": 4,
           "size": 256
         },
         "te0": {
-          "addr": 82304,
+          "addr": 78208,
           "line_offset": 4,
           "lines": 16,
           "size": 1024
         },
         "te1": {
-          "addr": 83328,
+          "addr": 79232,
           "line_offset": 20,
           "lines": 16,
           "size": 1024
         },
         "te2": {
-          "addr": 84352,
+          "addr": 80256,
           "line_offset": 36,
           "lines": 16,
           "size": 1024
         },
         "te3": {
-          "addr": 85376,
+          "addr": 81280,
           "line_offset": 52,
           "lines": 16,
           "size": 1024
         }
       },
-      "trace_base": 82048,
+      "trace_base": 77952,
       "trace_lines": 68,
       "trace_size": 4352
     }

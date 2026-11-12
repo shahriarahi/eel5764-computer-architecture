@@ -1,0 +1,19 @@
+Global frequency set at 1000000000000 ticks per second
+Redirecting stdout to experiments/aes-leakage/runs/diag-margin-r1-scrub-oe300000/simout.txt
+Redirecting stderr to experiments/aes-leakage/runs/diag-margin-r1-scrub-oe300000/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Nov 12 2026 11:49:09
+gem5 started Nov 12 2026 12:02:42
+gem5 executing on Shahriar, pid 665
+command line: /home/shahriarahi/eel5764/gem5-leak/build/RISCV/gem5.opt -r -e -d experiments/aes-leakage/runs/diag-margin-r1-scrub-oe300000 experiments/aes-leakage/run_leakage.py --victim-variant r1-scrub --build-dir /tmp/sweep_300000 --split off --monitor-ways 16
+
+info: Standard input is not a terminal, disabling listeners.
+victim aes_self_test=PASS
+victim leak_format=v1 key=f1e2d3c4b5a69788796a5b4c3d2e1f10 seed=1466213861 windows=20 rounds1=1 scrub=1 tvla=0
+monitor format=probe_bin_v2 windows=20 sets=256 ways=16
+monitor error=prime_deadline window=0
+victim pt_checksum=8a277d047af75bcd12f1988659916941 ct_checksum=00000000000000000000000000000000
+OK contention split=off measurement_end_tick=11485760000

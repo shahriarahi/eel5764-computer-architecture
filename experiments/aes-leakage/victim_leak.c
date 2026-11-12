@@ -7,7 +7,7 @@
  * One WINDOW = one encryption at w0 + LEAK_OFF_ENC, where w0 = T0 + j * W.
  * Variants are chosen by compile flag (see build.sh):
  *   LEAK_ROUNDS1=1  only round 1's 16 table loads (positive control)
- *   LEAK_SCRUB=1    walk a private 8 KiB buffer first so the table lookups
+ *   LEAK_SCRUB=1    walk a private 4 KiB buffer first (LEAK_SCRUB_BYTES) so the table lookups
  *                   miss the 4 KiB L1D and reach the LLC
  *   LEAK_TVLA=1     even windows use the fixed plaintext (fixed-vs-random)
  */
@@ -28,8 +28,24 @@
 #define LEAK_TVLA 0
 #endif
 
-#define SCRUB_BYTES 8192UL
 #define CACHE_LINE_BYTES 64UL
+
+/*
+ * Size of the scrub walk.  The L1D is 4 KiB and 4-way (16 sets), so 64
+ * consecutive lines put exactly 4 lines in every set and replace every line
+ * under LRU: that is the smallest walk that flushes the tables.  Larger walks
+ * only add LLC allocations.  In an unpartitioned LLC full of the monitor's own
+ * lines each allocation evicts a monitor line, and the monitor's next prime
+ * (same walk order) then misses on all 16 lines of that set, an LRU cascade.
+ * An 8 KiB walk (128 lines) made the A=16 prime take about 476,000 cycles
+ * against a 458,752-cycle budget in the P0 smoke run (runs/p0-r1-scrub-n20).
+ */
+#ifndef LEAK_SCRUB_BYTES
+#define LEAK_SCRUB_BYTES 4096UL
+#endif
+#define SCRUB_BYTES LEAK_SCRUB_BYTES
+_Static_assert(SCRUB_BYTES % CACHE_LINE_BYTES == 0 && SCRUB_BYTES >= 64,
+               "the scrub walk is a whole number of cache lines");
 
 static const uint8_t experiment_key[16] = LEAK_KEY_INIT;
 

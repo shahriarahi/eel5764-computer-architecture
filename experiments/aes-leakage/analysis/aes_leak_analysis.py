@@ -63,6 +63,7 @@ PROBE_DTYPE = np.dtype([("timestamp", "<u8"), ("latency", "<u4"),
 HYPOTHESES = ["p_xor_k", "p_only", "shuffled",
               "lr_c_xor_k10", "c_only", "lr_shuffled"]
 ALPHA = 0.05
+MIN_WINDOWS_PER_CLASS = 10     # below this the detection ANOVA is not evidence
 
 # ----------------------------------------------------------------------------
 # AES-128 reference (generated S-box, so there are no table typos to trust)
@@ -755,6 +756,10 @@ def analyze_run_dir(run_dir, nperm=0, drop_first=0, seed=5764, alpha=ALPHA):
                ).reshape(len(names), 16)
     result["detection"] = {
         m: {"classes": det_labels[m][1],
+            # one-way ANOVA needs several windows per class; with about one per
+            # class the F test is degenerate and even the shuffled control
+            # comes out "significant" (seen in the 20-window P0 smoke run)
+            "reliable": n >= MIN_WINDOWS_PER_CLASS * det_labels[m][1],
             "max_snr_per_byte": [round(r[0], 5) for r in rows[m]],
             "best_set_per_byte": [r[1] for r in rows[m]],
             "holm_p_per_byte": adj[k].tolist(),
@@ -864,9 +869,16 @@ def render_markdown(res):
         out.append("| %s | %s | %s |" % (
             k, "yes" if d[k] else "no", d["supporting_bytes"][k]))
     out += ["", "## Detection (location-free ANOVA; cannot tell p from p^k)", "",
-            "| partition | bytes significant |", "|---|---|"]
+            "| partition | bytes significant | reliable |", "|---|---|---|"]
     for m, v in res["detection"].items():
-        out.append("| %s | %d/16 |" % (m, v["bytes_significant"]))
+        out.append("| %s | %d/16 | %s |" % (
+            m, v["bytes_significant"],
+            "yes" if v["reliable"] else "no: unreliable, too few windows"))
+    if not all(v["reliable"] for v in res["detection"].values()):
+        out += ["", "Rows marked unreliable have fewer than %d windows per class; "
+                "the ANOVA is degenerate there and even the shuffled control can "
+                "come out significant. They are not evidence. The attribution "
+                "table above does not have this limit." % MIN_WINDOWS_PER_CLASS]
     gt = res.get("ground_truth")
     if gt:
         out += ["", "## Ground truth from the simulator trace", "",

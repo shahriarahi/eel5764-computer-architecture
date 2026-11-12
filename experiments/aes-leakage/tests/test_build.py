@@ -80,5 +80,40 @@ class BuildManifest(unittest.TestCase):
         self.assertEqual(probe["addr"] % 64, 0)
 
 
+@h.skip_unless_tool(h.RISCV_CC, "riscv64-linux-gnu-nm")
+class ScrubBufferSize(unittest.TestCase):
+    """The scrub walk must flush the 4 KiB 4-way L1D without flooding the LLC.
+
+    P0 showed that an 8 KiB walk (128 lines) allocates enough LLC lines, in an
+    LLC full of the monitor's own lines, to push the monitor's prime pass past
+    its deadline (LRU cascade).  64 consecutive lines put 4 lines in each of
+    the 16 L1D sets, which replaces every line under LRU.
+    """
+
+    def scrub_buffer_size(self, *defines):
+        with h.tmpdir() as tmp:
+            out = h.Path(tmp) / "victim"
+            proc = h.riscv_build(
+                [h.EXP / "victim_leak.c", h.EXP / "aes_leak_ext.c"], out,
+                defines=["N_WIN=4", "LEAK_FAKE_CLOCK"] + list(defines))
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            nm = h.run(["riscv64-linux-gnu-nm", "-S", "--defined-only", out])
+            for line in nm.stdout.splitlines():
+                fields = line.split()
+                if len(fields) == 4 and fields[3] == "scrub_buffer":
+                    return int(fields[1], 16)
+            return None
+
+    def test_default_scrub_buffer_is_exactly_the_l1d_size(self):
+        self.assertEqual(self.scrub_buffer_size("LEAK_SCRUB=1"), 4096)
+
+    def test_size_can_be_overridden_at_build_time(self):
+        self.assertEqual(
+            self.scrub_buffer_size("LEAK_SCRUB=1", "LEAK_SCRUB_BYTES=8192UL"), 8192)
+
+    def test_a_noscrub_build_has_no_scrub_buffer(self):
+        self.assertIsNone(self.scrub_buffer_size("LEAK_SCRUB=0"))
+
+
 if __name__ == "__main__":
     unittest.main()

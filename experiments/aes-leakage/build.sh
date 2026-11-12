@@ -30,7 +30,8 @@ mkdir -p "$OUT"
 cd "$HERE"
 set -x
 # victim_leak_<r1|full>_<scrub|noscrub>: round-1-only or full AES; with or
-# without the 8 KiB private-cache walk before each encryption.
+# without the private-cache walk (4 KiB by default, -DLEAK_SCRUB_BYTES) before
+# each encryption.
 $CC $CFLAGS -DN_WIN="$N_WIN" $EXTRA_DEFS -DLEAK_ROUNDS1=1 -DLEAK_SCRUB=1 \
     -o "$OUT/victim_leak_r1_scrub" victim_leak.c aes_leak_ext.c
 $CC $CFLAGS -DN_WIN="$N_WIN" $EXTRA_DEFS -DLEAK_ROUNDS1=1 -DLEAK_SCRUB=0 \

@@ -36,6 +36,10 @@ them apart).
   the three seeds are repeated deterministic inputs, not independent replicates.
 * **Platform:** the paper's: gem5 v25.1.0.1 (commit c8222cc6), two
   `TimingSimpleCPU` at 2 GHz, 4 KiB 4-way L1D, 256 KiB 16-way LLC (LRU), L2 crossbar.
+* **Scrub:** the variants with scrub walk a private 4 KiB buffer (64 lines, the size
+  of the 4-way L1D) before each encryption so the table lookups reach the LLC; see D0.
+  Without the scrub (`full-noscrub`) the N = 20 smoke run showed only about 29% of the
+  table lines the AES touches reaching the LLC (recall 0.291, precision 1.000).
 * **Monitor:** the paper's v3 measurement safeguards (probe chains walked from
   registers, results stored in the spare bytes of the just-walked line, one `writev`
   per window, no new LLC line allocated while measuring).
@@ -176,10 +180,15 @@ checks the rule; it says nothing about the real effect.
 ## 9. What would change the plan
 
 * P0 or P1 fails a gate: stop, diagnose, and log it.
-* The deadline margins (prime and probe at A = 16 take about 280,000 cycles each in
-  the paper's results; the schedule leaves about 179,000 and 174,000 cycles of
-  slack) are exceeded in P0: shorten the monitor pass or lengthen the window before
-  any data are taken, and log it.
+* **(Happened in P0, see D0.)** The deadline margins were exceeded in P0: I had
+  assumed an A = 16 pass takes about 280,000 cycles (the paper's figure for a pass of
+  hits), leaving about 179,000 and 174,000 cycles of slack. With an 8 KiB scrub the
+  prime took about 476,000 cycles against a 458,752 budget. The remedy was to shorten
+  the victim's scrub, logged as D0. Measured with the 4 KiB scrub at A = 16: the
+  prime takes between about 335,000 and 393,000 cycles (budget 458,752) and the
+  probe pass about 183,000 to 341,000 (budget 454,656), depending on the variant.
+  Any later run whose monitor misses a deadline stops with an error; the cold
+  window 0 is the worst case for the prime.
 
 ## 10. Freezing procedure
 
@@ -191,4 +200,12 @@ Frozen at commit: (not yet).
 
 ## 11. Deviations
 
-None yet.
+* **D0 (2026-11-12, before any analysis data; found by gate G0 in the P0 smoke
+  run):** the victim's scrub walk is 4 KiB (64 lines, the size of the L1D) instead of
+  the 8 KiB in the task text. The 8 KiB walk allocates 128 LLC lines per window in an
+  unpartitioned LLC full of the monitor's lines; the monitor's next prime then
+  cascades through the affected sets and took about 476,000 cycles against its
+  458,752-cycle budget, so the monitor exited with `prime_deadline`. A single-variable
+  comparison (scrub on or off) isolated the cause, and the 4 KiB walk still flushes the
+  L1D (recall and precision 1.000 in the smoke runs). `W`, `T0` and all offsets are
+  unchanged. Evidence: `progress.md`, "Phase C: results".

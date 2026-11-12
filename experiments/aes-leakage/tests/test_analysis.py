@@ -236,6 +236,28 @@ class SynthRoundTrip(unittest.TestCase):
             "round1_plaintext_plus_key", "round1_plaintext_only",
             "lastround_c_xor_k10", "lastround_ciphertext_only")))
 
+    def test_detection_is_flagged_unreliable_when_classes_outnumber_windows(self):
+        # The P0 smoke run (20 windows, 16 classes) showed the SHUFFLED control
+        # significant on 16/16 bytes: with about one window per class the ANOVA
+        # is degenerate.  The table must say so instead of looking like a result.
+        res, _ = self.analyze(n=100)
+        det = res["detection"]
+        self.assertFalse(det["first_round"]["reliable"])     # 16 classes need 160
+        self.assertFalse(det["shuffled"]["reliable"])
+        self.assertTrue(det["last_round"]["reliable"])       # 4 classes need 40
+        self.assertTrue(det["c_line"]["reliable"])
+
+    def test_detection_is_reliable_with_enough_windows(self):
+        res, _ = self.analyze(n=300)
+        self.assertTrue(all(v["reliable"] for v in res["detection"].values()))
+
+    def test_markdown_warns_about_unreliable_detection(self):
+        res, _ = self.analyze(n=100)
+        text = self.a.render_markdown(res)
+        self.assertIn("unreliable", text)
+        res, _ = self.analyze(n=300)
+        self.assertNotIn("unreliable", self.a.render_markdown(res))
+
     def test_no_data_dependence_in_full_aes_mode_is_not_detected(self):
         # 'none' must randomise EVERY round's lookups: rounds 2-10 of a real
         # encryption genuinely depend on the data, so leaving them in place
