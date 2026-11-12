@@ -160,6 +160,45 @@ class Preregistration(unittest.TestCase):
         self.assertIn("synthetic", text(PREREG).lower())
 
 
+class DiscussionBrief(unittest.TestCase):
+    """DISCUSSION_BRIEF.md is for a reader who will not run anything, so every
+    number must be traceable.  Hashes quoted in it must appear in the ledger."""
+    BRIEF = h.EXP / "DISCUSSION_BRIEF.md"
+
+    def test_exists_and_has_the_sections_a_reader_needs(self):
+        doc = text(self.BRIEF)
+        for title in ("Reading guide", "What has been run",
+                      "Limitations and threats to validity",
+                      "Questions for discussion", "Glossary", "Provenance"):
+            # headings may carry a section number, e.g. "## 10. Limitations ..."
+            self.assertRegex(doc, r"(?m)^## (\d+\. )?" + re.escape(title), title)
+
+    def test_section_numbers_referred_to_in_the_reading_guide_exist(self):
+        doc = text(self.BRIEF)
+        numbers = [int(n) for n in re.findall(r"(?m)^## (\d+)\. ", doc)]
+        self.assertEqual(numbers, sorted(numbers))
+        self.assertEqual(numbers[0], 1)
+        self.assertEqual(numbers, list(range(1, len(numbers) + 1)),
+                         "section numbers must be consecutive")
+
+    def test_every_hash_quoted_in_the_brief_appears_in_the_ledger(self):
+        ledger = "\n".join(text(p) for p in (PROGRESS, BUILD_MD, README, PREREG))
+        tokens = set(re.findall(r"\b[0-9a-f]{12,64}\b", text(self.BRIEF)))
+        self.assertGreaterEqual(len(tokens), 3, "expected hashes to be quoted")
+        for token in sorted(tokens):
+            self.assertIn(token, ledger, "hash not traceable: " + token)
+
+    def test_states_that_it_is_simulation_only_and_not_a_defense_result(self):
+        doc = text(self.BRIEF).lower()
+        self.assertIn("simulat", doc)
+        self.assertIn("no defense", doc)
+
+    def test_run_counts_quoted_match_the_run_directories(self):
+        # "P1 ... 2,000 windows" and the 512,000 records of that run
+        self.assertIn("512,000", text(self.BRIEF))
+        self.assertTrue((h.EXP / "runs" / "p1-r1-scrub-n2000" / "probes.bin").is_file())
+
+
 class ProgressLedger(unittest.TestCase):
     def test_binary_hashes_in_the_ledger_match_the_committed_manifest(self):
         manifest = json.loads(
