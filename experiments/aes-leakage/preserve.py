@@ -54,6 +54,8 @@ def list_files(exp_dir):
     for path in sorted(Path(exp_dir).rglob("*")):
         if not path.is_file() or "__pycache__" in path.parts:
             continue
+        if ".claude" in path.relative_to(exp_dir).parts:
+            continue               # assistant-session state, not data
         rel = path.relative_to(exp_dir).as_posix()
         if rel == MANIFEST_NAME or rel.endswith(".pyc"):
             continue

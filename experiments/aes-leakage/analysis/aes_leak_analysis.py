@@ -260,6 +260,8 @@ def anova_p_min(labels, X, nclass):
     F = (ssb / (k - 1)) / np.maximum(ssw / (n - k), 1e-30)
     p = fdist.sf(F, k - 1, n - k)
     snr_v = snr_from_stats(cnt[:, 0], s1, s2)
+    if np.isnan(snr_v).all():      # every set is constant: nothing to test
+        return 0.0, 0, 1.0
     j = int(np.nanargmin(p))
     return (float(np.nanmax(snr_v)), int(np.nanargmax(snr_v)),
             min(1.0, float(p[j]) * X.shape[1]))

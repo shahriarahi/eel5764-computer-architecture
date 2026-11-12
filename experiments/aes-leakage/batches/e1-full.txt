@@ -1,0 +1,3 @@
+# Block E1, unprotected full AES (window schedule, N = 2000, 16 monitor ways)
+e1-p2a-s1-n2000 full-scrub n2000 off 16 1466213861
+e1-p2b-s1-n2000 full-noscrub n2000 off 16 1466213861

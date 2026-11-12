@@ -59,7 +59,7 @@ the process exit with status 2 and an error line.
 |---|---|
 | `README.md` | this overview and the commands |
 | `DISCUSSION_BRIEF.md` | self-contained status brief for a reader who will not run anything |
-| `PREREGISTRATION_DRAFT.md` | hypotheses, N, seeds, decision rule (DRAFT, not frozen) |
+| `PREREGISTRATION_DRAFT.md` | hypotheses, N, seeds, decision rule (frozen at `675c047`; deviations in its section 11) |
 | `progress.md` | ledger: what was done, with evidence |
 | `gem5_build.md` | Phase B commands: build the tracing gem5 and run the guard |
 | `leak_schedule.h` | window schedule, public key, splitmix64 plaintext stream, TVLA mode, fake clock |
@@ -78,6 +78,10 @@ the process exit with status 2 and an error line.
 | `run_leakage.py` | gem5 configuration adapter around the frozen `configs/run_contention.py` |
 | `analysis/aes_leak_analysis.py` | run-directory analysis, synthetic generator, selftest |
 | `analysis/power_synth.py` | synthetic power and false-positive tables |
+| `analysis/leak_followup.py` | differential test, raw-cycle effect size with permutation p-value, collision-count test (deviations D1, D2) |
+| `run_arm.sh` | launches one gem5 run with checked arguments (`DRY_RUN=1` prints the command only) |
+| `run_batch.sh` | runs the runs listed in a file under `batches/`, a few in parallel |
+| `run_leakage_defense.py` | wrapper that adds request time slots and per-domain LLC response queues (deviation D4) |
 | `synthetic_power.md` | output of that script (synthetic data, not gem5) |
 | `preserve.py` | sha256 of every file here and a check that nothing else changed |
 | `preservation.json` | its manifest |
