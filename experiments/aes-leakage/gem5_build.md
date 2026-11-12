@@ -50,7 +50,9 @@ cd ~/eel5764/gem5-leak
 scons build/RISCV/gem5.opt -j$(nproc) EXTRAS=$HOME/eel5764/leak-ext/gem5_ext
 ```
 
-Expect the same "GCC 15.2.0 is not officially supported" warning as in the
+When Phase B was run on this 15 GB machine it used `-j14` instead of
+`-j$(nproc)` (20 here), as the project's earlier rebuild notes do; the build took
+12 min 38 s. Expect the same "GCC 15.2.0 is not officially supported" warning as in the
 earlier builds. Build `gem5.opt`, not `gem5.fast`: the
 `--debug-flags=VictimTable` runs need the trace statements compiled in.
 

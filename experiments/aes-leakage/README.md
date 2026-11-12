@@ -6,9 +6,10 @@ The submitted paper measured **whether** AES activity is visible to a monitor on
 another core. This experiment asks **what** the visible signal encodes, and
 whether each defense removes data-dependent leakage or only the activity signal.
 
-**Status (Phase A complete, nothing simulated yet):** the code, builds, adapter,
-analysis and tests exist and pass; no gem5 run of this experiment has been made,
-so this directory contains no leakage result. See `progress.md`.
+**Status (Phases A and B complete):** the code, builds, adapter, analysis and tests
+exist and pass, and the tracing gem5 is built and passes the byte-identical guard.
+No gem5 run of this experiment's own workloads has been made, so this directory
+contains no leakage result. See `progress.md`.
 
 ## Scope, and how it relates to the accepted proposal
 
@@ -115,12 +116,12 @@ python preserve.py verify
 | Phase | What | Status |
 |---|---|---|
 | A | code, builds, adapter, analysis, tests (no gem5) | done, see `progress.md` |
-| B | build the tracing gem5 and run the byte-identical guard | commands in `gem5_build.md`, waiting for you |
+| B | build the tracing gem5 and run the byte-identical guard | done 2026-11-12, guard PASS, see `progress.md` |
 | C | P0 smoke run: 20 windows | commands below |
 | D | P1 positive control: 2,000 windows | commands below |
 | E | P2 to P4 per `PREREGISTRATION_DRAFT.md` | after D |
 
-Do not start C before the Phase B guard has passed.
+Phase C needs the Phase B guard to have passed; it has.
 
 ### Phase C: P0 (20 windows, no partition, 16 monitor ways, round-1 lookups)
 
