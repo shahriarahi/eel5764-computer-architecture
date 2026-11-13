@@ -268,3 +268,13 @@ later edit. Changes after this point are logged in section 11.
   differential test subsumes in a deterministic simulator. Block E1 run directories:
   `e1-p2a-s1-n2000`, `e1-p2b-s1-n2000`, `e1-c8-s{1,2}-n500`, `e1-c1-s{1,2}-n500`,
   `e1-w8-s{1,2,3}-n500`, `e1-w1-s{1,2,3}-n500`.
+* **D4 (2026-11-12, before any run of block E3): the full defense.** The full defense
+  (way partition, request time slots, per-domain LLC response queues) is evaluated in
+  the overlap schedule only (`PREREGISTRATION_OVERLAP.md`). It uses a gem5 binary
+  built in a new tree, `~/eel5764/gem5-leak-def`: the paper's commit `c8222cc` plus
+  the stored patch `experiments/respq-defense-20261018/gem5-respq.patch`, built with
+  this experiment's `gem5_ext` as `EXTRAS`. The adapter `run_leakage_defense.py` sets
+  `tdma_slot_cycles = 4` and `response_domain_prefixes = cpu0. cpu1.`, the values of
+  the paper's defense sweep. Guard before any defended run: with the defense off, the
+  new binary must reproduce `runs/p0b-r1-scrub-n20/probes.bin` byte for byte (run
+  `p0d-r1-scrub-n20`). The existing gem5 trees are not modified.

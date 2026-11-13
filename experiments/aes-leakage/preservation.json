@@ -3,7 +3,7 @@
   "exp_dir": "experiments/aes-leakage",
   "files": {
     "DISCUSSION_BRIEF.md": "a7953bb7ec916b3dad516d55f343ab4a6ababa3e5530986a4df6bb880e588ab5",
-    "PREREGISTRATION_DRAFT.md": "0a1f2b9bb5bc7b4c610d971810d6f551c6297d4599e1944182b09bd09d1aa4f0",
+    "PREREGISTRATION_DRAFT.md": "00b9fedc492f8481715f4aba4dea42e3ae1275b6fbb68763ef797f7338a73c96",
     "PREREGISTRATION_OVERLAP.md": "f30090fe2767f587998cd95528c67ce0631282c138c7b0d154b66540be7dcf94",
     "README.md": "7a769de9d2ad0e3afbf56f8700817bea5dd82c6be53335397c97873c9a014658",
     "aes_leak_ext.c": "dbc9d7660515a003a9e8e8c574c5015c31c43cca07deaf6ccd35a6db88915fdd",
@@ -62,7 +62,7 @@
     "leak_schedule.h": "057a1459e62dc2ed70aa10467826f2d4f4810069f908ad542393c63adab31160",
     "monitor_leak.c": "6a049c60d76022c3119a8e344d6205a67258b8a00c0c654d9e178aff7ad56f66",
     "preserve.py": "b621df34104d358c1eb5dbe63ea666e974005fdb2c584854d69dff5ac7549eaa",
-    "progress.md": "5fd6b9f20e957f0094b895cf4fb03ab1881a38b4c9248d8fcc904621362652f2",
+    "progress.md": "be288c337db0fa5d0a09a0e74816d3115b7ebe287d7e51fe067e72359e32743b",
     "run_arm.sh": "c84006fe58c50282f90ae002e46f4af569f1f409fa7fe799434ca559786478f3",
     "run_batch.sh": "8fdd37a6b62f5386b34cf1f6f19ace3ac667f3672a198a668395e839d28ccdf4",
     "run_leakage.py": "0e2d5c63abb572717606bb3c15723986f6dc5273164bf09f755d8603fcd6cb6d",
