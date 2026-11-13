@@ -1,0 +1,234 @@
+diff --git a/src/mem/XBar.py b/src/mem/XBar.py
+index 7084fd8..1e19c30 100644
+--- a/src/mem/XBar.py
++++ b/src/mem/XBar.py
+@@ -106,6 +106,9 @@ class CoherentXBar(BaseXBar):
+     cxx_header = "mem/coherent_xbar.hh"
+     cxx_class = "gem5::CoherentXBar"
+ 
++    tdma_slot_cycles = Param.Cycles(0, "Experimental TDMA slot cycles; zero disables")
++    tdma_port_domains = VectorParam.Unsigned([], "CPU-side port domains, 0 or 1")
++
+     # The coherent crossbar additionally has snoop responses that are
+     # forwarded after a specific latency.
+     snoop_response_latency = Param.Cycles("Snoop response latency")
+diff --git a/src/mem/coherent_xbar.cc b/src/mem/coherent_xbar.cc
+index 74ef1ea..86a38c8 100644
+--- a/src/mem/coherent_xbar.cc
++++ b/src/mem/coherent_xbar.cc
+@@ -62,6 +62,18 @@ CoherentXBar::CoherentXBar(const CoherentXBarParams &p)
+       maxRoutingTableSizeCheck(p.max_routing_table_size),
+       pointOfCoherency(p.point_of_coherency),
+       pointOfUnification(p.point_of_unification),
++      tdmaSlotCycles(p.tdma_slot_cycles),
++      tdmaPortDomains(p.tdma_port_domains),
++      tdmaWaiting(p.port_cpu_side_ports_connection_count, false),
++      tdmaRetryEvent([this]{ tdmaRetry(); }, name() + ".tdmaRetry"),
++      ADD_STAT(tdmaGrants0, statistics::units::Count::get(), "Domain 0 slot grants"),
++      ADD_STAT(tdmaGrants1, statistics::units::Count::get(), "Domain 1 slot grants"),
++      ADD_STAT(tdmaWithheld, statistics::units::Count::get(), "Requests withheld before request layer"),
++      ADD_STAT(tdmaOverruns, statistics::units::Count::get(), "Transport bound violations"),
++      ADD_STAT(tdmaDownstreamRefusals, statistics::units::Count::get(), "Unsupported downstream refusals"),
++      ADD_STAT(tdmaExpressBypasses, statistics::units::Count::get(), "Express snoops bypassing schedule"),
++      ADD_STAT(tdmaReadGrants, statistics::units::Count::get(), "Read grants"),
++      ADD_STAT(tdmaWritebackGrants, statistics::units::Count::get(), "Writeback grants"),
+ 
+       ADD_STAT(snoops, statistics::units::Count::get(), "Total snoops"),
+       ADD_STAT(snoopTraffic, statistics::units::Byte::get(), "Total snoop traffic"),
+@@ -125,6 +137,18 @@ CoherentXBar::init()
+ {
+     BaseXBar::init();
+ 
++    if (tdmaSlotCycles != Cycles(0)) {
++        fatal_if(tdmaSlotCycles < Cycles(4), "TDMA slots must be at least four cycles");
++        fatal_if(tdmaPortDomains.size() != cpuSidePorts.size(), "TDMA incomplete port map");
++        bool seen[2] = {false, false};
++        for (auto domain : tdmaPortDomains) {
++            fatal_if(domain > 1, "TDMA domain must be 0 or 1");
++            seen[domain] = true;
++        }
++        fatal_if(!seen[0] || !seen[1], "TDMA requires two domains");
++        tdmaSchedule = std::make_unique<tdma::SlotSchedule>(
++            uint64_t(tdmaSlotCycles) * clockPeriod());
++    }
+     // iterate over our CPU-side ports and determine which of our
+     // neighbouring memory-side ports are snooping and add them as snoopers
+     for (const auto& p: cpuSidePorts) {
+@@ -158,6 +182,14 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+     // and the cache responding flag should always be the same
+     assert(is_express_snoop == cache_responding);
+ 
++    if (tdmaSchedule) {
++        if (is_express_snoop) {
++            tdmaExpressBypasses++;
++            fatal("TDMA unsupported express snoop: refusing an unscheduled bypass");
++        }
++        if (!tdmaAdmit(pkt, cpu_side_port_id))
++            return false;
++    }
+     // determine the destination based on the destination address range
+     PortID mem_side_port_id = findPort(pkt);
+ 
+@@ -165,6 +197,7 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+     // port, and exclude express snoops from the check
+     if (!is_express_snoop &&
+         !reqLayers[mem_side_port_id]->tryTiming(src_port)) {
++        fatal_if(tdmaSchedule, "TDMA unexpected request-layer contention");
+         DPRINTF(CoherentXBar, "%s: src %s packet %s BUSY\n", __func__,
+                 src_port->name(), pkt->print());
+         return false;
+@@ -210,6 +243,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+                         src_port->name(), pkt->print());
+ 
+                 // update the layer state and schedule an idle event
++                if (tdmaSchedule) {
++                    tdmaDownstreamRefusals++;
++                    fatal("TDMA unsupported downstream refusal");
++                }
+                 reqLayers[mem_side_port_id]->failedTiming(src_port,
+                                                         clockEdge(Cycles(1)));
+                 return false;
+@@ -319,6 +356,10 @@ CoherentXBar::recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id)
+                 src_port->name(), pkt->print());
+ 
+         // update the layer state and schedule an idle event
++        if (tdmaSchedule) {
++            tdmaDownstreamRefusals++;
++            fatal("TDMA unsupported downstream refusal");
++        }
+         reqLayers[mem_side_port_id]->failedTiming(src_port,
+                                                 clockEdge(Cycles(1)));
+     } else {
+@@ -724,6 +765,62 @@ CoherentXBar::forwardTiming(PacketPtr pkt, PortID exclude_cpu_side_port_id,
+     snoopFanout.sample(fanout);
+ }
+ 
++void
++CoherentXBar::tdmaScheduleRetry()
++{
++    Tick next = MaxTick;
++    for (unsigned i = 0; i < tdmaWaiting.size(); ++i)
++        if (tdmaWaiting[i])
++            next = std::min(next, tdmaSchedule->next(curTick(), tdmaPortDomains[i]));
++    if (next == MaxTick) return;
++    if (!tdmaRetryEvent.scheduled()) schedule(tdmaRetryEvent, next);
++    else if (next < tdmaRetryEvent.when()) reschedule(tdmaRetryEvent, next);
++}
++
++void
++CoherentXBar::tdmaRetry()
++{
++    unsigned domain = tdmaSchedule->owner(curTick());
++    unsigned count = tdmaWaiting.size();
++    for (unsigned offset = 0; offset < count; ++offset) {
++        unsigned port = (tdmaCursor[domain] + offset) % count;
++        if (tdmaWaiting[port] && tdmaPortDomains[port] == domain) {
++            tdmaWaiting[port] = false;
++            tdmaCursor[domain] = (port + 1) % count;
++            cpuSidePorts[port]->sendRetryReq();
++            break; // never fill an unused grant from another port or domain
++        }
++    }
++    tdmaScheduleRetry();
++}
++
++bool
++CoherentXBar::tdmaAdmit(PacketPtr pkt, PortID port)
++{
++    unsigned domain = tdmaPortDomains.at(port);
++    if (!tdmaSchedule->eligible(curTick(), domain)) {
++        fatal_if(tdmaWaiting[port], "TDMA duplicate request before retry");
++        tdmaWaiting[port] = true;
++        tdmaWithheld++;
++        tdmaScheduleRetry();
++        return false;
++    }
++    Tick payload = pkt->hasData() ? divCeil(pkt->getSize(), width) * clockPeriod() : 0;
++    Tick duration = uint64_t(headerLatency) * clockPeriod() +
++        std::max<Tick>(payload, pkt->payloadDelay);
++    if (!tdmaSchedule->fits(duration)) {
++        tdmaOverruns++;
++        fatal("TDMA transport exceeds slot");
++    }
++    tdmaSchedule->grant(curTick(), domain);
++    DPRINTF(CoherentXBar, "TDMA grant domain=%u port=%d duration=%llu\n",
++            domain, port, duration);
++    if (domain == 0) tdmaGrants0++; else tdmaGrants1++;
++    if (pkt->isRead()) tdmaReadGrants++;
++    if (pkt->isWriteback()) tdmaWritebackGrants++;
++    return true;
++}
++
+ void
+ CoherentXBar::recvReqRetry(PortID mem_side_port_id)
+ {
+diff --git a/src/mem/coherent_xbar.hh b/src/mem/coherent_xbar.hh
+index 454012d..01797f1 100644
+--- a/src/mem/coherent_xbar.hh
++++ b/src/mem/coherent_xbar.hh
+@@ -51,6 +51,7 @@
+ 
+ #include "mem/snoop_filter.hh"
+ #include "mem/xbar.hh"
++#include "mem/tdma_schedule.hh"
+ #include "params/CoherentXBar.hh"
+ 
+ namespace gem5
+@@ -305,6 +306,18 @@ class CoherentXBar : public BaseXBar
+      */
+     std::unique_ptr<Packet> pendingDelete;
+ 
++    const Cycles tdmaSlotCycles;
++    const std::vector<unsigned> tdmaPortDomains;
++    std::unique_ptr<tdma::SlotSchedule> tdmaSchedule;
++    std::vector<bool> tdmaWaiting;
++    unsigned tdmaCursor[2] = {0, 0};
++    EventFunctionWrapper tdmaRetryEvent;
++    void tdmaRetry();
++    void tdmaScheduleRetry();
++    bool tdmaAdmit(PacketPtr pkt, PortID port);
++    statistics::Scalar tdmaGrants0, tdmaGrants1, tdmaWithheld;
++    statistics::Scalar tdmaOverruns, tdmaDownstreamRefusals;
++    statistics::Scalar tdmaExpressBypasses, tdmaReadGrants, tdmaWritebackGrants;
+     bool recvTimingReq(PacketPtr pkt, PortID cpu_side_port_id);
+     bool recvTimingResp(PacketPtr pkt, PortID mem_side_port_id);
+     void recvTimingSnoopReq(PacketPtr pkt, PortID mem_side_port_id);
+diff --git a/src/mem/tdma_schedule.hh b/src/mem/tdma_schedule.hh
+new file mode 100644
+index 0000000..38330d3
+--- /dev/null
++++ b/src/mem/tdma_schedule.hh
+@@ -0,0 +1,33 @@
++#ifndef TDMA_SLOT_SCHEDULE_HH
++#define TDMA_SLOT_SCHEDULE_HH
++#include <cstdint>
++#include <limits>
++#include <stdexcept>
++
++namespace tdma {
++class SlotSchedule {
++    std::uint64_t width;
++    std::uint64_t last = std::numeric_limits<std::uint64_t>::max();
++  public:
++    explicit SlotSchedule(std::uint64_t ticks) : width(ticks) {
++        if (!ticks || ticks > std::numeric_limits<std::uint64_t>::max() / 2)
++            throw std::invalid_argument("invalid slot width");
++    }
++    unsigned owner(std::uint64_t tick) const { return (tick / width) % 2; }
++    bool eligible(std::uint64_t tick, unsigned domain) const {
++        return domain < 2 && tick % width == 0 && owner(tick) == domain && last != tick;
++    }
++    std::uint64_t next(std::uint64_t tick, unsigned domain) const {
++        if (domain > 1) throw std::invalid_argument("invalid domain");
++        auto boundary = tick / width + 1;
++        if (boundary % 2 != domain) ++boundary;
++        return boundary * width;
++    }
++    bool fits(std::uint64_t duration) const { return duration < width; }
++    void grant(std::uint64_t tick, unsigned domain) {
++        if (!eligible(tick, domain)) throw std::logic_error("invalid slot grant");
++        last = tick;
++    }
++};
++}
++#endif

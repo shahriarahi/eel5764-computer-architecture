@@ -1,0 +1,362 @@
+{
+  "binaries": {
+    "monitor_leak": {
+      "bytes": 6152,
+      "sha256": "541fc47cd7425f5b2df9a41432c565e65fde2658ae1640886b7a3b4060c07505"
+    },
+    "victim_leak_full_noscrub": {
+      "bytes": 10784,
+      "sha256": "d5fada0f9b37d97edcd9ed91043cbe2417af282c9c7d45da7e589507775bd25d"
+    },
+    "victim_leak_full_scrub": {
+      "bytes": 10856,
+      "sha256": "a918e035fb6a324d6041b192cc1ae590133828a08ac15632a9eae77241f9477c"
+    },
+    "victim_leak_r1_noscrub": {
+      "bytes": 10784,
+      "sha256": "e3e9eb9a0245803df067c88c01a5447496d8aef04c749178da148aaa0fe82728"
+    },
+    "victim_leak_r1_scrub": {
+      "bytes": 10856,
+      "sha256": "279b5bcc1cd9ecd9954fbe48363e72724499ec3d4b0dc5c281431677309892cf"
+    },
+    "victim_leak_tvla": {
+      "bytes": 10856,
+      "sha256": "f2fee1c37926f71ca9107e95e74629b0ee47940d1d03fc3813f5fcebb2cf8263"
+    }
+  },
+  "compiler": "riscv64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "defines": [
+    "-DLEAK_ALLOW_OVERLAP",
+    "-DLEAK_OFF_PROBE=520192UL"
+  ],
+  "format": "aes-leakage-build-manifest-v1",
+  "key_hex": "f1e2d3c4b5a69788796a5b4c3d2e1f10",
+  "n_win": 2000,
+  "schedule": {
+    "NSETS": 256,
+    "N_WIN": 2000,
+    "OFF_ENC": 524288,
+    "OFF_ENC_END": 589824,
+    "OFF_PRIME": 65536,
+    "OFF_PROBE": 520192,
+    "T0": 2000000,
+    "W": 1048576
+  },
+  "symbols": {
+    "monitor_leak": {
+      "probe_lines": {
+        "addr": 73856,
+        "size": 262144
+      }
+    },
+    "victim_leak_full_noscrub": {
+      "sbox": {
+        "addr": 73792,
+        "size": 256
+      },
+      "te0": {
+        "addr": 74048,
+        "size": 1024
+      },
+      "te1": {
+        "addr": 75072,
+        "size": 1024
+      },
+      "te2": {
+        "addr": 76096,
+        "size": 1024
+      },
+      "te3": {
+        "addr": 77120,
+        "size": 1024
+      }
+    },
+    "victim_leak_full_scrub": {
+      "sbox": {
+        "addr": 77952,
+        "size": 256
+      },
+      "te0": {
+        "addr": 78208,
+        "size": 1024
+      },
+      "te1": {
+        "addr": 79232,
+        "size": 1024
+      },
+      "te2": {
+        "addr": 80256,
+        "size": 1024
+      },
+      "te3": {
+        "addr": 81280,
+        "size": 1024
+      }
+    },
+    "victim_leak_r1_noscrub": {
+      "sbox": {
+        "addr": 73792,
+        "size": 256
+      },
+      "te0": {
+        "addr": 74048,
+        "size": 1024
+      },
+      "te1": {
+        "addr": 75072,
+        "size": 1024
+      },
+      "te2": {
+        "addr": 76096,
+        "size": 1024
+      },
+      "te3": {
+        "addr": 77120,
+        "size": 1024
+      }
+    },
+    "victim_leak_r1_scrub": {
+      "sbox": {
+        "addr": 77952,
+        "size": 256
+      },
+      "te0": {
+        "addr": 78208,
+        "size": 1024
+      },
+      "te1": {
+        "addr": 79232,
+        "size": 1024
+      },
+      "te2": {
+        "addr": 80256,
+        "size": 1024
+      },
+      "te3": {
+        "addr": 81280,
+        "size": 1024
+      }
+    },
+    "victim_leak_tvla": {
+      "sbox": {
+        "addr": 77952,
+        "size": 256
+      },
+      "te0": {
+        "addr": 78208,
+        "size": 1024
+      },
+      "te1": {
+        "addr": 79232,
+        "size": 1024
+      },
+      "te2": {
+        "addr": 80256,
+        "size": 1024
+      },
+      "te3": {
+        "addr": 81280,
+        "size": 1024
+      }
+    }
+  },
+  "table_layout": {
+    "victim_leak_full_noscrub": {
+      "contiguous": true,
+      "table_lines": 68,
+      "tables": {
+        "sbox": {
+          "addr": 73792,
+          "line_offset": 0,
+          "lines": 4,
+          "size": 256
+        },
+        "te0": {
+          "addr": 74048,
+          "line_offset": 4,
+          "lines": 16,
+          "size": 1024
+        },
+        "te1": {
+          "addr": 75072,
+          "line_offset": 20,
+          "lines": 16,
+          "size": 1024
+        },
+        "te2": {
+          "addr": 76096,
+          "line_offset": 36,
+          "lines": 16,
+          "size": 1024
+        },
+        "te3": {
+          "addr": 77120,
+          "line_offset": 52,
+          "lines": 16,
+          "size": 1024
+        }
+      },
+      "trace_base": 73792,
+      "trace_lines": 68,
+      "trace_size": 4352
+    },
+    "victim_leak_full_scrub": {
+      "contiguous": true,
+      "table_lines": 68,
+      "tables": {
+        "sbox": {
+          "addr": 77952,
+          "line_offset": 0,
+          "lines": 4,
+          "size": 256
+        },
+        "te0": {
+          "addr": 78208,
+          "line_offset": 4,
+          "lines": 16,
+          "size": 1024
+        },
+        "te1": {
+          "addr": 79232,
+          "line_offset": 20,
+          "lines": 16,
+          "size": 1024
+        },
+        "te2": {
+          "addr": 80256,
+          "line_offset": 36,
+          "lines": 16,
+          "size": 1024
+        },
+        "te3": {
+          "addr": 81280,
+          "line_offset": 52,
+          "lines": 16,
+          "size": 1024
+        }
+      },
+      "trace_base": 77952,
+      "trace_lines": 68,
+      "trace_size": 4352
+    },
+    "victim_leak_r1_noscrub": {
+      "contiguous": true,
+      "table_lines": 68,
+      "tables": {
+        "sbox": {
+          "addr": 73792,
+          "line_offset": 0,
+          "lines": 4,
+          "size": 256
+        },
+        "te0": {
+          "addr": 74048,
+          "line_offset": 4,
+          "lines": 16,
+          "size": 1024
+        },
+        "te1": {
+          "addr": 75072,
+          "line_offset": 20,
+          "lines": 16,
+          "size": 1024
+        },
+        "te2": {
+          "addr": 76096,
+          "line_offset": 36,
+          "lines": 16,
+          "size": 1024
+        },
+        "te3": {
+          "addr": 77120,
+          "line_offset": 52,
+          "lines": 16,
+          "size": 1024
+        }
+      },
+      "trace_base": 73792,
+      "trace_lines": 68,
+      "trace_size": 4352
+    },
+    "victim_leak_r1_scrub": {
+      "contiguous": true,
+      "table_lines": 68,
+      "tables": {
+        "sbox": {
+          "addr": 77952,
+          "line_offset": 0,
+          "lines": 4,
+          "size": 256
+        },
+        "te0": {
+          "addr": 78208,
+          "line_offset": 4,
+          "lines": 16,
+          "size": 1024
+        },
+        "te1": {
+          "addr": 79232,
+          "line_offset": 20,
+          "lines": 16,
+          "size": 1024
+        },
+        "te2": {
+          "addr": 80256,
+          "line_offset": 36,
+          "lines": 16,
+          "size": 1024
+        },
+        "te3": {
+          "addr": 81280,
+          "line_offset": 52,
+          "lines": 16,
+          "size": 1024
+        }
+      },
+      "trace_base": 77952,
+      "trace_lines": 68,
+      "trace_size": 4352
+    },
+    "victim_leak_tvla": {
+      "contiguous": true,
+      "table_lines": 68,
+      "tables": {
+        "sbox": {
+          "addr": 77952,
+          "line_offset": 0,
+          "lines": 4,
+          "size": 256
+        },
+        "te0": {
+          "addr": 78208,
+          "line_offset": 4,
+          "lines": 16,
+          "size": 1024
+        },
+        "te1": {
+          "addr": 79232,
+          "line_offset": 20,
+          "lines": 16,
+          "size": 1024
+        },
+        "te2": {
+          "addr": 80256,
+          "line_offset": 36,
+          "lines": 16,
+          "size": 1024
+        },
+        "te3": {
+          "addr": 81280,
+          "line_offset": 52,
+          "lines": 16,
+          "size": 1024
+        }
+      },
+      "trace_base": 77952,
+      "trace_lines": 68,
+      "trace_size": 4352
+    }
+  },
+  "tvla_fixed_pt_hex": "da39a3ee5e6b4b0d3255bfef95601890"
+}

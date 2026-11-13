@@ -1,0 +1,24 @@
+{
+  "command": [
+    "riscv64-linux-gnu-gcc",
+    "-O2",
+    "-march=rv64gc",
+    "-mabi=lp64d",
+    "-static",
+    "-nostdlib",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-tree-loop-distribute-patterns",
+    "-Wall",
+    "-Wextra",
+    "-Wl,--no-relax",
+    "-DCONTENTION_EPOCH_CYCLES=2000000UL",
+    "-I",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/workloads",
+    "-o",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/quiet-control-20261016/quiet_victim",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/quiet-control-20261016/quiet_victim.c",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/workloads/aes_ttable.c"
+  ],
+  "sha256": "8fe07ec5d52691793d6a16a7618eae9caef7c85630ce2a13a418edfb8fbbc5fb"
+}

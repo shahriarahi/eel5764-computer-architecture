@@ -1,0 +1,4 @@
+# Keep diagnostic/simulation outputs locally without mixing them into code commits.
+/structural-*/
+/summary*/
+/core*

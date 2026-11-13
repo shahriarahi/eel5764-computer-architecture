@@ -1,0 +1,31 @@
+{
+ "a": "runs/e1-c8-s1-n500",
+ "b": "runs/e1-c8-s2-n500",
+ "seed_a": 1466213861,
+ "seed_b": 1466213862,
+ "n_windows": 500,
+ "split": "off",
+ "monitor_ways": 8,
+ "victim_variant": "full-scrub",
+ "schedule": {
+  "T0": 2000000,
+  "W": 1048576,
+  "OFF_PRIME": 65536,
+  "OFF_ENC": 524288,
+  "OFF_ENC_END": 589824,
+  "OFF_PROBE": 593920
+ },
+ "victim_inputs_differ": true,
+ "sha256_a": "ec7a98a93bb04d502dd45f529844a2fcaf97c7746100479bbc7ffea4a4e10653",
+ "sha256_b": "ec7a98a93bb04d502dd45f529844a2fcaf97c7746100479bbc7ffea4a4e10653",
+ "preconditions_ok": true,
+ "problems": [],
+ "n_records": 128000,
+ "file_identical": true,
+ "latency_records_differing": 0,
+ "timestamp_records_differing": 0,
+ "windows_with_latency_difference": 0,
+ "sets_with_latency_difference": 0,
+ "max_abs_latency_difference": 0,
+ "verdict": "IDENTICAL"
+}

@@ -1,0 +1,353 @@
+{
+  "case": "C:\\Users\\shahr\\OneDrive\\Documents\\Fall 26\\Computer Architecture\\results\\updated run\\tdma-ct3\\seed-5764a5e5\\8-8",
+  "matched_timelines": 264192,
+  "l1d_deliveries": 65536,
+  "window_exclusions": {
+    "before_measurement": 2048,
+    "after_measurement": 0
+  },
+  "llc_paths": {
+    "hit": 261456,
+    "fill": 688
+  },
+  "all_requests": {
+    "requests": 262144,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "-3052375/16384",
+        "ticks": -186.30218505859375,
+        "cpu_cycles": -0.3726043701171875
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "67/32768",
+        "ticks": 0.002044677734375,
+        "cpu_cycles": 4.08935546875e-06
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "66933/32768",
+        "ticks": 2.042633056640625,
+        "cpu_cycles": 0.00408526611328125
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "-3018875/16384",
+        "ticks": -184.25750732421875,
+        "cpu_cycles": -0.3685150146484375
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "-3052375/16384",
+        "ticks": -186.30218505859375,
+        "cpu_cycles": -0.3726043701171875
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "-3052375/16384",
+        "ticks": -186.30218505859375,
+        "cpu_cycles": -0.3726043701171875
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "-6104683/32768",
+        "ticks": -186.30014038085938,
+        "cpu_cycles": -0.37260028076171875
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "-6104683/32768",
+        "ticks": -186.30014038085938,
+        "cpu_cycles": -0.37260028076171875
+      },
+      "upstream_gap": {
+        "exact_ticks": "-20204875/8192",
+        "ticks": -2466.4154052734375,
+        "cpu_cycles": -4.932830810546875
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_llc_ready",
+      "after": "request_admit"
+    },
+    "without_interval_zero": {
+      "requests": 258048,
+      "effects": {
+        "admit_to_llc_ready": {
+          "exact_ticks": "22875/8192",
+          "ticks": 2.7923583984375,
+          "cpu_cycles": 0.005584716796875
+        },
+        "llc_ready_to_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "queue_residence": {
+          "exact_ticks": "8307/4063232",
+          "ticks": 0.0020444316248739917,
+          "cpu_cycles": 4.088863249747984e-06
+        },
+        "dequeue_to_xbar": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "xbar_to_cpu": {
+          "exact_ticks": "8298693/4063232",
+          "ticks": 2.0423871932491178,
+          "cpu_cycles": 0.0040847743864982355
+        },
+        "admit_to_cpu": {
+          "exact_ticks": "2456625/507904",
+          "ticks": 4.836790023311492,
+          "cpu_cycles": 0.009673580046622984
+        },
+        "cumulative_llc_ready": {
+          "exact_ticks": "22875/8192",
+          "ticks": 2.7923583984375,
+          "cpu_cycles": 0.005584716796875
+        },
+        "cumulative_enqueue": {
+          "exact_ticks": "22875/8192",
+          "ticks": 2.7923583984375,
+          "cpu_cycles": 0.005584716796875
+        },
+        "cumulative_dequeue": {
+          "exact_ticks": "11354307/4063232",
+          "ticks": 2.7944028300623738,
+          "cpu_cycles": 0.005588805660124748
+        },
+        "cumulative_xbar": {
+          "exact_ticks": "11354307/4063232",
+          "ticks": 2.7944028300623738,
+          "cpu_cycles": 0.005588805660124748
+        },
+        "upstream_gap": {
+          "exact_ticks": "-4492625/507904",
+          "ticks": -8.845421575730846,
+          "cpu_cycles": -0.017690843151461695
+        }
+      },
+      "earliest_divergence": {
+        "status": "resolved",
+        "checkpoint": "cumulative_llc_ready",
+        "after": "request_admit"
+      }
+    }
+  },
+  "llc_hits": {
+    "requests": 261456,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "136443/66977792",
+        "ticks": 0.0020371379217756238,
+        "cpu_cycles": 4.074275843551247e-06
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "136306557/66977792",
+        "ticks": 2.035100783853848,
+        "cpu_cycles": 0.004070201567707697
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "17055375/8372224",
+        "ticks": 2.037137921775624,
+        "cpu_cycles": 0.0040742758435512475
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "136443/66977792",
+        "ticks": 0.0020371379217756238,
+        "cpu_cycles": 4.074275843551247e-06
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "136443/66977792",
+        "ticks": 0.0020371379217756238,
+        "cpu_cycles": 4.074275843551247e-06
+      },
+      "upstream_gap": {
+        "exact_ticks": "-2219973501875/510705664",
+        "ticks": -4346.874644952049,
+        "cpu_cycles": -8.693749289904096
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_dequeue",
+      "after": "cumulative_enqueue"
+    },
+    "without_interval_zero": {
+      "requests": 258040,
+      "effects": {
+        "admit_to_llc_ready": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "llc_ready_to_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "queue_residence": {
+          "exact_ticks": "2114611/1038155776",
+          "ticks": 0.0020368918122746155,
+          "cpu_cycles": 4.073783624549231e-06
+        },
+        "dequeue_to_xbar": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "xbar_to_cpu": {
+          "exact_ticks": "2112496389/1038155776",
+          "ticks": 2.034854920462341,
+          "cpu_cycles": 0.004069709840924682
+        },
+        "admit_to_cpu": {
+          "exact_ticks": "264326375/129769472",
+          "ticks": 2.036891812274616,
+          "cpu_cycles": 0.004073783624549231
+        },
+        "cumulative_llc_ready": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "cumulative_enqueue": {
+          "exact_ticks": "0",
+          "ticks": 0.0,
+          "cpu_cycles": 0.0
+        },
+        "cumulative_dequeue": {
+          "exact_ticks": "2114611/1038155776",
+          "ticks": 0.0020368918122746155,
+          "cpu_cycles": 4.073783624549231e-06
+        },
+        "cumulative_xbar": {
+          "exact_ticks": "2114611/1038155776",
+          "ticks": 0.0020368918122746155,
+          "cpu_cycles": 4.073783624549231e-06
+        },
+        "upstream_gap": {
+          "exact_ticks": "91112375/18538496",
+          "ticks": 4.914766278774718,
+          "cpu_cycles": 0.009829532557549437
+        }
+      },
+      "earliest_divergence": {
+        "status": "resolved",
+        "checkpoint": "cumulative_dequeue",
+        "after": "cumulative_enqueue"
+      }
+    }
+  },
+  "llc_fills": {
+    "requests": 688,
+    "retries": 0,
+    "boundary_crossings": 0,
+    "effects": {
+      "admit_to_llc_ready": {
+        "exact_ticks": "158125/17",
+        "ticks": 9301.470588235294,
+        "cpu_cycles": 18.602941176470587
+      },
+      "llc_ready_to_enqueue": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "queue_residence": {
+        "exact_ticks": "1/8",
+        "ticks": 0.125,
+        "cpu_cycles": 0.00025
+      },
+      "dequeue_to_xbar": {
+        "exact_ticks": "0",
+        "ticks": 0.0,
+        "cpu_cycles": 0.0
+      },
+      "xbar_to_cpu": {
+        "exact_ticks": "999/8",
+        "ticks": 124.875,
+        "cpu_cycles": 0.24975
+      },
+      "admit_to_cpu": {
+        "exact_ticks": "160250/17",
+        "ticks": 9426.470588235294,
+        "cpu_cycles": 18.852941176470587
+      },
+      "cumulative_llc_ready": {
+        "exact_ticks": "158125/17",
+        "ticks": 9301.470588235294,
+        "cpu_cycles": 18.602941176470587
+      },
+      "cumulative_enqueue": {
+        "exact_ticks": "158125/17",
+        "ticks": 9301.470588235294,
+        "cpu_cycles": 18.602941176470587
+      },
+      "cumulative_dequeue": {
+        "exact_ticks": "1265017/136",
+        "ticks": 9301.595588235294,
+        "cpu_cycles": 18.603191176470588
+      },
+      "cumulative_xbar": {
+        "exact_ticks": "1265017/136",
+        "ticks": 9301.595588235294,
+        "cpu_cycles": 18.603191176470588
+      },
+      "upstream_gap": {
+        "exact_ticks": "10100/17",
+        "ticks": 594.1176470588235,
+        "cpu_cycles": 1.188235294117647
+      }
+    },
+    "earliest_divergence": {
+      "status": "resolved",
+      "checkpoint": "cumulative_llc_ready",
+      "after": "request_admit"
+    },
+    "without_interval_zero": {
+      "requests": 8,
+      "effects": {},
+      "earliest_divergence": {
+        "status": "unresolved",
+        "checkpoint": null,
+        "reason": "no checkpoint from request_admit onward diverges; any residual arises before request_admit (not instrumented) or is absent"
+      }
+    }
+  }
+}

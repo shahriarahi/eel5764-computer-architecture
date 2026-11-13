@@ -1,0 +1,32 @@
+# Collision-count test, location-free (simulated)
+
+Run `runs/e2-fw1-s1-n2000`: victim `full-scrub`, split 1-15, monitor ways 1, 2000 windows, seed 1466213861; overlap schedule: True (OFF_PROBE 520192, OFF_ENC 524288).
+Pearson r between a per-window model count and a per-window monitor feature; two-sided permutation p (10000 shuffles, seed 5764), Holm over 8 tests.
+
+| feature | mean | sd | max |
+|---|---|---|---|
+| excess_cycles | 18.764 | 9.351 | 294.0 |
+| delayed_walks | 6.175 | 2.129 | 13.0 |
+
+| model | feature | r | Holm p |
+|---|---|---|---|
+| lines_all_rounds | excess_cycles | +0.1145 | 0.0007999 |
+| lines_all_rounds | delayed_walks | +0.1130 | 0.0007999 |
+| lines_round1_p_xor_k | excess_cycles | +0.0210 | 1 |
+| lines_round1_p_xor_k | delayed_walks | -0.0202 | 1 |
+| lines_round1_p_only | excess_cycles | -0.0062 | 1 |
+| lines_round1_p_only | delayed_walks | +0.0082 | 1 |
+| shuffled | excess_cycles | -0.0054 | 1 |
+| shuffled | delayed_walks | -0.0045 | 1 |
+
+| statement | supported |
+|---|---|
+| count_dependent | yes |
+| round1_count_plaintext_plus_key | no |
+| round1_count_plaintext_only | no |
+
+This is a full-AES run: round 1 supplies only about a quarter of the distinct lines, so the two round-1 statements are low-power here and are registered for the round-1-only victim (`r1-scrub`) only.
+
+wrote runs/e2-fw1-s1-n2000.count.json
+wrote runs/e2-fw1-s1-n2000.count.md
+RUN HEALTH: PASS

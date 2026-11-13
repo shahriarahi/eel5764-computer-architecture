@@ -1,0 +1,22 @@
+{
+  "mapping": "PASS",
+  "isolation": "PASS 64/64",
+  "records": 16384,
+  "tdma_counters": {
+    "tdmaGrants0": 524293.0,
+    "tdmaGrants1": 0.0,
+    "tdmaWithheld": 507976.0,
+    "tdmaOverruns": 0.0,
+    "tdmaDownstreamRefusals": 0.0,
+    "tdmaExpressBypasses": 0.0,
+    "tdmaReadGrants": 262149.0,
+    "tdmaWritebackGrants": 185075.0
+  },
+  "quiet_intervals": 64,
+  "startup_drain": "unverified: no per-domain outstanding counter",
+  "victim_llc_demand_accesses": {
+    "inst": null,
+    "data": null
+  },
+  "wall_seconds": 47.322
+}

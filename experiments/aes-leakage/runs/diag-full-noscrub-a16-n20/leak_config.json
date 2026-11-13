@@ -1,0 +1,71 @@
+{
+  "format": "aes-leakage-config-v1",
+  "key_hex": "f1e2d3c4b5a69788796a5b4c3d2e1f10",
+  "workload_seed": 1466213861,
+  "N_WIN": 20,
+  "T0": 2000000,
+  "W": 1048576,
+  "OFF_PRIME": 65536,
+  "OFF_ENC": 524288,
+  "OFF_ENC_END": 589824,
+  "OFF_PROBE": 593920,
+  "victim_variant": "full-noscrub",
+  "rounds1": 0,
+  "scrub": 0,
+  "tvla": 0,
+  "tvla_fixed_pt_hex": "da39a3ee5e6b4b0d3255bfef95601890",
+  "split": "off",
+  "monitor_ways": 16,
+  "ticks_per_cycle": 500,
+  "trace_range": {
+    "base": 73792,
+    "size": 4352,
+    "n_lines": 68
+  },
+  "table_layout_contiguous": true,
+  "tables": {
+    "sbox": {
+      "addr": 73792,
+      "size": 256,
+      "lines": 4,
+      "line_offset": 0
+    },
+    "te0": {
+      "addr": 74048,
+      "size": 1024,
+      "lines": 16,
+      "line_offset": 4
+    },
+    "te1": {
+      "addr": 75072,
+      "size": 1024,
+      "lines": 16,
+      "line_offset": 20
+    },
+    "te2": {
+      "addr": 76096,
+      "size": 1024,
+      "lines": 16,
+      "line_offset": 36
+    },
+    "te3": {
+      "addr": 77120,
+      "size": 1024,
+      "lines": 16,
+      "line_offset": 52
+    }
+  },
+  "binaries": {
+    "victim": {
+      "name": "victim_leak_full_noscrub",
+      "sha256": "f5653093e5a3d643cd864fc4fa52aaf737e5756e80625a8d63ca8cdb01da6ccb"
+    },
+    "monitor": {
+      "name": "monitor_leak",
+      "sha256": "3ac5aad6ce8aa97ca574fd6829ca6700f17813e65f082e6fb8a125382cfdc7df"
+    }
+  },
+  "build_dir": "experiments/aes-leakage/build/n20",
+  "defines": [],
+  "synthetic": false
+}

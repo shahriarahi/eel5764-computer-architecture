@@ -1,0 +1,4 @@
+batch e1-full started 2026-11-12 18:18:54, 2 in parallel
+e1-p2a-s1-n2000 gem5_exit=0 seconds=606 OK 
+e1-p2b-s1-n2000 gem5_exit=0 seconds=670 OK 
+batch e1-full finished 2026-11-12 18:30:04

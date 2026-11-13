@@ -1,0 +1,19 @@
+Global frequency set at 1000000000000 ticks per second
+Redirecting stdout to experiments/aes-leakage/runs/smoke-tvla-a16-n20/simout.txt
+Redirecting stderr to experiments/aes-leakage/runs/smoke-tvla-a16-n20/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Nov 12 2026 11:49:09
+gem5 started Nov 12 2026 12:04:46
+gem5 executing on Shahriar, pid 488
+command line: /home/shahriarahi/eel5764/gem5-leak/build/RISCV/gem5.opt -r -e --debug-flags=VictimTable --debug-file=victim_table.trace -d experiments/aes-leakage/runs/smoke-tvla-a16-n20 experiments/aes-leakage/run_leakage.py --victim-variant tvla --build-dir experiments/aes-leakage/build/n20 --split off --monitor-ways 16
+
+info: Standard input is not a terminal, disabling listeners.
+victim aes_self_test=PASS
+victim leak_format=v1 key=f1e2d3c4b5a69788796a5b4c3d2e1f10 seed=1466213861 windows=20 rounds1=0 scrub=1 tvla=1
+monitor format=probe_bin_v2 windows=20 sets=256 ways=16
+victim pt_checksum=e5bef135f0419b04c5281d895a47a2ef ct_checksum=9017dc97a15c09f04b5784582546119c
+monitor status=PASS records=5120
+OK contention split=off measurement_end_tick=11485760000

@@ -1,0 +1,11 @@
+{
+  "defense": "cpu0. cpu1.",
+  "tdma_lines": 32,
+  "violations": 0,
+  "analysis_checks": {
+    "mapping": true,
+    "disjoint": true,
+    "hit_only": true,
+    "encryptions": true
+  }
+}

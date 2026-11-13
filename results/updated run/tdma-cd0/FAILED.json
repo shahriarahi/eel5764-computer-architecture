@@ -1,0 +1,9 @@
+{
+  "attempt": "2026-10-18 step 1 (trace-disabled guards), second launch",
+  "error": "ValueError('probe argument length differs from reference')",
+  "cause": "run_cases.py named its staging directory with the final case-name length; the tdma-onx references ran in '.<case>.tmp.XXXXXX' staging directories (probe_argument_length 138 and 137).",
+  "simulation_started": false,
+  "contents": "seed-5764a5e5/plom is the empty staging directory created before the check",
+  "superseded_by": "tdma-cd1 / tdma-ct1",
+  "note": "Preserved unchanged per the no-reuse, no-delete rule; this record is the only file added."
+}

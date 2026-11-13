@@ -1,0 +1,226 @@
+{
+  "label": "simulated (gem5), seed 0x5764A5E5, 4-cycle request slots; ticks are ps, 500 ticks = 1 CPU cycle",
+  "source_root": "results/updated run/tdma-ct3",
+  "endpoints": {
+    "A1": {
+      "matched_timelines": 33024,
+      "l1d_deliveries": 65536,
+      "window_exclusions": {
+        "before_measurement": 256,
+        "after_measurement": 0
+      },
+      "llc_paths": {
+        "hit": 32682,
+        "fill": 86
+      },
+      "reports": {
+        "all_requests/all_intervals": {
+          "requests": 32768,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": -337.2802734375,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0023193359375,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.3170166015625,
+            "admit_to_cpu": -334.9609375,
+            "upstream_gap": -29082.82470703125
+          }
+        },
+        "all_requests/interval_0_separated": {
+          "requests": 32256,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 1.8310546875,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.002315398185483871,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.313082787298387,
+            "admit_to_cpu": 4.146452872983871,
+            "upstream_gap": -4.981256300403226
+          }
+        },
+        "llc_hits/all_intervals": {
+          "requests": 32682,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_dequeue",
+            "after": "cumulative_enqueue"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 0.0,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0023193359375,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.3170166015625,
+            "admit_to_cpu": 2.3193359375,
+            "upstream_gap": -46770.19768866319
+          }
+        },
+        "llc_hits/interval_0_separated": {
+          "requests": 32255,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_dequeue",
+            "after": "cumulative_enqueue"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 0.0,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.002315398185483871,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.313082787298387,
+            "admit_to_cpu": 2.315398185483871,
+            "upstream_gap": 112.97091507007133
+          }
+        },
+        "llc_fills/all_intervals": {
+          "requests": 86,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": -35364.705882352944,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 0.0,
+            "admit_to_cpu": -35364.705882352944,
+            "upstream_gap": 2647.0588235294117
+          }
+        },
+        "llc_fills/interval_0_separated": {
+          "requests": 1,
+          "earliest_divergence": {
+            "status": "unresolved",
+            "checkpoint": null,
+            "reason": "no checkpoint from request_admit onward diverges; any residual arises before request_admit (not instrumented) or is absent"
+          },
+          "effects_ticks": {}
+        }
+      },
+      "retries": 0,
+      "boundary_crossings": 0
+    },
+    "A8": {
+      "matched_timelines": 264192,
+      "l1d_deliveries": 65536,
+      "window_exclusions": {
+        "before_measurement": 2048,
+        "after_measurement": 0
+      },
+      "llc_paths": {
+        "hit": 261456,
+        "fill": 688
+      },
+      "reports": {
+        "all_requests/all_intervals": {
+          "requests": 262144,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": -186.30218505859375,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.002044677734375,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.042633056640625,
+            "admit_to_cpu": -184.25750732421875,
+            "upstream_gap": -2466.4154052734375
+          }
+        },
+        "all_requests/interval_0_separated": {
+          "requests": 258048,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 2.7923583984375,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0020444316248739917,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.0423871932491178,
+            "admit_to_cpu": 4.836790023311492,
+            "upstream_gap": -8.845421575730846
+          }
+        },
+        "llc_hits/all_intervals": {
+          "requests": 261456,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_dequeue",
+            "after": "cumulative_enqueue"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 0.0,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0020371379217756238,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.035100783853848,
+            "admit_to_cpu": 2.037137921775624,
+            "upstream_gap": -4346.874644952049
+          }
+        },
+        "llc_hits/interval_0_separated": {
+          "requests": 258040,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_dequeue",
+            "after": "cumulative_enqueue"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 0.0,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.0020368918122746155,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 2.034854920462341,
+            "admit_to_cpu": 2.036891812274616,
+            "upstream_gap": 4.914766278774718
+          }
+        },
+        "llc_fills/all_intervals": {
+          "requests": 688,
+          "earliest_divergence": {
+            "status": "resolved",
+            "checkpoint": "cumulative_llc_ready",
+            "after": "request_admit"
+          },
+          "effects_ticks": {
+            "admit_to_llc_ready": 9301.470588235294,
+            "llc_ready_to_enqueue": 0.0,
+            "queue_residence": 0.125,
+            "dequeue_to_xbar": 0.0,
+            "xbar_to_cpu": 124.875,
+            "admit_to_cpu": 9426.470588235294,
+            "upstream_gap": 594.1176470588235
+          }
+        },
+        "llc_fills/interval_0_separated": {
+          "requests": 8,
+          "earliest_divergence": {
+            "status": "unresolved",
+            "checkpoint": null,
+            "reason": "no checkpoint from request_admit onward diverges; any residual arises before request_admit (not instrumented) or is absent"
+          },
+          "effects_ticks": {}
+        }
+      },
+      "retries": 0,
+      "boundary_crossings": 0
+    }
+  }
+}

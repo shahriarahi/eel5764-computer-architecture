@@ -1,0 +1,48 @@
+[
+  {
+    "mode": "reads",
+    "grant_trace_checks": "PASS",
+    "counters": {
+      "tdmaGrants0": 250.0,
+      "tdmaGrants1": 250.0,
+      "tdmaWithheld": 501.0,
+      "tdmaOverruns": 0.0,
+      "tdmaDownstreamRefusals": 0.0,
+      "tdmaExpressBypasses": 0.0,
+      "tdmaReadGrants": 500.0,
+      "tdmaWritebackGrants": 0.0
+    }
+  },
+  {
+    "mode": "quiet",
+    "grant_trace_checks": "PASS",
+    "counters": {
+      "tdmaGrants0": 250.0,
+      "tdmaGrants1": 0.0,
+      "tdmaWithheld": 250.0,
+      "tdmaOverruns": 0.0,
+      "tdmaDownstreamRefusals": 0.0,
+      "tdmaExpressBypasses": 0.0,
+      "tdmaReadGrants": 250.0,
+      "tdmaWritebackGrants": 0.0
+    }
+  },
+  {
+    "mode": "writebacks",
+    "grant_trace_checks": "PASS",
+    "counters": {
+      "tdmaGrants0": 250.0,
+      "tdmaGrants1": 250.0,
+      "tdmaWithheld": 501.0,
+      "tdmaOverruns": 0.0,
+      "tdmaDownstreamRefusals": 0.0,
+      "tdmaExpressBypasses": 0.0,
+      "tdmaReadGrants": 0.0,
+      "tdmaWritebackGrants": 226.0
+    }
+  },
+  {
+    "mode": "refusal",
+    "expected_refusal": "PASS"
+  }
+]

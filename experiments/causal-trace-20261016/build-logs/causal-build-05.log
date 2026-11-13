@@ -1,0 +1,77 @@
+scons: Reading SConscript files ...
+Mkdir("/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.build")
+Checking for linker -Wl,--as-needed support... (cached) yes
+Warning: Detected GCC version 15.2.0 is not officially supported.
+         gem5 supports GCC v11 up to v14.2.
+Checking for compiler -gz support... (cached) yes
+Checking for linker -gz support... (cached) yes
+Info: Using Python config: python3-config
+Checking for C header file Python.h... (cached) yes
+Checking Python version... (cached) 3.14.4
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for C library tcmalloc_minimal... (cached) yes
+Building in /home/shahriarahi/eel5764/gem5-causal/build/RISCV
+"build_tools/kconfig_base.py" "/home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.build/Kconfig" "/home/shahriarahi/eel5764/gem5-causal/src/Kconfig" "/home/shahriarahi/eel5764/gem5_ext"
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file png.h... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for C header file valgrind/valgrind.h... (cached) no
+Checking for pkg-config package hdf5-serial... (cached) yes
+Checking for H5Fcreate("", 0, 0, 0) in C library hdf5... (cached) yes
+Checking for H5::H5File("", 0) in C++ library hdf5_cpp... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for C header file linux/if_tun.h... (cached) yes
+Checking for C header file capstone/capstone.h... (cached) no
+Warning: Header file <capstone/capstone.h> not found.
+         This host has no capstone library installed.
+Checking for C header file linux/kvm.h... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Checking for backtrace_symbols_fd((void *)1, 0, 0) in C library None... (cached) yes
+Checking for pkg-config package protobuf... (cached) yes
+Checking for shm_open("/test", 0, 0) in C library None... (cached) yes
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+Checking for compiler -Wno-self-assign-overloaded support... (cached) yes
+Checking for linker -Wno-free-nonheap-object support... (cached) yes
+BUILD_TLM not set, not building CHI-TLM integration
+
+scons: done reading SConscript files.
+scons: Building targets ...
+ [     CXX] src/cpu/simple/timing.cc -> RISCV/cpu/simple/timing.o
+ [VER TAGS]  -> RISCV/sim/tags.cc
+ [     CXX] src/mem/coherent_xbar.cc -> RISCV/mem/coherent_xbar.o
+ [     CXX] src/mem/packet_queue.cc -> RISCV/mem/packet_queue.o
+ [     CXX] src/mem/causal_trace.cc -> RISCV/mem/causal_trace.o
+ [     CXX] src/mem/cache/base.cc -> RISCV/mem/cache/base.o
+ [     CXX] src/mem/cache/cache.cc -> RISCV/mem/cache/cache.o
+In file included from /usr/include/c++/15/vector:67,
+                 from src/base/addr_range.hh:47,
+                 from src/mem/cache/base.hh:53,
+                 from src/mem/cache/base.cc:46:
+In function ‘std::__enable_if_t<((bool)std::__is_bitwise_relocatable<_Tp>::value), _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, allocator<_T2>&) [with _Tp = gem5::statistics::StatStor*; _Up = gem5::statistics::StatStor*]’,
+    inlined from ‘_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = gem5::statistics::StatStor**; _ForwardIterator = gem5::statistics::StatStor**; _Allocator = allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/stl_uninitialized.h:1359:33,
+    inlined from ‘static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_relocate(pointer, pointer, pointer, _Tp_alloc_type&) [with _Tp = gem5::statistics::StatStor*; _Alloc = std::allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/stl_vector.h:539:26,
+    inlined from ‘void std::vector<_Tp, _Alloc>::reserve(size_type) [with _Tp = gem5::statistics::StatStor*; _Alloc = std::allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/vector.tcc:80:19,
+    inlined from ‘void gem5::statistics::VectorBase<Derived, Stor>::doInit(gem5::statistics::size_type) [with Derived = gem5::statistics::Vector; Stor = gem5::statistics::StatStor]’ at src/base/statistics.hh:959:24:
+/usr/include/c++/15/bits/stl_uninitialized.h:1343:27: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [34359738360, 34359738367] is out of the bounds [0, 34359738360] [-Warray-bounds=]
+ 1343 |           __builtin_memcpy(__result, __first, __count * sizeof(_Tp));
+      |           ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In function ‘std::__enable_if_t<((bool)std::__is_bitwise_relocatable<_Tp>::value), _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, allocator<_T2>&) [with _Tp = gem5::statistics::StatStor*; _Up = gem5::statistics::StatStor*]’,
+    inlined from ‘_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = gem5::statistics::StatStor**; _ForwardIterator = gem5::statistics::StatStor**; _Allocator = allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/stl_uninitialized.h:1359:33,
+    inlined from ‘static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_relocate(pointer, pointer, pointer, _Tp_alloc_type&) [with _Tp = gem5::statistics::StatStor*; _Alloc = std::allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/stl_vector.h:539:26,
+    inlined from ‘void std::vector<_Tp, _Alloc>::reserve(size_type) [with _Tp = gem5::statistics::StatStor*; _Alloc = std::allocator<gem5::statistics::StatStor*>]’ at /usr/include/c++/15/bits/vector.tcc:80:19,
+    inlined from ‘void gem5::statistics::VectorBase<Derived, Stor>::doInit(gem5::statistics::size_type) [with Derived = gem5::statistics::Vector; Stor = gem5::statistics::StatStor]’ at src/base/statistics.hh:959:24:
+/usr/include/c++/15/bits/stl_uninitialized.h:1343:27: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [24, 34359738367] is out of the bounds [0, 24] [-Warray-bounds=]
+ 1343 |           __builtin_memcpy(__result, __first, __count * sizeof(_Tp));
+      |           ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ [     CXX] src/base/date.cc -> RISCV/base/date.o
+ [    LINK]  -> RISCV/gem5.opt
+scons: done building targets.
+*** Summary of Warnings ***
+Warning: Detected GCC version 15.2.0 is not officially supported.
+         gem5 supports GCC v11 up to v14.2.
+Warning: Header file <capstone/capstone.h> not found.
+         This host has no capstone library installed.
+exit=0 wall_seconds=88

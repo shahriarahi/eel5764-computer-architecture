@@ -1,0 +1,103 @@
+{
+ "run": {
+  "dir": "runs/e2-fw1-s1-n2000",
+  "n_windows": 2000,
+  "seed": 1466213861,
+  "victim_variant": "full-scrub",
+  "split": "1-15",
+  "monitor_ways": 1,
+  "OFF_PROBE": 520192,
+  "OFF_ENC": 524288
+ },
+ "health_problems": [],
+ "overlap_schedule": true,
+ "nperm": 10000,
+ "perm_seed": 5764,
+ "alpha": 0.05,
+ "feature_summary": {
+  "excess_cycles": {
+   "mean": 18.764,
+   "sd": 9.350952037092265,
+   "max": 294.0
+  },
+  "delayed_walks": {
+   "mean": 6.175,
+   "sd": 2.1291723744215734,
+   "max": 13.0
+  }
+ },
+ "model_summary": {
+  "lines_all_rounds": {
+   "mean": 61.7355,
+   "sd": 2.0910618713945315
+  },
+  "lines_round1_p_xor_k": {
+   "mean": 14.5475,
+   "sd": 1.0539182843086081
+  },
+  "lines_round1_p_only": {
+   "mean": 14.5635,
+   "sd": 1.077946079356477
+  },
+  "shuffled": {
+   "mean": 61.7355,
+   "sd": 2.0910618713945315
+  }
+ },
+ "tests": [
+  {
+   "model": "lines_all_rounds",
+   "feature": "excess_cycles",
+   "r": 0.11445967426737096,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_all_rounds",
+   "feature": "delayed_walks",
+   "r": 0.1130416370596777,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "excess_cycles",
+   "r": 0.020974842985874622,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "delayed_walks",
+   "r": -0.02019297288727042,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "excess_cycles",
+   "r": -0.0062018951785760305,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "delayed_walks",
+   "r": 0.008229370537872408,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "excess_cycles",
+   "r": -0.005417057679736124,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "delayed_walks",
+   "r": -0.004539858607791242,
+   "holm_p": 1.0
+  }
+ ],
+ "round1_statements_registered": false,
+ "decision": {
+  "count_dependent": true,
+  "round1_count_plaintext_plus_key": false,
+  "round1_count_plaintext_only": false
+ }
+}

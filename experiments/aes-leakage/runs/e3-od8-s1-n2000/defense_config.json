@@ -1,0 +1,29 @@
+{
+  "format": "aes-leakage-defense-config-v1",
+  "tdma_slot_cycles": 4,
+  "peers": [
+    "system.cpu0.icache.mem_side",
+    "system.cpu0.dcache.mem_side",
+    "system.cpu0.mmu.itb.walker.port",
+    "system.cpu0.mmu.dtb.walker.port",
+    "system.cpu1.icache.mem_side",
+    "system.cpu1.dcache.mem_side",
+    "system.cpu1.mmu.itb.walker.port",
+    "system.cpu1.mmu.dtb.walker.port"
+  ],
+  "port_domains": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "respq": true,
+  "response_domain_prefixes": [
+    "cpu0.",
+    "cpu1."
+  ]
+}

@@ -1,0 +1,5 @@
+run_arm: e1-w1-s3-n500 gem5_exit=0 seconds=181
+run_arm: e1-w1-s3-n500 victim aes_self_test=PASS
+run_arm: e1-w1-s3-n500 victim pt_checksum=ee36d73300b09befbccba2dbf982b676 ct_checksum=6a0071b01db9f0288117c748e048f252
+run_arm: e1-w1-s3-n500 monitor status=PASS records=128000
+run_batch: e1-w1-s3-n500 gem5_exit=0 seconds=181

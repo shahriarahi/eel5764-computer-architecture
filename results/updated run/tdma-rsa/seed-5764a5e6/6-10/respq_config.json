@@ -1,0 +1,8 @@
+{
+  "respq": true,
+  "quiet_binary": null,
+  "response_domain_prefixes": [
+    "cpu0.",
+    "cpu1."
+  ]
+}

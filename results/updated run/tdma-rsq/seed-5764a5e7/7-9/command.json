@@ -1,0 +1,37 @@
+{
+  "case": {
+    "root": "tdma-rsq",
+    "seed": 1466213863,
+    "ways": 7
+  },
+  "command": [
+    "/home/shahriarahi/eel5764/gem5-respq/build/RISCV/gem5.opt",
+    "-r",
+    "-e",
+    "-d",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-rsq/seed-5764a5e7/cdtpyxnshqvesdf",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/respq-defense-20261018/run_contention_respq.py",
+    "--respq",
+    "--quiet-binary",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/quiet-control-20261016/quiet_victim",
+    "--baseline-root",
+    "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture",
+    "--tdma-slot-cycles",
+    "4",
+    "--split",
+    "7-9",
+    "--l1d-size",
+    "4KiB",
+    "--monitor-ways",
+    "7",
+    "--workload-seed",
+    "1466213863",
+    "--monitor-sink",
+    "file",
+    "--monitor-variant",
+    "v3"
+  ],
+  "v3_treatment": "/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/sweep-v3/seed-5764a5e7/7-9",
+  "timeout_seconds": 600,
+  "probe_argument_length": 137
+}

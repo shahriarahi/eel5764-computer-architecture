@@ -1,0 +1,1 @@
+/home/shahriarahi/eel5764/gem5/build/RISCV/gem5.opt -r -e -d '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/results/updated run/tdma-way/seed-5764a5e7/.8-8.tmp.IqqvaI' --stats-file=stats.txt.gz configs/run_contention.py --split 8-8 --l1d-size 4KiB --monitor-ways 8 --workload-seed 1466213863 --monitor-sink file --monitor-variant v3 --stats-per-interval

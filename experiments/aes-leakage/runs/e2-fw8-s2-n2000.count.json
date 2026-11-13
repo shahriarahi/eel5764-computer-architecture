@@ -1,0 +1,103 @@
+{
+ "run": {
+  "dir": "runs/e2-fw8-s2-n2000",
+  "n_windows": 2000,
+  "seed": 1466213862,
+  "victim_variant": "full-scrub",
+  "split": "8-8",
+  "monitor_ways": 8,
+  "OFF_PROBE": 520192,
+  "OFF_ENC": 524288
+ },
+ "health_problems": [],
+ "overlap_schedule": true,
+ "nperm": 10000,
+ "perm_seed": 5764,
+ "alpha": 0.05,
+ "feature_summary": {
+  "excess_cycles": {
+   "mean": 9.533,
+   "sd": 32.810667640266026,
+   "max": 1392.0
+  },
+  "delayed_walks": {
+   "mean": 4.577,
+   "sd": 1.733514061090939,
+   "max": 10.0
+  }
+ },
+ "model_summary": {
+  "lines_all_rounds": {
+   "mean": 61.714,
+   "sd": 2.058689874653295
+  },
+  "lines_round1_p_xor_k": {
+   "mean": 14.5865,
+   "sd": 1.0481019750005247
+  },
+  "lines_round1_p_only": {
+   "mean": 14.5345,
+   "sd": 1.0764802599211933
+  },
+  "shuffled": {
+   "mean": 61.714,
+   "sd": 2.058689874653295
+  }
+ },
+ "tests": [
+  {
+   "model": "lines_all_rounds",
+   "feature": "excess_cycles",
+   "r": 0.030503772600793944,
+   "holm_p": 0.6615338466153384
+  },
+  {
+   "model": "lines_all_rounds",
+   "feature": "delayed_walks",
+   "r": 0.09709849870794682,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "excess_cycles",
+   "r": -0.06226145380974595,
+   "holm_p": 0.04259574042595741
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "delayed_walks",
+   "r": -0.1543346224068571,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "excess_cycles",
+   "r": 0.0016311280076766862,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "delayed_walks",
+   "r": -0.0010216528964504983,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "excess_cycles",
+   "r": -0.029987450550227387,
+   "holm_p": 0.6615338466153384
+  },
+  {
+   "model": "shuffled",
+   "feature": "delayed_walks",
+   "r": -0.03459961683085016,
+   "holm_p": 0.6094390560943905
+  }
+ ],
+ "round1_statements_registered": false,
+ "decision": {
+  "count_dependent": true,
+  "round1_count_plaintext_plus_key": true,
+  "round1_count_plaintext_only": false
+ }
+}

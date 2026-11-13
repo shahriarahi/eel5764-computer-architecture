@@ -1,0 +1,6 @@
+{
+  "response_domain_prefixes": "",
+  "tdma_lines": 1040,
+  "violations": 0,
+  "equivalence": "byte-identical probes and matching simulated statistics"
+}

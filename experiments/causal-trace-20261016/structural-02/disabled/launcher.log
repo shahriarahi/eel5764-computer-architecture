@@ -1,0 +1,22 @@
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/arch/riscv/linux/se_workload.cc:73: warn: Unknown operating system; assuming Linux.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/arch/riscv/linux/se_workload.cc:73: warn: Unknown operating system; assuming Linux.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Oct 16 2026 22:09:57
+gem5 started Oct 18 2026 20:03:48
+gem5 executing on Shahriar, pid 473
+command line: /home/shahriarahi/eel5764/gem5-causal/build/RISCV/gem5.opt -d '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/causal-trace-20261016/structural-02/disabled' --debug-flags=CausalTrace --debug-file=causal.log '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/tdma-worktree/experiments/causal-trace-20261016/test_trace_traffic.py' --baseline-root '/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture' --vaddr-base 0x12080 --vaddr-size 0x40000
+
+info: Standard input is not a terminal, disabling listeners.
+monitor format=probe_bin_v2 intervals=64 sets=256 record_bytes=16 ways=1 labels=0110100110110010001101101100100101011010100101100110010110101100
+victim aes_self_test=PASS key=000102030405060708090a0b0c0d0e0f plaintext_seed=1466213861 labels=0110100110110010001101101100100101011010100101100110010110101100
+OK contention split=1-15 measurement_end_tick=1020000000

@@ -1,0 +1,26 @@
+== (1) real deadline margins over 2000 windows (spec: probe budget 454656)
+   probe pass starts at offset: min 593926 max 593928 (OFF_PROBE = 593920)
+   probe pass duration: min 170100  median 180752  p99 185078  max 196662   => worst-case headroom 2.31x
+   probe pass ends at offset <= 790588 of 1048576
+   drift: median duration first 200 windows 180808, last 200 windows 180952
+   window 0 vs rest: duration 196662 vs median 180752
+
+== (2) real effect size per table-line set (oracle = lines the encryption touches)
+   latency of a table-line set when TOUCHED  : median 3127  mean 3155  (n=29095)
+   latency of a table-line set when UNTOUCHED: median 513  mean 513  sd 0.0 (n=106905)
+   effect (mean touched - mean untouched): 2642 cycles; the untouched noise sd is exactly 0 (a noise-free baseline)
+   'visibility': 100.0% of touched windows show a slow set (>= 1000 cycles); 0.00% of untouched do
+   sets that are not table lines: median latency 513, slow (>=1000) in 1.60% of cells
+   of those, 3 set(s) are slow in more than 99% of windows (constant victim data such as the stack)
+
+== (3) per-byte strength (round-1 p_xor_k z, one-sided)
+   z per byte: [84.4, 84.8, 84.5, 84.8, 84.5, 84.9, 84.9, 85.0, 84.3, 84.6, 84.6, 84.6, 84.6, 84.7, 84.8, 85.0]
+   weakest byte z = 84.3 (byte 8), strongest 85.0 (byte 15)
+   p_only z per byte: min -8.0 max -3.2 (negative = anti-correlated; expected, because the true line differs from p>>4 for every byte)
+   Holm p of p_xor_k per byte: max 0 (values of 0 are below double precision)
+
+== (4) trace
+   touched lines total 29095; fills in AES phase 29095; recall 1.000 precision 1.000; outside AES phase 0
+
+== (5) calibration of the analytic z on real data (windows shuffled)
+   0.003 of 640 shuffled z > 2.33 (nominal 0.010); sd of shuffled z = 0.72 (nominal 1)
