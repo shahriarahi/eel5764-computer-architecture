@@ -300,6 +300,51 @@ The pattern now accepts both spellings; the test was written first and failed wi
 re-analysed (analysis only, no gem5): all six show
 `way_isolation | PASS | valid LLC blocks outside the assigned ways: 0`.
 
+## Phase E, block E2: results (2026-11-12)
+
+Overlap schedule (`OFF_PROBE` = 520,192 by compile flags; `build/ovl-n200`,
+`build/ovl-n2000`), victim `r1-scrub`, no interconnect defense. Preregistered in
+`PREREGISTRATION_OVERLAP.md` at commit `a3469eb` before any overlap run.
+
+Pilot `e2-pilot-c8-s1-n200`: `monitor status=PASS records=51200`; run checks PASS;
+`excess_cycles` mean -3.010, sd 12.622, max 160.0; `delayed_walks` mean 0.525. Pilot gate:
+met.
+
+| Arm | Runs | Differential verdict | `count_dependent` (S1, S2) | `round1_count_plaintext_plus_key` (S1, S2) | `round1_count_plaintext_only` (S1, S2) |
+|---|---|---|---|---|---|
+| OC8: unpartitioned, 8 ways | `e2-oc8-s{1,2}-n2000` | DIFFERENT | yes, yes | yes, yes | no, no |
+| OC1: unpartitioned, 1 way | `e2-oc1-s{1,2}-n2000` | DIFFERENT | no, no | no, no | no, no |
+| OW8: way partition 8/8 | `e2-ow8-s{1,2}-n2000` | DIFFERENT | yes, yes | yes, yes | no, no |
+| OW1: way partition 1/15 | `e2-ow1-s{1,2}-n2000` | DIFFERENT | no, no | no, no | no, no |
+
+Interpretability: OW8 is interpreted only if OC8 is `DIFFERENT`: yes; OW1 only
+if OC1 is `DIFFERENT`: yes. Exploratory arms FW8 and FW1 (victim `full-scrub`, way
+partition only; run at the user's decision D, "include E2x"): run; differential verdict
+DIFFERENT for both; `count_dependent` yes, yes (FW8) and yes, yes (FW1); the round-1
+statements are not read from these arms. All 12 runs passed their run checks, and the
+four way-partitioned registered runs and four FW runs show
+`way_isolation | PASS` with 0 blocks outside the assigned ways. Largest |r| observed:
+`lines_round1_p_xor_k` (equal to `lines_all_rounds` for this victim) against
+`excess_cycles`, +0.4559, `e2-oc8-s1-n2000`.
+
+What this shows: in the overlap schedule the monitor's log depends on the plaintext
+stream in all four registered arms, including both way-partitioned arms (verdict
+`DIFFERENT`), whereas the window-schedule way-partitioned arms of E1 were `IDENTICAL`
+(different victim and N, so this is a comparison, not a single-variable result). With an
+8-way monitor, both OC8 and OW8 support `count_dependent` and
+`round1_count_plaintext_plus_key` and not the plaintext-only statement, which under the
+overlap preregistration's reading means that under way partitioning alone (8/8) the
+crossbar channel carries a key-dependent collision count. The effect is much smaller
+when partitioned: r between the key-dependent count and `excess_cycles` is +0.4559 and
++0.4421 for OC8 but +0.0834 (Holm p 0.0008) and +0.0611 (Holm p 0.0384) for OW8, about
+14 to 18% of OC8's, with the second OW8 run close to the 0.05 line. With a 1-way monitor
+no statement is supported in either OC1 or OW1 although the logs differ (at most 4
+cycles in 10 sets, against 16 cycles in 3 sets at 8 ways); by the preregistered reading,
+OW1 is `DIFFERENT` with no statement supported, so the monitor's log depends on the
+plaintext stream but not through the collision count at this N. At depth 1 the
+partitioned and unpartitioned logs differ in only 162 of 8,192,000 bytes (each seed).
+"Not supported" is absence of detection at N = 2000, not proof of absence.
+
 ## Environment changes made for Phase A and B
 
 With the group's approval, in WSL `Ubuntu-26.04`: `qemu-user` (provides

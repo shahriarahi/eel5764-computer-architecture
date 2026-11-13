@@ -1,0 +1,19 @@
+Global frequency set at 1000000000000 ticks per second
+Redirecting stdout to experiments/aes-leakage/runs/e2-ow8-s1-n2000/simout.txt
+Redirecting stderr to experiments/aes-leakage/runs/e2-ow8-s1-n2000/simerr.txt
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Nov 12 2026 11:49:09
+gem5 started Nov 12 2026 19:09:04
+gem5 executing on Shahriar, pid 632
+command line: /home/shahriarahi/eel5764/gem5-leak/build/RISCV/gem5.opt -r -e --debug-flags=VictimTable --debug-file=victim_table.trace -d experiments/aes-leakage/runs/e2-ow8-s1-n2000 experiments/aes-leakage/run_leakage.py --victim-variant r1-scrub --build-dir experiments/aes-leakage/build/ovl-n2000 --split 8-8 --monitor-ways 8 --workload-seed 1466213861
+
+info: Standard input is not a terminal, disabling listeners.
+monitor format=probe_bin_v2 windows=2000 sets=256 ways=8
+victim aes_self_test=PASS
+victim leak_format=v1 key=f1e2d3c4b5a69788796a5b4c3d2e1f10 seed=1466213861 windows=2000 rounds1=1 scrub=1 tvla=0
+victim pt_checksum=8301674eec5d72329505bf9bd2fc7794 ct_checksum=00000000000000000000000000000000
+monitor status=PASS records=512000
+OK contention split=8-8 measurement_end_tick=1049576000000

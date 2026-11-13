@@ -1,0 +1,103 @@
+{
+ "run": {
+  "dir": "runs/e2-fw1-s2-n2000",
+  "n_windows": 2000,
+  "seed": 1466213862,
+  "victim_variant": "full-scrub",
+  "split": "1-15",
+  "monitor_ways": 1,
+  "OFF_PROBE": 520192,
+  "OFF_ENC": 524288
+ },
+ "health_problems": [],
+ "overlap_schedule": true,
+ "nperm": 10000,
+ "perm_seed": 5764,
+ "alpha": 0.05,
+ "feature_summary": {
+  "excess_cycles": {
+   "mean": 19.088,
+   "sd": 9.661069091979417,
+   "max": 306.0
+  },
+  "delayed_walks": {
+   "mean": 6.208,
+   "sd": 2.127612746718725,
+   "max": 14.0
+  }
+ },
+ "model_summary": {
+  "lines_all_rounds": {
+   "mean": 61.714,
+   "sd": 2.058689874653295
+  },
+  "lines_round1_p_xor_k": {
+   "mean": 14.5865,
+   "sd": 1.0481019750005247
+  },
+  "lines_round1_p_only": {
+   "mean": 14.5345,
+   "sd": 1.0764802599211933
+  },
+  "shuffled": {
+   "mean": 61.714,
+   "sd": 2.058689874653295
+  }
+ },
+ "tests": [
+  {
+   "model": "lines_all_rounds",
+   "feature": "excess_cycles",
+   "r": 0.10137026946306327,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_all_rounds",
+   "feature": "delayed_walks",
+   "r": 0.13367016565027304,
+   "holm_p": 0.0007999200079992001
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "excess_cycles",
+   "r": 0.02408583489050632,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "delayed_walks",
+   "r": 0.016371629922914886,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "excess_cycles",
+   "r": 0.003794633567021492,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "delayed_walks",
+   "r": -0.007935963472148156,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "excess_cycles",
+   "r": 0.015795952924891016,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "delayed_walks",
+   "r": 0.04622913621148937,
+   "holm_p": 0.21357864213578642
+  }
+ ],
+ "round1_statements_registered": false,
+ "decision": {
+  "count_dependent": true,
+  "round1_count_plaintext_plus_key": false,
+  "round1_count_plaintext_only": false
+ }
+}

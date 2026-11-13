@@ -1,0 +1,103 @@
+{
+ "run": {
+  "dir": "runs/e2-pilot-c8-s1-n200",
+  "n_windows": 200,
+  "seed": 1466213861,
+  "victim_variant": "r1-scrub",
+  "split": "off",
+  "monitor_ways": 8,
+  "OFF_PROBE": 520192,
+  "OFF_ENC": 524288
+ },
+ "health_problems": [],
+ "overlap_schedule": true,
+ "nperm": 10000,
+ "perm_seed": 5764,
+ "alpha": 0.05,
+ "feature_summary": {
+  "excess_cycles": {
+   "mean": -3.01,
+   "sd": 12.622198699117362,
+   "max": 160.0
+  },
+  "delayed_walks": {
+   "mean": 0.525,
+   "sd": 0.5562148865321747,
+   "max": 3.0
+  }
+ },
+ "model_summary": {
+  "lines_all_rounds": {
+   "mean": 14.52,
+   "sd": 1.043839068055991
+  },
+  "lines_round1_p_xor_k": {
+   "mean": 14.52,
+   "sd": 1.043839068055991
+  },
+  "lines_round1_p_only": {
+   "mean": 14.645,
+   "sd": 1.043539649462348
+  },
+  "shuffled": {
+   "mean": 14.52,
+   "sd": 1.0438390680559912
+  }
+ },
+ "tests": [
+  {
+   "model": "lines_all_rounds",
+   "feature": "excess_cycles",
+   "r": 0.2174635045355976,
+   "holm_p": 0.027997200279972004
+  },
+  {
+   "model": "lines_all_rounds",
+   "feature": "delayed_walks",
+   "r": -0.03961427212602417,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "excess_cycles",
+   "r": 0.2174635045355976,
+   "holm_p": 0.027997200279972004
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "delayed_walks",
+   "r": -0.03961427212602417,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "excess_cycles",
+   "r": 0.014534878417654294,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "delayed_walks",
+   "r": -0.006245345196516951,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "excess_cycles",
+   "r": 0.007225508038457664,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "delayed_walks",
+   "r": 0.03789191246837094,
+   "holm_p": 1.0
+  }
+ ],
+ "round1_statements_registered": true,
+ "decision": {
+  "count_dependent": true,
+  "round1_count_plaintext_plus_key": true,
+  "round1_count_plaintext_only": false
+ }
+}

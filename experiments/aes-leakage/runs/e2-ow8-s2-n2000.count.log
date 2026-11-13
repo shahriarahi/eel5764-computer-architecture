@@ -1,0 +1,30 @@
+# Collision-count test, location-free (simulated)
+
+Run `runs/e2-ow8-s2-n2000`: victim `r1-scrub`, split 8-8, monitor ways 8, 2000 windows, seed 1466213862; overlap schedule: True (OFF_PROBE 520192, OFF_ENC 524288).
+Pearson r between a per-window model count and a per-window monitor feature; two-sided permutation p (10000 shuffles, seed 5764), Holm over 8 tests.
+
+| feature | mean | sd | max |
+|---|---|---|---|
+| excess_cycles | -1.590 | 31.411 | 1382.0 |
+| delayed_walks | 0.566 | 0.554 | 6.0 |
+
+| model | feature | r | Holm p |
+|---|---|---|---|
+| lines_all_rounds | excess_cycles | +0.0611 | 0.0384 |
+| lines_all_rounds | delayed_walks | -0.0800 | 0.005599 |
+| lines_round1_p_xor_k | excess_cycles | +0.0611 | 0.0384 |
+| lines_round1_p_xor_k | delayed_walks | -0.0800 | 0.005599 |
+| lines_round1_p_only | excess_cycles | +0.0082 | 1 |
+| lines_round1_p_only | delayed_walks | -0.0126 | 1 |
+| shuffled | excess_cycles | -0.0165 | 1 |
+| shuffled | delayed_walks | +0.0001 | 1 |
+
+| statement | supported |
+|---|---|
+| count_dependent | yes |
+| round1_count_plaintext_plus_key | yes |
+| round1_count_plaintext_only | no |
+
+wrote runs/e2-ow8-s2-n2000.count.json
+wrote runs/e2-ow8-s2-n2000.count.md
+RUN HEALTH: PASS

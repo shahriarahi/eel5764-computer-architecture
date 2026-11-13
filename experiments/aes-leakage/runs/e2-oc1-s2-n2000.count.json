@@ -1,0 +1,103 @@
+{
+ "run": {
+  "dir": "runs/e2-oc1-s2-n2000",
+  "n_windows": 2000,
+  "seed": 1466213862,
+  "victim_variant": "r1-scrub",
+  "split": "off",
+  "monitor_ways": 1,
+  "OFF_PROBE": 520192,
+  "OFF_ENC": 524288
+ },
+ "health_problems": [],
+ "overlap_schedule": true,
+ "nperm": 10000,
+ "perm_seed": 5764,
+ "alpha": 0.05,
+ "feature_summary": {
+  "excess_cycles": {
+   "mean": 1.209,
+   "sd": 4.041326391174066,
+   "max": 168.0
+  },
+  "delayed_walks": {
+   "mean": 0.549,
+   "sd": 0.7433700289896009,
+   "max": 3.0
+  }
+ },
+ "model_summary": {
+  "lines_all_rounds": {
+   "mean": 14.5865,
+   "sd": 1.0481019750005247
+  },
+  "lines_round1_p_xor_k": {
+   "mean": 14.5865,
+   "sd": 1.0481019750005247
+  },
+  "lines_round1_p_only": {
+   "mean": 14.5345,
+   "sd": 1.0764802599211933
+  },
+  "shuffled": {
+   "mean": 14.5865,
+   "sd": 1.0481019750005247
+  }
+ },
+ "tests": [
+  {
+   "model": "lines_all_rounds",
+   "feature": "excess_cycles",
+   "r": -0.030001613617084356,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_all_rounds",
+   "feature": "delayed_walks",
+   "r": 0.024401009679061184,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "excess_cycles",
+   "r": -0.030001613617084356,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_xor_k",
+   "feature": "delayed_walks",
+   "r": 0.024401009679061184,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "excess_cycles",
+   "r": 0.0006412042149013289,
+   "holm_p": 1.0
+  },
+  {
+   "model": "lines_round1_p_only",
+   "feature": "delayed_walks",
+   "r": -0.024918673872867992,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "excess_cycles",
+   "r": 0.0016340779018531818,
+   "holm_p": 1.0
+  },
+  {
+   "model": "shuffled",
+   "feature": "delayed_walks",
+   "r": 0.032101930599260343,
+   "holm_p": 1.0
+  }
+ ],
+ "round1_statements_registered": true,
+ "decision": {
+  "count_dependent": false,
+  "round1_count_plaintext_plus_key": false,
+  "round1_count_plaintext_only": false
+ }
+}

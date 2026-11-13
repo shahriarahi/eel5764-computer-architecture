@@ -1,0 +1,6 @@
+batch e2-explore started 2026-11-12 19:23:34, 4 in parallel
+e2-fw8-s1-n2000 gem5_exit=0 seconds=704 OK 
+e2-fw8-s2-n2000 gem5_exit=0 seconds=699 OK 
+e2-fw1-s1-n2000 gem5_exit=0 seconds=723 OK 
+e2-fw1-s2-n2000 gem5_exit=0 seconds=714 OK 
+batch e2-explore finished 2026-11-12 19:35:38

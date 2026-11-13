@@ -1,0 +1,60 @@
+# AES leakage analysis (simulated)
+
+Simulator-only run, public key `f1e2d3c4b5a69788796a5b4c3d2e1f10`, plaintext seed 1466213862.
+Windows: 2000 analysed of 2000 (drop_first=0); victim `r1-scrub`; split 1-15; monitor ways 1.
+
+## Run checks
+
+| check | result | detail |
+|---|---|---|
+| aes_self_test_pass | PASS | FIPS-197 known-answer line in simout.txt |
+| config_matches_simout | PASS | simout header {'key_hex': 'f1e2d3c4b5a69788796a5b4c3d2e1f10', 'seed': 1466213862, 'windows': 2000, 'rounds1': 1, 'scrub': 1, 'tvla': 0} vs leak_config {'key_hex': 'f1e2d3c4b5a69788796a5b4c3d2e1f10', 'seed': 1466213862, 'windows': 2000, 'rounds1': 1, 'scrub': 1, 'tvla': 0} |
+| checksum_matches | PASS | victim pt/ct checksum dcb4466c214bb888daadcd3f929d87f0/00000000000000000000000000000000 vs python dcb4466c214bb888daadcd3f929d87f0/c82c7f8840bbc3637482359b0b55eda2 (ct not computed in round-1 mode) |
+| monitor_status_pass | PASS | monitor records=512000 windows=2000 errors=[] |
+| table_fills_have_vaddr | PASS | victimTableMissingVaddr=0 |
+| way_isolation | PASS | valid LLC blocks outside the assigned ways: 0 |
+
+Rotation 130; 68 table lines mapped to distinct logical sets.
+
+## Attribution (location-aware, known key, Holm over 96 tests)
+
+| hypothesis | bytes significant | mean z | min Holm p |
+|---|---|---|---|
+| p_xor_k | 0/16 | 0.19 | 1 |
+| p_only | 0/16 | -0.08 | 1 |
+| shuffled | 0/16 | 0.06 | 1 |
+| lr_c_xor_k10 | 0/16 | 0.00 | 1 |
+| c_only | 0/16 | 0.00 | 1 |
+| lr_shuffled | 0/16 | 0.00 | 1 |
+
+Round 1 (Te tables, 16 lines) per-byte labels: {'none': 16}
+
+Last round (sbox, 4 lines) per-byte labels: {'none': 16}
+
+## Decision (preregistered rule, alpha = 0.05)
+
+| statement | supported | bytes |
+|---|---|---|
+| round1_plaintext_plus_key | no | [] |
+| round1_plaintext_only | no | [] |
+| lastround_c_xor_k10 | no | [] |
+| lastround_ciphertext_only | no | [] |
+
+## Detection (location-free ANOVA; cannot tell p from p^k)
+
+| partition | bytes significant | reliable |
+|---|---|---|
+| first_round | 0/16 | yes |
+| last_round | 0/16 | yes |
+| c_line | 0/16 | yes |
+| shuffled | 0/16 | yes |
+
+## Ground truth from the simulator trace
+
+Recall 0.000, precision n/a; 0 fills in the AES phase, 0 outside it, 68 before measurement; mean fills per window 0.00. The trace records LLC allocations only, so lines that stay resident in the LLC leave no fill.
+
+Null calibration: 0.000 of 640 shuffled z > 2.33 (expect ~0.01), sd 0.25 (expect ~1).
+
+wrote runs/e2-ow1-s2-n2000.analysis.json
+wrote runs/e2-ow1-s2-n2000.analysis.md
+RUN CHECKS: PASS
