@@ -1,0 +1,6 @@
+batch e3-defense started 2026-11-12 20:02:23, 4 in parallel
+e3-od8-s1-n2000 gem5_exit=0 seconds=1492 OK 
+e3-od8-s2-n2000 gem5_exit=0 seconds=1485 OK 
+e3-od1-s1-n2000 gem5_exit=0 seconds=1549 OK 
+e3-od1-s2-n2000 gem5_exit=0 seconds=1540 OK 
+batch e3-defense finished 2026-11-12 20:28:12

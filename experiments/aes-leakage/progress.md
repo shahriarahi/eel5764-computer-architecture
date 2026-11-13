@@ -345,6 +345,37 @@ plaintext stream but not through the collision count at this N. At depth 1 the
 partitioned and unpartitioned logs differ in only 162 of 8,192,000 bytes (each seed).
 "Not supported" is absence of detection at N = 2000, not proof of absence.
 
+## Phase E, block E3: results (2026-11-12)
+
+Full defense (way partition, request time slots of 4 cycles, per-domain LLC response
+queues) in the overlap schedule. Deviation D4 logged at commit `9a37b49` before
+these runs.
+
+| Item | Result |
+|---|---|
+| Tree | `~/eel5764/gem5-leak-def`: `c8222cc` plus `experiments/respq-defense-20261018/gem5-respq.patch`; `git status --porcelain` lists 15 files |
+| Build | `scons build/RISCV/gem5.opt -j14 EXTRAS=$HOME/eel5764/leak-ext/gem5_ext`: `scons exit=0`, 2026-11-12 19:43:09 to 19:55:26; executable 1003677648 bytes |
+| Guard | `p0d-r1-scrub-n20` (defense binary, defense off) against `p0b-r1-scrub-n20`: `DIFF VERDICT: IDENTICAL` |
+| Defense active | per run: `tdma_slot_cycles` 4, `respq` true, `response_domain_prefixes=cpu0. cpu1.`, time-slot violation counters sum 0 |
+
+| Arm | Runs | Run checks | Differential verdict |
+|---|---|---|---|
+| OD8: full defense, 8/8 | `e3-od8-s{1,2}-n2000` | PASS, way isolation PASS | IDENTICAL |
+| OD1: full defense, 1/15 | `e3-od1-s{1,2}-n2000` | PASS, way isolation PASS | IDENTICAL |
+
+What this shows: with the full defense in the overlap schedule the monitor's probe logs
+are byte-identical across seeds S1 and S2 at both monitor depths (no record differs in
+latency or in timestamp), where the same runs without the interconnect defense (OW8 and
+OW1 of block E2: same victim, build, split, depth and seeds) were `DIFFERENT`, and OW8
+supported the key-dependent collision-count statement. The defense was on in all four
+runs: the slot, response-queue and prefix settings were present, the three time-slot
+violation counters (`tdmaOverruns`, `tdmaDownstreamRefusals`, `tdmaExpressBypasses`)
+exist in the statistics (12 lines per run) and are all 0, and the proposal's isolation
+metric is 0. Limits: the differential verdict covers the tested plaintext streams
+only, and the byte-for-byte guard of the new gem5 binary was a stored window-schedule
+run with the defense off, not an overlap-schedule run. The defended runs took 1,485 to
+1,549 s each, against 738 to 774 s for the undefended overlap runs.
+
 ## Environment changes made for Phase A and B
 
 With the group's approval, in WSL `Ubuntu-26.04`: `qemu-user` (provides
@@ -356,6 +387,10 @@ metadata under `~/eel5764/gem5/.git/worktrees/`), the symlink directory
 output under `~/eel5764/guard-leak/`; none of the existing gem5 trees was
 modified. Nothing outside this experiment directory was modified in the
 repository; `preserve.py verify` checks that.
+
+For Phase E block E3: a new gem5 worktree `~/eel5764/gem5-leak-def` (which adds
+metadata under `~/eel5764/gem5/.git/worktrees/`) and the build log
+`~/eel5764/build_leak_def.log`; none of the existing gem5 trees was modified.
 
 ## Open items
 

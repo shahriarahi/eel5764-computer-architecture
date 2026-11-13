@@ -1,0 +1,5 @@
+run_arm: e3-od1-s2-n2000 gem5_exit=0 seconds=1540
+run_arm: e3-od1-s2-n2000 victim aes_self_test=PASS
+run_arm: e3-od1-s2-n2000 victim pt_checksum=dcb4466c214bb888daadcd3f929d87f0 ct_checksum=00000000000000000000000000000000
+run_arm: e3-od1-s2-n2000 monitor status=PASS records=512000
+run_batch: e3-od1-s2-n2000 gem5_exit=0 seconds=1540

@@ -1,0 +1,31 @@
+{
+ "a": "runs/p0b-r1-scrub-n20",
+ "b": "runs/p0d-r1-scrub-n20",
+ "seed_a": 1466213861,
+ "seed_b": 1466213861,
+ "n_windows": 20,
+ "split": "off",
+ "monitor_ways": 16,
+ "victim_variant": "r1-scrub",
+ "schedule": {
+  "T0": 2000000,
+  "W": 1048576,
+  "OFF_PRIME": 65536,
+  "OFF_ENC": 524288,
+  "OFF_ENC_END": 589824,
+  "OFF_PROBE": 593920
+ },
+ "victim_inputs_differ": false,
+ "sha256_a": "bdc4b47858c2533f56f0fe585666d03cf0605b14073b895a16125998d3f1f0fa",
+ "sha256_b": "bdc4b47858c2533f56f0fe585666d03cf0605b14073b895a16125998d3f1f0fa",
+ "preconditions_ok": true,
+ "problems": [],
+ "n_records": 5120,
+ "file_identical": true,
+ "latency_records_differing": 0,
+ "timestamp_records_differing": 0,
+ "windows_with_latency_difference": 0,
+ "sets_with_latency_difference": 0,
+ "max_abs_latency_difference": 0,
+ "verdict": "IDENTICAL"
+}
