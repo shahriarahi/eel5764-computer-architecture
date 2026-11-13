@@ -1,0 +1,28 @@
+== (e) reproduce the stored analysis
+   bytes significant: {'p_xor_k': 16, 'p_only': 0, 'shuffled': 0, 'lr_c_xor_k10': 0, 'c_only': 0, 'lr_shuffled': 0}
+   mean z p_xor_k = 84.68, p_only = -5.53, shuffled = 0.06
+   decision: {'round1_plaintext_plus_key': True, 'round1_plaintext_only': False, 'lastround_c_xor_k10': False, 'lastround_ciphertext_only': False}
+
+== (a) confusion table over the 68 table-line sets (slow = latency >= 1000)
+   touched & slow 29095 | touched & fast 0 | untouched & slow 0 | untouched & fast 106905
+   untouched latencies: distinct values [513.0]
+   touched latencies: min 2765 median 3127 max 3701
+   => the indicator [set is slow] equals the indicator [line touched] in 136000 of 136000 cells
+
+== (b) raw effect in cycles per predicted line (unstandardized)
+   p_xor_k   mean    2176.7  min    2154.9  max    2195.2 cycles
+   p_only    mean    -142.0  min    -204.1  max     -83.7 cycles
+   shuffled  mean      -5.6  min     -62.2  max      57.9 cycles
+
+== (c) the registered z as a function of N (first N windows of P1)
+   N      mean z(p_xor_k)  z/sqrt(N)  p_xor_k sig  p_only sig  shuffled sig  raw effect byte0
+   25         8.69         1.738     16/16         0/16        0/16          2173.5
+   50        12.08         1.708     16/16         0/16        0/16          2171.1
+   100       17.58         1.758     16/16         0/16        0/16          2155.9
+   250       29.49         1.865     16/16         0/16        0/16          2171.8
+   500       41.99         1.878     16/16         0/16        0/16          2161.9
+   1000      59.75         1.889     16/16         0/16        0/16          2162.8
+   2000      84.68         1.894     16/16         0/16        0/16          2158.2
+
+== (d) permutation p-value of the raw-cycle statistic, byte 0, 10,000 window shuffles, seed 5764
+   observed 2158.2 cycles; null mean -0.19 sd 26.19 max 103.0; empirical p = 0.000100 (the smallest value 10,000 shuffles can give)

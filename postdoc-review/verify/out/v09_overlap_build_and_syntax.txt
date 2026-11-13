@@ -1,0 +1,22 @@
+== (a) overlap build: EXTRA_DEFS='-DLEAK_ALLOW_OVERLAP -DLEAK_OFF_PROBE=520192UL' sh build.sh 20 <tmp>
+   build.sh exit status: 0
+build_manifest.json monitor_leak victim_leak_full_noscrub victim_leak_full_scrub victim_leak_r1_noscrub victim_leak_r1_scrub victim_leak_tvla 
+   manifest defines: ['-DLEAK_ALLOW_OVERLAP', '-DLEAK_OFF_PROBE=520192UL']
+   manifest schedule: {'OFF_PRIME': 65536, 'OFF_ENC': 524288, 'OFF_ENC_END': 589824, 'OFF_PROBE': 520192, 'W': 1048576}
+   run_leakage.load_manifest accepts the overlap build: n_win 20
+   binaries identical to build/n20 (unaffected by the offsets): ['victim_leak_full_noscrub', 'victim_leak_full_scrub', 'victim_leak_r1_noscrub', 'victim_leak_r1_scrub', 'victim_leak_tvla']
+   binaries that differ: ['monitor_leak']
+   without -DLEAK_ALLOW_OVERLAP the same offsets must be refused by the header's static assert:
+   build.sh exit status: 1 (1 static-assert messages)
+== (b) the analysis reads a run directory with the overlap schedule (synthetic)
+   run checks all passed: True | trace fills in AES phase: 18564 | outside: 0
+== (c) command syntax (no gem5)
+   run_leakage.py --help exit 0
+   aes_leak_analysis.py analyze --help exit 0
+   aes_leak_analysis.py synth --help exit 0
+   power_synth.py --help exit 0
+   sh -n build.sh exit 0
+   bash -n gem5_syntax_check.sh exit 0
+   ~/eel5764/gem5-leak/build/RISCV/gem5.opt exists and is executable: exit 0 (the binary is NOT executed here)
+   ~/eel5764/gem5-respq/build/RISCV/gem5.opt exists and is executable: exit 0 (the binary is NOT executed here)
+   preserve.py --help exit 0 (capture/verify need Windows git; see the plan)

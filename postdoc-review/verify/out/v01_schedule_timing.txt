@@ -1,0 +1,30 @@
+== schedule (leak_schedule.h): T0 2000000 W 1048576 OFF_PRIME 65536 OFF_ENC 524288 OFF_ENC_END 589824 OFF_PROBE 593920
+   prime budget 458752, encryption budget 65536, gap 4096, probe budget 454656
+
+== measured probe-pass durations at A = 16 (from probes.bin timestamps)
+   p1-r1-scrub-n2000            N=2000  start offset 593926..593928  duration min 170100 median 180752 max 196662  headroom 2.31x
+   smoke-full-scrub-a16-n20     N=20    start offset 593926..593928  duration min 303590 median 319208 max 340796  headroom 1.33x
+   smoke-full-noscrub-a16-n20   N=20    start offset 593926..593928  duration min 193816 median 211984 max 232092  headroom 1.96x
+   smoke-tvla-a16-n20           N=20    start offset 593926..593928  duration min 311470 median 316139 max 335612  headroom 1.35x
+
+== worst-case bound for the full-AES probe pass at A = 16
+   all 68 table lines + 13 non-table slow sets (the most seen in any of the 20 smoke windows) = 81 slow sets
+   loop overhead outside the timed walks: 3825 cycles per pass (P1 median)
+   bound with the mean slow-walk time (3155): 349145 cycles = 1.30x inside the 454656 budget
+   bound with the slowest walk ever seen (3701): 393381 cycles = 1.16x
+
+== prime pass (progress.md, 'Measured margins'): between 334,464 and 393,216 cycles at A = 16
+   headroom 1.17x to 1.37x of the 458752 budget; cold window 0 is the worst case
+
+== run time from the P1 measurement (10 min 59.5 s for N = 2000)
+   N = 20        25068672 simulated cycles  ->    0.1 min at 3.19 M cycles/s
+   N = 200      213812352 simulated cycles  ->    1.1 min at 3.19 M cycles/s
+   N = 2000    2101249152 simulated cycles  ->   11.0 min at 3.19 M cycles/s
+   N = 4000    4198401152 simulated cycles  ->   22.0 min at 3.19 M cycles/s
+
+== overlap schedule (encrypt DURING the probe pass), offsets by -D only
+   monitor pass duration (V05, stored paper runs): A=1 max ~12574, A=8 max ~70906 cycles
+   encryption with scrub under partitioning, estimate: 5318 cycles [UNVERIFIED: no such run exists yet]
+   A=1: OFF_PROBE = OFF_ENC - 4096 = 520192; pass ends at ~532766 (< W: True); prime ends at ~78110 (< OFF_PROBE: True); encryption 524288..~529606 lies inside the pass: True
+   A=8: OFF_PROBE = OFF_ENC - 4096 = 520192; pass ends at ~591098 (< W: True); prime ends at ~136442 (< OFF_PROBE: True); encryption 524288..~529606 lies inside the pass: True
+   A=16 unpartitioned is NOT usable for overlap: its pass takes 170,000 to 341,000 cycles and each victim fill changes later walk times (state and contention would be mixed).

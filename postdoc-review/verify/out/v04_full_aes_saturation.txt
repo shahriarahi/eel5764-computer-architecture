@@ -1,0 +1,30 @@
+== (1) line coverage of one full encryption (key f1e2..1f10, seed 0x5764A5E5, 4000 windows)
+   Te lines touched per window (of 64): round 1 only mean 14.56; full AES mean 57.73 sd 2.09 min 50 max 64
+   sbox lines touched per window (of 4): full AES mean 3.963; all four touched in 96.3% of windows
+   analytic: P(Te line touched) = 1-(15/16)^40 = 0.9243; P(sbox line touched) = 1-(3/4)^16 = 0.9900
+   byte 0, Te0: P(line slow | round-1 model predicts it) = 1.0000; P(line slow | not predicted) = 0.8971; contrast 0.1029
+   => expected raw round-1 effect in full AES ~ 272 cycles per predicted line (P1, round 1 only: 2177)
+   last round byte 0, sbox: P(slow | predicted) = 1.0000; P(slow | not predicted) = 0.9877; contrast 0.0123 => ~ 33 cycles
+
+== (2) noise-free power of the registered rule, full AES, X = 513 + 2642*[touched]
+   N      seed  p_xor_k sig  p_only sig  lr_c_xor_k10 sig  c_only sig  shuffled/lr_shuffled  mean z r1  mean z last  r1 supported  last supported
+   250    5764a5e5  16/16         0/16        0/16              0/16       0/0                     5.12       1.49       True          False
+   250    5764a5e6  16/16         0/16        0/16              0/16       0/0                     5.17       1.95       True          False
+   250    5764a5e7  16/16         0/16        0/16              0/16       0/0                     5.13       1.68       True          False
+   500    5764a5e5  16/16         0/16        0/16              0/16       0/0                     7.39       2.53       True          False
+   500    5764a5e6  16/16         0/16        0/16              0/16       0/0                     7.45       2.63       True          False
+   500    5764a5e7  16/16         0/16        0/16              0/16       0/0                     7.45       2.16       True          False
+   1000   5764a5e5  16/16         0/16       16/16              0/16       0/0                    10.59       3.79       True          True
+   1000   5764a5e6  16/16         0/16       16/16              0/16       0/0                    10.63       3.36       True          True
+   1000   5764a5e7  16/16         0/16       16/16              0/16       0/0                    10.68       3.46       True          True
+   2000   5764a5e5  16/16         0/16       16/16              0/16       0/0                    15.11       4.95       True          True
+   2000   5764a5e6  16/16         0/16       16/16              0/16       0/0                    15.13       4.90       True          True
+   2000   5764a5e7  16/16         0/16       16/16              0/16       0/0                    15.22       5.34       True          True
+   4000   5764a5e5  16/16         0/16       16/16              0/16       0/0                    21.48       7.05       True          True
+   4000   5764a5e6  16/16         0/16       16/16              0/16       0/0                    21.42       6.81       True          True
+   4000   5764a5e7  16/16         0/16       16/16              0/16       0/0                    21.50       7.65       True          True
+
+== (3) stored 20-window full-AES smoke run (real gem5 data, read-only)
+   table-line cells: touched & slow 1243, touched & fast 0, untouched & slow 0, untouched & fast 117
+   untouched latencies: [513.0]
+   slow sets per window (all 256 sets): min 65 median 71 max 76; table lines touched per window: min 56 max 65

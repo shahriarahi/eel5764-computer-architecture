@@ -1,0 +1,81 @@
+== step order of EXECUTION_PLAN.md phase 1: tests first (they must FAIL before the fixes)
+Ran 4 tests in 0.882s
+
+FAILED (failures=1, errors=2)
+== apply_fixes.py (twice: the second run must report 'already applied')
+applied: analysis/aes_leak_analysis.py
+applied: preserve.py
+   exit 0
+already applied: analysis/aes_leak_analysis.py
+already applied: preserve.py
+   exit 0
+Ran 4 tests in 0.673s
+
+OK
+== new modules and their tests
+Ran 29 tests in 11.403s
+
+OK
+== whole suite in the mirror (139 existing + 33 new; 2 tests that need the stored paper results are skipped in a mirror)
+Ran 172 tests in 25.310s
+
+OK (skipped=2)
+== the tools on the real stored runs (read-only)
+|---|---|
+| probes.bin byte-identical | True |
+| records | 5120 |
+| records whose latency differs | 0 |
+| records whose timestamp differs | 0 |
+| windows with a latency difference | 0 |
+| sets with a latency difference | 0 |
+| largest latency difference (cycles) | 0 |
+
+sha256 A `bdc4b47858c2533f56f0fe585666d03cf0605b14073b895a16125998d3f1f0fa`
+sha256 B `bdc4b47858c2533f56f0fe585666d03cf0605b14073b895a16125998d3f1f0fa`
+
+DIFF VERDICT: IDENTICAL
+
+Run `/mnt/c/Users/shahr/OneDrive/Documents/Fall 26/Computer Architecture/.codex-tmp/aes-leakage-worktree/experiments/aes-leakage/runs/p1-r1-scrub-n2000`: victim `r1-scrub`, split off, monitor ways 16, 2000 windows, seed 1466213861.
+Permutation p-values: 10000 window shuffles, seed 5764 (smallest possible p 0.000100); Holm over 96 tests; alpha 0.05; materiality margin 0.02 cycles per probed line.
+
+| hypothesis | mean effect (cycles per set walk) | per probed line | bytes significant | significant and material |
+|---|---|---|---|---|
+| p_xor_k | 2176.722 | 136.0451 | 16/16 | 16/16 |
+| p_only | -142.009 | -8.8756 | 0/16 | 0/16 |
+| shuffled | 9.479 | 0.5924 | 0/16 | 0/16 |
+| lr_c_xor_k10 | 0.000 | 0.0000 | 0/16 | 0/16 |
+| c_only | 0.000 | 0.0000 | 0/16 | 0/16 |
+| lr_shuffled | 0.000 | 0.0000 | 0/16 | 0/16 |
+
+| statement (significant, beats its alternative and its shuffled control, and material) | supported | bytes |
+|---|---|---|
+| round1_plaintext_plus_key | yes | [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] |
+| round1_plaintext_only | no | [] |
+| lastround_c_xor_k10 | no | [] |
+| lastround_ciphertext_only | no | [] |
+
+Slow-versus-touched over the 68 table-line sets: touched and slow 29095, touched and fast 0, untouched and slow 0, untouched and fast 106905 (136000 cells); exact indicator: True.
+
+RUN HEALTH: PASS
+|---|---|---|---|
+| excess_cycles | 38590.808 | 2893.651 | 55050.0 |
+| delayed_walks | 15.183 | 1.458 | 28.0 |
+
+| model | feature | r | Holm p |
+|---|---|---|---|
+| lines_all_rounds | excess_cycles | +0.9735 | 0.007992 |
+| lines_all_rounds | delayed_walks | +0.7099 | 0.007992 |
+| lines_round1_p_xor_k | excess_cycles | +0.9735 | 0.007992 |
+| lines_round1_p_xor_k | delayed_walks | +0.7099 | 0.007992 |
+| lines_round1_p_only | excess_cycles | -0.0640 | 0.02398 |
+| lines_round1_p_only | delayed_walks | -0.0208 | 0.6833 |
+| shuffled | excess_cycles | -0.0211 | 0.6833 |
+| shuffled | delayed_walks | -0.0288 | 0.5694 |
+
+| statement | supported |
+|---|---|
+| count_dependent | yes |
+| round1_count_plaintext_plus_key | yes |
+| round1_count_plaintext_only | no |
+
+RUN HEALTH: PASS

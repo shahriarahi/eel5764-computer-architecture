@@ -1,0 +1,13 @@
+== host
+   cores: 20
+   memory: total 15747 MiB, available 14925 MiB
+== memory of one gem5 run (P1, stats.txt hostMemory; gem5 reports KiB)
+   hostMemory 704760 KiB = 0.67 GiB per run
+   hostSeconds 657.04 for the measurement block of N = 2000
+   => 4 parallel runs need about 2.7 GiB of 14.6 GiB available; gem5 is single-threaded, so 4 of 20 cores
+   (the paper's defense sweep ran 6 jobs in parallel on this host: experiments/respq-defense-20261018/run_sweep.py, --jobs default 6)
+== test suite (python3 -B -m unittest discover -s tests -t .)
+----------------------------------------------------------------------
+Ran 139 tests in 14.211s
+
+OK

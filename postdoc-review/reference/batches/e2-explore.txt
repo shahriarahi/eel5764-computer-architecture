@@ -1,0 +1,5 @@
+# Block E2x (exploratory), overlap schedule, full AES, way partition only (N = 2000)
+e2-fw8-s1-n2000 full-scrub ovl-n2000 8-8 8 1466213861
+e2-fw8-s2-n2000 full-scrub ovl-n2000 8-8 8 1466213862
+e2-fw1-s1-n2000 full-scrub ovl-n2000 1-15 1 1466213861
+e2-fw1-s2-n2000 full-scrub ovl-n2000 1-15 1 1466213862

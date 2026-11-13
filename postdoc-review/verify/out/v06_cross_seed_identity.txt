@@ -1,0 +1,40 @@
+== FULL DEFENSE sweep (tdma-rsv)
+   case               identical across 3 seeds   records differing from seed 1 (latency) S2,S3   (timestamp) S2,S3   same cmd/path-len
+   1-15               YES (bb7a83fe83a4)              0,      0 of 16384             0,      0     True/True
+   2-14               YES (7c8e2d4f19a6)              0,      0 of 16384             0,      0     True/True
+   3-13               YES (0e6ae6ef7527)              0,      0 of 16384             0,      0     True/True
+   4-12               YES (3f15bd082c8a)              0,      0 of 16384             0,      0     True/True
+   5-11               YES (f9c6cfd206df)              0,      0 of 16384             0,      0     True/True
+   6-10               YES (632f0d7d61a3)              0,      0 of 16384             0,      0     True/True
+   7-9                YES (756b3cb28b2a)              0,      0 of 16384             0,      0     True/True
+   8-8                YES (aecc80598cbf)              0,      0 of 16384             0,      0     True/True
+   UNPARTITIONED-A1   no                           1426,   1440 of 16384         11246,  11454     True/True
+   UNPARTITIONED-A2   no                           2818,   2748 of 16384          9215,  13227     True/True
+   UNPARTITIONED-A3   no                           3380,   3405 of 16384         12835,  11805     True/True
+   UNPARTITIONED-A4   no                           4081,   4072 of 16384         13857,  12106     True/True
+   UNPARTITIONED-A5   no                           4647,   4572 of 16384         12051,  12308     True/True
+   UNPARTITIONED-A6   no                           5013,   5009 of 16384         12608,  12111     True/True
+   UNPARTITIONED-A7   no                           5351,   5339 of 16384         11892,  11630     True/True
+   UNPARTITIONED-A8   no                           5636,   5516 of 16384         11635,  11106     True/True
+   SUMMARY: partitioned/defended cases identical across seeds: 8 of 8; unpartitioned controls identical: 0 of 8
+
+== WAY PARTITIONING ONLY sweep (sweep-v3)
+   case               identical across 3 seeds   records differing from seed 1 (latency) S2,S3   (timestamp) S2,S3   same cmd/path-len
+   1-15               no                           1425,   1429 of 16384         10483,  11749     True/True
+   2-14               no                           2752,   2736 of 16384         12173,  11746     True/True
+   3-13               no                           3475,   3439 of 16384         12487,  12054     True/True
+   4-12               no                           4246,   4316 of 16384         12557,  11554     True/True
+   5-11               no                           4929,   4819 of 16384         10539,  11762     True/True
+   6-10               no                           5235,   5181 of 16384         11591,  14125     True/True
+   7-9                no                           5556,   5597 of 16384         11853,  11628     True/True
+   8-8                no                           5860,   5805 of 16384         11083,  12356     True/True
+   UNPARTITIONED-A1   no                           1426,   1440 of 16384         11246,  11454     True/True
+   UNPARTITIONED-A2   no                           2818,   2748 of 16384          9215,  13227     True/True
+   UNPARTITIONED-A3   no                           3380,   3405 of 16384         12835,  11805     True/True
+   UNPARTITIONED-A4   no                           4081,   4072 of 16384         13857,  12106     True/True
+   UNPARTITIONED-A5   no                           4647,   4572 of 16384         12051,  12308     True/True
+   UNPARTITIONED-A6   no                           5013,   5009 of 16384         12608,  12111     True/True
+   UNPARTITIONED-A7   no                           5351,   5339 of 16384         11892,  11630     True/True
+   UNPARTITIONED-A8   no                           5636,   5516 of 16384         11635,  11106     True/True
+   SUMMARY: partitioned/defended cases identical across seeds: 0 of 8; unpartitioned controls identical: 0 of 8
+

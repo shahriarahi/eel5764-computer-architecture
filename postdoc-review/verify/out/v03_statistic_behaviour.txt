@@ -1,0 +1,20 @@
+== (a) magnitude blindness: X = 513 + delta * [line touched], no noise, N = 2000, round-1 lookups
+   delta (cycles)  visibility  raw effect/predicted line  mean z   p_xor_k sig  round1_plaintext_plus_key
+   2642            1.0           2177.5530                 84.92   16/16        True
+   10              1.0              8.2421                 84.92   16/16        True
+   1               1.0              0.8242                 84.92   16/16        True
+   1               0.05             0.0416                 16.88   16/16        True
+   1               0.01             0.0074                  6.91   16/16        True
+
+== (b) data-independent rare delays: X = 257 everywhere, each cell gets +2 cycles with probability q; NO data dependence; 300 runs per q
+   q        runs where the rule supports any statement   runs with any hypothesis significant   (nominal: about 5%)
+   0.0002     2 of 300 (0.7%)                                3 of 300 (1.0%)
+   0.002     29 of 300 (9.7%)                               47 of 300 (15.7%)
+   0.02      21 of 300 (7.0%)                               29 of 300 (9.7%)
+   0.2       12 of 300 (4.0%)                               14 of 300 (4.7%)
+
+== (c) same 1-cycle data-dependent effect, with and without data-independent background jitter
+   background                         raw effect  mean z   p_xor_k sig
+   none (deterministic arm)              0.824     84.92   16/16
+   +2 cycles in 5% of cells              0.823     59.07   16/16
+   +6 cycles in 20% of cells             0.830     14.75   16/16

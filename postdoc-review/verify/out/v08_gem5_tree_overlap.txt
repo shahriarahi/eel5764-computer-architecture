@@ -1,0 +1,46 @@
+== the four trees (HEAD, modified files)
+   gem5: HEAD c8222cc, 0 modified, 0 untracked under src/
+   gem5-leak: HEAD c8222cc, 0 modified, 0 untracked under src/
+   gem5-timeslot: HEAD c8222cc, 3 modified, 1 untracked under src/
+   gem5-respq: HEAD c8222cc, 10 modified, 5 untracked under src/
+== which tree holds which defense
+   gem5-timeslot modified: src/mem/XBar.py src/mem/coherent_xbar.cc src/mem/coherent_xbar.hh src/mem/tdma_schedule.hh 
+   gem5-respq    modified: src/cpu/simple/timing.cc src/mem/SConscript src/mem/XBar.py src/mem/cache/Cache.py src/mem/cache/base.cc src/mem/cache/base.hh src/mem/cache/cache.cc src/mem/coherent_xbar.cc src/mem/coherent_xbar.hh src/mem/packet_queue.cc src/mem/cache/response_domain.hh src/mem/causal_trace.cc src/mem/causal_trace.hh src/mem/causal_trace_filter.hh src/mem/tdma_schedule.hh 
+   gem5-respq has the time-slot code too: tdma_schedule.hh present: yes; tdma_slot_cycles in XBar.py: 1; response_domain_prefixes in Cache.py: 1
+== files of the tracing extension (lives in EXTRAS, outside every gem5 tree)
+   RequestorPartitionManager.py
+   SConscript
+   requestor_partition_manager.cc
+   requestor_partition_manager.hh
+   gem5-leak tree itself: 0 changed files (0 = the tracing is entirely in EXTRAS)
+== files touched by the stored defense patch (experiments/respq-defense-20261018/gem5-respq.patch)
+   src/cpu/simple/timing.cc
+   src/mem/SConscript
+   src/mem/XBar.py
+   src/mem/cache/Cache.py
+   src/mem/cache/base.cc
+   src/mem/cache/base.hh
+   src/mem/cache/cache.cc
+   src/mem/coherent_xbar.cc
+   src/mem/coherent_xbar.hh
+   src/mem/packet_queue.cc
+   src/mem/causal_trace.hh
+   src/mem/causal_trace.cc
+   src/mem/causal_trace_filter.hh
+   src/mem/tdma_schedule.hh
+   src/mem/cache/response_domain.hh
+   overlap with the tracing extension's files (paths under gem5_ext/):
+   (no OVERLAP line above = no file in common)
+== does the defense patch touch the code that calls the partition manager?
+   stock call sites: mem/cache/base.cc:1695:        partitionManager->readPacketPartitionID(pkt) : 0;;mem/cache/tags/base.cc:115:        partitionManager->readPacketPartitionID(pkt) : 0;;mem/cache/tags/base_set_assoc.hh:180:            partitionManager->filterByPartition(entries, partition_id);;mem/cache/tags/base_set_assoc.hh:208:            auto partition_id = partitionManager->readPacketPartitionID(pkt);;mem/cache/tags/base_set_assoc.hh:209:            partitionManager->notifyAcquire(partition_id);;
+   lines of the patch that mention partition: 0
+   base.cc hunks of the patch (old-file line ranges):
+     @@ -44,6 +44,7 @@
+     @@ -79,6 +80,66 @@ BaseCache::CacheResponsePort::CacheResponsePor
+     @@ -117,6 +178,7 @@ BaseCache::BaseCache(const BaseCacheParams &p
+     @@ -339,6 +401,8 @@ BaseCache::handleTimingReqHit(PacketPtr pkt, 
+== the stored patch equals the live gem5-respq tree?
+   tracked-file hunks: live tree 30, stored patch (same files) 30
+== git apply --check of the stored patch on a CLEAN tree at c8222cc (gem5-leak)
+   APPLIES CLEANLY (nothing was modified: --check only)
+   gem5-leak still clean: 0 changed files

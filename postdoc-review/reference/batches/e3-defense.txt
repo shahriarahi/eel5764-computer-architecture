@@ -1,0 +1,5 @@
+# Block E3, overlap schedule, round-1 victim, full defense (N = 2000)
+e3-od8-s1-n2000 r1-scrub ovl-n2000 8-8 8 1466213861 defense
+e3-od8-s2-n2000 r1-scrub ovl-n2000 8-8 8 1466213862 defense
+e3-od1-s1-n2000 r1-scrub ovl-n2000 1-15 1 1466213861 defense
+e3-od1-s2-n2000 r1-scrub ovl-n2000 1-15 1 1466213862 defense

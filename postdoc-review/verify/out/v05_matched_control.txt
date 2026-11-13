@@ -1,0 +1,39 @@
+== LLC statistics of the measurement block (first stats dump)
+   run                                  replaced   mon misses mon accesses   AES misses AES accesses
+   paper sweep-v3 UNPARTITIONED-A1 e5          0            0        32768            0       738825
+   paper sweep-v3 UNPARTITIONED-A1 e6          0            0        32768            0       739068
+   paper sweep-v3 UNPARTITIONED-A1 e7          0            0        32768            0       738083
+   paper sweep-v3 UNPARTITIONED-A4 e5          0            0       131072            0       738634
+   paper sweep-v3 UNPARTITIONED-A4 e6          0            0       131072            0       738884
+   paper sweep-v3 UNPARTITIONED-A4 e7          0            0       131072            0       737888
+   paper sweep-v3 UNPARTITIONED-A8 e5          0            0       262144            0       738435
+   paper sweep-v3 UNPARTITIONED-A8 e6          0            0       262144            0       738770
+   paper sweep-v3 UNPARTITIONED-A8 e7          0            0       262144            0       737670
+   paper sweep-v3 1-15 e5                    140           86        32768            0       738825
+   paper sweep-v3 1-15 e6                    140           86        32768            0       739068
+   paper sweep-v3 1-15 e7                    140           86        32768            0       738083
+   paper sweep-v3 8-8 e5                     693          688       262144            0       738435
+   paper sweep-v3 8-8 e6                     693          688       262144            0       738858
+   paper sweep-v3 8-8 e7                     693          688       262144            0       737696
+   this study p1-r1-scrub-n2000          2292192      2155100     16384000       129039       131044
+   this study smoke-full-scrub-a16-n20      48990        46147       163840         2699         2796
+   this study smoke-full-noscrub-a16-n20      12115        11532       163840          388          565
+
+== probe walks with an LLC miss in the stored controls (walk > 1st percentile + 100 cycles)
+   case               seed  walks   slow walks  slow after interval 0   per-walk latency p1/median/max   pass duration median/max (cycles)
+   UNPARTITIONED-A1   e5    16384       1           0                     33 /    33 /    211               12338 /   12458
+   UNPARTITIONED-A1   e6    16384       1           0                     33 /    33 /    211               12338 /   12458
+   UNPARTITIONED-A1   e7    16384       1           0                     33 /    33 /    211               12331 /   12458
+   UNPARTITIONED-A8   e5    16384       1           0                    257 /   257 /    435               70073 /   70561
+   UNPARTITIONED-A8   e6    16384       1           0                    257 /   257 /    435               70067 /   70589
+   UNPARTITIONED-A8   e7    16384       1           0                    257 /   257 /    435               70072 /   70533
+   1-15               e5    16384       1           0                     33 /    33 /    207               12338 /   12574
+   1-15               e6    16384       1           0                     33 /    33 /    207               12338 /   12574
+   1-15               e7    16384       1           0                     33 /    33 /    207               12331 /   12574
+   8-8                e5    16384       3           0                    253 /   257 /    823               70092 /   70906
+   8-8                e6    16384       3           0                    253 /   257 /    823               70173 /   70906
+   8-8                e7    16384       3           0                    253 /   257 /    823               70154 /   70906
+
+== victim footprint (lines the AES workload can own in the LLC)
+   victim_leak_full_scrub: text 4696 B, data+bss 8528 B (riscv64-linux-gnu-size) = 5 pages; with a stack page or two that is at most about 7 pages,
+   so at most 2 victim lines per LLC set (256 sets = 4 pages per way). Monitor A=8: 8 + 2 < 16 ways, A=1: 1 + 2 < 16: no eviction is possible.

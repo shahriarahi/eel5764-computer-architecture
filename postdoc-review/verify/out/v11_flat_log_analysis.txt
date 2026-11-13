@@ -1,0 +1,3 @@
+flat log, partitioned 8-8                -> CRASH ValueError: All-NaN slice encountered (_nanfunctions_impl.py line 624, in nanargmax)
+flat log, unpartitioned                  -> CRASH ValueError: All-NaN slice encountered (_nanfunctions_impl.py line 624, in nanargmax)
+one set jitters by 1 cycle, rest flat    -> analysed: run checks True, any statement supported: False
